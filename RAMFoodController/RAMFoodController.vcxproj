@@ -111,18 +111,6 @@
       <AdditionalDependencies />
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Asistente.h" />
-    <ClInclude Include="Bebidas.h" />
-    <ClInclude Include="Chef.h" />
-    <ClInclude Include="Comensal.h" />
-    <ClInclude Include="Gerente.h" />
-    <ClInclude Include="microcontroller.h" />
-    <ClInclude Include="PedidoMesa.h" />
-    <ClInclude Include="Plato.h" />
-    <ClInclude Include="PlatoBebidaMenu.h" />
-    <ClInclude Include="Usuario.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

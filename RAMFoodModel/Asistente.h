@@ -2,12 +2,12 @@
 #include "Usuario.h"
 
 namespace RAMFoodModel {
-	public ref class AsistenteChef : public Usuario {
+	public ref class Asistente : public Usuario {
 	private:
 		String^ Nombre;
 	public:
-		AsistenteChef();
-		AsistenteChef(String^ Nombre);
+		Asistente();
+		Asistente(String^ Nombre);
 
 		/*
 		void ValidarPagoMesa();

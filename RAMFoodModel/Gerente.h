@@ -1,13 +1,13 @@
 #pragma once
 #include "Usuario.h"
 namespace RAMFoodModel {
-	public ref class Administrador : public Usuario {
+	public ref class Gerente : public Usuario {
 	private:
 		String^ Nombre;
 
 	public:
-		Administrador();
-		Administrador(String^ Nombre);
+		Gerente();
+		Gerente(String^ Nombre);
 		/*
 		void AnhadirEmpleado();
 		void EliminarEmplead0();

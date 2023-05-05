@@ -14,36 +14,4 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Gerente.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Asistente.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Comensal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Usuario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="microcontroller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlatoBebidaMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bebidas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Plato.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PedidoMesa.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

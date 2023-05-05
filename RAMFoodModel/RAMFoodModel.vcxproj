@@ -112,6 +112,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Asistente.cpp" />
+    <ClCompile Include="Bebidas.cpp" />
+    <ClCompile Include="Chef.cpp" />
+    <ClCompile Include="Comensal.cpp" />
+    <ClCompile Include="Gerente.cpp" />
+    <ClCompile Include="microcontroller.cpp" />
+    <ClCompile Include="PedidoMesa.cpp" />
+    <ClCompile Include="Plato.cpp" />
+    <ClCompile Include="PlatoBebidaMenu.cpp" />
+    <ClCompile Include="Usuario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Asistente.h" />
+    <ClInclude Include="Bebidas.h" />
+    <ClInclude Include="Chef.h" />
+    <ClInclude Include="Comensal.h" />
+    <ClInclude Include="Gerente.h" />
+    <ClInclude Include="microcontroller.h" />
+    <ClInclude Include="PedidoMesa.h" />
+    <ClInclude Include="Plato.h" />
+    <ClInclude Include="PlatoBebidaMenu.h" />
+    <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
