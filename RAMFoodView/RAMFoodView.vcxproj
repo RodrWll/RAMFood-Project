@@ -116,6 +116,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RAMFoodController\RAMFoodController.vcxproj">
+      <Project>{12d6a455-d7bb-4454-b509-9523f35b0e05}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RAMFoodModel\RAMFoodModel.vcxproj">
+      <Project>{583d023b-d88c-47f0-9525-570ac7af5a0e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="frmAsistente.cpp" />
+    <ClCompile Include="frmChef.cpp" />
+    <ClCompile Include="frmGerenteGestionarProductos.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="frmAsistente.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmChef.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteGestionarProductos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmAsistente.resx">
+      <DependentUpon>frmAsistente.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChef.resx">
+      <DependentUpon>frmChef.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

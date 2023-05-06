@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BebidaPlatosController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BebidaPlatosController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RAMFoodModel\RAMFoodModel.vcxproj">
+      <Project>{583d023b-d88c-47f0-9525-570ac7af5a0e}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{12D6A455-D7BB-4454-B509-9523F35B0E05}</ProjectGuid>
