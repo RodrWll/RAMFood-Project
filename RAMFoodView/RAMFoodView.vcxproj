@@ -126,6 +126,13 @@
   <ItemGroup>
     <ClCompile Include="frmAsistente.cpp" />
     <ClCompile Include="frmChef.cpp" />
+    <ClCompile Include="frmComensal.cpp" />
+    <ClCompile Include="frmComensalAsistenciaSolicitada.cpp" />
+    <ClCompile Include="frmComensalGenerarPedido.cpp" />
+    <ClCompile Include="frmComensalPedidoGenerado.cpp" />
+    <ClCompile Include="frmComensalPedidoVacio.cpp" />
+    <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
+    <ClCompile Include="frmGerente.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -143,6 +150,27 @@
     <ClInclude Include="frmChef.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmComensal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalAsistenciaSolicitada.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalGenerarPedido.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalPedidoGenerado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalPedidoVacio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalSolicitarAtencion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerente.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmGerenteGestionarProductos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -153,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChef.resx">
       <DependentUpon>frmChef.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensal.resx">
+      <DependentUpon>frmComensal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalAsistenciaSolicitada.resx">
+      <DependentUpon>frmComensalAsistenciaSolicitada.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

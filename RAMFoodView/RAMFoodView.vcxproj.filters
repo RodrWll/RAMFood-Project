@@ -27,6 +27,27 @@
     <ClCompile Include="frmGerenteGestionarProductos.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmComensalPedidoGenerado.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerente.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmComensalGenerarPedido.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmComensalAsistenciaSolicitada.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmComensalSolicitarAtencion.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmComensal.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmComensalPedidoVacio.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -36,6 +57,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmGerenteGestionarProductos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalPedidoGenerado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalGenerarPedido.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalAsistenciaSolicitada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalSolicitarAtencion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalPedidoVacio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,305 @@
+#pragma once
+
+#include "frmComensalPedidoGenerado.h"
+namespace RAMFoodView {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+
+
+	using namespace RAMFoodController;
+	using namespace RAMFoodModel;
+	using namespace System::Collections::Generic;
+
+
+	/// <summary>
+	/// Resumen de frmComensalGenerarPedido
+	/// </summary>
+	public ref class frmComensalGenerarPedido : public System::Windows::Forms::Form
+	{
+	public:
+		frmComensalGenerarPedido(void)
+		{
+			InitializeComponent();
+			GenerarResumen();
+			ActualizarCuenta();
+			//
+			//TODO: agregar código de constructor aquí
+			//
+
+
+		}
+		void ActualizarCuenta() {
+			double valor_cuenta = 0;
+			for (int i = 0; i < this->dataGridView1->RowCount; i++) {
+				valor_cuenta += Convert::ToDouble(this->dataGridView1->Rows[i]->Cells[2]->Value);
+
+			};
+			this->label3->Text = "S/. " + Convert::ToString(valor_cuenta);
+		};
+		void GenerarResumen() {
+			BebidaPlatosController^ objControllerBP = gcnew BebidaPlatosController();
+			List<Plato^>^ Lista1 = objControllerBP->LeerPedidosPlato("pedidotemporal//pedido1.txt");
+			List<Bebidas^>^ Lista2 = objControllerBP->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+			this->dataGridView1->Rows->Clear();
+			for (int i = 0; i < Lista1->Count; i++) {
+				Plato^ p_i = Lista1[i];
+				array<String^>^ FilaGrilla = gcnew array<String^>(3);
+				FilaGrilla[0] = p_i->GetNombre();
+				FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+				FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
+				this->dataGridView1->Rows->Add(FilaGrilla);
+			};
+			for (int i = 0; i < Lista2->Count; i++) {
+				Bebidas^ p_i = Lista2[i];
+				array<String^>^ FilaGrilla = gcnew array<String^>(3);
+				FilaGrilla[0] = p_i->GetNombre();
+				FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+				FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
+				this->dataGridView1->Rows->Add(FilaGrilla);
+			};
+
+		};
+	protected:
+		/// <summary>
+		/// Limpiar los recursos que se estén usando.
+		/// </summary>
+		~frmComensalGenerarPedido()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	protected:
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ BotonAtras;
+
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
+
+	private:
+		/// <summary>
+		/// Variable del diseñador necesaria.
+		/// </summary>
+		System::ComponentModel::Container^ components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Método necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este método con el editor de código.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->BotonAtras = (gcnew System::Windows::Forms::Button());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->SuspendLayout();
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->BackColor = System::Drawing::SystemColors::InactiveCaption;
+			this->groupBox1->Controls->Add(this->button2);
+			this->groupBox1->Controls->Add(this->groupBox2);
+			this->groupBox1->Controls->Add(this->BotonAtras);
+			this->groupBox1->Controls->Add(this->dataGridView1);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->Location = System::Drawing::Point(91, 75);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox1->Size = System::Drawing::Size(1077, 594);
+			this->groupBox1->TabIndex = 0;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"RESUMEN";
+			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::Color::Transparent;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(907, 542);
+			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(171, 52);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"Enviar Pedido";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::button2_Click);
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->groupBox2->Controls->Add(this->label3);
+			this->groupBox2->Controls->Add(this->label2);
+			this->groupBox2->Location = System::Drawing::Point(387, 516);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox2->Size = System::Drawing::Size(268, 78);
+			this->groupBox2->TabIndex = 3;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"CUENTA FINAL";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(157, 28);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(61, 29);
+			this->label3->TabIndex = 1;
+			this->label3->Text = L"S/. 0";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(12, 31);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(140, 25);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Monto Total: ";
+			// 
+			// BotonAtras
+			// 
+			this->BotonAtras->BackColor = System::Drawing::Color::Transparent;
+			this->BotonAtras->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BotonAtras->Location = System::Drawing::Point(0, 544);
+			this->BotonAtras->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->BotonAtras->Name = L"BotonAtras";
+			this->BotonAtras->Size = System::Drawing::Size(123, 52);
+			this->BotonAtras->TabIndex = 2;
+			this->BotonAtras->Text = L"Atras";
+			this->BotonAtras->UseVisualStyleBackColor = false;
+			this->BotonAtras->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::button1_Click);
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Column1,
+					this->Column2, this->Column3
+			});
+			this->dataGridView1->Location = System::Drawing::Point(85, 145);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->RowTemplate->Height = 24;
+			this->dataGridView1->Size = System::Drawing::Size(875, 279);
+			this->dataGridView1->TabIndex = 1;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensalGenerarPedido::dataGridView1_CellContentClick);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Comida y Bebidas";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			this->Column1->Width = 300;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Cantidad";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			this->Column2->Width = 200;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Precio";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			this->Column3->Width = 200;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(5, 50);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(256, 29);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Resumen del pedido";
+			this->label1->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::label1_Click);
+			// 
+			// frmComensalGenerarPedido
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1253, 750);
+			this->Controls->Add(this->groupBox1);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Name = L"frmComensalGenerarPedido";
+			this->Text = L"frmComensalGenerarPedido";
+			this->Load += gcnew System::EventHandler(this, &frmComensalGenerarPedido::frmComensalGenerarPedido_Load);
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->ResumeLayout(false);
+
+		}
+#pragma endregion
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+		//FV_Mesa_GenerarPedido_1^ parent = gcnew FV_Mesa_GenerarPedido_1();
+
+
+		//FV_Mesa_GenerarPedido_1^ Ventana1Tipo1 = getP;
+		//Ventana1Tipo1->Show();	
+		/*
+		this->Close();
+		FV_Mesa_GenerarPedido_1^ ventana_1 = gcnew FV_Mesa_GenerarPedido_1();
+
+		ventana_1->Show();
+		*/
+	}
+
+	private: System::Void frmComensalGenerarPedido_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		BebidaPlatosController^ objBPC = gcnew BebidaPlatosController();
+		objBPC->Escribir_archivo("estado_pedido", 1);
+
+		this->Close();
+		frmComensalPedidoGenerado^ ventana3 = gcnew frmComensalPedidoGenerado();
+		ventana3->ShowDialog();
+	}
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
+	};
+}
