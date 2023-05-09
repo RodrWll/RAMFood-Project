@@ -48,6 +48,12 @@
     <ClCompile Include="frmComensalPedidoVacio.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmPrincipal.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmPersonal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -78,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalPedidoVacio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmPrincipal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmPersonal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

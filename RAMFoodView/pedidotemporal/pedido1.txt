@@ -1,2 +1,3 @@
-Milanesa;1;3
 Bebidas
+Coca Kola;1;6.5
+Red Bull;1;1
