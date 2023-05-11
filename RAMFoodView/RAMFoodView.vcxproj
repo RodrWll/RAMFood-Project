@@ -128,6 +128,7 @@
     <ClCompile Include="frmChef.cpp" />
     <ClCompile Include="frmComensal.cpp" />
     <ClCompile Include="frmComensalAsistenciaSolicitada.cpp" />
+    <ClCompile Include="frmComensalConfirmacionCuenta.cpp" />
     <ClCompile Include="frmComensalGenerarPedido.cpp" />
     <ClCompile Include="frmComensalPedidoGenerado.cpp" />
     <ClCompile Include="frmComensalPedidoVacio.cpp" />
@@ -154,6 +155,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmComensalAsistenciaSolicitada.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalConfirmacionCuenta.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmComensalGenerarPedido.h">
@@ -187,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmComensalAsistenciaSolicitada.resx">
       <DependentUpon>frmComensalAsistenciaSolicitada.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalConfirmacionCuenta.resx">
+      <DependentUpon>frmComensalConfirmacionCuenta.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalGenerarPedido.resx">
+      <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
