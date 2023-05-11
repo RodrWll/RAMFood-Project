@@ -48,6 +48,9 @@
     <ClCompile Include="frmComensalPedidoVacio.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmComensalConfirmacionCuenta.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalPedidoVacio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmComensalConfirmacionCuenta.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

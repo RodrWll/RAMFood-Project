@@ -145,7 +145,11 @@ namespace RAMFoodView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido();
+		cuenta->FormatoCuenta();
+		this->Close();
+		cuenta->ShowDialog();
+		
 
 
 	}
