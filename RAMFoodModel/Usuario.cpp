@@ -6,7 +6,6 @@ Usuario::Usuario() {
 }
 Usuario::Usuario(String^ NombreUsuario, int Id, String^ Contrasenha, int Tipo) {
 	this->NombreUsuario = NombreUsuario;
-	this->Id = Id;
 	this->Contrasenha = Contrasenha;
 	this->Tipo = Tipo;
 	this->Correo = Correo;
@@ -59,4 +58,3 @@ String^ RAMFoodModel::Usuario::GetCorreo()
 {
 	return this->Correo;
 }
-
