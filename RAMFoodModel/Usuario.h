@@ -4,23 +4,29 @@ using namespace System;
 namespace RAMFoodModel {
 	public ref class Usuario {
 	private:
-		int NombreUsuario;
 		int Id;
-		String^ Contrasenha;
 		int Tipo;
+		String^ NombreUsuario;
+		String^ Correo;
+		String^ Contrasenha;
+		
+		
 
 	public:
 		Usuario();
-		Usuario(int NombreUsuario, int Id, String^ Contrasenha, int Tipo);
-		/*
-		void SetNombreUsuario();
+		Usuario(String^ NombreUsuario, int Id, String^ Contrasenha, int Tipo);
+		void SetNombreUsuario(String^ NombreUsuario);
 		String^ GetNombreUsuario();
-		void SetId();
+		void SetId(int Id);
 		int GetId();
-		void SetContrasenha();
+		void SetContrasenha(String^ Contrasenha);
 		String^ GetContrasenha();
-		void setTipo();
+		void setTipo(int Tipo);
 		int GetTipo();
-		*/
+		void SetCorreo(String^ Correo);
+		String^ GetCorreo();
 	};
 }
+
+
+

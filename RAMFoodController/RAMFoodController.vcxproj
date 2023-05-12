@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BebidaPlatosController.h" />
+    <ClInclude Include="empleadoController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BebidaPlatosController.cpp" />
+    <ClCompile Include="empleadoController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RAMFoodModel\RAMFoodModel.vcxproj">

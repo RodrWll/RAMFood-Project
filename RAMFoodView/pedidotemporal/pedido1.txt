@@ -1,7 +1,2 @@
 Perito;1;6.5
-Gatito;1;4.1
-Paloma;1;5
-Pizaa;1;1
-Milanesa;1;3
 Bebidas
-Coca Kola;1;6.5
