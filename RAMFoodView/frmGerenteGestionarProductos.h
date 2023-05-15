@@ -24,6 +24,9 @@ namespace RAMFoodView {
 			//
 			//TODO: Add the constructor code here
 			//
+			BebidaPlatosController^ objController;
+			List<PlatoBebidaMenu^>^ listaPlatoBebidasMostrar = objController->buscarTodas();
+			mostrarGrilla(listaPlatoBebidasMostrar);
 		}
 
 	protected:
@@ -109,6 +112,7 @@ namespace RAMFoodView {
 			this->button2->TabIndex = 18;
 			this->button2->Text = L"Salir";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button2_Click);
 			// 
 			// button1
 			// 
@@ -252,6 +256,17 @@ namespace RAMFoodView {
 #pragma endregion
 	private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+	private: void mostrarGrilla(List<PlatoBebidaMenu^>^ listaPlatosBebidasMenu) {
+		this->dgvProductosEncontrados->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+		for (int i = 0; i < listaPlatosBebidasMenu->Count; i++) {
+			PlatoBebidaMenu^ objPlatoBebidaMenu = listaPlatosBebidasMenu[i];
+			array<String^>^ filaGrilla = gcnew array<String^>(3);
+			filaGrilla[0] = Convert::ToString(objPlatoBebidaMenu->GetId());
+			filaGrilla[1] = objPlatoBebidaMenu->GetNombre();
+			filaGrilla[2] = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
+			this->dgvProductosEncontrados->Rows->Add(filaGrilla);
+		}
+	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (lbIdProducto->Text->Trim() != "") {
 			//Búsqueda de producto por el código ingresado por el usuario
@@ -289,9 +304,13 @@ namespace RAMFoodView {
 		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
 		PlatoBebidaMenu^ objPlatoBebidaMenuDiario = objController->QueryProductById(IdProducto);
 		objController->AddProductToDailyMenu(objPlatoBebidaMenuDiario);
+
 		/*frmGerente^ objFrmGerente = gcnew frmGerente();
 		List<PlatoBebidaMenu^>^ productList = objController->QueryAllProductFromDailyMenu();
 		objFrmGerente->mostrarGrilla_GestionarMenu();*/
 	}
-	};
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+};
 }

@@ -1,0 +1,9 @@
+1;1;Rodrigo;Agurto;Tumialan;agurtotumialan@RAMFood.com;64968786
+2;1;Franco;Galvez;Chirinos;galvezchirinos@RAMFood.com;91730796
+3;1;Angelo;Cristobal;N;cristobaln@RAMFood.com;76021638
+4;1;Misael;Huarcaya;N;huarcayan@RAMFood.com;77676914
+5;2;Juan ;Garcia;Perez;garciaperez@RAMFood.com;83744674
+6;3;Alan;Garcia;Pistolas;garciapistolas@RAMFood.com;20956403
+7;3;Ana;Hernandez;Gutierrez;hernandezgutierrez@RAMFood.com;12880050
+8;2;Luis;Torres;Romero;torresromero@RAMFood.com;78461232
+9;3;Laura;Moreno;Canseco;morenocanseco@RAMFood.com;77916408

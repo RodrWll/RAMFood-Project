@@ -134,6 +134,9 @@
     <ClCompile Include="frmComensalPedidoVacio.cpp" />
     <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
     <ClCompile Include="frmGerente.cpp" />
+    <ClCompile Include="frmGerenteAgregarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteEditarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -175,6 +178,15 @@
     <ClInclude Include="frmGerente.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmGerenteAgregarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEditarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteGestionarPersonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmGerenteGestionarProductos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -197,6 +209,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmComensalGenerarPedido.resx">
       <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerente.resx">
+      <DependentUpon>frmGerente.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteAgregarEmpleado.resx">
+      <DependentUpon>frmGerenteAgregarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteEditarEmpleado.resx">
+      <DependentUpon>frmGerenteEditarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteGestionarPersonal.resx">
+      <DependentUpon>frmGerenteGestionarPersonal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteGestionarProductos.resx">
+      <DependentUpon>frmGerenteGestionarProductos.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

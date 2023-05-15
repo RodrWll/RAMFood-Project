@@ -2,29 +2,51 @@
 using namespace RAMFoodModel;
 
 Usuario::Usuario() {
-
+	this->Puesto[0]= "Gerente";
+	this->Puesto[1] = "Asistente";
+	this->Puesto[2] = "Chef";
 }
-Usuario::Usuario(String^ NombreUsuario, int Id, String^ Contrasenha, int Tipo) {
+Usuario::Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Tipo) {
 	this->NombreUsuario = NombreUsuario;
+	this->ApellidoPat = ApellidoPat;
+	this->ApellidoMat = ApellidoMat;
 	this->Id = Id;
 	this->Contrasenha = Contrasenha;
 	this->Tipo = Tipo;
 	this->Correo = Correo;
 }
 
-void RAMFoodModel::Usuario::SetNombreUsuario(String^  NombreUsuario)
+void Usuario::SetNombreUsuario(String^  NombreUsuario)
 {
 	this->NombreUsuario = NombreUsuario;
 }
-
-String^ RAMFoodModel::Usuario::GetNombreUsuario()
+String^ Usuario::GetNombreUsuario()
 {
 	return this->NombreUsuario;
 }
-
-void RAMFoodModel::Usuario::SetId(int Id)
+void Usuario::SetApellidoPat(String^ ApellidoPat)
 {
-	this->Id = Id;
+	this->ApellidoPat = ApellidoPat;
+}
+String^ Usuario::GetApellidoPat()
+{
+	return this->ApellidoPat;
+}
+
+void RAMFoodModel::Usuario::SetApellidoMat(String^ ApellidoMat)
+{
+	this->ApellidoMat = ApellidoMat;
+}
+String^ RAMFoodModel::Usuario::GetApellidoMat()
+{
+	return this->ApellidoMat;
+}
+
+
+void RAMFoodModel::Usuario::SetId()
+{
+	static int contador = 0;
+	this->Id = contador++;
 }
 
 int RAMFoodModel::Usuario::GetId()

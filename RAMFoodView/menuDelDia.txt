@@ -1,0 +1,3 @@
+9;Papa Rellena;15.6;1
+7;Chicharron de Pescado;25.7;1
+2;Lomo Saltado;30.5;1

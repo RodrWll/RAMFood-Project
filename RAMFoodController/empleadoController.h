@@ -6,17 +6,17 @@ namespace RAMFoodController {
 	public:
 		UsuarioController();
 		List<Usuario^>^ ObtenerInfoUsuario();
-		List<Usuario^>^ ListaUsuarios = gcnew List<Usuario^>();
 		void escribirArchivo(List<Usuario^>^ ListaUsuarios);
-		void leerArchivo();
-		void AddUsuario(Usuario^);
-		void registrarUsuario(Usuario^);
+		List<Usuario^>^ leerArchivo();
+		void AddUsuario(Usuario^ objUsuario);
 		void deleteUsuario(int Id);
-		void UpdateUsuario(Usuario^);
+		void UpdateUsuario(Usuario^ UsuarioModificar);
 		Usuario^ QueryUsuarioById(int Id);
-		List<Usuario^>^ BuscarUsuarioPorNombre(String^ Nombre);
-		Usuario^ QueryUsuarioByNombre(String^ Nombre);
-		void generarContrasenha(Usuario^);
-		void generarCorreo(Usuario^);
+		List<Usuario^>^ QueryUsuarioByNombre(String^ Nombre);
+		List<Usuario^>^ QueryUsuarioByApellido(String^ Apellido);
+		void generarContrasenha(Usuario^ objUsuario);
+		void generarCorreo(Usuario^ objUsuario);
+		List<Usuario^>^ QueryUsuarioByTipo(int Tipo);
+		List<Usuario^>^ QuerryUsuarioByNombrexTipo(String^ Nombre, int Tipo);
 	};
 }
