@@ -138,6 +138,8 @@
     <ClCompile Include="frmGerenteEditarEmpleado.cpp" />
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
+    <ClCompile Include="frmPersonal.cpp" />
+    <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +192,12 @@
     <ClInclude Include="frmGerenteGestionarProductos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmPersonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPrincipal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAsistente.resx">
@@ -204,6 +212,11 @@
     <EmbeddedResource Include="frmComensalAsistenciaSolicitada.resx">
       <DependentUpon>frmComensalAsistenciaSolicitada.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonal.resx">
+      <DependentUpon>frmPersonal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.h</DependentUpon>
     <EmbeddedResource Include="frmComensalConfirmacionCuenta.resx">
       <DependentUpon>frmComensalConfirmacionCuenta.h</DependentUpon>
     </EmbeddedResource>
