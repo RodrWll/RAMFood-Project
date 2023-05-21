@@ -11,7 +11,9 @@ UsuarioController::UsuarioController() {
 
 void UsuarioController::AgregarUsuario(String^ NombreUsuario, String^ Contrasenha) {
     // Agregar el nuevo usuario a la lista de usuarios
-    Usuario^ nuevoUsuario = gcnew Usuario(NombreUsuario, Contrasenha);
+    Usuario^ nuevoUsuario = gcnew Usuario();
+    nuevoUsuario->SetNombreUsuario(NombreUsuario);
+    nuevoUsuario->SetContrasenha(Contrasenha);
     usuarios->Add(nuevoUsuario);
 
     // Guardar el nuevo usuario en el archivo de texto

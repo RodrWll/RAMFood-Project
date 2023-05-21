@@ -6,6 +6,11 @@ Usuario::Usuario() {
 	this->Puesto[1] = "Asistente";
 	this->Puesto[2] = "Chef";
 }
+void Usuario::Usuario1(String^ NombreUsuario, String^ Contrasenha)
+{
+	this->NombreUsuario = NombreUsuario;
+	this->Contrasenha = Contrasenha;
+}
 Usuario::Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Tipo) {
 	this->NombreUsuario = NombreUsuario;
 	this->ApellidoPat = ApellidoPat;
