@@ -1,4 +1,5 @@
 #include "PedidoMesa.h"
+
 using namespace RAMFoodModel;
 
 PedidoMesa::PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebidas^>^ ListaBebidas)
@@ -20,6 +21,12 @@ double PedidoMesa::GetCuenta() {
 	return this->Cuenta;
 }
 
+int PedidoMesa::getReiniciarPedido() {
+	return this->reiniciarPedido;
+};
+void PedidoMesa::setReiniciarPedido(int estado) {
+	this->reiniciarPedido = estado;
+};
 /*
 void PedidoMesa::EnviarPedido() {};
 void PedidoMesa::LlamarAsistente() {};

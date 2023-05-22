@@ -29,11 +29,15 @@ namespace RAMFoodView {
 		frmComensal()
 		{
 			InitializeComponent();
+			this->buttonVerPedidoTotal->Enabled = false;
+			this->buttonVerPedidoTotal->Visible = false;
+
 			this->nuevo_pedido = 1;
 			this->ObjPedidoMesa = gcnew PedidoMesa();
-			BebidaPlatosController^ objBebidasPlatosController = gcnew BebidaPlatosController();			
-			this->ListaBebidasInfogeneral = objBebidasPlatosController->ObtenerInfoBebida();
-			this->ListaPlatoInfoGeneral = objBebidasPlatosController->ObtenerInfoPlato();
+			ObjPedidoMesa->setReiniciarPedido(0);
+			PedidoController^ objPedidoController = gcnew PedidoController();
+			this->ListaBebidasInfogeneral = objPedidoController->obtenerInfoBebida();
+			this->ListaPlatoInfoGeneral = objPedidoController->obtenerInfoPlato();
 			MostrasInfoPlatosYBebidas();
 
 			//
@@ -58,6 +62,9 @@ namespace RAMFoodView {
 	private: List<Plato^>^ ListaPlatoInfoGeneral;
 	private: System::Windows::Forms::Button^ button1;
 	private: int nuevo_pedido;
+	private: int reiniciarCuentaDefault = 0;
+	
+	private: int numMesa=1;
 	protected:
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
@@ -172,7 +179,9 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label38;
 	private: System::Windows::Forms::PictureBox^ pictureBox12;
 public: System::Windows::Forms::GroupBox^ groupBox16;
-private: System::Windows::Forms::Button^ buttonReinicio;
+private: System::Windows::Forms::Button^ buttonVerPedidoTotal;
+public:
+
 public:
 
 
@@ -335,7 +344,7 @@ public:
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
-			this->buttonReinicio = (gcnew System::Windows::Forms::Button());
+			this->buttonVerPedidoTotal = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->groupBox7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -372,7 +381,7 @@ public:
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(118, 16);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(87, 30);
 			this->button1->TabIndex = 0;
@@ -386,7 +395,7 @@ public:
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->Location = System::Drawing::Point(214, 16);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(101, 30);
 			this->button2->TabIndex = 1;
@@ -405,9 +414,9 @@ public:
 			this->groupBox1->Controls->Add(this->groupBox2);
 			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->groupBox1->Location = System::Drawing::Point(70, 51);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox1->Size = System::Drawing::Size(799, 496);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
@@ -424,9 +433,9 @@ public:
 			this->groupBox7->Controls->Add(this->label18);
 			this->groupBox7->Controls->Add(this->pictureBox6);
 			this->groupBox7->Location = System::Drawing::Point(532, 264);
-			this->groupBox7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox7->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox7->Name = L"groupBox7";
-			this->groupBox7->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox7->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox7->Size = System::Drawing::Size(206, 193);
 			this->groupBox7->TabIndex = 32;
 			this->groupBox7->TabStop = false;
@@ -445,7 +454,7 @@ public:
 			// button13
 			// 
 			this->button13->Location = System::Drawing::Point(117, 161);
-			this->button13->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button13->Margin = System::Windows::Forms::Padding(2);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(22, 21);
 			this->button13->TabIndex = 29;
@@ -456,7 +465,7 @@ public:
 			// button14
 			// 
 			this->button14->Location = System::Drawing::Point(50, 161);
-			this->button14->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button14->Margin = System::Windows::Forms::Padding(2);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(22, 21);
 			this->button14->TabIndex = 28;
@@ -494,7 +503,7 @@ public:
 			// 
 			this->pictureBox6->InitialImage = nullptr;
 			this->pictureBox6->Location = System::Drawing::Point(33, 11);
-			this->pictureBox6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox6->Name = L"pictureBox6";
 			this->pictureBox6->Size = System::Drawing::Size(142, 97);
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -511,9 +520,9 @@ public:
 			this->groupBox6->Controls->Add(this->label15);
 			this->groupBox6->Controls->Add(this->pictureBox5);
 			this->groupBox6->Location = System::Drawing::Point(288, 264);
-			this->groupBox6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox6->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox6->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox6->Size = System::Drawing::Size(206, 193);
 			this->groupBox6->TabIndex = 34;
 			this->groupBox6->TabStop = false;
@@ -532,7 +541,7 @@ public:
 			// button11
 			// 
 			this->button11->Location = System::Drawing::Point(117, 161);
-			this->button11->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button11->Margin = System::Windows::Forms::Padding(2);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(22, 21);
 			this->button11->TabIndex = 29;
@@ -543,7 +552,7 @@ public:
 			// button12
 			// 
 			this->button12->Location = System::Drawing::Point(50, 161);
-			this->button12->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button12->Margin = System::Windows::Forms::Padding(2);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(22, 21);
 			this->button12->TabIndex = 28;
@@ -581,7 +590,7 @@ public:
 			// 
 			this->pictureBox5->InitialImage = nullptr;
 			this->pictureBox5->Location = System::Drawing::Point(33, 11);
-			this->pictureBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(142, 97);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -598,9 +607,9 @@ public:
 			this->groupBox5->Controls->Add(this->label11);
 			this->groupBox5->Controls->Add(this->pictureBox4);
 			this->groupBox5->Location = System::Drawing::Point(48, 264);
-			this->groupBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox5->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox5->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox5->Size = System::Drawing::Size(206, 193);
 			this->groupBox5->TabIndex = 33;
 			this->groupBox5->TabStop = false;
@@ -619,7 +628,7 @@ public:
 			// button9
 			// 
 			this->button9->Location = System::Drawing::Point(117, 161);
-			this->button9->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button9->Margin = System::Windows::Forms::Padding(2);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(22, 21);
 			this->button9->TabIndex = 29;
@@ -630,7 +639,7 @@ public:
 			// button10
 			// 
 			this->button10->Location = System::Drawing::Point(50, 161);
-			this->button10->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button10->Margin = System::Windows::Forms::Padding(2);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(22, 21);
 			this->button10->TabIndex = 28;
@@ -668,7 +677,7 @@ public:
 			// 
 			this->pictureBox4->InitialImage = nullptr;
 			this->pictureBox4->Location = System::Drawing::Point(33, 11);
-			this->pictureBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox4->Name = L"pictureBox4";
 			this->pictureBox4->Size = System::Drawing::Size(142, 97);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -685,9 +694,9 @@ public:
 			this->groupBox4->Controls->Add(this->label8);
 			this->groupBox4->Controls->Add(this->pictureBox3);
 			this->groupBox4->Location = System::Drawing::Point(532, 44);
-			this->groupBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox4->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox4->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox4->Size = System::Drawing::Size(206, 193);
 			this->groupBox4->TabIndex = 32;
 			this->groupBox4->TabStop = false;
@@ -706,7 +715,7 @@ public:
 			// button7
 			// 
 			this->button7->Location = System::Drawing::Point(117, 161);
-			this->button7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button7->Margin = System::Windows::Forms::Padding(2);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(22, 21);
 			this->button7->TabIndex = 29;
@@ -717,7 +726,7 @@ public:
 			// button8
 			// 
 			this->button8->Location = System::Drawing::Point(50, 161);
-			this->button8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button8->Margin = System::Windows::Forms::Padding(2);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(22, 21);
 			this->button8->TabIndex = 28;
@@ -755,7 +764,7 @@ public:
 			// 
 			this->pictureBox3->InitialImage = nullptr;
 			this->pictureBox3->Location = System::Drawing::Point(33, 11);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(142, 97);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -772,9 +781,9 @@ public:
 			this->groupBox3->Controls->Add(this->label4);
 			this->groupBox3->Controls->Add(this->pictureBox1);
 			this->groupBox3->Location = System::Drawing::Point(288, 44);
-			this->groupBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox3->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox3->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox3->Size = System::Drawing::Size(206, 193);
 			this->groupBox3->TabIndex = 32;
 			this->groupBox3->TabStop = false;
@@ -793,7 +802,7 @@ public:
 			// button5
 			// 
 			this->button5->Location = System::Drawing::Point(117, 161);
-			this->button5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button5->Margin = System::Windows::Forms::Padding(2);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(22, 21);
 			this->button5->TabIndex = 29;
@@ -804,7 +813,7 @@ public:
 			// button6
 			// 
 			this->button6->Location = System::Drawing::Point(50, 161);
-			this->button6->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button6->Margin = System::Windows::Forms::Padding(2);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(22, 21);
 			this->button6->TabIndex = 28;
@@ -842,7 +851,7 @@ public:
 			// 
 			this->pictureBox1->InitialImage = nullptr;
 			this->pictureBox1->Location = System::Drawing::Point(33, 11);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(142, 97);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -859,9 +868,9 @@ public:
 			this->groupBox2->Controls->Add(this->label1);
 			this->groupBox2->Controls->Add(this->pictureBox2);
 			this->groupBox2->Location = System::Drawing::Point(48, 44);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox2->Size = System::Drawing::Size(206, 193);
 			this->groupBox2->TabIndex = 31;
 			this->groupBox2->TabStop = false;
@@ -880,7 +889,7 @@ public:
 			// button4
 			// 
 			this->button4->Location = System::Drawing::Point(117, 161);
-			this->button4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button4->Margin = System::Windows::Forms::Padding(2);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(22, 21);
 			this->button4->TabIndex = 29;
@@ -891,7 +900,7 @@ public:
 			// button3
 			// 
 			this->button3->Location = System::Drawing::Point(50, 161);
-			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(22, 21);
 			this->button3->TabIndex = 28;
@@ -931,7 +940,7 @@ public:
 			// 
 			this->pictureBox2->InitialImage = nullptr;
 			this->pictureBox2->Location = System::Drawing::Point(33, 11);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(142, 97);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -950,9 +959,9 @@ public:
 			this->groupBox9->Controls->Add(this->groupBox15);
 			this->groupBox9->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->groupBox9->Location = System::Drawing::Point(66, 50);
-			this->groupBox9->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox9->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox9->Name = L"groupBox9";
-			this->groupBox9->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox9->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox9->Size = System::Drawing::Size(802, 493);
 			this->groupBox9->TabIndex = 35;
 			this->groupBox9->TabStop = false;
@@ -969,9 +978,9 @@ public:
 			this->groupBox14->Controls->Add(this->label35);
 			this->groupBox14->Controls->Add(this->pictureBox11);
 			this->groupBox14->Location = System::Drawing::Point(559, 265);
-			this->groupBox14->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox14->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox14->Name = L"groupBox14";
-			this->groupBox14->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox14->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox14->Size = System::Drawing::Size(206, 193);
 			this->groupBox14->TabIndex = 32;
 			this->groupBox14->TabStop = false;
@@ -990,7 +999,7 @@ public:
 			// button26
 			// 
 			this->button26->Location = System::Drawing::Point(117, 161);
-			this->button26->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button26->Margin = System::Windows::Forms::Padding(2);
 			this->button26->Name = L"button26";
 			this->button26->Size = System::Drawing::Size(22, 21);
 			this->button26->TabIndex = 29;
@@ -1001,7 +1010,7 @@ public:
 			// button27
 			// 
 			this->button27->Location = System::Drawing::Point(50, 161);
-			this->button27->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button27->Margin = System::Windows::Forms::Padding(2);
 			this->button27->Name = L"button27";
 			this->button27->Size = System::Drawing::Size(22, 21);
 			this->button27->TabIndex = 28;
@@ -1040,7 +1049,7 @@ public:
 			this->pictureBox11->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.Image")));
 			this->pictureBox11->InitialImage = nullptr;
 			this->pictureBox11->Location = System::Drawing::Point(26, 11);
-			this->pictureBox11->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox11->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox11->Name = L"pictureBox11";
 			this->pictureBox11->Size = System::Drawing::Size(142, 97);
 			this->pictureBox11->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1057,9 +1066,9 @@ public:
 			this->groupBox13->Controls->Add(this->label32);
 			this->groupBox13->Controls->Add(this->pictureBox10);
 			this->groupBox13->Location = System::Drawing::Point(314, 264);
-			this->groupBox13->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox13->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox13->Name = L"groupBox13";
-			this->groupBox13->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox13->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox13->Size = System::Drawing::Size(206, 193);
 			this->groupBox13->TabIndex = 32;
 			this->groupBox13->TabStop = false;
@@ -1078,7 +1087,7 @@ public:
 			// button24
 			// 
 			this->button24->Location = System::Drawing::Point(117, 161);
-			this->button24->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button24->Margin = System::Windows::Forms::Padding(2);
 			this->button24->Name = L"button24";
 			this->button24->Size = System::Drawing::Size(22, 21);
 			this->button24->TabIndex = 29;
@@ -1089,7 +1098,7 @@ public:
 			// button25
 			// 
 			this->button25->Location = System::Drawing::Point(50, 161);
-			this->button25->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button25->Margin = System::Windows::Forms::Padding(2);
 			this->button25->Name = L"button25";
 			this->button25->Size = System::Drawing::Size(22, 21);
 			this->button25->TabIndex = 28;
@@ -1128,7 +1137,7 @@ public:
 			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
 			this->pictureBox10->InitialImage = nullptr;
 			this->pictureBox10->Location = System::Drawing::Point(26, 11);
-			this->pictureBox10->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox10->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox10->Name = L"pictureBox10";
 			this->pictureBox10->Size = System::Drawing::Size(142, 97);
 			this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1145,9 +1154,9 @@ public:
 			this->groupBox12->Controls->Add(this->label29);
 			this->groupBox12->Controls->Add(this->pictureBox9);
 			this->groupBox12->Location = System::Drawing::Point(52, 264);
-			this->groupBox12->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox12->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox12->Name = L"groupBox12";
-			this->groupBox12->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox12->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox12->Size = System::Drawing::Size(206, 193);
 			this->groupBox12->TabIndex = 32;
 			this->groupBox12->TabStop = false;
@@ -1166,7 +1175,7 @@ public:
 			// button22
 			// 
 			this->button22->Location = System::Drawing::Point(117, 161);
-			this->button22->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button22->Margin = System::Windows::Forms::Padding(2);
 			this->button22->Name = L"button22";
 			this->button22->Size = System::Drawing::Size(22, 21);
 			this->button22->TabIndex = 29;
@@ -1177,7 +1186,7 @@ public:
 			// button23
 			// 
 			this->button23->Location = System::Drawing::Point(50, 161);
-			this->button23->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button23->Margin = System::Windows::Forms::Padding(2);
 			this->button23->Name = L"button23";
 			this->button23->Size = System::Drawing::Size(22, 21);
 			this->button23->TabIndex = 28;
@@ -1216,7 +1225,7 @@ public:
 			this->pictureBox9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.Image")));
 			this->pictureBox9->InitialImage = nullptr;
 			this->pictureBox9->Location = System::Drawing::Point(26, 11);
-			this->pictureBox9->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox9->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox9->Name = L"pictureBox9";
 			this->pictureBox9->Size = System::Drawing::Size(142, 97);
 			this->pictureBox9->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1233,9 +1242,9 @@ public:
 			this->groupBox11->Controls->Add(this->label26);
 			this->groupBox11->Controls->Add(this->pictureBox8);
 			this->groupBox11->Location = System::Drawing::Point(559, 45);
-			this->groupBox11->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox11->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox11->Name = L"groupBox11";
-			this->groupBox11->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox11->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox11->Size = System::Drawing::Size(206, 193);
 			this->groupBox11->TabIndex = 32;
 			this->groupBox11->TabStop = false;
@@ -1254,7 +1263,7 @@ public:
 			// button20
 			// 
 			this->button20->Location = System::Drawing::Point(117, 161);
-			this->button20->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button20->Margin = System::Windows::Forms::Padding(2);
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(22, 21);
 			this->button20->TabIndex = 29;
@@ -1265,7 +1274,7 @@ public:
 			// button21
 			// 
 			this->button21->Location = System::Drawing::Point(50, 161);
-			this->button21->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button21->Margin = System::Windows::Forms::Padding(2);
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(22, 21);
 			this->button21->TabIndex = 28;
@@ -1304,7 +1313,7 @@ public:
 			this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
 			this->pictureBox8->InitialImage = nullptr;
 			this->pictureBox8->Location = System::Drawing::Point(26, 11);
-			this->pictureBox8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(142, 97);
 			this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1321,9 +1330,9 @@ public:
 			this->groupBox10->Controls->Add(this->label23);
 			this->groupBox10->Controls->Add(this->pictureBox7);
 			this->groupBox10->Location = System::Drawing::Point(314, 45);
-			this->groupBox10->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox10->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox10->Name = L"groupBox10";
-			this->groupBox10->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox10->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox10->Size = System::Drawing::Size(206, 193);
 			this->groupBox10->TabIndex = 32;
 			this->groupBox10->TabStop = false;
@@ -1342,7 +1351,7 @@ public:
 			// button18
 			// 
 			this->button18->Location = System::Drawing::Point(117, 161);
-			this->button18->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button18->Margin = System::Windows::Forms::Padding(2);
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(22, 21);
 			this->button18->TabIndex = 29;
@@ -1353,7 +1362,7 @@ public:
 			// button19
 			// 
 			this->button19->Location = System::Drawing::Point(50, 161);
-			this->button19->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button19->Margin = System::Windows::Forms::Padding(2);
 			this->button19->Name = L"button19";
 			this->button19->Size = System::Drawing::Size(22, 21);
 			this->button19->TabIndex = 28;
@@ -1392,7 +1401,7 @@ public:
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
 			this->pictureBox7->InitialImage = nullptr;
 			this->pictureBox7->Location = System::Drawing::Point(26, 11);
-			this->pictureBox7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(142, 97);
 			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1409,9 +1418,9 @@ public:
 			this->groupBox15->Controls->Add(this->label38);
 			this->groupBox15->Controls->Add(this->pictureBox12);
 			this->groupBox15->Location = System::Drawing::Point(52, 45);
-			this->groupBox15->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox15->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox15->Name = L"groupBox15";
-			this->groupBox15->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox15->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox15->Size = System::Drawing::Size(206, 193);
 			this->groupBox15->TabIndex = 32;
 			this->groupBox15->TabStop = false;
@@ -1431,7 +1440,7 @@ public:
 			// button28
 			// 
 			this->button28->Location = System::Drawing::Point(117, 161);
-			this->button28->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button28->Margin = System::Windows::Forms::Padding(2);
 			this->button28->Name = L"button28";
 			this->button28->Size = System::Drawing::Size(22, 21);
 			this->button28->TabIndex = 29;
@@ -1442,7 +1451,7 @@ public:
 			// button29
 			// 
 			this->button29->Location = System::Drawing::Point(50, 161);
-			this->button29->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button29->Margin = System::Windows::Forms::Padding(2);
 			this->button29->Name = L"button29";
 			this->button29->Size = System::Drawing::Size(22, 21);
 			this->button29->TabIndex = 28;
@@ -1482,7 +1491,7 @@ public:
 			this->pictureBox12->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.Image")));
 			this->pictureBox12->InitialImage = nullptr;
 			this->pictureBox12->Location = System::Drawing::Point(26, 11);
-			this->pictureBox12->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox12->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox12->Name = L"pictureBox12";
 			this->pictureBox12->Size = System::Drawing::Size(142, 97);
 			this->pictureBox12->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1494,7 +1503,7 @@ public:
 			this->BotonSiguiente->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BotonSiguiente->Location = System::Drawing::Point(649, 9);
-			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(2);
 			this->BotonSiguiente->Name = L"BotonSiguiente";
 			this->BotonSiguiente->Size = System::Drawing::Size(216, 37);
 			this->BotonSiguiente->TabIndex = 16;
@@ -1507,7 +1516,7 @@ public:
 			this->button17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button17->Location = System::Drawing::Point(70, 564);
-			this->button17->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button17->Margin = System::Windows::Forms::Padding(2);
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(135, 37);
 			this->button17->TabIndex = 17;
@@ -1520,9 +1529,9 @@ public:
 			this->groupBox8->Controls->Add(this->label20);
 			this->groupBox8->Controls->Add(this->label19);
 			this->groupBox8->Location = System::Drawing::Point(342, 552);
-			this->groupBox8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox8->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox8->Name = L"groupBox8";
-			this->groupBox8->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox8->Padding = System::Windows::Forms::Padding(2);
 			this->groupBox8->Size = System::Drawing::Size(266, 49);
 			this->groupBox8->TabIndex = 18;
 			this->groupBox8->TabStop = false;
@@ -1562,7 +1571,7 @@ public:
 			this->button15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button15->Location = System::Drawing::Point(718, 559);
-			this->button15->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button15->Margin = System::Windows::Forms::Padding(2);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(151, 30);
 			this->button15->TabIndex = 19;
@@ -1572,7 +1581,7 @@ public:
 			// 
 			// groupBox16
 			// 
-			this->groupBox16->Controls->Add(this->buttonReinicio);
+			this->groupBox16->Controls->Add(this->buttonVerPedidoTotal);
 			this->groupBox16->Controls->Add(this->groupBox9);
 			this->groupBox16->Controls->Add(this->button15);
 			this->groupBox16->Controls->Add(this->groupBox8);
@@ -1583,27 +1592,26 @@ public:
 			this->groupBox16->Controls->Add(this->button1);
 			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(19, 9);
-			this->groupBox16->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox16->Location = System::Drawing::Point(11, 11);
+			this->groupBox16->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox16->Name = L"groupBox16";
-			this->groupBox16->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->groupBox16->Size = System::Drawing::Size(911, 657);
+			this->groupBox16->Padding = System::Windows::Forms::Padding(2);
+			this->groupBox16->Size = System::Drawing::Size(911, 600);
 			this->groupBox16->TabIndex = 37;
 			this->groupBox16->TabStop = false;
 			this->groupBox16->Text = L"MENÚ DEL DÍA";
 			this->groupBox16->Enter += gcnew System::EventHandler(this, &frmComensal::groupBox16_Enter);
 			// 
-			// buttonReinicio
+			// buttonVerPedidoTotal
 			// 
-			this->buttonReinicio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->buttonReinicio->Location = System::Drawing::Point(475, 9);
-			this->buttonReinicio->Name = L"buttonReinicio";
-			this->buttonReinicio->Size = System::Drawing::Size(158, 37);
-			this->buttonReinicio->TabIndex = 36;
-			this->buttonReinicio->Text = L"Reiniciar Pedido";
-			this->buttonReinicio->UseVisualStyleBackColor = true;
-			this->buttonReinicio->Click += gcnew System::EventHandler(this, &frmComensal::buttonReinicio_Click);
+			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
+			this->buttonVerPedidoTotal->Location = System::Drawing::Point(450, 9);
+			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
+			this->buttonVerPedidoTotal->Size = System::Drawing::Size(169, 36);
+			this->buttonVerPedidoTotal->TabIndex = 36;
+			this->buttonVerPedidoTotal->Text = L"Ver Pedido Total";
+			this->buttonVerPedidoTotal->UseVisualStyleBackColor = true;
+			this->buttonVerPedidoTotal->Click += gcnew System::EventHandler(this, &frmComensal::buttonVerPedidoTotal_Click_1);
 			// 
 			// frmComensal
 			// 
@@ -1612,7 +1620,7 @@ public:
 			this->ClientSize = System::Drawing::Size(940, 609);
 			this->Controls->Add(this->groupBox16);
 			this->IsMdiContainer = true;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"frmComensal";
 			this->Text = L"frmComensal";
 			this->Load += gcnew System::EventHandler(this, &frmComensal::frmComensal_Load);
@@ -1674,11 +1682,11 @@ public:
 void MostrasInfoPlatosYBebidas() {
 	
 	/*Bebidas*/
-	 BebidaPlatosController^ objBebidasPlatosController = gcnew BebidaPlatosController();
-	 this->nuevo_pedido = objBebidasPlatosController->es_nuevo_pedido("estado_pedido");
+	PedidoController^ objPedidoController = gcnew PedidoController();
+	 this->nuevo_pedido = objPedidoController->esNuevoPedido("estado_pedido");
 
-	 List<Bebidas^>^ listaBebidas = objBebidasPlatosController->ObtenerInfoBebida();
-	 List<Plato^>^ listaPlato = objBebidasPlatosController->ObtenerInfoPlato();
+	 List<Bebidas^>^ listaBebidas = objPedidoController->obtenerInfoBebida();
+	 List<Plato^>^ listaPlato = objPedidoController->obtenerInfoPlato();
 	 // Bebidas^ Objeto1 = listaBebidas[0];
 
 	 this->label38->Text = listaBebidas[0]->GetNombre();
@@ -1745,10 +1753,10 @@ void MostrasInfoPlatosYBebidas() {
 	 /*si es 0, indica que ya se hizo un pedido previamente*/
 	 if(this->nuevo_pedido==0){
 		 /*leer valores del texto y setearlos a cada label*/
-		 List<Plato^>^ lista_pedidos_activos_plato = objBebidasPlatosController->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-		 List<Bebidas^>^ lista_pedidos_activos_bebida = objBebidasPlatosController->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+		 List<Plato^>^ lista_pedidos_activos_plato = objPedidoController->LeerPedidosPlato("pedidotemporal//pedido1.txt");
+		 List<Bebidas^>^ lista_pedidos_activos_bebida = objPedidoController->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
 		 int id_i=0;
-		 for each (Plato ^ plato_i in lista_pedidos_activos_plato) {
+		 for each (Plato^ plato_i in lista_pedidos_activos_plato) {
 			 /*buscando el id del plato*/
 
 			 String^ nombre_i = plato_i->GetNombre();
@@ -1859,6 +1867,64 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
+
+private: int OrdenEstaVacia() {
+	int CantidadesPlato[6];
+	int CantidadesBebida[6];
+
+	/*Asumiendo que solo se usan 6 bebidas y 6 platos botones*/
+	CantidadesPlato[0] = Convert::ToInt32(this->label13->Text);
+	CantidadesPlato[1] = Convert::ToInt32(this->label2->Text);
+	CantidadesPlato[2] = Convert::ToInt32(this->label5->Text);
+	CantidadesPlato[3] = Convert::ToInt32(this->label9->Text);
+	CantidadesPlato[4] = Convert::ToInt32(this->label12->Text);
+	CantidadesPlato[5] = Convert::ToInt32(this->label16->Text);
+	/*
+	int valor = Convert::ToInt32(this->label21->Text);
+	*/
+
+	CantidadesBebida[0] = Convert::ToInt32(this->label36->Text);
+	CantidadesBebida[1] = Convert::ToInt32(this->label21->Text);
+	CantidadesBebida[2] = Convert::ToInt32(this->label24->Text);
+	CantidadesBebida[3] = Convert::ToInt32(this->label27->Text);
+	CantidadesBebida[4] = Convert::ToInt32(this->label30->Text);
+	CantidadesBebida[5] = Convert::ToInt32(this->label33->Text);
+	int suma = 0;
+	for (int j = 0; j < 6; j++) {
+
+		suma = suma + CantidadesBebida[j] + CantidadesPlato[j];
+	};
+	if(suma > 0) {
+		return 0;
+	}
+	else {
+		return 1;
+	}
+};
+
+private: void CantidadACero() {
+	/*Asumiendo que solo se usan 6 bebidas y 6 platos botones*/
+	this->label13->Text = "0";
+	this->label2->Text = "0";
+	this->label5->Text = "0";
+	this->label9->Text = "0";
+	this->label12->Text = "0";
+	this->label16->Text = "0";
+	/*
+	int valor = Convert::ToInt32(this->label21->Text);
+	*/
+
+	this->label36->Text = "0";
+	this->label21->Text = "0";
+	this->label24->Text = "0";
+	this->label27->Text = "0";
+	this->label30->Text = "0";
+	this->label33->Text = "0";
+
+	this->label20->Text = "S/ 0";
+	this->ObjPedidoMesa->SetCuenta(0);
+
+};
 private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) {
 	int Cantidades_elegidas_plato[6];
 	int Cantidades_elegidas_bebida[6];
@@ -1880,38 +1946,39 @@ private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ 
 	Cantidades_elegidas_bebida[3] = Convert::ToInt32(this->label27->Text);
 	Cantidades_elegidas_bebida[4] = Convert::ToInt32(this->label30->Text);
 	Cantidades_elegidas_bebida[5] = Convert::ToInt32(this->label33->Text);
-	int suma = 0;
-	for (int j = 0; j < 6; j++) {
-		
-		suma = suma + Cantidades_elegidas_bebida[j] + Cantidades_elegidas_plato[j];
-	};
-	if (suma > 0) {
-		BebidaPlatosController^ objBebidasPlatosController = gcnew BebidaPlatosController();
-		objBebidasPlatosController->Escribir_pedidos(
+	int esPedidoVacio = OrdenEstaVacia();
+	/*vale 1 si no se pide nada, vale 0 si hay algo*/
+	if (esPedidoVacio==0) {
+		PedidoController^ objPedidoController = gcnew PedidoController();
+		objPedidoController->escribirPedidos(
 			this->ListaPlatoInfoGeneral,
 			this->ListaBebidasInfogeneral,
 			"pedido", Cantidades_elegidas_bebida, Cantidades_elegidas_plato
 		);
 		/*Guardando un 0 en un .txt para comunicar al sistema que no es un pedido nuevo*/
-		objBebidasPlatosController->Escribir_archivo("estado_pedido", 0);
+		objPedidoController->escribirArchivo("estado_pedido", 0);
 
-		/*
-		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido();
-		this->groupBox16->Visible = false;
-		//this->Hide();
-		Ventana2->MdiParent = this;
-		Ventana2->Show();
-		*/
 		
-		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido();
+		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa,0);
+		this->Visible=false;
 		Ventana2->ShowDialog();
+		this->buttonVerPedidoTotal->Enabled = true;
+		this->buttonVerPedidoTotal->Visible = true;
+		this->Visible = true;
+
 	}
 	else {
 		frmComensalPedidoVacio^ ventana = gcnew frmComensalPedidoVacio();
 		
 		ventana->ShowDialog();
-
+		
 	}
+	if (this->ObjPedidoMesa->getReiniciarPedido()) {
+		CantidadACero();
+	};
+	
+
+
 }	
 /*eventos*/
 /*	   System::Windows::Forms::Form::OnShown(System::EventArgs^)
@@ -2298,10 +2365,19 @@ private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void label37_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) {
-	frmComensalSolicitarAtencion^ venta_emergente_mozo = gcnew frmComensalSolicitarAtencion();
+	int esPedidoVacio = OrdenEstaVacia();
+	frmComensalSolicitarAtencion^ venta_emergente_mozo = gcnew frmComensalSolicitarAtencion(this->ObjPedidoMesa, this->numMesa, esPedidoVacio);
 	venta_emergente_mozo->ShowDialog();
+	/*reiniciando valores de la comida*/
+	if (this->ObjPedidoMesa->getReiniciarPedido()) {
+		CantidadACero();
+		this->buttonVerPedidoTotal->Visible = false;
+		/*copiar la informaación en otro archivo y reiniciar los archivos pedido mesa total*/
+		
+	};
 
 }
+/*
 private: System::Void buttonReinicio_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
@@ -2311,9 +2387,7 @@ private: System::Void buttonReinicio_Click(System::Object^ sender, System::Event
 	this->label12->Text = "0";
 	this->label16->Text = "0";
 	this->label2->Text = "0";
-	/*
-	int valor = Convert::ToInt32(this->label21->Text);
-	*/
+
 
 	this->label36->Text = "0";
 	this->label21->Text = "0";
@@ -2322,12 +2396,21 @@ private: System::Void buttonReinicio_Click(System::Object^ sender, System::Event
 	this->label30->Text = "0";
 	this->label33->Text = "0";
 	this->label20->Text = "0";
-
-	/*
-	
-	
-	*/
 	
 }
+*/
+
+private: System::Void buttonVerPedidoTotal_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void buttonVerPedidoTotal_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa, 2);
+	cuenta->FormatoCuenta();
+	this->Visible=false;
+	cuenta->ShowDialog();
+	this->Visible = true;
+}
 };
+
+
 }

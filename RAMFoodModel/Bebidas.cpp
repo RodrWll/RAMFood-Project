@@ -21,6 +21,13 @@ int Bebidas::GetId() {
 	return this->Id;
 };
 
+void Bebidas::SetCantidadPedida(int cantidad) {
+	this->CantidadPedida = cantidad;
+
+};
+void Bebidas::SetPrecio(double precio) {
+	this->Precio = precio;
+};
 String^ Bebidas::GetNombre() {
 	return this->Nombre;
 }

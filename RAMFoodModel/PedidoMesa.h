@@ -12,7 +12,9 @@ namespace RAMFoodModel {
 		PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebidas^>^ ListaBebidas);
 		void SetCuenta(double Cuenta);
 		double GetCuenta();
-		/*
+		int getReiniciarPedido();
+		void setReiniciarPedido(int estado);
+				/*
 		void EnviarPedido();
 		void LlamarMozo();
 
@@ -23,6 +25,13 @@ namespace RAMFoodModel {
 		int Mesa;
 		List<Plato^>^ ListaPlatos;
 		List<Bebidas^>^ ListaBebidas;
+		int reiniciarPedido;
+		/* valores para reiniciarPedido:
+		* vale 1: se reinicia los numeros de la interfaz de comnesal
+		* vale 0:  no se reinicia
+		
+		
+		*/
 	};
 
 };
