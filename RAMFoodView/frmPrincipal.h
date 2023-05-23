@@ -158,5 +158,5 @@ namespace RAMFoodView {
 		frmPersonal^ ventanaPersonal = gcnew frmPersonal();
 		ventanaPersonal->ShowDialog();
 	}
-};
+	};
 }

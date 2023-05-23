@@ -140,6 +140,8 @@
     <ClCompile Include="frmGerenteEstablecerMenu.cpp" />
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
+    <ClCompile Include="frmPersonal.cpp" />
+    <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +198,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmGerenteGestionarProductos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPersonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
