@@ -1,11 +1,14 @@
-Cuysito;3;2190
+1
+Platos
+Cuysito;4;2190
+Gatito;4;1230
+Pizaa;3;200
 Perito;2;1300
-Gatito;3;1230
-Pizaa;2;200
 Milanesa;2;600
 Bebidas
+Coca Kola;6;2600
+KR;2;600
 Inca Kola;3;2190
-Coca Kola;4;2600
 Pepsi;2;820
 Guarana;3;1500
 Red Bull;2;200
