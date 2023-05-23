@@ -18,7 +18,10 @@ namespace RAMFoodController {
 		//Para el menu
 		List<PlatoBebidaMenu^>^ listarMenu();
 		void escribirMenu (List<PlatoBebidaMenu^>^ listaMenu);
+		//Para prevenir que se agregue un plato ya agregado
+		int existeProductoMenuxId(int id);
 		void addProductToDailyMenu(PlatoBebidaMenu^ obj);
 		void removeDailyMenuProduct(int id);
+		void generarArchivosMenu();
 	};
 }

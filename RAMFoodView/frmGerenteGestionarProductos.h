@@ -141,7 +141,7 @@ namespace RAMFoodView {
 			this->textBox1->Enabled = false;
 			this->textBox1->Location = System::Drawing::Point(316, 205);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(77, 28);
+			this->textBox1->Size = System::Drawing::Size(78, 28);
 			this->textBox1->TabIndex = 18;
 			this->textBox1->Visible = false;
 			// 
@@ -256,7 +256,8 @@ namespace RAMFoodView {
 			// button10
 			// 
 			this->button10->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->button10->Location = System::Drawing::Point(666, 181);
+			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button10->Location = System::Drawing::Point(666, 185);
 			this->button10->Margin = System::Windows::Forms::Padding(4);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(166, 46);
@@ -268,6 +269,9 @@ namespace RAMFoodView {
 			// button8
 			// 
 			this->button8->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button8->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button8->FlatAppearance->BorderSize = 0;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button8->Location = System::Drawing::Point(666, 84);
 			this->button8->Margin = System::Windows::Forms::Padding(4);
 			this->button8->Name = L"button8";
@@ -293,7 +297,7 @@ namespace RAMFoodView {
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView1->Size = System::Drawing::Size(395, 457);
+			this->dataGridView1->Size = System::Drawing::Size(454, 457);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteGestionarProductos::dataGridView1_CellClick);
 			// 
@@ -348,6 +352,8 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
+				static_cast<System::Int32>(static_cast<System::Byte>(144)));
 			this->ClientSize = System::Drawing::Size(1362, 733);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->gbFormulario);
@@ -434,10 +440,11 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 	}
 }
 private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::EventArgs^ e) {
-	
-	if (lbProductName->Text == "" && lbPrecio->Text == "")
+	int inputsLlenos = !(this->lbProductName->Text == "" || this->lbPrecio->Text == "" || this->comboBox1->Text == "");
+	//Verificar que los campos no esten vacios
+	if (!inputsLlenos )
 	{
-		MessageBox::Show("Ingrese los datos");
+		MessageBox::Show("Ingrese los datos.");
 	}
 	else
 		if (this->comboBox1->SelectedIndex == 1 || this->comboBox1->SelectedIndex == 2)
@@ -451,11 +458,10 @@ private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::Ev
 			objProductoController->generarIdProductos(objBebidaPlato);
 			objProductoController->addProducto(objBebidaPlato);
 			Actualizar();
-			
+			clearInputs();
 		}else{
-			MessageBox::Show("Ingrese los datos");
+			MessageBox::Show("Ingrese la categoria correcta.");
 	}
-	clearInputs();
 }
 private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
@@ -500,13 +506,17 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 				objController->updateProducto(objPlatoBebidaMenu);
 				Actualizar();
 				clearInputs();
+				btnAddBebidaPlato->Enabled = true;
+				this->label1->Visible = false;
+				this->textBox1->Visible = false;
+				this->button10->Enabled = false;
 			}
 			else {
 				MessageBox::Show("Seleccione un tipo correcto");
 			}
 		}
 		else {
-			MessageBox::Show("Llene toda la información");
+			MessageBox::Show("Llene toda la informaciï¿½n");
 		}
 	}
 	else {
@@ -527,10 +537,10 @@ private: void clearInputs() {
 	this->comboBox1->SelectedIndex = 0;
 }
 private: System::Void lbPrecio_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	// Verifica si el carácter ingresado es un número, un punto decimal o la tecla de retroceso
+	// Verifica si el carï¿½cter ingresado es un nï¿½mero, un punto decimal o la tecla de retroceso
 if (Char::IsDigit(e->KeyChar) || e->KeyChar == '.' || e->KeyChar == (char)Keys::Back)
 	{
-		// Si el carácter es el punto decimal, verifica que no se haya ingresado anteriormente
+		// Si el carï¿½cter es el punto decimal, verifica que no se haya ingresado anteriormente
 	if (e->KeyChar == '.')
 	{
 		if (this->lbPrecio->Text->Contains("."))

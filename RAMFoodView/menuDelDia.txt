@@ -1,6 +1,7 @@
-9;Papa Rellena;15.6;1
-7;Chicharron de Pescado;25.7;1
-1;Ceviche;25;1
-4;Chaufa;23.3;1
-6;Chicharron de Cerdo;31.2;1
-11;Arroz con pollo;27.5;2
+2;Lomo Saltado;30;2
+3;Arroz con pollo;40;2
+1;Ceviche;27.87;2
+4;Chaufa;21;2
+6;Inka Cola;2.7;1
+5;Estofado;25;2
+7;Coca Cola;3;1

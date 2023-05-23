@@ -134,6 +134,18 @@ array<String^>^ lineasArchivo = gcnew array<String^>(listaMenu->Count);
 	}
 	File::WriteAllLines("menuDelDia.txt", lineasArchivo);
 }
+int productoController::existeProductoMenuxId(int id)
+{
+	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
+	int existe = 0;
+	for (int i = 0; i < listaMenu->Count; i++) {
+		if (listaMenu[i]->GetId() == id) {
+			existe = 1;
+			break;
+		}
+	}
+	return existe;
+}
 void productoController::addProductToDailyMenu(PlatoBebidaMenu^ obj)
 {
 	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
@@ -150,4 +162,30 @@ void productoController::removeDailyMenuProduct(int id)
 		}
 	}
 	escribirMenu(listaMenu);
+}
+void productoController::generarArchivosMenu()
+{
+	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
+	List<PlatoBebidaMenu^>^ listaComidas = gcnew List<PlatoBebidaMenu^>();
+	List<PlatoBebidaMenu^>^ listaBebidas = gcnew List<PlatoBebidaMenu^>();
+	for (int i = 0; i < listaMenu->Count; i++) {
+		if (listaMenu[i]->GetTipo() == 2) {
+			listaComidas->Add(listaMenu[i]);
+		}
+		else if (listaMenu[i]->GetTipo() == 1) {
+			listaBebidas->Add(listaMenu[i]);
+		}
+	}
+	array<String^>^ lineasArchivo = gcnew array<String^>(listaComidas->Count);
+	for (int i = 0; i < listaComidas->Count; i++) {
+		PlatoBebidaMenu^ ObjPlatoBebida = listaComidas[i];
+		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
+	}
+	File::WriteAllLines("Platos.txt", lineasArchivo);
+	array<String^>^ lineasArchivo2 = gcnew array<String^>(listaBebidas->Count);
+	for (int i = 0; i < listaBebidas->Count; i++) {
+		PlatoBebidaMenu^ ObjPlatoBebida = listaBebidas[i];
+		lineasArchivo2[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
+	}
+	File::WriteAllLines("Bebidas.txt", lineasArchivo2);
 }
