@@ -1,7 +1,7 @@
 #pragma once
 #include "frmComensalAsistenciaSolicitada.h"
 #include "frmComensalGenerarPedido.h"
-
+#include "frmComensalPedidoVacio.h"
 namespace RAMFoodView {
 
 	using namespace System;
@@ -10,6 +10,7 @@ namespace RAMFoodView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Resumen de frmComensalSolicitarAtencion
@@ -20,6 +21,18 @@ namespace RAMFoodView {
 		frmComensalSolicitarAtencion(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+		frmComensalSolicitarAtencion(PedidoMesa^ objPedidoMesa, int numeroMesa, int pedidovacio)
+		{
+			this->numMesa = numeroMesa;
+			this->frmObjPedidoMesa = gcnew PedidoMesa();
+			this->frmObjPedidoMesa = objPedidoMesa;
+			this->pedidovacio=pedidovacio;
+			InitializeComponent();
+
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -39,6 +52,9 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ PagarCuenta;
 	private: System::Windows::Forms::Button^ Asistencia;
+	private: int numMesa;
+	private: int pedidovacio;
+	private: PedidoMesa^ frmObjPedidoMesa;
 	protected:
 
 
@@ -145,8 +161,20 @@ namespace RAMFoodView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		array<String^>^ lineasLeidas = File::ReadAllLines("pedidototal//pedidomesaAsistente.txt");
 
+		if (!(lineasLeidas[0]=="vacio")) {
+			frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1);
+			cuenta->FormatoCuenta();
+			
+			cuenta->ShowDialog();
+			this->Close();
+		}
+		else {
 
+			frmComensalPedidoVacio^ ventana = gcnew frmComensalPedidoVacio();
+			ventana->ShowDialog();
+		}
 
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {

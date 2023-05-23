@@ -18,9 +18,15 @@
     <ClInclude Include="BebidaPlatosController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PedidoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BebidaPlatosController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PedidoController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
