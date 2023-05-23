@@ -3,8 +3,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <string>
-#include "frmGerenteGestionarProductos.h"
+#include "frmGerenteBuscarProductosMenu.h"
 #include "frmGerenteGestionarPersonal.h"
+#include "frmGerenteGestionarProductos.h"
+#include "frmGerenteEstablecerMenu.h"
 
 namespace RAMFoodView {
 
@@ -33,12 +35,10 @@ namespace RAMFoodView {
 			//
 			//TODO: Add the constructor code here
 			//
-			this->gbFormulario->Visible = false;
 			this->gbMenu->Visible = false;
 			BebidaPlatosController^ objController;
 			List<PlatoBebidaMenu^>^ listaPlatoBebidasMostrar = objController->buscarTodas();
 			List<PlatoBebidaMenu^>^ listaPlatoBebidasMostrarMenuDiario = objController->QueryAllProductFromDailyMenu();
-			mostrarGrilla(listaPlatoBebidasMostrar);
 			mostrarGrilla_GestionarMenu(listaPlatoBebidasMostrarMenuDiario);
 		}
 
@@ -63,7 +63,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ bttnEstablecerMenu;
-	private: System::Windows::Forms::GroupBox^ gbFormulario;
+
 	private: System::Windows::Forms::GroupBox^ gbMenu;
 	private: System::Windows::Forms::Button^ button12;
 	private: System::Windows::Forms::DataGridView^ dgvEstablecerMenu;
@@ -74,25 +74,28 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::VScrollBar^ vScrollBar1;
 	private: System::Windows::Forms::Button^ button11;
 	private: System::Windows::Forms::Button^ button9;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Button^ button10;
-	private: System::Windows::Forms::Button^ btnAddBebidaPlato;
-	private: System::Windows::Forms::Button^ button8;
-	private: System::Windows::Forms::Button^ button7;
-	private: System::Windows::Forms::TextBox^ lbTipo;
-	private: System::Windows::Forms::TextBox^ lbPrecio;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ lbProductName;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::TextBox^ lbId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^ bttnGestionarProductos;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ventasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ gestionarPersonalToolStripMenuItem;
 
 
 	protected:
@@ -120,24 +123,6 @@ namespace RAMFoodView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->bttnEstablecerMenu = (gcnew System::Windows::Forms::Button());
-			this->gbFormulario = (gcnew System::Windows::Forms::GroupBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->btnAddBebidaPlato = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->lbTipo = (gcnew System::Windows::Forms::TextBox());
-			this->lbPrecio = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->lbProductName = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->lbId = (gcnew System::Windows::Forms::TextBox());
 			this->bttnGestionarProductos = (gcnew System::Windows::Forms::Button());
 			this->gbMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->button12 = (gcnew System::Windows::Forms::Button());
@@ -150,12 +135,14 @@ namespace RAMFoodView {
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->ventasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->gestionarPersonalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox2->SuspendLayout();
-			this->gbFormulario->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->gbMenu->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEstablecerMenu))->BeginInit();
 			this->groupBox1->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// groupBox2
@@ -248,192 +235,6 @@ namespace RAMFoodView {
 			this->bttnEstablecerMenu->UseVisualStyleBackColor = true;
 			this->bttnEstablecerMenu->Click += gcnew System::EventHandler(this, &frmGerente::bttnEstablecerMenu_click);
 			// 
-			// gbFormulario
-			// 
-			this->gbFormulario->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->gbFormulario->Controls->Add(this->label5);
-			this->gbFormulario->Controls->Add(this->button10);
-			this->gbFormulario->Controls->Add(this->btnAddBebidaPlato);
-			this->gbFormulario->Controls->Add(this->button8);
-			this->gbFormulario->Controls->Add(this->button7);
-			this->gbFormulario->Controls->Add(this->lbTipo);
-			this->gbFormulario->Controls->Add(this->lbPrecio);
-			this->gbFormulario->Controls->Add(this->label4);
-			this->gbFormulario->Controls->Add(this->label3);
-			this->gbFormulario->Controls->Add(this->lbProductName);
-			this->gbFormulario->Controls->Add(this->label2);
-			this->gbFormulario->Controls->Add(this->dataGridView1);
-			this->gbFormulario->Controls->Add(this->lbId);
-			this->gbFormulario->Location = System::Drawing::Point(250, 136);
-			this->gbFormulario->Name = L"gbFormulario";
-			this->gbFormulario->Size = System::Drawing::Size(699, 625);
-			this->gbFormulario->TabIndex = 6;
-			this->gbFormulario->TabStop = false;
-			this->gbFormulario->Text = L"Formulario";
-			this->gbFormulario->Visible = false;
-			this->gbFormulario->Enter += gcnew System::EventHandler(this, &frmGerente::gbFormulario_Enter);
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(32, 215);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(24, 16);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"Id:";
-			// 
-			// button10
-			// 
-			this->button10->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->button10->Location = System::Drawing::Point(446, 296);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(130, 57);
-			this->button10->TabIndex = 12;
-			this->button10->Text = L"ACTUALIZAR";
-			this->button10->UseVisualStyleBackColor = false;
-			this->button10->Click += gcnew System::EventHandler(this, &frmGerente::button10_Click);
-			// 
-			// btnAddBebidaPlato
-			// 
-			this->btnAddBebidaPlato->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->btnAddBebidaPlato->Location = System::Drawing::Point(129, 296);
-			this->btnAddBebidaPlato->Name = L"btnAddBebidaPlato";
-			this->btnAddBebidaPlato->Size = System::Drawing::Size(118, 57);
-			this->btnAddBebidaPlato->TabIndex = 11;
-			this->btnAddBebidaPlato->Text = L"AGREGAR";
-			this->btnAddBebidaPlato->UseVisualStyleBackColor = false;
-			this->btnAddBebidaPlato->Click += gcnew System::EventHandler(this, &frmGerente::btnAddBebidaPlato_Click);
-			// 
-			// button8
-			// 
-			this->button8->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->button8->Location = System::Drawing::Point(281, 296);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(126, 57);
-			this->button8->TabIndex = 10;
-			this->button8->Text = L"ELIMINAR";
-			this->button8->UseVisualStyleBackColor = false;
-			this->button8->Click += gcnew System::EventHandler(this, &frmGerente::button8_Click);
-			// 
-			// button7
-			// 
-			this->button7->Location = System::Drawing::Point(540, 247);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(108, 32);
-			this->button7->TabIndex = 9;
-			this->button7->Text = L"IMAGEN";
-			this->button7->UseVisualStyleBackColor = true;
-			// 
-			// lbTipo
-			// 
-			this->lbTipo->Location = System::Drawing::Point(254, 160);
-			this->lbTipo->Name = L"lbTipo";
-			this->lbTipo->Size = System::Drawing::Size(153, 23);
-			this->lbTipo->TabIndex = 7;
-			// 
-			// lbPrecio
-			// 
-			this->lbPrecio->Location = System::Drawing::Point(254, 107);
-			this->lbPrecio->Name = L"lbPrecio";
-			this->lbPrecio->Size = System::Drawing::Size(153, 23);
-			this->lbPrecio->TabIndex = 6;
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(32, 160);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(190, 16);
-			this->label4->TabIndex = 5;
-			this->label4->Text = L"Tipo Bebida(1) Comida(2):";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(31, 110);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(59, 16);
-			this->label3->TabIndex = 4;
-			this->label3->Text = L"Precio:";
-			// 
-			// lbProductName
-			// 
-			this->lbProductName->Location = System::Drawing::Point(254, 66);
-			this->lbProductName->Name = L"lbProductName";
-			this->lbProductName->Size = System::Drawing::Size(191, 23);
-			this->lbProductName->TabIndex = 3;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(31, 72);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(178, 16);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Nombre del Producto: ";
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->Column4,
-					this->Column1, this->Column2, this->Column3
-			});
-			this->dataGridView1->Location = System::Drawing::Point(21, 372);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(675, 233);
-			this->dataGridView1->TabIndex = 0;
-			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerente::dataGridView1_CellClick);
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerente::dataGridView1_CellContentClick);
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Id";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 80;
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Nombre";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			this->Column1->Width = 300;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Precio";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			this->Column2->Width = 120;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Tipo";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			this->Column3->Width = 120;
-			// 
-			// lbId
-			// 
-			this->lbId->Location = System::Drawing::Point(254, 212);
-			this->lbId->Name = L"lbId";
-			this->lbId->Size = System::Drawing::Size(153, 23);
-			this->lbId->TabIndex = 14;
-			// 
 			// bttnGestionarProductos
 			// 
 			this->bttnGestionarProductos->Location = System::Drawing::Point(28, 655);
@@ -454,9 +255,9 @@ namespace RAMFoodView {
 			this->gbMenu->Controls->Add(this->vScrollBar1);
 			this->gbMenu->Controls->Add(this->button11);
 			this->gbMenu->Controls->Add(this->button9);
-			this->gbMenu->Location = System::Drawing::Point(235, 187);
+			this->gbMenu->Location = System::Drawing::Point(1094, 12);
 			this->gbMenu->Name = L"gbMenu";
-			this->gbMenu->Size = System::Drawing::Size(724, 525);
+			this->gbMenu->Size = System::Drawing::Size(724, 524);
 			this->gbMenu->TabIndex = 9;
 			this->gbMenu->TabStop = false;
 			this->gbMenu->Text = L"MENU";
@@ -470,6 +271,7 @@ namespace RAMFoodView {
 			this->button12->TabIndex = 8;
 			this->button12->Text = L"FIJAR MENU DEL DIA";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &frmGerente::button12_Click);
 			// 
 			// dgvEstablecerMenu
 			// 
@@ -498,7 +300,7 @@ namespace RAMFoodView {
 			this->Column6->HeaderText = L"Nombre";
 			this->Column6->MinimumWidth = 6;
 			this->Column6->Name = L"Column6";
-			this->Column6->Width = 90;
+			this->Column6->Width = 85;
 			// 
 			// Column7
 			// 
@@ -544,9 +346,7 @@ namespace RAMFoodView {
 			// groupBox1
 			// 
 			this->groupBox1->BackColor = System::Drawing::Color::Transparent;
-			this->groupBox1->Controls->Add(this->gbMenu);
 			this->groupBox1->Controls->Add(this->bttnGestionarProductos);
-			this->groupBox1->Controls->Add(this->gbFormulario);
 			this->groupBox1->Controls->Add(this->bttnEstablecerMenu);
 			this->groupBox1->Controls->Add(this->button6);
 			this->groupBox1->Controls->Add(this->button3);
@@ -554,7 +354,7 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->groupBox2);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(81, 33);
+			this->groupBox1->Location = System::Drawing::Point(12, 38);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(1186, 824);
 			this->groupBox1->TabIndex = 0;
@@ -562,28 +362,60 @@ namespace RAMFoodView {
 			this->groupBox1->Text = L"Gerente";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &frmGerente::groupBox1_Enter);
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ventasToolStripMenuItem,
+					this->gestionarPersonalToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1830, 28);
+			this->menuStrip1->TabIndex = 1;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// ventasToolStripMenuItem
+			// 
+			this->ventasToolStripMenuItem->Name = L"ventasToolStripMenuItem";
+			this->ventasToolStripMenuItem->Size = System::Drawing::Size(66, 24);
+			this->ventasToolStripMenuItem->Text = L"Ventas";
+			// 
+			// gestionarPersonalToolStripMenuItem
+			// 
+			this->gestionarPersonalToolStripMenuItem->Name = L"gestionarPersonalToolStripMenuItem";
+			this->gestionarPersonalToolStripMenuItem->Size = System::Drawing::Size(145, 24);
+			this->gestionarPersonalToolStripMenuItem->Text = L"Gestionar Personal";
+			this->gestionarPersonalToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmGerente::gestionarPersonalToolStripMenuItem_Click);
+			// 
 			// frmGerente
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->ClientSize = System::Drawing::Size(1318, 884);
+			this->BackColor = System::Drawing::Color::GhostWhite;
+			this->ClientSize = System::Drawing::Size(1830, 848);
+			this->Controls->Add(this->gbMenu);
 			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->menuStrip1);
+			this->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"frmGerente";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"frmGerente";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmGerente::frmGerente_Load);
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
-			this->gbFormulario->ResumeLayout(false);
-			this->gbFormulario->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->gbMenu->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEstablecerMenu))->EndInit();
 			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -602,7 +434,6 @@ namespace RAMFoodView {
 		}
 	private: System::Void frmGerente_Load(System::Object^ sender, System::EventArgs^ e) {
 		updateLabel();
-		this->gbFormulario->Visible = false;
 		this->gbMenu->Visible = false;
 	}
 
@@ -618,19 +449,6 @@ namespace RAMFoodView {
 		esp32->setStatus(0);
 		updateLabel();
 	}
-	private: void mostrarGrilla(List<PlatoBebidaMenu^>^ listaPlatoBebidaMostrar) {
-		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
-		for (int i = 0; i < listaPlatoBebidaMostrar->Count; i++) {
-			PlatoBebidaMenu^ objPlatoBebida = listaPlatoBebidaMostrar[i];
-			array<String^>^ filaGrilla = gcnew array<String^>(4);
-			filaGrilla[0] = Convert::ToString(objPlatoBebida->GetId());
-			filaGrilla[1] = objPlatoBebida->GetNombre();
-			filaGrilla[2] = Convert::ToString(objPlatoBebida->GetPrecio());
-			filaGrilla[3] = Convert::ToString(objPlatoBebida->GetTipo());
-
-			this->dataGridView1->Rows->Add(filaGrilla);
-		}
-	}
 	public: void mostrarGrilla_GestionarMenu(List<PlatoBebidaMenu^>^ listaPlatoBebidaMostrar) {
 		this->dgvEstablecerMenu->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 		for (int i = 0; i < listaPlatoBebidaMostrar->Count; i++) {
@@ -644,61 +462,22 @@ namespace RAMFoodView {
 			this->dgvEstablecerMenu->Rows->Add(filaGrilla);
 		}
 	}
-	private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::EventArgs^ e) {
-		PlatoBebidaMenu^ objBebidaPlato = gcnew PlatoBebidaMenu();;
-		objBebidaPlato->SetNombre(this->lbProductName->Text);
-		objBebidaPlato->SetId(Convert::ToInt32(this->lbId->Text));
-		objBebidaPlato->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
-		objBebidaPlato->SetTipo(Convert::ToInt32(this->lbTipo->Text));
-		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-		objController->AddPlatoBebidaMenu(objBebidaPlato);
-		List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->buscarTodas();
-		mostrarGrilla(listaPlatosBebidas);
-	}
-	private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
-		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-		objController->EliminarPlatoBebida(codigoEliminar);
-		List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->buscarTodas();
-		mostrarGrilla(listaPlatosBebidas);
-	}
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
-
-	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-		int codigoActualizar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-		PlatoBebidaMenu^ objPlatoBebidaMenu = objController->QueryProductById(codigoActualizar);
-		this->lbProductName->Text = objPlatoBebidaMenu->GetNombre();
-		this->lbPrecio->Text = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
-		this->lbId->Text = Convert::ToString(objPlatoBebidaMenu->GetId());
-		this->lbTipo->Text = Convert::ToString(objPlatoBebidaMenu->GetTipo());
-	}
-	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
-		PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu();
-		objPlatoBebidaMenu->SetNombre(this->lbProductName->Text);
-		objPlatoBebidaMenu->SetId(Convert::ToInt32(this->lbId->Text));
-		objPlatoBebidaMenu->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
-		objPlatoBebidaMenu->SetTipo(Convert::ToInt32(this->lbTipo->Text));
-		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-		objController->UpdateProduct(objPlatoBebidaMenu);
-		List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->buscarTodas();
-		mostrarGrilla(listaPlatosBebidas);
-	}
 	private: System::Void gbFormulario_Enter(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void bttnEstablecerMenu_click(System::Object^ sender, System::EventArgs^ e) {
-		this->gbFormulario->Visible = false;
+		//this->gbFormulario->Visible = false;
 		this->gbMenu->Visible = true;
+		frmGerenteEstablecerMenu ^ ventanaEstablecerMenu = gcnew frmGerenteEstablecerMenu();
+ventanaEstablecerMenu->ShowDialog();
 	}
 	private: System::Void bttnGestionarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->gbFormulario->Visible = true;
+		//this->gbFormulario->Visible = true;
 		this->gbMenu->Visible = false;
+		frmGerenteGestionarProductos^ ventanaGestionarProductos = gcnew frmGerenteGestionarProductos();
+		ventanaGestionarProductos->ShowDialog();
 	}
 	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
-		frmGerenteGestionarProductos^ Ventana2 = gcnew frmGerenteGestionarProductos();
+		frmGerenteBuscarProductosMenu^ Ventana2 = gcnew frmGerenteBuscarProductosMenu();
 		Ventana2->ShowDialog();
 		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
 		List<PlatoBebidaMenu^>^ productList = objController->QueryAllProductFromDailyMenu();
@@ -716,5 +495,11 @@ namespace RAMFoodView {
 		frmGerenteGestionarPersonal^ ventana = gcnew frmGerenteGestionarPersonal();
 		ventana->ShowDialog();
 	}
+private: System::Void gestionarPersonalToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmGerenteGestionarPersonal^ ventana = gcnew frmGerenteGestionarPersonal();
+	ventana->ShowDialog();
+}
+private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

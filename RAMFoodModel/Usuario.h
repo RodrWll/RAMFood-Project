@@ -23,7 +23,7 @@ namespace RAMFoodModel {
 		String^ GetApellidoPat();
 		void SetApellidoMat(String^ ApellidoMat);
 		String^ GetApellidoMat();
-		void SetId();
+		void SetId(int Id);
 		int GetId();
 		void SetContrasenha(String^ Contrasenha);
 		String^ GetContrasenha();

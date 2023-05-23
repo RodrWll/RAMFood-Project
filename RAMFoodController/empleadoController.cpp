@@ -8,17 +8,13 @@ using namespace System;
 using namespace System::IO;
 
 UsuarioController::UsuarioController() {
-	//ListaUsuarios = gcnew List<Usuario^>();
 }
 
 //Usuario^ dirección al objeto de tipo Usuario
 //List<>^ dirección al objeto de tipo List
 //List<Usuario^>^ esto es un puntero a un objeto de tipo Lista que tiene direcciones de objetos de tipo Usuario.
 
-List<Usuario^>^ UsuarioController::ObtenerInfoUsuario()
-{
-	throw gcnew System::NotImplementedException();
-}
+
 List<Usuario^>^ UsuarioController::leerArchivo()
 {
 	//Se lee el archivo y se almacena en un arreglo de String
@@ -135,25 +131,43 @@ List<Usuario^>^ UsuarioController::QuerryUsuarioByNombrexTipo(String^ Nombre, in
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
-		if(Tipo !=0 && Nombre != "") {
-		
+		if (Tipo == 0) {
+			listaUsuariosEncontrados = QueryUsuarioByNombre(Nombre);
+		}
+		else
+		{
 			if (listaUsuarios[i]->GetTipo() == Tipo && listaUsuarios[i]->GetNombreUsuario()->Contains(Nombre))
 			{
 				listaUsuariosEncontrados->Add(listaUsuarios[i]);
 			}
-		}
-		else {
-			if (Tipo == 0 && Nombre!="") {
-				listaUsuariosEncontrados = QueryUsuarioByNombre(Nombre);
-			}
-			if (Tipo != 0 && Nombre == "") {
-				listaUsuariosEncontrados = QueryUsuarioByTipo(Tipo);
-			}
-		}
-		
+		}	
 	}
 	return listaUsuariosEncontrados;
 	
+}
+List<int>^ UsuarioController::ListaIdUsuarios(List<Usuario^>^ ListaUsuarios)
+{
+	List<int>^ listaIdUsuarios = gcnew List<int>();
+	for (int i = 0; i < ListaUsuarios->Count; i++)
+	{
+		listaIdUsuarios->Add(ListaUsuarios[i]->GetId());
+	}
+	return listaIdUsuarios;
+}
+int UsuarioController::VerificaExistenciaUsuario(int Id)
+{
+	int existe = 0;
+
+	List<Usuario^>^ listaUsuarios = leerArchivo();
+	for (int i = 0; i < listaUsuarios->Count; i++)
+	{
+		if (listaUsuarios[i]->GetId() == Id)
+		{
+			existe = 1;
+			break;
+		}
+	}
+	return existe;
 }
 List<Usuario^>^ UsuarioController::QueryUsuarioByApellido(String^ Apellido)
 {
@@ -177,6 +191,21 @@ void UsuarioController::generarCorreo(Usuario^ objUsuario)
 	apelldioMat = apelldioMat->ToLower();
 	String^ correo = apellidoPat + apelldioMat + "@RAMFood.com";
 	objUsuario->SetCorreo(correo);
+}
+void UsuarioController::generarId(Usuario^ objUsuario)
+{
+	int nextId = 1;
+	List<int>^ existingIds = ListaIdUsuarios(leerArchivo());
+	existingIds->Sort();
+	for (int i = 0; i < existingIds->Count; i++)
+	{
+		if (existingIds[i] != nextId)
+		{
+			break;
+		}
+		nextId++;
+	}
+	objUsuario->SetId(nextId);
 }
 void UsuarioController::generarContrasenha(Usuario^ objUsuario)
 {

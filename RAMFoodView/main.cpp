@@ -3,7 +3,7 @@
 
 #include "frmAsistente.h"
 #include "frmChef.h"
-#include "frmGerenteGestionarProductos.h"
+#include "frmGerenteBuscarProductosMenu.h"
 #include "frmComensalPedidoGenerado.h"
 #include "frmGerente.h"
 #include "frmComensalGenerarPedido.h"

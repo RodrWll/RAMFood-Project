@@ -5,7 +5,6 @@ namespace RAMFoodController {
 	public ref class UsuarioController {
 	public:
 		UsuarioController();
-		List<Usuario^>^ ObtenerInfoUsuario();
 		void escribirArchivo(List<Usuario^>^ ListaUsuarios);
 		List<Usuario^>^ leerArchivo();
 		void AddUsuario(Usuario^ objUsuario);
@@ -16,7 +15,10 @@ namespace RAMFoodController {
 		List<Usuario^>^ QueryUsuarioByApellido(String^ Apellido);
 		void generarContrasenha(Usuario^ objUsuario);
 		void generarCorreo(Usuario^ objUsuario);
+		void generarId(Usuario^ objUsuario);
 		List<Usuario^>^ QueryUsuarioByTipo(int Tipo);
 		List<Usuario^>^ QuerryUsuarioByNombrexTipo(String^ Nombre, int Tipo);
+		List<int>^ ListaIdUsuarios(List<Usuario^>^ ListaUsuarios);
+		int VerificaExistenciaUsuario(int Id );
 	};
 }

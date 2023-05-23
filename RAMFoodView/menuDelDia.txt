@@ -1,3 +1,6 @@
 9;Papa Rellena;15.6;1
 7;Chicharron de Pescado;25.7;1
-2;Lomo Saltado;30.5;1
+1;Ceviche;25;1
+4;Chaufa;23.3;1
+6;Chicharron de Cerdo;31.2;1
+11;Arroz con pollo;27.5;2

@@ -48,10 +48,9 @@ String^ RAMFoodModel::Usuario::GetApellidoMat()
 }
 
 
-void RAMFoodModel::Usuario::SetId()
+void RAMFoodModel::Usuario::SetId(int Id)
 {
-	static int contador = 0;
-	this->Id = contador++;
+	this->Id = Id;
 }
 
 int RAMFoodModel::Usuario::GetId()

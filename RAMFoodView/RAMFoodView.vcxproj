@@ -135,7 +135,9 @@
     <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
     <ClCompile Include="frmGerente.cpp" />
     <ClCompile Include="frmGerenteAgregarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteBuscarProductosMenu.cpp" />
     <ClCompile Include="frmGerenteEditarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteEstablecerMenu.cpp" />
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
     <ClCompile Include="main.cpp" />
@@ -181,7 +183,13 @@
     <ClInclude Include="frmGerenteAgregarEmpleado.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmGerenteBuscarProductosMenu.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmGerenteEditarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEstablecerMenu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmGerenteGestionarPersonal.h">
@@ -216,8 +224,14 @@
     <EmbeddedResource Include="frmGerenteAgregarEmpleado.resx">
       <DependentUpon>frmGerenteAgregarEmpleado.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteBuscarProductosMenu.resx">
+      <DependentUpon>frmGerenteBuscarProductosMenu.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGerenteEditarEmpleado.resx">
       <DependentUpon>frmGerenteEditarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteEstablecerMenu.resx">
+      <DependentUpon>frmGerenteEstablecerMenu.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerenteGestionarPersonal.resx">
       <DependentUpon>frmGerenteGestionarPersonal.h</DependentUpon>
