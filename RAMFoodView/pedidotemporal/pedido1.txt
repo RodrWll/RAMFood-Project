@@ -1,5 +1,6 @@
-Perito;1;6.5
-Gatito;1;4.1
+Perito;1;650
+Milanesa;1;300
 Bebidas
-Pepsi;1;4.1
-Guarana;1;5
+Inca Kola;2;1460
+Pepsi;2;820
+KR;2;600
