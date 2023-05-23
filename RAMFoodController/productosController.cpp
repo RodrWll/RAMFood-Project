@@ -7,7 +7,6 @@ using namespace System::IO;
 productoController::productoController()
 {
 }
-
 List<PlatoBebidaMenu^>^ productoController::listarProductos()
 {
 	List<PlatoBebidaMenu^>^ listaProductos = gcnew List<PlatoBebidaMenu^>();
