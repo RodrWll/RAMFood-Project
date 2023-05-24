@@ -24,6 +24,9 @@
     <ClInclude Include="productosController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LogueoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BebidaPlatosController.cpp">
@@ -33,6 +36,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="productosController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogueoController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

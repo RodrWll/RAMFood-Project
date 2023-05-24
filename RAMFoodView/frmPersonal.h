@@ -9,6 +9,7 @@ namespace RAMFoodView {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
@@ -184,35 +185,7 @@ namespace RAMFoodView {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ usuarioIngresar = this->textBox1->Text; // Obtener el nombre de usuario ingresado
-		String^ contrasenaIngresar = this->textBox2->Text;
-		UsuarioController^ ObjUsuarioController = gcnew UsuarioController();
-		bool credencialesValidas = ObjUsuarioController->VerificarCredenciales(usuarioIngresar, contrasenaIngresar);
-
-		if (credencialesValidas) {
-			// Las credenciales son válidas, abrir la ventana correspondiente
-
-			String^ UsuarioIngresado = usuarioIngresar;
-			if (UsuarioIngresado == "Cerdo") {
-				frmGerente^ ventanaGerente = gcnew frmGerente();
-				this->Close();
-				ventanaGerente->ShowDialog();
-			}
-			else if (UsuarioIngresado == "Asistonto") {
-				frmAsistente^ ventanaAsistente = gcnew frmAsistente();
-				ventanaAsistente->ShowDialog();
-			}
-			else if (UsuarioIngresado == "Rata") {
-				frmChef^ ventanaChef = gcnew frmChef();
-				ventanaChef->ShowDialog();
-			}
-
-		}
-		else {
-			// Las credenciales son inválidas, mostrar un mensaje de error
-			MessageBox::Show("Credenciales inválidas. Por favor, inténtalo de nuevo.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
-
+		
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
