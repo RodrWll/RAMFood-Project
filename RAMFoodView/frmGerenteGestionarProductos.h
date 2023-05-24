@@ -10,6 +10,7 @@ namespace RAMFoodView {
 	using namespace System::Drawing;
 	using namespace RAMFoodController;
 	using namespace RAMFoodModel;
+	using namespace RAMFoodView;
 	using namespace System::Collections::Generic;
 
 	/// <summary>
@@ -37,261 +38,531 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::GroupBox^ gbFormulario;
 	protected:
-	private: System::Windows::Forms::Button^ button2;
+
+	private: System::Windows::Forms::Button^ button10;
+	private: System::Windows::Forms::Button^ btnAddBebidaPlato;
+	private: System::Windows::Forms::Button^ button8;
+	private: System::Windows::Forms::Button^ button7;
+
+	private: System::Windows::Forms::TextBox^ lbPrecio;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::TextBox^ lbProductName;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
+
+
+
+	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::DataGridView^ dgvProductosEncontrados;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ button2;
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::TextBox^ lbNombreProducto;
 
-	private: System::Windows::Forms::TextBox^ lbIdProducto;
 
-	private: System::Windows::Forms::Label^ label6;
+
+
+
+
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteGestionarProductos::typeid));
+			this->gbFormulario = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->dgvProductosEncontrados = (gcnew System::Windows::Forms::DataGridView());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->lbNombreProducto = (gcnew System::Windows::Forms::TextBox());
-			this->lbIdProducto = (gcnew System::Windows::Forms::TextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProductosEncontrados))->BeginInit();
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->btnAddBebidaPlato = (gcnew System::Windows::Forms::Button());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->lbPrecio = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->lbProductName = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->gbFormulario->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// button3
+			// gbFormulario
 			// 
-			this->button3->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->gbFormulario->BackColor = System::Drawing::Color::CadetBlue;
+			this->gbFormulario->Controls->Add(this->textBox1);
+			this->gbFormulario->Controls->Add(this->label1);
+			this->gbFormulario->Controls->Add(this->button1);
+			this->gbFormulario->Controls->Add(this->comboBox1);
+			this->gbFormulario->Controls->Add(this->btnAddBebidaPlato);
+			this->gbFormulario->Controls->Add(this->button7);
+			this->gbFormulario->Controls->Add(this->lbPrecio);
+			this->gbFormulario->Controls->Add(this->label4);
+			this->gbFormulario->Controls->Add(this->label3);
+			this->gbFormulario->Controls->Add(this->lbProductName);
+			this->gbFormulario->Controls->Add(this->label2);
+			this->gbFormulario->Location = System::Drawing::Point(16, 15);
+			this->gbFormulario->Margin = System::Windows::Forms::Padding(4);
+			this->gbFormulario->Name = L"gbFormulario";
+			this->gbFormulario->Padding = System::Windows::Forms::Padding(4);
+			this->gbFormulario->Size = System::Drawing::Size(603, 665);
+			this->gbFormulario->TabIndex = 7;
+			this->gbFormulario->TabStop = false;
+			this->gbFormulario->Text = L"Datos del producto:";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Enabled = false;
+			this->textBox1->Location = System::Drawing::Point(316, 205);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(78, 28);
+			this->textBox1->TabIndex = 18;
+			this->textBox1->Visible = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(334, 171);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(126, 33);
-			this->button3->TabIndex = 19;
-			this->button3->Text = L"Agregar";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button3_Click);
-			// 
-			// button2
-			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(527, 171);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(126, 33);
-			this->button2->TabIndex = 18;
-			this->button2->Text = L"Salir";
-			this->button2->UseVisualStyleBackColor = true;
+			this->label1->Location = System::Drawing::Point(43, 213);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(33, 20);
+			this->label1->TabIndex = 17;
+			this->label1->Text = L"Id:";
+			this->label1->Visible = false;
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(152, 171);
+			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button1->Location = System::Drawing::Point(63, 266);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(126, 33);
-			this->button1->TabIndex = 17;
-			this->button1->Text = L"Buscar";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Size = System::Drawing::Size(148, 46);
+			this->button1->TabIndex = 16;
+			this->button1->Text = L"Vaciar";
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button1_Click);
 			// 
-			// dgvProductosEncontrados
+			// comboBox1
 			// 
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(316, 143);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(209, 28);
+			this->comboBox1->TabIndex = 15;
+			// 
+			// btnAddBebidaPlato
+			// 
+			this->btnAddBebidaPlato->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->btnAddBebidaPlato->Location = System::Drawing::Point(296, 266);
+			this->btnAddBebidaPlato->Margin = System::Windows::Forms::Padding(4);
+			this->btnAddBebidaPlato->Name = L"btnAddBebidaPlato";
+			this->btnAddBebidaPlato->Size = System::Drawing::Size(166, 46);
+			this->btnAddBebidaPlato->TabIndex = 11;
+			this->btnAddBebidaPlato->Text = L"Agregar";
+			this->btnAddBebidaPlato->UseVisualStyleBackColor = false;
+			this->btnAddBebidaPlato->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::btnAddBebidaPlato_Click);
+			// 
+			// button7
+			// 
+			this->button7->Location = System::Drawing::Point(217, 545);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(148, 40);
+			this->button7->TabIndex = 9;
+			this->button7->Text = L"IMAGEN";
+			this->button7->UseVisualStyleBackColor = true;
+			// 
+			// lbPrecio
+			// 
+			this->lbPrecio->Location = System::Drawing::Point(316, 96);
+			this->lbPrecio->Margin = System::Windows::Forms::Padding(4);
+			this->lbPrecio->Name = L"lbPrecio";
+			this->lbPrecio->Size = System::Drawing::Size(209, 28);
+			this->lbPrecio->TabIndex = 6;
+			this->lbPrecio->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &frmGerenteGestionarProductos::lbPrecio_KeyPress);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgvProductosEncontrados->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this->dgvProductosEncontrados->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvProductosEncontrados->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->Column5,
-					this->Column6, this->Column7, this->Column8
+			this->label4->Location = System::Drawing::Point(44, 151);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(212, 20);
+			this->label4->TabIndex = 5;
+			this->label4->Text = L"Tipo Bebida/Comida:";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(43, 104);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(77, 20);
+			this->label3->TabIndex = 4;
+			this->label3->Text = L"Precio:";
+			// 
+			// lbProductName
+			// 
+			this->lbProductName->Location = System::Drawing::Point(316, 39);
+			this->lbProductName->Margin = System::Windows::Forms::Padding(4);
+			this->lbProductName->Name = L"lbProductName";
+			this->lbProductName->Size = System::Drawing::Size(209, 28);
+			this->lbProductName->TabIndex = 3;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(43, 47);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(228, 20);
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"Nombre del Producto: ";
+			// 
+			// button10
+			// 
+			this->button10->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button10->Location = System::Drawing::Point(666, 185);
+			this->button10->Margin = System::Windows::Forms::Padding(4);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(166, 46);
+			this->button10->TabIndex = 12;
+			this->button10->Text = L"ACTUALIZAR";
+			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button10_Click_1);
+			// 
+			// button8
+			// 
+			this->button8->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button8->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button8->FlatAppearance->BorderSize = 0;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->Location = System::Drawing::Point(666, 84);
+			this->button8->Margin = System::Windows::Forms::Padding(4);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(166, 46);
+			this->button8->TabIndex = 10;
+			this->button8->Text = L"ELIMINAR";
+			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button8_Click);
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::CadetBlue;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				this->Column4,
+					this->Column1, this->Column2, this->Column3
 			});
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dgvProductosEncontrados->DefaultCellStyle = dataGridViewCellStyle2;
-			this->dgvProductosEncontrados->GridColor = System::Drawing::SystemColors::Highlight;
-			this->dgvProductosEncontrados->Location = System::Drawing::Point(43, 227);
-			this->dgvProductosEncontrados->Name = L"dgvProductosEncontrados";
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgvProductosEncontrados->RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this->dgvProductosEncontrados->RowHeadersWidth = 51;
-			this->dgvProductosEncontrados->RowTemplate->Height = 24;
-			this->dgvProductosEncontrados->Size = System::Drawing::Size(706, 256);
-			this->dgvProductosEncontrados->TabIndex = 16;
+			this->dataGridView1->GridColor = System::Drawing::Color::PaleTurquoise;
+			this->dataGridView1->Location = System::Drawing::Point(881, 44);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->MultiSelect = false;
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->RowTemplate->Height = 24;
+			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dataGridView1->Size = System::Drawing::Size(454, 457);
+			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteGestionarProductos::dataGridView1_CellClick);
 			// 
-			// Column5
+			// Column4
 			// 
-			this->Column5->HeaderText = L"Id";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 70;
+			this->Column4->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
+			this->Column4->HeaderText = L"Id";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			this->Column4->Width = 54;
 			// 
-			// Column6
+			// Column1
 			// 
-			this->Column6->HeaderText = L"Nombre";
-			this->Column6->MinimumWidth = 6;
-			this->Column6->Name = L"Column6";
-			this->Column6->Width = 350;
+			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
+			this->Column1->HeaderText = L"Nombre";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			this->Column1->Width = 109;
 			// 
-			// Column7
+			// Column2
 			// 
-			this->Column7->HeaderText = L"Precio";
-			this->Column7->MinimumWidth = 6;
-			this->Column7->Name = L"Column7";
-			this->Column7->Width = 125;
+			this->Column2->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
+			this->Column2->HeaderText = L"Precio";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			this->Column2->Width = 94;
 			// 
-			// Column8
+			// Column3
 			// 
-			this->Column8->HeaderText = L"Tipo";
-			this->Column8->MinimumWidth = 6;
-			this->Column8->Name = L"Column8";
-			this->Column8->Width = 125;
+			this->Column3->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
+			this->Column3->HeaderText = L"Tipo";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			this->Column3->Width = 75;
 			// 
-			// label7
+			// button2
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(149, 106);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(146, 16);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"Nombre/Descripcion";
-			// 
-			// lbNombreProducto
-			// 
-			this->lbNombreProducto->Location = System::Drawing::Point(346, 109);
-			this->lbNombreProducto->Name = L"lbNombreProducto";
-			this->lbNombreProducto->Size = System::Drawing::Size(237, 22);
-			this->lbNombreProducto->TabIndex = 14;
-			// 
-			// lbIdProducto
-			// 
-			this->lbIdProducto->Location = System::Drawing::Point(346, 57);
-			this->lbIdProducto->Name = L"lbIdProducto";
-			this->lbIdProducto->Size = System::Drawing::Size(237, 22);
-			this->lbIdProducto->TabIndex = 13;
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(149, 60);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(83, 16);
-			this->label6->TabIndex = 12;
-			this->label6->Text = L"Id Producto";
+			this->button2->Location = System::Drawing::Point(1128, 640);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(148, 40);
+			this->button2->TabIndex = 13;
+			this->button2->Text = L"REGRESAR";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button2_Click);
 			// 
 			// frmGerenteGestionarProductos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(804, 528);
-			this->Controls->Add(this->button3);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
+			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
+				static_cast<System::Int32>(static_cast<System::Byte>(144)));
+			this->ClientSize = System::Drawing::Size(1362, 733);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->dgvProductosEncontrados);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->lbNombreProducto);
-			this->Controls->Add(this->lbIdProducto);
-			this->Controls->Add(this->label6);
+			this->Controls->Add(this->gbFormulario);
+			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->button10);
+			this->Controls->Add(this->button8);
+			this->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmGerenteGestionarProductos";
-			this->Text = L"Gestionar Productos para el menú";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"Gestionar productos";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::frmGerenteGestionarProductos_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProductosEncontrados))->EndInit();
+			this->gbFormulario->ResumeLayout(false);
+			this->gbFormulario->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (lbIdProducto->Text->Trim() != "") {
-			//Búsqueda de producto por el código ingresado por el usuario
-			BebidaPlatosController^ objController;
-			PlatoBebidaMenu^ ojbPlatoBebidaMenu = objController->QueryProductById(Convert::ToInt32(lbIdProducto->Text->Trim()));
-			//Se borran los datos del grid.
-			this->dgvProductosEncontrados->Rows->Clear();
-			this->dgvProductosEncontrados->Rows->Add(gcnew array<String^> {
-				"" + Convert::ToString(ojbPlatoBebidaMenu->GetId()),
-					ojbPlatoBebidaMenu->GetNombre(),
-					Convert::ToString(ojbPlatoBebidaMenu->GetPrecio()),
-					Convert::ToString(ojbPlatoBebidaMenu->GetTipo())
-			});
+private: void Actualizar() {
+	productoController^ objController = gcnew productoController();
+	List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->listarProductos();
+	mostrarGrilla(listaPlatosBebidas);
+
+}
+private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
+	Actualizar();
+	this->comboBox1->Items->Clear();
+	this->comboBox1->Items->Add("");
+	this->comboBox1->Items->Add("Bebida");
+	this->comboBox1->Items->Add("Comida");
+	this->button10->Enabled = false;
+}
+private: void mostrarGrilla(List<PlatoBebidaMenu^>^ listaPlatoBebidaMostrar) {
+	this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+	for (int i = 0; i < listaPlatoBebidaMostrar->Count; i++) {
+		PlatoBebidaMenu^ objPlatoBebida = listaPlatoBebidaMostrar[i];
+		array<String^>^ filaGrilla = gcnew array<String^>(4);
+		filaGrilla[0] = Convert::ToString(objPlatoBebida->GetId());
+		filaGrilla[1] = objPlatoBebida->GetNombre();
+		filaGrilla[2] = Convert::ToString(objPlatoBebida->GetPrecio());
+		if (objPlatoBebida->GetTipo()==1) {
+			filaGrilla[3] = "Bebida";
 		}
-		else {
-			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
-			BebidaPlatosController^ objController;
-			List<PlatoBebidaMenu^>^ productList = objController->BuscarProductoPorNombre(lbNombreProducto->Text->Trim());
-			//Se borran los datos del grid.
-			this->dgvProductosEncontrados->Rows->Clear();
-			for (int i = 0; i < productList->Count; i++) {
-				dgvProductosEncontrados->Rows->Add(gcnew array<String^> {
-					"" + Convert::ToString(productList[i]->GetId()),
-						productList[i]->GetNombre(),
-						Convert::ToString(productList[i]->GetPrecio()),
-						Convert::ToString(productList[i]->GetTipo())
-				});
+		else if (objPlatoBebida->GetTipo()==2)
+		{
+			filaGrilla[3] = "Comida";
+		}
+		this->dataGridView1->Rows->Add(filaGrilla);
+	}
+}
+private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	clearInputs();
+	//esta funcion sirve para que cuando se seleccione una fila de la grilla, se muestre en los labels de la derecha
+	//como evitar que se seleccione una celda? 
+	this->label1->Visible = false;
+	this->textBox1->Visible = false;
+	this->button10->Enabled = false;
+	this->btnAddBebidaPlato->Enabled = true;
+	// Verificar si se ha seleccionado una fila
+	if (e->RowIndex >= 0 && e->RowIndex < dataGridView1->Rows->Count)
+	{
+		// Acceder a la fila seleccionada
+		DataGridViewRow^ selectedRow = dataGridView1->Rows[e->RowIndex];
+
+		// Realizar operaciones con la fila seleccionada
+		// ...
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		if (!selectedRow->IsNewRow) {
+			int codigoActualizar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+			productoController^ objController = gcnew productoController();
+			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			this->lbProductName->Text = objPlatoBebidaMenu->GetNombre();
+			this->lbPrecio->Text = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
+			this->comboBox1->SelectedIndex = objPlatoBebidaMenu->GetTipo();
+			this->label1->Visible = true;
+			this->textBox1->Visible = true;
+			this->textBox1->Text = Convert::ToString(objPlatoBebidaMenu->GetId());
+			this->button10->Enabled = true;
+			this->btnAddBebidaPlato->Enabled = false;
+		}
+	}
+}
+private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::EventArgs^ e) {
+	int inputsLlenos = !(this->lbProductName->Text == "" || this->lbPrecio->Text == "" || this->comboBox1->Text == "");
+	//Verificar que los campos no esten vacios
+	if (!inputsLlenos )
+	{
+		MessageBox::Show("Ingrese los datos.");
+	}
+	else
+		if (this->comboBox1->SelectedIndex == 1 || this->comboBox1->SelectedIndex == 2)
+		{
+			productoController^ objProductoController = gcnew productoController();
+			PlatoBebidaMenu^ objBebidaPlato = gcnew PlatoBebidaMenu();;
+			objBebidaPlato->SetNombre(this->lbProductName->Text);
+
+			objBebidaPlato->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
+			objBebidaPlato->SetTipo(this->comboBox1->SelectedIndex);
+			objProductoController->generarIdProductos(objBebidaPlato);
+			objProductoController->addProducto(objBebidaPlato);
+			Actualizar();
+			clearInputs();
+		}else{
+			MessageBox::Show("Ingrese la categoria correcta.");
+	}
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value){
+		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		productoController^ objController = gcnew productoController();
+		objController->deleteProducto(codigoEliminar);
+		Actualizar();
+		clearInputs();
+	}
+	else
+	{
+		MessageBox::Show("Seleccione una fila");
+	}
+}
+	   //Actualizar
+private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+	PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu();
+	objPlatoBebidaMenu->SetNombre(this->lbProductName->Text);
+	objPlatoBebidaMenu->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
+	BebidaPlatosController^ objController = gcnew BebidaPlatosController();
+	objController->UpdateProduct(objPlatoBebidaMenu);
+	List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->buscarTodas();
+	mostrarGrilla(listaPlatosBebidas);
+}
+
+private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	//btnn actualizar
+	
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+	if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value ) {
+		int inputsLlenos = !(this->lbProductName->Text == "" || this->lbPrecio->Text == "" || (this->comboBox1->SelectedIndex < 0) || this->textBox1->Text == "");
+		if(inputsLlenos){
+			if(this->comboBox1->SelectedIndex==1 || this->comboBox1->SelectedIndex==2)
+			{
+				productoController^ objController = gcnew productoController();
+				PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu();
+				objPlatoBebidaMenu->SetNombre(this->lbProductName->Text);
+ 				objPlatoBebidaMenu->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
+				objPlatoBebidaMenu->SetId(Convert::ToInt32(this->textBox1->Text));
+				objPlatoBebidaMenu->SetTipo(this->comboBox1->SelectedIndex);
+				objController->updateProducto(objPlatoBebidaMenu);
+				Actualizar();
+				clearInputs();
+				btnAddBebidaPlato->Enabled = true;
+				this->label1->Visible = false;
+				this->textBox1->Visible = false;
+				this->button10->Enabled = false;
+			}
+			else {
+				MessageBox::Show("Seleccione un tipo correcto");
 			}
 		}
+		else {
+			MessageBox::Show("Llene toda la informaciï¿½n");
+		}
 	}
-		   //Button agregar Producto al menu diario
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		int filaSeleccionada = this->dgvProductosEncontrados->SelectedRows[0]->Index;
-		int IdProducto = Convert::ToInt32(this->dgvProductosEncontrados->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-		PlatoBebidaMenu^ objPlatoBebidaMenuDiario = objController->QueryProductById(IdProducto);
-		objController->AddProductToDailyMenu(objPlatoBebidaMenuDiario);
-		/*frmGerente^ objFrmGerente = gcnew frmGerente();
-		List<PlatoBebidaMenu^>^ productList = objController->QueryAllProductFromDailyMenu();
-		objFrmGerente->mostrarGrilla_GestionarMenu();*/
+	else {
+		MessageBox::Show("Seleccione una fila");
 	}
-	};
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//borramos los inputs
+	clearInputs();
+	this->label1->Visible = false;
+	this->textBox1->Visible = false;
+	this->button10->Enabled = false;
+	this->btnAddBebidaPlato->Enabled = true;
+}
+private: void clearInputs() {
+	this->lbProductName->Text = "";
+	this->lbPrecio->Text = "";
+	this->comboBox1->SelectedIndex = 0;
+}
+private: System::Void lbPrecio_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	// Verifica si el carï¿½cter ingresado es un nï¿½mero, un punto decimal o la tecla de retroceso
+if (Char::IsDigit(e->KeyChar) || e->KeyChar == '.' || e->KeyChar == (char)Keys::Back)
+	{
+		// Si el carï¿½cter es el punto decimal, verifica que no se haya ingresado anteriormente
+	if (e->KeyChar == '.')
+	{
+		if (this->lbPrecio->Text->Contains("."))
+		{
+			e->Handled = true;
+		}
+		else
+		{
+			e->Handled = false;
+		}
+		}
+		else
+		{
+			e->Handled = false;
+		}
+	}else
+	{
+		e->Handled = true;
+	}
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+};
 }

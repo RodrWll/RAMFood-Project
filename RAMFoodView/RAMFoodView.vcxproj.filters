@@ -24,9 +24,6 @@
     <ClCompile Include="frmChef.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="frmGerenteGestionarProductos.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="frmComensalPedidoGenerado.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -51,15 +48,30 @@
     <ClCompile Include="frmComensalConfirmacionCuenta.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmGerenteGestionarPersonal.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerenteAgregarEmpleado.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerenteEditarEmpleado.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerenteEstablecerMenu.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerenteBuscarProductosMenu.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frmGerenteGestionarProductos.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmChef.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="frmGerenteGestionarProductos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalPedidoGenerado.h">
@@ -84,6 +96,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalConfirmacionCuenta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteGestionarPersonal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteAgregarEmpleado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEditarEmpleado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEstablecerMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteBuscarProductosMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteGestionarProductos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
