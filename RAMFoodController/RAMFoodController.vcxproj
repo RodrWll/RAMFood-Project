@@ -22,12 +22,14 @@
     <ClInclude Include="BebidaPlatosController.h" />
     <ClInclude Include="PedidoController.h" />
     <ClInclude Include="empleadoController.h" />
+    <ClInclude Include="LogueoController.h" />
     <ClInclude Include="productosController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BebidaPlatosController.cpp" />
     <ClCompile Include="PedidoController.cpp" />
     <ClCompile Include="empleadoController.cpp" />
+    <ClCompile Include="LogueoController.cpp" />
     <ClCompile Include="productosController.cpp" />
   </ItemGroup>
   <ItemGroup>
