@@ -27,7 +27,23 @@ namespace RAMFoodView {
 		frmComensalGenerarPedido(void)
 		{
 			InitializeComponent();
-			GenerarResumen();
+			GenerarResumen(0);
+			ActualizarCuenta();
+
+			//
+			//TODO: agregar código de constructor aquí
+			//
+
+
+		}
+		frmComensalGenerarPedido(PedidoMesa^ objPedidoMesa, int numMesa,int tipoResumen)
+		{
+			InitializeComponent();
+			this->numMesa = numMesa;
+			this->frmObjPedidoMesa = gcnew PedidoMesa();
+			this->frmObjPedidoMesa = objPedidoMesa;
+			/*estas funciones van después de declarar los atributos del formulario*/
+			GenerarResumen(tipoResumen);
 			ActualizarCuenta();
 			//
 			//TODO: agregar código de constructor aquí
@@ -41,6 +57,8 @@ namespace RAMFoodView {
 			this->label1->Text = "Cuenta";
 			this->button2->Visible = false;
 			this->button_confirmar->Visible = true;
+
+
 		};
 
 		void ActualizarCuenta() {
@@ -51,28 +69,89 @@ namespace RAMFoodView {
 			};
 			this->label3->Text = "S/. " + Convert::ToString(valor_cuenta);
 		};
-		void GenerarResumen() {
-			BebidaPlatosController^ objControllerBP = gcnew BebidaPlatosController();
-			List<Plato^>^ Lista1 = objControllerBP->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-			List<Bebidas^>^ Lista2 = objControllerBP->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
-			this->dataGridView1->Rows->Clear();
-			for (int i = 0; i < Lista1->Count; i++) {
-				Plato^ p_i = Lista1[i];
-				array<String^>^ FilaGrilla = gcnew array<String^>(3);
-				FilaGrilla[0] = p_i->GetNombre();
-				FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
-				FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
-				this->dataGridView1->Rows->Add(FilaGrilla);
-			};
-			for (int i = 0; i < Lista2->Count; i++) {
-				Bebidas^ p_i = Lista2[i];
-				array<String^>^ FilaGrilla = gcnew array<String^>(3);
-				FilaGrilla[0] = p_i->GetNombre();
-				FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
-				FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
-				this->dataGridView1->Rows->Add(FilaGrilla);
-			};
+		void GenerarResumen(int tipo) {
+			/*si tipo es 0, se genera un resumen de los pedidos que solicito en ese momento
+				si tipo es 1 se hará un resumen con todos los pedidos que ha hecho por la interfaz
+			*/
+			if (tipo == 0) {
+				PedidoController^ objPedidoControllerA = gcnew PedidoController();
+				List<Plato^>^ Lista1 = objPedidoControllerA->LeerPedidosPlato("pedidotemporal//pedido1.txt");
+				List<Bebidas^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+				this->dataGridView1->Rows->Clear();
+				for (int i = 0; i < Lista1->Count; i++) {
+					Plato^ p_i = Lista1[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
+				for (int i = 0; i < Lista2->Count; i++) {
+					Bebidas^ p_i = Lista2[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
 
+			}
+			else if (tipo == 1) {
+				/*codigo para la orden total*/
+				this->Column3->HeaderText = L"Precio Total";
+				PedidoController^ objPedidoController = gcnew PedidoController();
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Bebidas^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				this->dataGridView1->Rows->Clear();
+				for (int i = 0; i < Lista1->Count; i++) {
+					Plato^ p_i = Lista1[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio() * p_i->GetCantidadPedida());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
+				for (int i = 0; i < Lista2->Count; i++) {
+					Bebidas^ p_i = Lista2[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio() * p_i->GetCantidadPedida());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
+			}
+			else if (tipo == 2) {
+				this->frmObjPedidoMesa->setReiniciarPedido(0);
+				this->button_confirmar->Visible=false;
+				this->button_confirmar->Enabled = false;
+				this->button2->Visible=false;
+				this->button2->Enabled = false;
+				/*codigo para la orden total*/
+				this->Column3->HeaderText = L"Precio Total";
+				PedidoController^ objPedidoController = gcnew PedidoController();
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Bebidas^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				this->dataGridView1->Rows->Clear();
+				for (int i = 0; i < Lista1->Count; i++) {
+					Plato^ p_i = Lista1[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio() * p_i->GetCantidadPedida());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
+				for (int i = 0; i < Lista2->Count; i++) {
+					Bebidas^ p_i = Lista2[i];
+					array<String^>^ FilaGrilla = gcnew array<String^>(3);
+					FilaGrilla[0] = p_i->GetNombre();
+					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
+					FilaGrilla[2] = Convert::ToString(p_i->GetPrecio() * p_i->GetCantidadPedida());
+					this->dataGridView1->Rows->Add(FilaGrilla);
+				};
+			}
+			else {
+				MessageBox::Show("Error, especificar el tipo de cuenta que requiere ver");
+			};
 		};
 	protected:
 		/// <summary>
@@ -91,15 +170,19 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Button^ BotonAtras;
 
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+
+
+
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button_confirmar;
-
+	private: PedidoMesa^ frmObjPedidoMesa;
+	private: int numMesa;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 
 	private:
 		/// <summary>
@@ -115,6 +198,7 @@ namespace RAMFoodView {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button_confirmar = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -125,7 +209,6 @@ namespace RAMFoodView {
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button_confirmar = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -150,6 +233,17 @@ namespace RAMFoodView {
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"RESUMEN";
+			// 
+			// button_confirmar
+			// 
+			this->button_confirmar->Location = System::Drawing::Point(680, 440);
+			this->button_confirmar->Name = L"button_confirmar";
+			this->button_confirmar->Size = System::Drawing::Size(128, 40);
+			this->button_confirmar->TabIndex = 5;
+			this->button_confirmar->Text = L"Confirmar";
+			this->button_confirmar->UseVisualStyleBackColor = true;
+			this->button_confirmar->Visible = false;
+			this->button_confirmar->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::button1_Click_1);
 			// 
 			// button2
 			// 
@@ -177,7 +271,7 @@ namespace RAMFoodView {
 			this->groupBox2->Size = System::Drawing::Size(201, 63);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"CUENTA FINAL";
+			this->groupBox2->Text = L"CUENTA ";
 			// 
 			// label3
 			// 
@@ -251,7 +345,7 @@ namespace RAMFoodView {
 			// 
 			// Column3
 			// 
-			this->Column3->HeaderText = L"Precio";
+			this->Column3->HeaderText = L"Precio / Unidad";
 			this->Column3->MinimumWidth = 6;
 			this->Column3->Name = L"Column3";
 			this->Column3->ReadOnly = true;
@@ -269,17 +363,6 @@ namespace RAMFoodView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Resumen del pedido";
 			this->label1->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::label1_Click);
-			// 
-			// button_confirmar
-			// 
-			this->button_confirmar->Location = System::Drawing::Point(680, 438);
-			this->button_confirmar->Name = L"button_confirmar";
-			this->button_confirmar->Size = System::Drawing::Size(128, 40);
-			this->button_confirmar->TabIndex = 5;
-			this->button_confirmar->Text = L"Confirmar";
-			this->button_confirmar->UseVisualStyleBackColor = true;
-			this->button_confirmar->Visible = false;
-			this->button_confirmar->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::button1_Click_1);
 			// 
 			// frmComensalGenerarPedido
 			// 
@@ -303,37 +386,39 @@ namespace RAMFoodView {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->frmObjPedidoMesa->setReiniciarPedido(0);
 		this->Close();
-		//FV_Mesa_GenerarPedido_1^ parent = gcnew FV_Mesa_GenerarPedido_1();
-
-
-		//FV_Mesa_GenerarPedido_1^ Ventana1Tipo1 = getP;
-		//Ventana1Tipo1->Show();	
-		/*
-		this->Close();
-		FV_Mesa_GenerarPedido_1^ ventana_1 = gcnew FV_Mesa_GenerarPedido_1();
-
-		ventana_1->Show();
-		*/
 	}
 
 	private: System::Void frmComensalGenerarPedido_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		BebidaPlatosController^ objBPC = gcnew BebidaPlatosController();
-		objBPC->Escribir_archivo("estado_pedido", 1);
 
-		this->Close();
+		PedidoController^ objPedidoControllerB = gcnew PedidoController();
+		objPedidoControllerB->escribirArchivo("estado_pedido", 1);
+		this->frmObjPedidoMesa->setReiniciarPedido(1);
+		PedidoController^ objPedidoController = gcnew PedidoController();
+		objPedidoController->guardarPedido(this->numMesa);
+		//objPedidoController->guardarPedidoFormatoAsistente(this->numMesa);
+		
 		frmComensalPedidoGenerado^ ventana3 = gcnew frmComensalPedidoGenerado();
+		
 		ventana3->ShowDialog();
+		this->Close();
+
 	}
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+
 		frmComensalConfirmacionCuenta^ ventana_confirmacion = gcnew frmComensalConfirmacionCuenta();
-		this->Close();
+		PedidoController^ objPedidoControllerCuentaPagada = gcnew PedidoController();
+		/*en la interfaz las cantidades deben volver a cero*/
+		this->frmObjPedidoMesa->setReiniciarPedido(1);
+		objPedidoControllerCuentaPagada->CuentaPagada();
 		ventana_confirmacion->ShowDialog();
-		
+		this->Close();
+	
 		
 	}
 };

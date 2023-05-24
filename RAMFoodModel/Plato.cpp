@@ -4,14 +4,18 @@ using namespace RAMFoodModel;
 Plato::Plato()
 {
 };
-
+void Plato::SetPrecio(double precio) {
+	this->Precio = precio;
+}
 int Plato::GetCantidadPedida() {
 	return this->CantidadPedida;
 };
 int Plato::GetId() {
 	return this->Id;
 };
-
+void Plato::SetCantidadPedida(int cantidad) {
+	this->CantidadPedida = cantidad;
+};
 Plato::Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Id)
 {
 	this->Nombre = Nombre;
