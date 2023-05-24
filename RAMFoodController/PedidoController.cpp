@@ -16,9 +16,9 @@ List<Bebidas^>^ PedidoController::obtenerInfoBebida() {
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaBebida in lineas) {
 		array<String^>^ datos = lineaBebida->Split(separadores->ToCharArray());
-		double PrecioBebida = Convert::ToDouble(datos[1]);
-		String^ nombre = datos[0];
-		int id = Convert::ToInt32(datos[2]);
+		int id = Convert::ToInt32(datos[0]);
+		String^ nombre = datos[1];
+		double PrecioBebida = Convert::ToDouble(datos[2]);
 		Bebidas^ objBebida = gcnew Bebidas(nombre, PrecioBebida, 1, 0, 0, id);
 		listaBebidasEncontradas->Add(objBebida);
 	}
@@ -31,9 +31,9 @@ List<Plato^>^ PedidoController::obtenerInfoPlato() {
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaPlato in lineas) {
 		array<String^>^ datos = lineaPlato->Split(separadores->ToCharArray());
-		double PrecioPlato = Convert::ToDouble(datos[1]);
-		String^ nombre = datos[0];
-		int id = Convert::ToInt32(datos[2]);
+		int id = Convert::ToInt32(datos[0]);
+		String^ nombre = datos[1];
+		double PrecioPlato = Convert::ToDouble(datos[2]);		
 		Plato^ objPlato = gcnew Plato(nombre, PrecioPlato, 1, 0, id);
 		listaPlatosEncontrados->Add(objPlato);
 	}
@@ -42,8 +42,6 @@ List<Plato^>^ PedidoController::obtenerInfoPlato() {
 
 void PedidoController::escribirPedidos(List<Plato^>^ listaPlatosMesa, List<Bebidas^>^ listaBebidasMesa,
 String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
-
-
 	/*Formando lista con los datos de los platos*/
 
 	List<String^>^ primera_lista = gcnew List<String^>();
@@ -51,8 +49,6 @@ String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
 	String^ es_nuevo_pedido = "1";
 	primera_lista->Add(es_nuevo_pedido);
 	*/
-
-
 	/*for (int numero=0; numero<5;numero++)*/
 	for (int numero = 0; numero < 6; numero++) {
 		if (cantidad_platos[numero] > 0) {
@@ -104,12 +100,8 @@ String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
 		};
 
 	};
-
-
-
 	/*Escribirlas en un archivo, linea por linea*/
 	File::WriteAllLines("pedidotemporal//pedido1.txt", primera_lista);
-
 }
 void PedidoController::escribirArchivo(String^ nombre_archivo, int valor)
 {

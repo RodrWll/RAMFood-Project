@@ -5,3 +5,8 @@
 6;Inka Cola;2.7;1
 5;Estofado;25;2
 7;Coca Cola;3;1
+11;Pepsi;4.1;1
+12;Guarana;5;1
+13;Red Bull;8;1
+14;Limonada;1;1
+8;Chicharron de Pollo;40.5;2
