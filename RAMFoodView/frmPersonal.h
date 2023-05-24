@@ -90,7 +90,6 @@ namespace RAMFoodView {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &frmPersonal::pictureBox1_Click);
 			// 
 			// label1
 			// 
@@ -101,7 +100,6 @@ namespace RAMFoodView {
 			this->label1->Size = System::Drawing::Size(189, 43);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Bienvenido";
-			this->label1->Click += gcnew System::EventHandler(this, &frmPersonal::label1_Click);
 			// 
 			// button1
 			// 
@@ -119,7 +117,6 @@ namespace RAMFoodView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(345, 22);
 			this->textBox1->TabIndex = 5;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &frmPersonal::textBox1_TextChanged);
 			// 
 			// button2
 			// 
@@ -158,7 +155,6 @@ namespace RAMFoodView {
 			this->textBox2->Size = System::Drawing::Size(345, 22);
 			this->textBox2->TabIndex = 10;
 			this->textBox2->UseSystemPasswordChar = true;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &frmPersonal::textBox2_TextChanged);
 			// 
 			// frmPersonal
 			// 
@@ -182,20 +178,45 @@ namespace RAMFoodView {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ correo = textBox1->Text;
+		String^ contrasena = textBox2->Text;
+		LogueoController^ objLogueoController = gcnew LogueoController();
+		if (objLogueoController->VerificarCredenciales(correo,contrasena)) {
+			Usuario^ objUsuario = objLogueoController->ObtenerUsuario(correo, contrasena);
+			frmGerente^ ventanaGerente = gcnew frmGerente();
+			frmAsistente^ ventanaAsistente = gcnew frmAsistente();
+			frmChef^ ventanaChef = gcnew frmChef();
+			switch (objUsuario->GetTipo())
+			{
+			case 1:
+				this->Visible=false;
+				ventanaGerente->ShowDialog();
+				this->Close();
+				break;
+			case 2:
+				
+				this->Visible = false;
+				ventanaAsistente->ShowDialog();
+				this->Close();
+				break;
+			case 3:
+				
+				this->Visible = false;
+				ventanaChef->ShowDialog();
+				this->Close();
+				break;
+			default:
+				break;
+			}
+		}
+		else {
+			MessageBox::Show("Usuario o contraseña incorrectos");
+		}
 		
-	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-
-	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	};
+};
 }
