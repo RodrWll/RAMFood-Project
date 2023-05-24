@@ -37,6 +37,7 @@ List<array<String^>^>^ LogueoController::leerArchivo()
     return listaCredencialesLeer;
 }
 
+
 void LogueoController::AgregarUsuario(String^ CorreoUsuario, String^ Contrasenha) {
     // Agregar el nuevo usuario a la lista de usuarios
 //    Logueo^ LogueoUsuario = gcnew Logueo(CorreoUsuario,Contrasenha);
