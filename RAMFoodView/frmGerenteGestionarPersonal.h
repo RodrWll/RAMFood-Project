@@ -196,32 +196,41 @@ namespace RAMFoodView {
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Location = System::Drawing::Point(12, 272);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(148, 51);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"DESPEDIR";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button1_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(369, 429);
+			this->button3->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Location = System::Drawing::Point(383, 429);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(148, 57);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"AÑADIR";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button3_Click);
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(646, 429);
+			this->button4->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button4->FlatAppearance->BorderSize = 0;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Location = System::Drawing::Point(654, 429);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(148, 57);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"REGRESAR";
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button4_Click);
 			// 
 			// groupBox1
@@ -248,12 +257,15 @@ namespace RAMFoodView {
 			// 
 			// button6
 			// 
+			this->button6->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button6->FlatAppearance->BorderSize = 0;
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button6->Location = System::Drawing::Point(691, 24);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(127, 37);
 			this->button6->TabIndex = 7;
 			this->button6->Text = L"BUSCAR";
-			this->button6->UseVisualStyleBackColor = true;
+			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button6_Click);
 			// 
 			// label2
@@ -283,18 +295,23 @@ namespace RAMFoodView {
 			// 
 			// button5
 			// 
+			this->button5->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button5->FlatAppearance->BorderSize = 0;
+			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button5->Location = System::Drawing::Point(12, 183);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(148, 51);
 			this->button5->TabIndex = 6;
 			this->button5->Text = L"MODIFICAR";
-			this->button5->UseVisualStyleBackColor = true;
+			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button5_Click);
 			// 
 			// frmGerenteGestionarPersonal
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
+				static_cast<System::Int32>(static_cast<System::Byte>(144)));
 			this->ClientSize = System::Drawing::Size(1127, 546);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->groupBox1);

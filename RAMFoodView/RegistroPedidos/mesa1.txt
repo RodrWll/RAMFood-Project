@@ -1,11 +1,1 @@
-1
-Platos
-Lomo Saltado;1
-Chaufa;1
-Arroz con pollo;2
-Estofado;1
-Bebidas
-Pepsi;1
-Guarana;1
-Inka Cola;1
-Coca Cola;1
+vacio

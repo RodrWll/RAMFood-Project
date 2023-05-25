@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="AsistenteController.h" />
     <ClInclude Include="BebidaPlatosController.h" />
+    <ClInclude Include="ChefController.h" />
     <ClInclude Include="PedidoController.h" />
     <ClInclude Include="empleadoController.h" />
     <ClInclude Include="LogueoController.h" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClCompile Include="AsistenteController.cpp" />
     <ClCompile Include="BebidaPlatosController.cpp" />
+    <ClCompile Include="ChefController.cpp" />
     <ClCompile Include="PedidoController.cpp" />
     <ClCompile Include="empleadoController.cpp" />
     <ClCompile Include="LogueoController.cpp" />

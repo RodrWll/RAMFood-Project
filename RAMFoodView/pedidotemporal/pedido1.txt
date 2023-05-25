@@ -1,3 +1,4 @@
 Arroz con pollo;1;40
 Estofado;1;25
+Chaufa de pollo;2;42
 Bebidas
