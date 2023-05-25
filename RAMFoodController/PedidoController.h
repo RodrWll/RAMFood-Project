@@ -24,10 +24,6 @@ namespace RAMFoodController {
 		int cantidad_bebida[], int cantidad_platos[]);
 		void escribirArchivo(String^ nombre_archivo, int valor);
 		array<String^>^ leerArchivo(String^ nombre_archivo);
-
-		List<Bebidas^>^ LeerPedidosBebidasChef(String^ nombre_archivo);
-		List<Plato^>^ LeerPedidosPlatoChef(String^ nombre_archivo);
-
 		int esNuevoPedido(String^ nombre_archivo);
 		
 	};

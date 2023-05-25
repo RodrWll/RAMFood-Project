@@ -1,6 +1,7 @@
-Perito;1;650
+Cuysito;2;1460
+Gatito;2;820
+Pizaa;3;300
 Milanesa;1;300
 Bebidas
-Inca Kola;2;1460
-Pepsi;2;820
-KR;2;600
+Coca Kola;2;1300
+KR;1;300

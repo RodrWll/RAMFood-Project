@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="frmAsistente.cpp" />
     <ClCompile Include="frmChef.cpp" />
+    <ClCompile Include="frmChefConfirmacionDeOrdenTerminada.cpp" />
     <ClCompile Include="frmComensal.cpp" />
     <ClCompile Include="frmComensalAsistenciaSolicitada.cpp" />
     <ClCompile Include="frmComensalConfirmacionCuenta.cpp" />
@@ -149,6 +150,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmChef.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmChefConfirmacionDeOrdenTerminada.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmComensal.h">
@@ -185,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChef.resx">
       <DependentUpon>frmChef.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChefConfirmacionDeOrdenTerminada.resx">
+      <DependentUpon>frmChefConfirmacionDeOrdenTerminada.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmComensal.resx">
       <DependentUpon>frmComensal.h</DependentUpon>

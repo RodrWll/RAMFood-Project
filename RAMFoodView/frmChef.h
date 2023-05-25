@@ -1,5 +1,5 @@
 #pragma once
-
+#include "frmChefConfirmacionDeOrdenTerminada.h"
 namespace RAMFoodView {
 
 	using namespace System;
@@ -76,20 +76,24 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -97,11 +101,29 @@ namespace RAMFoodView {
 			// 
 			// dataGridView1
 			// 
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->Column1,
 					this->Column3, this->Column2
 			});
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->Location = System::Drawing::Point(66, 138);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
@@ -109,16 +131,41 @@ namespace RAMFoodView {
 			this->dataGridView1->Size = System::Drawing::Size(523, 402);
 			this->dataGridView1->TabIndex = 0;
 			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"PLATO";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			this->Column1->Width = 225;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"CANTIDAD";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			this->Column3->Width = 125;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Nº MESA";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			this->Column2->Width = 125;
+			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(1264, 162);
+			this->button1->Location = System::Drawing::Point(1264, 175);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(132, 74);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"TOMAR ORDEN";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmChef::button1_Click);
 			// 
 			// button2
 			// 
@@ -130,6 +177,7 @@ namespace RAMFoodView {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"ORDEN TERMINADA";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmChef::button2_Click);
 			// 
 			// label1
 			// 
@@ -155,40 +203,35 @@ namespace RAMFoodView {
 			// 
 			// dataGridView2
 			// 
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView2->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn2
 			});
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView2->DefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridView2->Location = System::Drawing::Point(689, 138);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 51;
 			this->dataGridView2->RowTemplate->Height = 24;
 			this->dataGridView2->Size = System::Drawing::Size(528, 402);
 			this->dataGridView2->TabIndex = 6;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(251, 107);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(110, 16);
-			this->label3->TabIndex = 7;
-			this->label3->Text = L"Lista de Platos";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(885, 107);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(124, 16);
-			this->label4->TabIndex = 8;
-			this->label4->Text = L"Lista de Bebidas";
-			this->label4->Click += gcnew System::EventHandler(this, &frmChef::label4_Click);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -214,29 +257,28 @@ namespace RAMFoodView {
 			this->dataGridViewTextBoxColumn2->ReadOnly = true;
 			this->dataGridViewTextBoxColumn2->Width = 125;
 			// 
-			// Column1
+			// label3
 			// 
-			this->Column1->HeaderText = L"PLATO";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			this->Column1->Width = 225;
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(251, 107);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(110, 16);
+			this->label3->TabIndex = 7;
+			this->label3->Text = L"Lista de Platos";
 			// 
-			// Column3
+			// label4
 			// 
-			this->Column3->HeaderText = L"CANTIDAD";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			this->Column3->Width = 125;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Nº MESA";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			this->Column2->Width = 125;
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(885, 107);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(124, 16);
+			this->label4->TabIndex = 8;
+			this->label4->Text = L"Lista de Bebidas";
+			this->label4->Click += gcnew System::EventHandler(this, &frmChef::label4_Click);
 			// 
 			// button3
 			// 
@@ -279,32 +321,72 @@ namespace RAMFoodView {
 	}
 private: void mostrarGrillaPlatos(List<Plato^>^ listaPlatos) {
 	this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+	ChefController^ objChefController = gcnew ChefController();
+	int nroDeMesa = objChefController->LeerNroDeMesa("pedidototal//pedidomesa.txt");
 	for (int i = 0; i < listaPlatos->Count; i++) {
 		Plato^ objPlato = listaPlatos[i];
 		array<String^>^ filaGrilla = gcnew array<String^>(3);
 		filaGrilla[0] = objPlato->GetNombre();
 		filaGrilla[1] = Convert::ToString(objPlato->GetCantidadPedida());
-		filaGrilla[2] = "unknow";
+		filaGrilla[2] = Convert::ToString(nroDeMesa);
 		this->dataGridView1->Rows->Add(filaGrilla);
 	}
 }	
 private: void mostrarGrillaBebidas(List<Bebidas^>^ listaBebidasMostrar) {
 	this->dataGridView2->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+	ChefController^ objChefController = gcnew ChefController();
+	int nroDeMesa = objChefController->LeerNroDeMesa("pedidototal//pedidomesa.txt");
 	for (int i = 0; i < listaBebidasMostrar->Count; i++) {
 		Bebidas^ objBebida = listaBebidasMostrar[i];
 		array<String^>^ filaGrilla = gcnew array<String^>(3);
 		filaGrilla[0] = objBebida->GetNombre();
 		filaGrilla[1] = Convert::ToString(objBebida->GetCantidadPedida());
-		filaGrilla[2] = "unknow";
+		filaGrilla[2] = Convert::ToString(nroDeMesa);
 		this->dataGridView2->Rows->Add(filaGrilla);
 	}
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	PedidoController^ objPedidoController = gcnew PedidoController();
-	List<Plato^>^ ListaPlato = objPedidoController->LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
-	List<Bebidas^>^ ListaBebidas = objPedidoController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	ChefController^ objChefController = gcnew ChefController();	
+	List<Plato^>^ ListaPlato = objChefController->LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
+	List<Bebidas^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	//PedidoMesa^ objPedidoMesa = gcnew PedidoMesa(0,1, ListaPlato,ListaBebidas);
+	mostrarGrillaPlatos(ListaPlato);
+	mostrarGrillaBebidas(ListaBebidas);
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
+	String^ nombreSeleccionado;
+	if ((this->dataGridView1->SelectedRows->Count)>0) {		
+		String^ filaSeleccionada = Convert::ToString(this->dataGridView1->SelectedRows[0]->Index);
+		nombreSeleccionado = this->dataGridView1->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	}
+	if ((this->dataGridView2->SelectedRows->Count) > 0) {
+		String^ filaSeleccionada = Convert::ToString(this->dataGridView2->SelectedRows[0]->Index);
+		nombreSeleccionado = this->dataGridView2->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	}
+	String^ nombreEliminar = nombreSeleccionado;
+	MessageBox::Show("Usted ha seleccionado el plato " + nombreSeleccionado);
+	this->label2->Text = nombreSeleccionado;
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ nombreSeleccionado;
+	if ((this->dataGridView1->SelectedRows->Count) > 0) {
+		String^ filaSeleccionada = Convert::ToString(this->dataGridView1->SelectedRows[0]->Index);
+		nombreSeleccionado = this->dataGridView1->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	}
+	if ((this->dataGridView2->SelectedRows->Count) > 0) {
+		String^ filaSeleccionada = Convert::ToString(this->dataGridView2->SelectedRows[0]->Index);
+		nombreSeleccionado = this->dataGridView2->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	}
+
+	frmChefConfirmacionDeOrdenTerminada^ VentaConfirmacion = gcnew frmChefConfirmacionDeOrdenTerminada(nombreSeleccionado);
+	VentaConfirmacion->ShowDialog();
+	ChefController^ objChefController = gcnew ChefController();
+	List<Plato^>^ ListaPlato = objChefController->LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
+	List<Bebidas^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	//PedidoMesa^ objPedidoMesa = gcnew PedidoMesa(0,1, ListaPlato,ListaBebidas);
 	mostrarGrillaPlatos(ListaPlato);
 	mostrarGrillaBebidas(ListaBebidas);
 }

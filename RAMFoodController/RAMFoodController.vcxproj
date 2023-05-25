@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BebidaPlatosController.h" />
+    <ClInclude Include="ChefController.h" />
     <ClInclude Include="PedidoController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BebidaPlatosController.cpp" />
+    <ClCompile Include="ChefController.cpp" />
     <ClCompile Include="PedidoController.cpp" />
   </ItemGroup>
   <ItemGroup>
