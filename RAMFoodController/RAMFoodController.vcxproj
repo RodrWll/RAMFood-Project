@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AsistenteController.h" />
     <ClInclude Include="BebidaPlatosController.h" />
     <ClInclude Include="ChefController.h" />
     <ClInclude Include="PedidoController.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="productosController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AsistenteController.cpp" />
     <ClCompile Include="BebidaPlatosController.cpp" />
     <ClCompile Include="ChefController.cpp" />
     <ClCompile Include="PedidoController.cpp" />
@@ -38,6 +40,13 @@
     <ProjectReference Include="..\RAMFoodModel\RAMFoodModel.vcxproj">
       <Project>{583d023b-d88c-47f0-9525-570ac7af5a0e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
