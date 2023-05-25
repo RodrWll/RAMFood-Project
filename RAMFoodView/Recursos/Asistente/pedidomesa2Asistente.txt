@@ -1,0 +1,9 @@
+2
+Platos
+Gatito;1;4.1
+Pizaa;1;1
+Perito;2;6.5
+Bebidas
+Pepsi;1;4.1
+Coca Kola;2;6.5
+

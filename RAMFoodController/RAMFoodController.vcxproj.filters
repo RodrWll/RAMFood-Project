@@ -24,10 +24,13 @@
     <ClInclude Include="productosController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-	  <ClInclude Include="PedidoController.h">
-	  <Filter>Header Files</Filter>
-	</ClInclude>
+    <ClInclude Include="PedidoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="LogueoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AsistenteController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,10 +44,13 @@
     <ClCompile Include="productosController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-	  <ClCompile Include="PedidoController.cpp">
-		  	  <Filter>Source Files</Filter>
-		  </ClCompile>
+    <ClCompile Include="PedidoController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="LogueoController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AsistenteController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

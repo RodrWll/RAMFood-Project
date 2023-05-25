@@ -1,15 +1,11 @@
 1
 Platos
-Cuysito;2
-Perito;2
-Gatito;1
-Paloma;2
-Pizaa;3
-Milanesa;1
+Lomo Saltado;1
+Chaufa;1
+Arroz con pollo;2
+Estofado;1
 Bebidas
-Inca Kola;3
-Coca Kola;3
 Pepsi;1
 Guarana;1
-Red Bull;1
-KR;1
+Inka Cola;1
+Coca Cola;1
