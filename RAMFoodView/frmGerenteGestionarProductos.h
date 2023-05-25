@@ -12,6 +12,8 @@ namespace RAMFoodView {
 	using namespace RAMFoodModel;
 	using namespace RAMFoodView;
 	using namespace System::Collections::Generic;
+	using namespace System::IO;
+	using namespace System::Runtime::Serialization;
 
 	/// <summary>
 	/// Summary for frmGerenteGestionarProductos
@@ -66,6 +68,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -90,6 +93,7 @@ namespace RAMFoodView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteGestionarProductos::typeid));
 			this->gbFormulario = (gcnew System::Windows::Forms::GroupBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -110,12 +114,14 @@ namespace RAMFoodView {
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->gbFormulario->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// gbFormulario
 			// 
 			this->gbFormulario->BackColor = System::Drawing::Color::CadetBlue;
+			this->gbFormulario->Controls->Add(this->pictureBox1);
 			this->gbFormulario->Controls->Add(this->textBox1);
 			this->gbFormulario->Controls->Add(this->label1);
 			this->gbFormulario->Controls->Add(this->button1);
@@ -135,6 +141,14 @@ namespace RAMFoodView {
 			this->gbFormulario->TabIndex = 7;
 			this->gbFormulario->TabStop = false;
 			this->gbFormulario->Text = L"Datos del producto:";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(158, 369);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(235, 144);
+			this->pictureBox1->TabIndex = 19;
+			this->pictureBox1->TabStop = false;
 			// 
 			// textBox1
 			// 
@@ -161,7 +175,9 @@ namespace RAMFoodView {
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->button1->Location = System::Drawing::Point(63, 266);
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Location = System::Drawing::Point(80, 266);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(148, 46);
@@ -181,6 +197,8 @@ namespace RAMFoodView {
 			// btnAddBebidaPlato
 			// 
 			this->btnAddBebidaPlato->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->btnAddBebidaPlato->FlatAppearance->BorderSize = 0;
+			this->btnAddBebidaPlato->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnAddBebidaPlato->Location = System::Drawing::Point(296, 266);
 			this->btnAddBebidaPlato->Margin = System::Windows::Forms::Padding(4);
 			this->btnAddBebidaPlato->Name = L"btnAddBebidaPlato";
@@ -192,13 +210,14 @@ namespace RAMFoodView {
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(217, 545);
+			this->button7->Location = System::Drawing::Point(203, 545);
 			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(148, 40);
 			this->button7->TabIndex = 9;
-			this->button7->Text = L"IMAGEN";
+			this->button7->Text = L"SUBIR IMAGEN";
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button7_Click);
 			// 
 			// lbPrecio
 			// 
@@ -256,8 +275,11 @@ namespace RAMFoodView {
 			// button10
 			// 
 			this->button10->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button10->Location = System::Drawing::Point(666, 185);
+			this->button10->FlatAppearance->BorderSize = 0;
+			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button10->Location = System::Drawing::Point(666, 186);
 			this->button10->Margin = System::Windows::Forms::Padding(4);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(166, 46);
@@ -370,6 +392,7 @@ namespace RAMFoodView {
 			this->Load += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::frmGerenteGestionarProductos_Load);
 			this->gbFormulario->ResumeLayout(false);
 			this->gbFormulario->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
@@ -436,6 +459,18 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 			this->textBox1->Text = Convert::ToString(objPlatoBebidaMenu->GetId());
 			this->button10->Enabled = true;
 			this->btnAddBebidaPlato->Enabled = false;
+			String^ rutaImagen = "Recursos\\productosImgenes" + Convert::ToString(objPlatoBebidaMenu->GetId()) + ".jpg";
+			pictureBox1->Image = Image::FromFile(rutaImagen);
+			if (System::IO::File::Exists(rutaImagen))
+			{
+				// Cargar la imagen en el PictureBox
+				pictureBox1->Image = Image::FromFile(rutaImagen);
+			}
+			else
+			{
+				// Mostrar un mensaje de error o realizar otras acciones necesarias si el archivo no existe
+				MessageBox::Show("La imagen no existe.");
+			}
 		}
 	}
 }
@@ -456,9 +491,24 @@ private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::Ev
 			objBebidaPlato->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
 			objBebidaPlato->SetTipo(this->comboBox1->SelectedIndex);
 			objProductoController->generarIdProductos(objBebidaPlato);
-			objProductoController->addProducto(objBebidaPlato);
-			Actualizar();
-			clearInputs();
+			
+			
+			if (pictureBox1->Image != nullptr) {
+				String^ nombreArchivo = objBebidaPlato->GetId().ToString() + ".jpg";
+				String^ carpetaDestino = "Recursos\\productosImgenes";
+				String^ rutaDestino = Path::Combine(carpetaDestino, nombreArchivo);
+				this->pictureBox1->Image->Save(rutaDestino);
+				//Se agrega el plato o bebida.
+				objProductoController->addProducto(objBebidaPlato);
+				MessageBox::Show("Producto agregado correctamente.");
+				Actualizar();
+				clearInputs();
+
+			}
+			else {
+				MessageBox::Show("Ingrese una imagen.");
+			}
+			
 		}else{
 			MessageBox::Show("Ingrese la categoria correcta.");
 	}
@@ -471,6 +521,7 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 		objController->deleteProducto(codigoEliminar);
 		Actualizar();
 		clearInputs();
+		this->btnAddBebidaPlato->Enabled = true;
 	}
 	else
 	{
@@ -530,11 +581,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->textBox1->Visible = false;
 	this->button10->Enabled = false;
 	this->btnAddBebidaPlato->Enabled = true;
+	this->pictureBox1->Image = nullptr;
+
 }
 private: void clearInputs() {
 	this->lbProductName->Text = "";
 	this->lbPrecio->Text = "";
 	this->comboBox1->SelectedIndex = 0;
+	this->pictureBox1->Image = nullptr;
 }
 private: System::Void lbPrecio_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 	// Verifica si el car�cter ingresado es un n�mero, un punto decimal o la tecla de retroceso
@@ -563,6 +617,15 @@ if (Char::IsDigit(e->KeyChar) || e->KeyChar == '.' || e->KeyChar == (char)Keys::
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+	openFileDialog1->Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+	if(openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		this->pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+		this->pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
+	}
 }
 };
 }
