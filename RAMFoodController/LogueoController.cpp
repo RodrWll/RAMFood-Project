@@ -2,11 +2,10 @@
 #include "empleadoController.h"
 
 using namespace RAMFoodController;
+using namespace RAMFoodModel;
+using namespace System::Collections::Generic;
 using namespace System;
 using namespace System::IO;
-using namespace System::Collections::Generic;
-using namespace System::Collections;
-using namespace RAMFoodModel;
 
 LogueoController::LogueoController() {
 
@@ -19,9 +18,9 @@ List<array<String^>^>^ LogueoController::leerArchivo()
     List<array<String^>^>^ listaCredencialesLeer = gcnew List<array<String^>^>();
     array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
     String^ separadores = ";";
-    for each (String ^ listaCredencialesLeer in lineas)
+    for each (String ^ lineasUsuarios in lineas)
     {
-        array<String^>^ datos = listaCredencialesLeer->Split(separadores->ToCharArray());
+        array<String^>^ datos = lineasUsuarios->Split(separadores->ToCharArray());
         int Id = Convert::ToInt32(datos[0]);
         int Tipo = Convert::ToInt32(datos[1]);
         String^ Correo = datos[5];
@@ -31,35 +30,35 @@ List<array<String^>^>^ LogueoController::leerArchivo()
         credenciales [1] = Tipo.ToString();
         credenciales [2] = Correo;
         credenciales [3] = Contrasenha;
-
-       // listaCredencialesLeer->Add(credenciales);
+        listaCredencialesLeer->Add(credenciales);
     }
     return listaCredencialesLeer;
 }
 
-
-void LogueoController::AgregarUsuario(String^ CorreoUsuario, String^ Contrasenha) {
-    // Agregar el nuevo usuario a la lista de usuarios
-//    Logueo^ LogueoUsuario = gcnew Logueo(CorreoUsuario,Contrasenha);
-  //  Logueos->Add(LogueoUsuario);
-
-    // Guardar el nuevo usuario en el archivo de texto
-   // StreamWriter^ writer = gcnew StreamWriter("Usuarios.txt", true);
-    //writer->WriteLine(CorreoUsuario + ";" + Contrasenha);
-    //writer->Close();
-}
-
 bool LogueoController::VerificarCredenciales(String^ CorreoUsuario, String^ Contrasenha) {
-    // Leer el archivo de texto y verificar las credenciales
-    StreamReader^ reader = gcnew StreamReader("Usuarios.txt");
-    String^ linea;
-    while ((linea = reader->ReadLine()) != nullptr) {
-        array<String^>^ partes = linea->Split(';');
-        if (partes->Length == 7 && partes[5] == CorreoUsuario && partes[6] == Contrasenha) {
-            reader->Close();
+    List<array<String^>^>^ listaCredenciales = leerArchivo();
+    for each (array<String^> ^ credenciales in listaCredenciales)
+    {
+        if (credenciales[2]->Equals(CorreoUsuario) && credenciales[3]->Equals(Contrasenha))
+        {
             return true; // Las credenciales son válidas
         }
     }
-    reader->Close();
     return false; // Las credenciales son inválidas
+}
+Usuario^ LogueoController::ObtenerUsuario(String^ CorreoUsuario, String^ Contrasenha) {
+    List<array<String^>^>^ listaCredenciales = leerArchivo();
+    Usuario^ usuario =gcnew Usuario();
+    for each (array<String^> ^ credenciales in listaCredenciales)
+	{
+		if (credenciales[2]->Equals(CorreoUsuario) && credenciales[3]->Equals(Contrasenha))
+		{
+            int id = Convert::ToInt32(credenciales[0]);
+			UsuarioController^ controladorUsuario = gcnew UsuarioController();
+            usuario = controladorUsuario->QueryUsuarioById(id);
+			
+            break;
+		}
+	}
+    return usuario;
 }

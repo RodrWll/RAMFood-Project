@@ -11,6 +11,8 @@ namespace RAMFoodView {
 	using namespace RAMFoodController;
 	using namespace RAMFoodModel;
 	using namespace System::Collections::Generic;
+	using namespace System::IO;
+	using namespace System::Runtime::Serialization;
 
 	/// <summary>
 	/// Summary for frmGerenteBuscarProductosMenu
@@ -64,7 +66,8 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 
 
 
@@ -84,6 +87,7 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteBuscarProductosMenu::typeid));
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -98,10 +102,11 @@ namespace RAMFoodView {
 			this->lbIdProducto = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProductosEncontrados))->BeginInit();
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -148,6 +153,18 @@ namespace RAMFoodView {
 			// dgvProductosEncontrados
 			// 
 			this->dgvProductosEncontrados->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
+			this->dgvProductosEncontrados->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->dgvProductosEncontrados->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgvProductosEncontrados->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dgvProductosEncontrados->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvProductosEncontrados->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column5,
@@ -163,6 +180,7 @@ namespace RAMFoodView {
 			this->dgvProductosEncontrados->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvProductosEncontrados->Size = System::Drawing::Size(440, 471);
 			this->dgvProductosEncontrados->TabIndex = 16;
+			this->dgvProductosEncontrados->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteBuscarProductosMenu::dgvProductosEncontrados_CellClick);
 			// 
 			// Column5
 			// 
@@ -171,7 +189,7 @@ namespace RAMFoodView {
 			this->Column5->MinimumWidth = 6;
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
-			this->Column5->Width = 49;
+			this->Column5->Width = 54;
 			// 
 			// Column6
 			// 
@@ -180,7 +198,7 @@ namespace RAMFoodView {
 			this->Column6->MinimumWidth = 6;
 			this->Column6->Name = L"Column6";
 			this->Column6->ReadOnly = true;
-			this->Column6->Width = 90;
+			this->Column6->Width = 109;
 			// 
 			// Column7
 			// 
@@ -189,7 +207,7 @@ namespace RAMFoodView {
 			this->Column7->MinimumWidth = 6;
 			this->Column7->Name = L"Column7";
 			this->Column7->ReadOnly = true;
-			this->Column7->Width = 77;
+			this->Column7->Width = 94;
 			// 
 			// Column8
 			// 
@@ -198,7 +216,7 @@ namespace RAMFoodView {
 			this->Column8->MinimumWidth = 6;
 			this->Column8->Name = L"Column8";
 			this->Column8->ReadOnly = true;
-			this->Column8->Width = 65;
+			this->Column8->Width = 75;
 			// 
 			// label7
 			// 
@@ -242,6 +260,9 @@ namespace RAMFoodView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->groupBox1->Controls->Add(this->pictureBox1);
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->label7);
 			this->groupBox1->Controls->Add(this->lbNombreProducto);
@@ -251,13 +272,23 @@ namespace RAMFoodView {
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(452, 211);
+			this->groupBox1->Size = System::Drawing::Size(452, 433);
 			this->groupBox1->TabIndex = 20;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Parámetros de búsqueda:";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(102, 218);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(235, 144);
+			this->pictureBox1->TabIndex = 20;
+			this->pictureBox1->TabStop = false;
+			// 
 			// groupBox2
 			// 
+			this->groupBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->groupBox2->Controls->Add(this->button3);
 			this->groupBox2->Controls->Add(this->dgvProductosEncontrados);
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -271,21 +302,13 @@ namespace RAMFoodView {
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Productos encontrados:";
 			// 
-			// groupBox3
-			// 
-			this->groupBox3->Location = System::Drawing::Point(117, 271);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(208, 165);
-			this->groupBox3->TabIndex = 22;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Imagen del producto:";
-			// 
 			// frmGerenteBuscarProductosMenu
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(10, 19);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
+				static_cast<System::Int32>(static_cast<System::Byte>(144)));
 			this->ClientSize = System::Drawing::Size(1228, 591);
-			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
@@ -295,11 +318,12 @@ namespace RAMFoodView {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmGerenteBuscarProductosMenu";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"Gestionar Productos para el menú";
+			this->Text = L"Buscar productos para el menú";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteBuscarProductosMenu::frmGerenteGestionarProductos_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProductosEncontrados))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->ResumeLayout(false);
 
@@ -381,5 +405,35 @@ namespace RAMFoodView {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void dgvProductosEncontrados_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (e->RowIndex >= 0 && e->RowIndex < dgvProductosEncontrados->Rows->Count)
+	{
+		// Acceder a la fila seleccionada
+		DataGridViewRow^ selectedRow = dgvProductosEncontrados->Rows[e->RowIndex];
+
+		// Realizar operaciones con la fila seleccionada
+		// ...
+		int filaSeleccionada = this->dgvProductosEncontrados->SelectedRows[0]->Index;
+		if (!selectedRow->IsNewRow) {
+			int codigoActualizar = Convert::ToInt32(this->dgvProductosEncontrados->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+			productoController^ objController = gcnew productoController();
+			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			String^ nombreArchivo = objPlatoBebidaMenu->GetId().ToString() + ".jpg";
+			String^ carpetaDestino = "Recursos\\productosImgenes";
+			String^ rutaImagen = Path::Combine(carpetaDestino, nombreArchivo);
+			if (System::IO::File::Exists(rutaImagen))
+			{
+				// Cargar la imagen en el PictureBox
+				pictureBox1->ImageLocation = rutaImagen;
+				this->pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
+			}
+			else
+			{
+				// Mostrar un mensaje de error o realizar otras acciones necesarias si el archivo no existe
+				MessageBox::Show("La imagen no existe.");
+			}
+		}
+	}
+}
 };
 }

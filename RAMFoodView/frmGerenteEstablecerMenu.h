@@ -12,7 +12,8 @@ namespace RAMFoodView {
 	using namespace System::Drawing;
 	using namespace RAMFoodController;
 	using namespace RAMFoodModel;
-
+	using namespace System::IO;
+	using namespace System::Runtime::Serialization;
 	/// <summary>
 	/// Summary for frmGerenteEstablecerMenu
 	/// </summary>
@@ -56,6 +57,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -77,9 +79,10 @@ namespace RAMFoodView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteEstablecerMenu::typeid));
 			this->gbMenu = (gcnew System::Windows::Forms::GroupBox());
-			this->vScrollBar1 = (gcnew System::Windows::Forms::VScrollBar());
-			this->button11 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->button11 = (gcnew System::Windows::Forms::Button());
+			this->vScrollBar1 = (gcnew System::Windows::Forms::VScrollBar());
 			this->dgvEstablecerMenu = (gcnew System::Windows::Forms::DataGridView());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -89,26 +92,63 @@ namespace RAMFoodView {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->gbMenu->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEstablecerMenu))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// gbMenu
 			// 
-			this->gbMenu->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->gbMenu->Controls->Add(this->vScrollBar1);
-			this->gbMenu->Controls->Add(this->button11);
+			this->gbMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->gbMenu->Controls->Add(this->pictureBox1);
 			this->gbMenu->Controls->Add(this->button9);
+			this->gbMenu->Controls->Add(this->button11);
+			this->gbMenu->Controls->Add(this->vScrollBar1);
 			this->gbMenu->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->gbMenu->Location = System::Drawing::Point(13, 12);
+			this->gbMenu->Location = System::Drawing::Point(25, 26);
 			this->gbMenu->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->gbMenu->Name = L"gbMenu";
 			this->gbMenu->Padding = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->gbMenu->Size = System::Drawing::Size(435, 178);
+			this->gbMenu->Size = System::Drawing::Size(451, 474);
 			this->gbMenu->TabIndex = 10;
 			this->gbMenu->TabStop = false;
 			this->gbMenu->Text = L"Agregar productos al menú del día:";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(93, 194);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(235, 144);
+			this->pictureBox1->TabIndex = 24;
+			this->pictureBox1->TabStop = false;
+			// 
+			// button9
+			// 
+			this->button9->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button9->Location = System::Drawing::Point(37, 44);
+			this->button9->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(165, 54);
+			this->button9->TabIndex = 4;
+			this->button9->Text = L"Buscar productos";
+			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &frmGerenteEstablecerMenu::button9_Click);
+			// 
+			// button11
+			// 
+			this->button11->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button11->Location = System::Drawing::Point(238, 44);
+			this->button11->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->button11->Name = L"button11";
+			this->button11->Size = System::Drawing::Size(161, 54);
+			this->button11->TabIndex = 5;
+			this->button11->Text = L"Eliminar Producto";
+			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &frmGerenteEstablecerMenu::button11_Click_1);
 			// 
 			// vScrollBar1
 			// 
@@ -117,40 +157,17 @@ namespace RAMFoodView {
 			this->vScrollBar1->Size = System::Drawing::Size(21, 125);
 			this->vScrollBar1->TabIndex = 7;
 			// 
-			// button11
-			// 
-			this->button11->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button11->Location = System::Drawing::Point(219, 79);
-			this->button11->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(171, 54);
-			this->button11->TabIndex = 5;
-			this->button11->Text = L"Eliminar Producto";
-			this->button11->UseVisualStyleBackColor = true;
-			this->button11->Click += gcnew System::EventHandler(this, &frmGerenteEstablecerMenu::button11_Click_1);
-			// 
-			// button9
-			// 
-			this->button9->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button9->Location = System::Drawing::Point(8, 79);
-			this->button9->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(165, 54);
-			this->button9->TabIndex = 4;
-			this->button9->Text = L"Agregar Producto";
-			this->button9->UseVisualStyleBackColor = true;
-			this->button9->Click += gcnew System::EventHandler(this, &frmGerenteEstablecerMenu::button9_Click);
-			// 
 			// dgvEstablecerMenu
 			// 
+			this->dgvEstablecerMenu->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->dgvEstablecerMenu->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dgvEstablecerMenu->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvEstablecerMenu->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column5,
 					this->Column6, this->Column7, this->Column8
 			});
-			this->dgvEstablecerMenu->Location = System::Drawing::Point(31, 27);
+			this->dgvEstablecerMenu->Location = System::Drawing::Point(85, 27);
 			this->dgvEstablecerMenu->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->dgvEstablecerMenu->MultiSelect = false;
 			this->dgvEstablecerMenu->Name = L"dgvEstablecerMenu";
@@ -159,6 +176,7 @@ namespace RAMFoodView {
 			this->dgvEstablecerMenu->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvEstablecerMenu->Size = System::Drawing::Size(396, 417);
 			this->dgvEstablecerMenu->TabIndex = 6;
+			this->dgvEstablecerMenu->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteEstablecerMenu::dgvEstablecerMenu_CellClick);
 			// 
 			// Column5
 			// 
@@ -198,10 +216,12 @@ namespace RAMFoodView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->groupBox1->Controls->Add(this->dgvEstablecerMenu);
-			this->groupBox1->Location = System::Drawing::Point(484, 12);
+			this->groupBox1->Location = System::Drawing::Point(614, 26);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(452, 474);
+			this->groupBox1->Size = System::Drawing::Size(540, 474);
 			this->groupBox1->TabIndex = 11;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Productos agregados:";
@@ -209,7 +229,7 @@ namespace RAMFoodView {
 			// button1
 			// 
 			this->button1->ForeColor = System::Drawing::Color::IndianRed;
-			this->button1->Location = System::Drawing::Point(13, 437);
+			this->button1->Location = System::Drawing::Point(72, 513);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 49);
 			this->button1->TabIndex = 12;
@@ -219,7 +239,7 @@ namespace RAMFoodView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(112, 273);
+			this->button4->Location = System::Drawing::Point(830, 518);
 			this->button4->Margin = System::Windows::Forms::Padding(4);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(208, 44);
@@ -232,7 +252,9 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(982, 498);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
+				static_cast<System::Int32>(static_cast<System::Byte>(144)));
+			this->ClientSize = System::Drawing::Size(1228, 591);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
@@ -246,6 +268,7 @@ namespace RAMFoodView {
 			this->Text = L"Establecer menú del día";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteEstablecerMenu::frmGerenteEstablecerMenu_Load);
 			this->gbMenu->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEstablecerMenu))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->ResumeLayout(false);
@@ -309,6 +332,36 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	productoController^ objController = gcnew productoController();
 	objController->generarArchivosMenu();
 	MessageBox::Show("Menú establecido");
+}
+private: System::Void dgvEstablecerMenu_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	if (e->RowIndex >= 0 && e->RowIndex < dgvEstablecerMenu->Rows->Count)
+	{
+		// Acceder a la fila seleccionada
+		DataGridViewRow^ selectedRow = dgvEstablecerMenu->Rows[e->RowIndex];
+
+		// Realizar operaciones con la fila seleccionada
+		// ...
+		int filaSeleccionada = this->dgvEstablecerMenu->SelectedRows[0]->Index;
+		if (!selectedRow->IsNewRow) {
+			int codigoActualizar = Convert::ToInt32(this->dgvEstablecerMenu->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+			productoController^ objController = gcnew productoController();
+			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			String^ nombreArchivo = objPlatoBebidaMenu->GetId().ToString() + ".jpg";
+			String^ carpetaDestino = "Recursos\\productosImgenes";
+			String^ rutaImagen = Path::Combine(carpetaDestino, nombreArchivo);
+			if (System::IO::File::Exists(rutaImagen))
+			{
+				// Cargar la imagen en el PictureBox
+				pictureBox1->ImageLocation = rutaImagen;
+				this->pictureBox1->SizeMode = PictureBoxSizeMode::Zoom;
+			}
+			else
+			{
+				// Mostrar un mensaje de error o realizar otras acciones necesarias si el archivo no existe
+				MessageBox::Show("La imagen no existe.");
+			}
+		}
+	}
 }
 };
 }

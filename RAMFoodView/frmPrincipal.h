@@ -152,11 +152,15 @@ namespace RAMFoodView {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmComensal^ ventanaComensal = gcnew frmComensal();
+		this->Visible = false;
 		ventanaComensal->ShowDialog();
+		this->Visible = true;
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmPersonal^ ventanaPersonal = gcnew frmPersonal();
+		this->Visible = false;
 		ventanaPersonal->ShowDialog();
+		this->Visible = true;
 	}
 	};
 }

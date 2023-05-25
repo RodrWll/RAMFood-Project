@@ -381,6 +381,4 @@ void PedidoController::CuentaPagada() {
 	lineaVacia->Add("vacio");// se tiene que escribir vacio en los archivos, si no surgirá un error
 	File::WriteAllLines("PedidoTotal//pedidomesa.txt",lineaVacia);
 	File::WriteAllLines("PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
-
-
 };

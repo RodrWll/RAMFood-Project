@@ -21,6 +21,8 @@ List<Usuario^>^ UsuarioController::leerArchivo()
 	List< Usuario^ >^ listaUsuariosLeer = gcnew List<Usuario^>();
 	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
 	String^ separadores = ";";
+	List<array<String^>^>^ listaDatos = gcnew List<array<String^>^>();
+
 	for each (String ^ lineasUsuarios in lineas)
 	{
 		array<String^>^ datos = lineasUsuarios->Split(separadores->ToCharArray());
