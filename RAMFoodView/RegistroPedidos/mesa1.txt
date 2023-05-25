@@ -1,15 +1,10 @@
 1
 Platos
 Cuysito;2
-Perito;2
-Gatito;1
-Paloma;2
-Pizaa;3
-Milanesa;1
+Gatito;2
+Pizaa;6
+Milanesa;5
+Perito;18
 Bebidas
-Inca Kola;3
-Coca Kola;3
-Pepsi;1
-Guarana;1
-Red Bull;1
-KR;1
+Coca Kola;6
+KR;6
