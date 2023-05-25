@@ -1,7 +1,2 @@
-Cuysito;2;1460
-Gatito;2;820
-Pizaa;3;300
-Milanesa;1;300
+Perito;12;78
 Bebidas
-Coca Kola;2;1300
-KR;1;300

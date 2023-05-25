@@ -361,9 +361,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		String^ filaSeleccionada = Convert::ToString(this->dataGridView1->SelectedRows[0]->Index);
 		nombreSeleccionado = this->dataGridView1->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
 	}
-	if ((this->dataGridView2->SelectedRows->Count) > 0) {
+	else if ((this->dataGridView2->SelectedRows->Count) > 0) {
 		String^ filaSeleccionada = Convert::ToString(this->dataGridView2->SelectedRows[0]->Index);
 		nombreSeleccionado = this->dataGridView2->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	}
+	else {
+		MessageBox::Show("Debe seleccionar un plato o bebida");
+		return;
 	}
 	String^ nombreEliminar = nombreSeleccionado;
 	MessageBox::Show("Usted ha seleccionado el plato " + nombreSeleccionado);
@@ -376,10 +380,18 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		String^ filaSeleccionada = Convert::ToString(this->dataGridView1->SelectedRows[0]->Index);
 		nombreSeleccionado = this->dataGridView1->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
 	}
-	if ((this->dataGridView2->SelectedRows->Count) > 0) {
-		String^ filaSeleccionada = Convert::ToString(this->dataGridView2->SelectedRows[0]->Index);
-		nombreSeleccionado = this->dataGridView2->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+	else {
+		if ((this->dataGridView2->SelectedRows->Count) > 0) {
+			String^ filaSeleccionada = Convert::ToString(this->dataGridView2->SelectedRows[0]->Index);
+			nombreSeleccionado = this->dataGridView2->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString();
+		}
+		else {
+			MessageBox::Show("Debe seleccionar un plato o bebida");
+			return;
+		}
 	}
+		
+	
 
 	frmChefConfirmacionDeOrdenTerminada^ VentaConfirmacion = gcnew frmChefConfirmacionDeOrdenTerminada(nombreSeleccionado);
 	VentaConfirmacion->ShowDialog();
