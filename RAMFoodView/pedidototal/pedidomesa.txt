@@ -1,1 +1,7 @@
-vacio
+1
+Platos
+Ceviche;1
+Estofado;2
+Chaufa de pollo;2
+Bebidas
+Coca Cola;2

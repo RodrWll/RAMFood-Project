@@ -24,8 +24,6 @@ namespace RAMFoodController {
 		List<PlatoBebidaMenu^>^ QueryAllProductFromDailyMenu();
 		void AddProductToDailyMenu(PlatoBebidaMenu^ ObjPlatoBebidaMenu);
 		PlatoBebidaMenu^ QueryProductByIdFromDailyMenu(int codigoActualizar);
-
-
 		//void UpdatePlatoBebidaMenu(PlatoBebidaMenu^);
 		/*
 		List<Bebidas^>^ ObtenerInfoBebida();

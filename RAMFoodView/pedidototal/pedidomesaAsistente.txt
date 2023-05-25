@@ -1,1 +1,7 @@
-vacio
+1
+Platos
+Ceviche;1;27.87
+Estofado;2;50
+Chaufa de pollo;2;42
+Bebidas
+Coca Cola;2;6

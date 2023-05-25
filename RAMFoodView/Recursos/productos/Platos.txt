@@ -1,0 +1,6 @@
+2;Lomo Saltado;30;2
+3;Arroz con pollo;40;2
+1;Ceviche;27.87;2
+4;Chaufa;21;2
+5;Estofado;25;2
+8;Chicharron de Pollo;40.5;2

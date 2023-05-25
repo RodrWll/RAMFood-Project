@@ -3,17 +3,18 @@
 
 #include "frmAsistente.h"
 #include "frmChef.h"
-#include "frmGerenteGestionarProductos.h"
+#include "frmGerenteBuscarProductosMenu.h"
 #include "frmComensalPedidoGenerado.h"
 #include "frmGerente.h"
 #include "frmComensalGenerarPedido.h"
 #include "frmComensalAsistenciaSolicitada.h"
 #include "frmComensalSolicitarAtencion.h"
 #include "frmComensal.h"
+#include "frmPrincipal.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace RAMFoodView;
-
+[STAThread]
 void main(array <String^>^ args)
 {
 	Application::EnableVisualStyles();

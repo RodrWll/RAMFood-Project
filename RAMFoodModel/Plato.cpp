@@ -27,10 +27,10 @@ Plato::Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, in
 
 String^ Plato::GetNombre() {
 	return this->Nombre;
-}
+};
 double Plato::GetPrecio() {
 	return this->Precio;
-}
+};
 //Estos Metodos no estan definidos todavia
 
 /*

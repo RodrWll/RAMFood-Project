@@ -1,0 +1,16 @@
+4;Chaufa de pollo;21;2
+5;Estofado;25;2
+1;Ceviche;27.87;2
+6;Inka Cola;2.7;1
+7;Coca Cola;3;1
+8;Chicharron de Pollo;40.5;2
+9;Papa a la Huancaina;20;2
+10;Papa Rellena;15.6;2
+11;Pepsi;4.1;1
+12;Guarana;5;1
+13;Red Bull;8;1
+14;Limonada frozen;1;1
+15;Chicha morada;4;1
+16;Ceviche de conchas negras;45;2
+2;Lomo Saltado;40;2
+3;Arroz con Pollo;27.6;2

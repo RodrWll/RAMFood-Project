@@ -135,7 +135,14 @@
     <ClCompile Include="frmComensalPedidoVacio.cpp" />
     <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
     <ClCompile Include="frmGerente.cpp" />
+    <ClCompile Include="frmGerenteAgregarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteBuscarProductosMenu.cpp" />
+    <ClCompile Include="frmGerenteEditarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteEstablecerMenu.cpp" />
+    <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
+    <ClCompile Include="frmPersonal.cpp" />
+    <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,7 +186,28 @@
     <ClInclude Include="frmGerente.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmGerenteAgregarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteBuscarProductosMenu.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEditarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteEstablecerMenu.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteGestionarPersonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmGerenteGestionarProductos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPersonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -204,6 +232,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmComensalGenerarPedido.resx">
       <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerente.resx">
+      <DependentUpon>frmGerente.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteAgregarEmpleado.resx">
+      <DependentUpon>frmGerenteAgregarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteBuscarProductosMenu.resx">
+      <DependentUpon>frmGerenteBuscarProductosMenu.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteEditarEmpleado.resx">
+      <DependentUpon>frmGerenteEditarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteEstablecerMenu.resx">
+      <DependentUpon>frmGerenteEstablecerMenu.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteGestionarPersonal.resx">
+      <DependentUpon>frmGerenteGestionarPersonal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteGestionarProductos.resx">
+      <DependentUpon>frmGerenteGestionarProductos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonal.resx">
+      <DependentUpon>frmPersonal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

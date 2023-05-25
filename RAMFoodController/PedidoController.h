@@ -7,7 +7,6 @@ namespace RAMFoodController {
 	public:
 		PedidoController();
 		
-	
 		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa);
 		void escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa);
 		List<Plato^>^ LeerPedidosPlatoFinal(String^ nombre_archivo);
@@ -25,6 +24,5 @@ namespace RAMFoodController {
 		void escribirArchivo(String^ nombre_archivo, int valor);
 		array<String^>^ leerArchivo(String^ nombre_archivo);
 		int esNuevoPedido(String^ nombre_archivo);
-		
 	};
 }
