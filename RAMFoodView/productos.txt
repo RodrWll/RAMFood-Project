@@ -1,4 +1,4 @@
-4;Chaufa;21;2
+4;Chaufa de pollo;21;2
 5;Estofado;25;2
 1;Ceviche;27.87;2
 6;Inka Cola;2.7;1
@@ -9,7 +9,8 @@
 11;Pepsi;4.1;1
 12;Guarana;5;1
 13;Red Bull;8;1
-14;Limonada;1;1
+14;Limonada frozen;1;1
 15;Chicha morada;4;1
 16;Ceviche de conchas negras;45;2
 2;Lomo Saltado;40;2
+3;Arroz con Pollo;27.6;2

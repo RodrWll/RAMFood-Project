@@ -1,5 +1,2 @@
-Perito;1;6.5
-Gatito;1;4.1
+Chaufa de pollo;2;42
 Bebidas
-Pepsi;1;4.1
-Guarana;1;5
