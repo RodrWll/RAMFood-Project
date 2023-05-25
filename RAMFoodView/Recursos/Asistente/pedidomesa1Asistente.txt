@@ -1,9 +1,6 @@
-1 
-Platos
-Milanesa;1;3 
-Paloma;1;5
-Bebidas
-Inca Kola;2;7.3
-Coca Kola;2;6.5
-
-
+1;2
+3;4
+3;6
+7;2
+10;2
+11;1

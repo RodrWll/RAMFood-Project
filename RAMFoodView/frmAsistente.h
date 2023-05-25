@@ -65,6 +65,8 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn6;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button3;
 	protected:
 
 	private:
@@ -95,6 +97,8 @@ namespace RAMFoodView {
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -190,6 +194,8 @@ namespace RAMFoodView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->button4);
+			this->groupBox1->Controls->Add(this->button3);
 			this->groupBox1->Controls->Add(this->dataGridView1);
 			this->groupBox1->Location = System::Drawing::Point(14, 54);
 			this->groupBox1->Name = L"groupBox1";
@@ -197,6 +203,26 @@ namespace RAMFoodView {
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Mesa 1";
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(397, 12);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(53, 22);
+			this->button4->TabIndex = 3;
+			this->button4->Text = L"C";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmAsistente::button4_Click);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(324, 12);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(53, 22);
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"B";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmAsistente::button3_Click);
 			// 
 			// groupBox2
 			// 
@@ -379,6 +405,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->Name = L"frmAsistente";
 			this->Text = L"Asistente";
+			this->Load += gcnew System::EventHandler(this, &frmAsistente::frmAsistente_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox2->ResumeLayout(false);
@@ -389,22 +416,47 @@ namespace RAMFoodView {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+//Cierra la ventana	
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-	private: void mostrarGrilla1(List<Asistente^>^ listaPedidos) {
+	   //Carga la informacion de la mesa
+	private: void actualizarPlatoGrilla1() {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		List<Asistente^>^ listaComidas = objAsistenteController->leerArchivoMesa1();
+		List<Plato^>^ listaPlatos = objAsistenteController->listarPlatosPedidosMesa();
+		mostrarPlato(listaPlatos);
+	}
+private: void actualizarBebidaGrilla1() {
+	AsistenteController^ objAsistenteController = gcnew AsistenteController();
+	List<Bebidas^>^ listaBebidas = objAsistenteController->listarBebidasPedidosMesa();
+	mostrarBebida(listaBebidas);
+}
+		   // Esta funcion es generia, le puedes poner la lista de platos de la mesa que quieras
+	   //Tendrias que adaptarla para que se muestre segun el data grid que quieras
+	private: void mostrarPlato(List<Plato^>^ listaPedidos) {
 		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 			for (int i = 0; i < listaPedidos->Count; i++) {
-				Asistente^ objAsistente = listaPedidos[i];
+				Plato^ objPlato = listaPedidos[i];
 				array<String^>^ filaGrilla = gcnew array<String^>(3);
-				filaGrilla[0] = objAsistente->getNombreComida();
-				filaGrilla[1] = Convert::ToString(objAsistente->getCantidad());
-				filaGrilla[2] = Convert::ToString(objAsistente->getPrecioUnidad());
+				filaGrilla[0] = objPlato->GetNombre();
+				filaGrilla[1] = Convert::ToString(objPlato->GetCantidadPedida());
+				filaGrilla[2] = Convert::ToString(objPlato->GetPrecio());
 				this->dataGridView1->Rows->Add(filaGrilla);
+
 			}
+}
+	private: void mostrarBebida(List<Bebidas^>^ listaPedidos) {
+	this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+		for (int i = 0; i < listaPedidos->Count; i++) {
+			Bebidas^ objBebida = listaPedidos[i];
+			array<String^>^ filaGrilla = gcnew array<String^>(3);
+			filaGrilla[0] = objBebida->GetNombre();
+			filaGrilla[1] = Convert::ToString(objBebida->GetCantidadPedida());
+			filaGrilla[2] = Convert::ToString(objBebida->GetPrecio());
+			this->dataGridView1->Rows->Add(filaGrilla);
 		}
+	}
+
 	private: void mostrarGrilla2(List<Asistente^>^ listaPedidos) {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
 		List<Asistente^>^ listaComidas = objAsistenteController->leerArchivoMesa2();
@@ -436,9 +488,20 @@ namespace RAMFoodView {
 		List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa1();
 		//List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa2();
 		//List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa3();
-		mostrarGrilla1(listaPedidos);
+		actualizarPlatoGrilla1();
 		mostrarGrilla2(listaPedidos);
 		mostrarGrilla3(listaPedidos);
 	}
+
+private: System::Void frmAsistente_Load(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	actualizarPlatoGrilla1();
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	actualizarBebidaGrilla1();
+}
 };
 }
