@@ -456,41 +456,10 @@ private: void actualizarBebidaGrilla1() {
 			this->dataGridView1->Rows->Add(filaGrilla);
 		}
 	}
-
-	private: void mostrarGrilla2(List<Asistente^>^ listaPedidos) {
-		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		List<Asistente^>^ listaComidas = objAsistenteController->leerArchivoMesa2();
-		this->dataGridView2->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
-		for (int i = 0; i < listaPedidos->Count; i++) {
-			Asistente^ objAsistente = listaPedidos[i];
-			array<String^>^ filaGrilla = gcnew array<String^>(3);
-			filaGrilla[0] = objAsistente->getNombreComida();
-			filaGrilla[1] = Convert::ToString(objAsistente->getCantidad());
-			filaGrilla[2] = Convert::ToString(objAsistente->getPrecioUnidad());
-			this->dataGridView1->Rows->Add(filaGrilla);
-		}
-	}
-	private: void mostrarGrilla3(List<Asistente^>^ listaPedidos) {
-		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		List<Asistente^>^ listaComidas = objAsistenteController->leerArchivoMesa3();
-		this->dataGridView3->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
-		for (int i = 0; i < listaPedidos->Count; i++) {
-			Asistente^ objAsistente = listaPedidos[i];
-			array<String^>^ filaGrilla = gcnew array<String^>(3);
-			filaGrilla[0] = objAsistente->getNombreComida();
-			filaGrilla[1] = Convert::ToString(objAsistente->getCantidad());
-			filaGrilla[2] = Convert::ToString(objAsistente->getPrecioUnidad());
-			this->dataGridView1->Rows->Add(filaGrilla);
-		}
-	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa1();
-		//List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa2();
-		//List<Asistente^>^ listaPedidos = objAsistenteController->leerArchivoMesa3();
+		
 		actualizarPlatoGrilla1();
-		mostrarGrilla2(listaPedidos);
-		mostrarGrilla3(listaPedidos);
 	}
 
 private: System::Void frmAsistente_Load(System::Object^ sender, System::EventArgs^ e) {
