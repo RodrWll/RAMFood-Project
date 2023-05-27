@@ -8,6 +8,8 @@ namespace RAMFoodModel {
 		double Precio;
 		int Tipo;
 		int Id;
+		//Tipo 1: bebida
+		//TIpo 2: plato
 	public:
 		Producto();
 		Producto(int Id, String^ Nombre, double Precio, int Tipo);
