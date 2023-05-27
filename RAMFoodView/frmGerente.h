@@ -129,6 +129,8 @@ namespace RAMFoodView {
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->button2);
 			this->groupBox2->Controls->Add(this->button1);
+			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->groupBox2->Location = System::Drawing::Point(195, 31);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(611, 109);
@@ -149,26 +151,41 @@ namespace RAMFoodView {
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(110)),
+				static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Location = System::Drawing::Point(317, 39);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(90, 40);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Cerrar";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerente::button2_Click);
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(110)),
+				static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Location = System::Drawing::Point(153, 39);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(96, 40);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Abrir";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerente::button1_Click);
 			// 
 			// button4
 			// 
+			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(110)),
+				static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button4->Location = System::Drawing::Point(75, 186);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(313, 88);
@@ -178,42 +195,70 @@ namespace RAMFoodView {
 			// 
 			// button3
 			// 
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(110)),
+				static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button3->Location = System::Drawing::Point(75, 321);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(313, 70);
 			this->button3->TabIndex = 5;
 			this->button3->Text = L"GESTIONAR PERSONAL";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &frmGerente::button3_Click);
 			// 
 			// button6
 			// 
+			this->button6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(110)),
+				static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->button6->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button6->Location = System::Drawing::Point(619, 454);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(252, 78);
 			this->button6->TabIndex = 7;
 			this->button6->Text = L"VENTAS";
-			this->button6->UseVisualStyleBackColor = true;
+			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &frmGerente::button6_Click);
 			// 
 			// bttnEstablecerMenu
 			// 
+			this->bttnEstablecerMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(110)), static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->bttnEstablecerMenu->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->bttnEstablecerMenu->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->bttnEstablecerMenu->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->bttnEstablecerMenu->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->bttnEstablecerMenu->Location = System::Drawing::Point(619, 321);
 			this->bttnEstablecerMenu->Name = L"bttnEstablecerMenu";
 			this->bttnEstablecerMenu->Size = System::Drawing::Size(252, 69);
 			this->bttnEstablecerMenu->TabIndex = 6;
 			this->bttnEstablecerMenu->Text = L"ESTABLECER MENU";
-			this->bttnEstablecerMenu->UseVisualStyleBackColor = true;
+			this->bttnEstablecerMenu->UseVisualStyleBackColor = false;
 			this->bttnEstablecerMenu->Click += gcnew System::EventHandler(this, &frmGerente::bttnEstablecerMenu_Click);
 			// 
 			// bttnGestionarProductos
 			// 
+			this->bttnGestionarProductos->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(110)), static_cast<System::Int32>(static_cast<System::Byte>(115)));
+			this->bttnGestionarProductos->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->bttnGestionarProductos->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->bttnGestionarProductos->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->bttnGestionarProductos->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->bttnGestionarProductos->Location = System::Drawing::Point(75, 454);
 			this->bttnGestionarProductos->Name = L"bttnGestionarProductos";
 			this->bttnGestionarProductos->Size = System::Drawing::Size(313, 76);
 			this->bttnGestionarProductos->TabIndex = 10;
 			this->bttnGestionarProductos->Text = L"GESTIONAR PRODUCTOS";
-			this->bttnGestionarProductos->UseVisualStyleBackColor = true;
+			this->bttnGestionarProductos->UseVisualStyleBackColor = false;
 			this->bttnGestionarProductos->Click += gcnew System::EventHandler(this, &frmGerente::bttnGestionarProductos_Click);
 			// 
 			// groupBox1
@@ -227,6 +272,8 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->groupBox2);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->groupBox1->Location = System::Drawing::Point(12, 21);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(943, 582);
@@ -241,8 +288,8 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
-				static_cast<System::Int32>(static_cast<System::Byte>(144)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->ClientSize = System::Drawing::Size(1021, 672);
 			this->Controls->Add(this->groupBox1);
 			this->ForeColor = System::Drawing::SystemColors::ControlText;

@@ -2,7 +2,7 @@
 
 using namespace RAMFoodModel;
 
-PedidoMesa::PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebidas^>^ ListaBebidas)
+PedidoMesa::PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebida^>^ ListaBebidas)
 {
 	this->Fila = Fila;
 	this->Cuenta = 0;

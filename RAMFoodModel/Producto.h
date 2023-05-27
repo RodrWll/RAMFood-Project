@@ -2,15 +2,15 @@
 using namespace System;
 
 namespace RAMFoodModel {
-	public ref class PlatoBebidaMenu {
+	public ref class Producto {
 	private:
 		String^ Nombre;
 		double Precio;
 		int Tipo;
 		int Id;
 	public:
-		PlatoBebidaMenu();
-		PlatoBebidaMenu(int Id, String^ Nombre, double Precio, int Tipo);
+		Producto();
+		Producto(int Id, String^ Nombre, double Precio, int Tipo);
 
 		String^ GetNombre();
 		void SetNombre(String^ Nombre);

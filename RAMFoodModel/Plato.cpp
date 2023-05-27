@@ -23,7 +23,18 @@ Plato::Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, in
 	this->IdImagen = IdImagen;
 	this->CantidadPedida = CantidadPedida;
 	this->Id = Id;
-};
+	this->estado = 0;//se setea el estado en 0 por defecto
+}
+Plato::Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Id, int estado)
+{
+	this->Nombre = Nombre;
+	this->Precio = Precio;
+	this->IdImagen = IdImagen;
+	this->CantidadPedida = CantidadPedida;
+	this->Id = Id;
+	this->estado = estado;
+}
+;
 
 String^ Plato::GetNombre() {
 	return this->Nombre;

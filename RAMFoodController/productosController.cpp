@@ -7,10 +7,10 @@ using namespace System::IO;
 productoController::productoController()
 {
 }
-List<PlatoBebidaMenu^>^ productoController::listarProductos()
+List<Producto^>^ productoController::listarProductos()
 {
-	List<PlatoBebidaMenu^>^ listaProductos = gcnew List<PlatoBebidaMenu^>();
-	array<String^>^ lineas = File::ReadAllLines("productos.txt");
+	List<Producto^>^ listaProductos = gcnew List<Producto^>();
+	array<String^>^ lineas = File::ReadAllLines("Recursos//productos//productos.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaProducto in lineas) {
 		array<String^>^ datos = lineaProducto->Split(separadores->ToCharArray());
@@ -18,29 +18,29 @@ List<PlatoBebidaMenu^>^ productoController::listarProductos()
 		String^ Nombre = datos[1];
 		double Precio = Convert::ToDouble(datos[2]);
 		int Tipo = Convert::ToInt32(datos[3]);
-		PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu(Id, Nombre, Precio, Tipo);
+		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
 		listaProductos->Add(objPlatoBebidaMenu);
 	}
 	return listaProductos;
 }
-void productoController::escribirProductos(List<PlatoBebidaMenu^>^ listaProductos)
+void productoController::escribirProductos(List<Producto^>^ listaProductos)
 {
 	array<String^>^ lineasArchivo = gcnew array<String^>(listaProductos->Count);
 	for (int i = 0; i < listaProductos->Count; i++) {
-		PlatoBebidaMenu^ ObjPlatoBebida = listaProductos[i];
+		Producto^ ObjPlatoBebida = listaProductos[i];
 		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
 	}
-	File::WriteAllLines("productos.txt", lineasArchivo);
+	File::WriteAllLines("Recursos//productos//productos.txt", lineasArchivo);
 }
-void productoController::addProducto(PlatoBebidaMenu^ objProducto)
+void productoController::addProducto(Producto^ objProducto)
 {
-	List<PlatoBebidaMenu^>^ listaProductos = listarProductos();
+	List<Producto^>^ listaProductos = listarProductos();
 	listaProductos->Add(objProducto);
 	escribirProductos(listaProductos);
 }
-void productoController::updateProducto(PlatoBebidaMenu^ objProducto)
+void productoController::updateProducto(Producto^ objProducto)
 {
-	List<PlatoBebidaMenu^>^ listaProductos = listarProductos();
+	List<Producto^>^ listaProductos = listarProductos();
 	for (int i = 0; i < listaProductos->Count; i++) {
 			if (listaProductos[i]->GetId() == objProducto->GetId()) {
 				listaProductos[i] = objProducto;
@@ -51,19 +51,25 @@ void productoController::updateProducto(PlatoBebidaMenu^ objProducto)
 }
 void productoController::deleteProducto(int id)
 {
-List<PlatoBebidaMenu^>^ listaProductos = listarProductos();
+List<Producto^>^ listaProductos = listarProductos();
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetId() == id) {
-			listaProductos->RemoveAt(i);
+			listaProductos->RemoveAt(i);//se elimina de la lista de productos
+			if(existeProductoMenuxId(listaProductos[i]->GetId()))//se elimina del menu si es que esta
+			{
+				removeDailyMenuProduct(listaProductos[i]->GetId());
+				generarArchivosMenu();//se actualizan los archivos del menu
+
+			}
 			break;
 		}
 	}
 	escribirProductos(listaProductos);
 }
-PlatoBebidaMenu^ productoController::buscarProductoxId(int id)
+Producto^ productoController::buscarProductoxId(int id)
 {
-	List<PlatoBebidaMenu^>^ listaProductos = listarProductos();
-	PlatoBebidaMenu^ objProducto;
+	List<Producto^>^ listaProductos = listarProductos();
+	Producto^ objProducto;
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetId() == id) {
 			objProducto = listaProductos[i];
@@ -72,10 +78,10 @@ PlatoBebidaMenu^ productoController::buscarProductoxId(int id)
 	}
 	return objProducto;
 }
-List<PlatoBebidaMenu^>^ productoController::buscarProductoxNombre(String^ nombre)
+List<Producto^>^ productoController::buscarProductoxNombre(String^ nombre)
 {
-	List<PlatoBebidaMenu^>^ listaProductos = listarProductos();
-	List<PlatoBebidaMenu^>^ listaProductosBuscados = gcnew List<PlatoBebidaMenu^>();
+	List<Producto^>^ listaProductos = listarProductos();
+	List<Producto^>^ listaProductosBuscados = gcnew List<Producto^>();
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetNombre()->ToLower()->Contains(nombre->ToLower())) {
 			listaProductosBuscados->Add(listaProductos[i]);
@@ -84,7 +90,7 @@ List<PlatoBebidaMenu^>^ productoController::buscarProductoxNombre(String^ nombre
 	return listaProductosBuscados;
 
 }
-List<int>^ productoController::listarIdProductos(List<PlatoBebidaMenu^>^ listaProductos)
+List<int>^ productoController::listarIdProductos(List<Producto^>^ listaProductos)
 {
 	List<int>^ listaIdProductos = gcnew List<int>();
 	for (int i = 0; i < listaProductos->Count; i++) {
@@ -92,7 +98,7 @@ List<int>^ productoController::listarIdProductos(List<PlatoBebidaMenu^>^ listaPr
 	}
 	return listaIdProductos;
 }
-void productoController::generarIdProductos(PlatoBebidaMenu^ objProducto)
+void productoController::generarIdProductos(Producto^ objProducto)
 {
 	int nextId = 1;
 	List<int>^ existingIds = listarIdProductos(listarProductos());
@@ -108,34 +114,31 @@ void productoController::generarIdProductos(PlatoBebidaMenu^ objProducto)
 	objProducto->SetId(nextId);
 }
 //Para el menu
-List<PlatoBebidaMenu^>^ productoController::listarMenu()
+List<Producto^>^ productoController::listarMenu()
 {
-List<PlatoBebidaMenu^>^ listaMenu = gcnew List<PlatoBebidaMenu^>();
-	array<String^>^ lineas = File::ReadAllLines("menuDelDia.txt");
+List<Producto^>^ listaMenu = gcnew List<Producto^>();
+	array<String^>^ lineas = File::ReadAllLines("Recursos//productos//menuDelDia.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaMenu in lineas) {
 		array<String^>^ datos = lineaMenu->Split(separadores->ToCharArray());
-		int Id = Convert::ToInt32(datos[0]);
-		String^ Nombre = datos[1];
-		double Precio = Convert::ToDouble(datos[2]);
-		int Tipo = Convert::ToInt32(datos[3]);
-		PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu(Id, Nombre, Precio, Tipo);
-		listaMenu->Add(objPlatoBebidaMenu);
+		int id = Convert::ToInt32(datos[0]);
+		Producto^ productoEncontrado = buscarProductoxId(id);
+		listaMenu->Add(productoEncontrado);
 	}
 	return listaMenu;
 }
-void productoController::escribirMenu(List<PlatoBebidaMenu^>^ listaMenu)
+void productoController::escribirMenu(List<Producto^>^ listaMenu)
 {
 array<String^>^ lineasArchivo = gcnew array<String^>(listaMenu->Count);
 	for (int i = 0; i < listaMenu->Count; i++) {
-		PlatoBebidaMenu^ ObjPlatoBebida = listaMenu[i];
-		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
+		Producto^ ObjPlatoBebida = listaMenu[i];
+		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("menuDelDia.txt", lineasArchivo);
+	File::WriteAllLines("Recursos//productos//menuDelDia.txt", lineasArchivo);
 }
 int productoController::existeProductoMenuxId(int id)
 {
-	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
+	List<Producto^>^ listaMenu = listarMenu();
 	int existe = 0;
 	for (int i = 0; i < listaMenu->Count; i++) {
 		if (listaMenu[i]->GetId() == id) {
@@ -145,15 +148,15 @@ int productoController::existeProductoMenuxId(int id)
 	}
 	return existe;
 }
-void productoController::addProductToDailyMenu(PlatoBebidaMenu^ obj)
+void productoController::addProductToDailyMenu(Producto^ obj)
 {
-	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
+	List<Producto^>^ listaMenu = listarMenu();
 	listaMenu->Add(obj);
 	escribirMenu(listaMenu);
 }
 void productoController::removeDailyMenuProduct(int id)
 {
-	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
+	List<Producto^>^ listaMenu = listarMenu();
 	for (int i = 0; i < listaMenu->Count; i++) {
 		if (listaMenu[i]->GetId() == id) {
 			listaMenu->RemoveAt(i);
@@ -164,9 +167,9 @@ void productoController::removeDailyMenuProduct(int id)
 }
 void productoController::generarArchivosMenu()
 {
-	List<PlatoBebidaMenu^>^ listaMenu = listarMenu();
-	List<PlatoBebidaMenu^>^ listaComidas = gcnew List<PlatoBebidaMenu^>();
-	List<PlatoBebidaMenu^>^ listaBebidas = gcnew List<PlatoBebidaMenu^>();
+	List<Producto^>^ listaMenu = listarMenu();
+	List<Producto^>^ listaComidas = gcnew List<Producto^>();
+	List<Producto^>^ listaBebidas = gcnew List<Producto^>();
 	for (int i = 0; i < listaMenu->Count; i++) {
 		if (listaMenu[i]->GetTipo() == 2) {
 			listaComidas->Add(listaMenu[i]);
@@ -177,14 +180,14 @@ void productoController::generarArchivosMenu()
 	}
 	array<String^>^ lineasArchivo = gcnew array<String^>(listaComidas->Count);
 	for (int i = 0; i < listaComidas->Count; i++) {
-		PlatoBebidaMenu^ ObjPlatoBebida = listaComidas[i];
-		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
+		Producto^ ObjPlatoBebida = listaComidas[i];
+		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("Platos.txt", lineasArchivo);
+	File::WriteAllLines("Recursos//productos//Platos.txt", lineasArchivo);
 	array<String^>^ lineasArchivo2 = gcnew array<String^>(listaBebidas->Count);
 	for (int i = 0; i < listaBebidas->Count; i++) {
-		PlatoBebidaMenu^ ObjPlatoBebida = listaBebidas[i];
-		lineasArchivo2[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
+		Producto^ ObjPlatoBebida = listaBebidas[i];
+		lineasArchivo2[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("Bebidas.txt", lineasArchivo2);
+	File::WriteAllLines("Recursos//productos//Bebidas.txt", lineasArchivo2);
 }

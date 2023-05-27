@@ -1,5 +1,4 @@
 ﻿#include "PedidoController.h"
-#include "BebidaPlatosController.h"
 using namespace RAMFoodController;
 using namespace RAMFoodModel;
 using namespace System::Collections::Generic;
@@ -10,9 +9,9 @@ using namespace System::IO;
 PedidoController::PedidoController() {};
 
 
-List<Bebidas^>^ PedidoController::obtenerInfoBebida() {
+List<Bebida^>^ PedidoController::obtenerInfoBebida() {
 	/*En esta lista vamos a colocar la informaci�n de las carreras que encontremos en el archivo de texto*/
-	List<Bebidas^>^ listaBebidasEncontradas = gcnew List<Bebidas^>();
+	List<Bebida^>^ listaBebidasEncontradas = gcnew List<Bebida^>();
 	array<String^>^ lineas = File::ReadAllLines("Bebidas.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaBebida in lineas) {
@@ -20,7 +19,7 @@ List<Bebidas^>^ PedidoController::obtenerInfoBebida() {
 		int id = Convert::ToInt32(datos[0]);
 		String^ nombre = datos[1];
 		double PrecioBebida = Convert::ToDouble(datos[2]);
-		Bebidas^ objBebida = gcnew Bebidas(nombre, PrecioBebida, 1, 0, 0, id);
+		Bebida^ objBebida = gcnew Bebida(nombre, PrecioBebida, 1, 0, 0, id);
 		listaBebidasEncontradas->Add(objBebida);
 	}
 	return listaBebidasEncontradas;
@@ -41,7 +40,7 @@ List<Plato^>^ PedidoController::obtenerInfoPlato() {
 	return listaPlatosEncontrados;
 }
 
-void PedidoController::escribirPedidos(List<Plato^>^ listaPlatosMesa, List<Bebidas^>^ listaBebidasMesa,
+void PedidoController::escribirPedidos(List<Plato^>^ listaPlatosMesa, List<Bebida^>^ listaBebidasMesa,
 String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
 	/*Formando lista con los datos de los platos*/
 
@@ -66,7 +65,7 @@ String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
 
 	};
 
-	primera_lista->Add("Bebidas");/*nombre para controlar la parte donde empieza las bebidas, creo que ser� util para hacer el reporte*/
+	primera_lista->Add("Bebida");/*nombre para controlar la parte donde empieza las bebidas, creo que ser� util para hacer el reporte*/
 
 
 	/*Formando lista con los datos de las bebidas*/
@@ -146,7 +145,7 @@ List<Plato^>^ PedidoController::LeerPedidosPlato(String^ nombre_archivo) {
 
 		if (key == 1) {
 			array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-				if (datos[0]->Contains("Bebidas")) { key = 0; }
+				if (datos[0]->Contains("Bebida")) { key = 0; }
 				else {
 					String^ nombre_plato = datos[0];
 					double precio = Convert::ToDouble(datos[2]);
@@ -159,9 +158,9 @@ List<Plato^>^ PedidoController::LeerPedidosPlato(String^ nombre_archivo) {
 	};
 	return LPlatosEncontrados;
 };
-List<Bebidas^>^ PedidoController::LeerPedidosBebidas(String^ nombre_archivo) {
+List<Bebida^>^ PedidoController::LeerPedidosBebidas(String^ nombre_archivo) {
 	/*Leyendo lineas del archivo*/
-	List<Bebidas^>^ LBebidasEncontrados = gcnew List<Bebidas^>();
+	List<Bebida^>^ LBebidasEncontrados = gcnew List<Bebida^>();
 	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
 	String^ separador = ";";
 	int key = 0;
@@ -169,14 +168,14 @@ List<Bebidas^>^ PedidoController::LeerPedidosBebidas(String^ nombre_archivo) {
 	for each (String ^ linea_plato in lineas) {
 		/*Se busca hasta encontrar la palabra bebidas, para empezar a guardar datos*/
 		array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-		if (vez == 1 && (datos[0]->Contains("Bebidas"))) { key = 1; vez = 0; }
+		if (vez == 1 && (datos[0]->Contains("Bebida"))) { key = 1; vez = 0; }
 		else {
 			if (key == 1) {
 
 				String^ nombre_bebida = datos[0];
 				double precio = Convert::ToDouble(datos[2]);
 				int cpedida = Convert::ToInt32(datos[1]);
-				Bebidas^ objBebida = gcnew Bebidas(nombre_bebida, precio, 0, cpedida, 0, 0);
+				Bebida^ objBebida = gcnew Bebida(nombre_bebida, precio, 0, cpedida, 0, 0);
 				LBebidasEncontrados->Add(objBebida);
 			};
 		};
@@ -200,7 +199,7 @@ List<Plato^>^ PedidoController::LeerPedidosPlatoFinal(String^ nombre_archivo) {
 		if (key == 1) {
 			array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
 			
-			if (datos[0]->Contains("Bebidas")) { key = 0; }
+			if (datos[0]->Contains("Bebida")) { key = 0; }
 			else if (datos[0]->Contains("Platos"))
 			{
 				keyPlatos = 1;
@@ -218,10 +217,10 @@ List<Plato^>^ PedidoController::LeerPedidosPlatoFinal(String^ nombre_archivo) {
 	};
 	return LPlatosEncontrados;
 };
-List<Bebidas^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo) {
+List<Bebida^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo) {
 	/*Este método solo lee el nombre, precio, cantidad, idimagen y id lo settea a 0 por defecto*/
 	/*Leyendo lineas del archivo*/
-	List<Bebidas^>^ LBebidasEncontrados = gcnew List<Bebidas^>();
+	List<Bebida^>^ LBebidasEncontrados = gcnew List<Bebida^>();
 	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
 	String^ separador = ";";
 	int key = 0;
@@ -229,14 +228,14 @@ List<Bebidas^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo
 	for each (String ^ linea_plato in lineas) {
 		/*Se busca hasta encontrar la palabra bebidas, para empezar a guardar datos*/
 		array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-		if (vez == 1 && (datos[0]->Contains("Bebidas"))) { key = 1; vez = 0; }
+		if (vez == 1 && (datos[0]->Contains("Bebida"))) { key = 1; vez = 0; }
 		else {
 			if (key == 1) {
 
 				String^ nombre_bebida = datos[0];
 				int cpedida = Convert::ToInt32(datos[1]);
 				double cprecio = Convert::ToDouble(datos[2]);
-				Bebidas^ objBebida = gcnew Bebidas(nombre_bebida, cprecio, 0, cpedida, 0, 0);
+				Bebida^ objBebida = gcnew Bebida(nombre_bebida, cprecio, 0, cpedida, 0, 0);
 				LBebidasEncontrados->Add(objBebida);
 			};
 		};
@@ -246,7 +245,7 @@ List<Bebidas^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo
 }
 
 
-void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa) {
+void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa) {
 	int numeroLinea = 3 + lPlato->Count + lBebidas->Count;
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
 	lineasEscribir->Add(Convert::ToString(numMesa));
@@ -256,15 +255,15 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 		String^ lineaIt = objPlato->GetNombre() + ";" + objPlato->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
 	}
-	lineasEscribir->Add("Bebidas");
-	for each (Bebidas^ objBebida in lBebidas)
+	lineasEscribir->Add("Bebida");
+	for each (Bebida^ objBebida in lBebidas)
 	{
 		String^ lineaIt = objBebida->GetNombre() + ";" + objBebida->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
 	}
 	File::WriteAllLines("pedidototal//pedidomesa.txt",lineasEscribir);
 };
-void PedidoController::escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa) {
+void PedidoController::escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa) {
 	int numeroLinea = 3 + lPlato->Count + lBebidas->Count;
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
 	lineasEscribir->Add(Convert::ToString(numMesa));
@@ -274,8 +273,8 @@ void PedidoController::escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, Lis
 		String^ lineaIt = objPlato->GetNombre() + ";" + objPlato->GetCantidadPedida() + ";" + objPlato->GetPrecio();
 		lineasEscribir->Add(lineaIt);
 	}
-	lineasEscribir->Add("Bebidas");
-	for each (Bebidas^ objBebida in lBebidas)
+	lineasEscribir->Add("Bebida");
+	for each (Bebida^ objBebida in lBebidas)
 	{
 		String^ lineaIt = objBebida->GetNombre() + ";" + objBebida->GetCantidadPedida()+";"+ objBebida->GetPrecio();
 		lineasEscribir->Add(lineaIt);
@@ -284,7 +283,7 @@ void PedidoController::escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, Lis
 
 };
 void PedidoController::guardarPedido(int numeroMesa) {
-	List<Bebidas^>^ listaBebidasLeida = gcnew List<Bebidas^>();
+	List<Bebida^>^ listaBebidasLeida = gcnew List<Bebida^>();
 	List<Plato^>^ listaPlatoLeida = gcnew List<Plato^>();
 	listaBebidasLeida = this->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
 	listaPlatoLeida = this->LeerPedidosPlato("pedidotemporal//pedido1.txt");
@@ -294,9 +293,9 @@ void PedidoController::guardarPedido(int numeroMesa) {
 	if (!(lineas[0]->Contains("vacio"))) {
 		/*lista donde se guardara los nuevos platos que se envian*/
 		List<Plato^>^ listaNuevosPlatos = gcnew List<Plato^>();
-		List<Bebidas^>^ listaNuevasBebidas = gcnew List<Bebidas^>();
+		List<Bebida^>^ listaNuevasBebidas = gcnew List<Bebida^>();
 		/*escribir archivo sumando las cantidades que ya pidieron*/
-		List<Bebidas^>^ listaBebidasLeidaPedidoFinal = gcnew List<Bebidas^>();
+		List<Bebida^>^ listaBebidasLeidaPedidoFinal = gcnew List<Bebida^>();
 		List<Plato^>^ listaPlatoLeidaPedidoFinal = gcnew List<Plato^>();
 		listaBebidasLeidaPedidoFinal = this->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
 		listaPlatoLeidaPedidoFinal = this->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
@@ -328,10 +327,10 @@ void PedidoController::guardarPedido(int numeroMesa) {
 		}
 
 		/*Lo mismo para las bebidas*/
-		for each (Bebidas^ objBebidasComparacion in listaBebidasLeida)
+		for each (Bebida^ objBebidasComparacion in listaBebidasLeida)
 		{
 			int bebidaNueva = 1;
-			for each (Bebidas^ objBebidasPedidoFinal in listaBebidasLeidaPedidoFinal)
+			for each (Bebida^ objBebidasPedidoFinal in listaBebidasLeidaPedidoFinal)
 			{
 				if (objBebidasComparacion->GetNombre() == objBebidasPedidoFinal->GetNombre()) {
 					int cantidadNueva = objBebidasComparacion->GetCantidadPedida() + objBebidasPedidoFinal->GetCantidadPedida();
@@ -349,7 +348,7 @@ void PedidoController::guardarPedido(int numeroMesa) {
 
 		}
 		/*Se termina de sumar cantidad, ahora a agregar las bebidas nuevas*/
-		for each (Bebidas^ ObjBebida in listaNuevasBebidas)
+		for each (Bebida^ ObjBebida in listaNuevasBebidas)
 		{
 			listaBebidasLeidaPedidoFinal->Add(ObjBebida);
 		}

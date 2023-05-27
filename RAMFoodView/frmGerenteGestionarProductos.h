@@ -145,7 +145,7 @@ namespace RAMFoodView {
 			this->gbFormulario->Size = System::Drawing::Size(603, 665);
 			this->gbFormulario->TabIndex = 7;
 			this->gbFormulario->TabStop = false;
-			this->gbFormulario->Text = L"Datos del producto:";
+			this->gbFormulario->Text = L"Datos del Producto:";
 			// 
 			// pictureBox1
 			// 
@@ -417,7 +417,7 @@ namespace RAMFoodView {
 #pragma endregion
 private: void Actualizar() {
 	productoController^ objController = gcnew productoController();
-	List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->listarProductos();
+	List<Producto^>^ listaPlatosBebidas = objController->listarProductos();
 	mostrarGrilla(listaPlatosBebidas);
 
 }
@@ -429,10 +429,10 @@ private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, 
 	this->comboBox1->Items->Add("Comida");
 	this->button10->Enabled = false;
 }
-private: void mostrarGrilla(List<PlatoBebidaMenu^>^ listaPlatoBebidaMostrar) {
+private: void mostrarGrilla(List<Producto^>^ listaPlatoBebidaMostrar) {
 	this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 	for (int i = 0; i < listaPlatoBebidaMostrar->Count; i++) {
-		PlatoBebidaMenu^ objPlatoBebida = listaPlatoBebidaMostrar[i];
+		Producto^ objPlatoBebida = listaPlatoBebidaMostrar[i];
 		array<String^>^ filaGrilla = gcnew array<String^>(4);
 		filaGrilla[0] = Convert::ToString(objPlatoBebida->GetId());
 		filaGrilla[1] = objPlatoBebida->GetNombre();
@@ -467,7 +467,7 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 		if (!selectedRow->IsNewRow) {
 			int codigoActualizar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 			productoController^ objController = gcnew productoController();
-			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			Producto^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
 			this->lbProductName->Text = objPlatoBebidaMenu->GetNombre();
 			this->lbPrecio->Text = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
 			this->comboBox1->SelectedIndex = objPlatoBebidaMenu->GetTipo();
@@ -504,7 +504,7 @@ private: System::Void btnAddBebidaPlato_Click(System::Object^ sender, System::Ev
 		if (this->comboBox1->SelectedIndex == 1 || this->comboBox1->SelectedIndex == 2)
 		{
 			productoController^ objProductoController = gcnew productoController();
-			PlatoBebidaMenu^ objBebidaPlato = gcnew PlatoBebidaMenu();;
+			Producto^ objBebidaPlato = gcnew Producto();;
 			objBebidaPlato->SetNombre(this->lbProductName->Text);
 
 			objBebidaPlato->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
@@ -571,12 +571,12 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 }
 	   //Actualizar
 private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
-	PlatoBebidaMenu^ objPlatoBebidaMenu = gcnew PlatoBebidaMenu();
+	Producto^ objPlatoBebidaMenu = gcnew Producto();
 	objPlatoBebidaMenu->SetNombre(this->lbProductName->Text);
 	objPlatoBebidaMenu->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
-	BebidaPlatosController^ objController = gcnew BebidaPlatosController();
-	objController->UpdateProduct(objPlatoBebidaMenu);
-	List<PlatoBebidaMenu^>^ listaPlatosBebidas = objController->buscarTodas();
+	productoController^ objController = gcnew productoController();
+	objController->updateProducto(objPlatoBebidaMenu);
+	List<Producto^>^ listaPlatosBebidas = objController->listarProductos();
 	mostrarGrilla(listaPlatosBebidas);
 }
 
@@ -590,7 +590,7 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 			if(this->comboBox1->SelectedIndex==1 || this->comboBox1->SelectedIndex==2)
 			{
 				productoController^ objController = gcnew productoController();
-				PlatoBebidaMenu^ objPlatoBebida= gcnew PlatoBebidaMenu();
+				Producto^ objPlatoBebida= gcnew Producto();
 				objPlatoBebida->SetNombre(this->lbProductName->Text);
  				objPlatoBebida->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
 				objPlatoBebida->SetId(Convert::ToInt32(this->textBox1->Text));

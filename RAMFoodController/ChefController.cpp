@@ -1,5 +1,4 @@
 #include "ChefController.h"
-#include "BebidaPlatosController.h"
 using namespace RAMFoodController;
 using namespace RAMFoodModel;
 using namespace System::Collections::Generic;
@@ -25,7 +24,7 @@ List<Plato^>^ ChefController::LeerPedidosPlatoChef(String^ nombre_archivo) {
 		if (activo) {
 			if (key == 1) {
 
-				if (datos[0]->Contains("Bebidas")) { key = 0; }
+				if (datos[0]->Contains("Bebida")) { key = 0; }
 				else {
 					String^ nombre_plato = datos[0];
 					int cpedida = Convert::ToInt32(datos[1]);
@@ -42,9 +41,9 @@ List<Plato^>^ ChefController::LeerPedidosPlatoChef(String^ nombre_archivo) {
 	};
 	return LPlatosEncontrados;
 };
-List<Bebidas^>^ ChefController::LeerPedidosBebidasChef(String^ nombre_archivo) {
+List<Bebida^>^ ChefController::LeerPedidosBebidasChef(String^ nombre_archivo) {
 	/*Leyendo lineas del archivo*/
-	List<Bebidas^>^ LBebidasEncontrados = gcnew List<Bebidas^>();
+	List<Bebida^>^ LBebidasEncontrados = gcnew List<Bebida^>();
 	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
 	String^ separador = ";";
 	int key = 0;
@@ -52,13 +51,13 @@ List<Bebidas^>^ ChefController::LeerPedidosBebidasChef(String^ nombre_archivo) {
 	for each (String ^ linea_plato in lineas) {
 		/*Se busca hasta encontrar la palabra bebidas, para empezar a guardar datos*/
 		array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-		if (vez == 1 && (datos[0]->Contains("Bebidas"))) { key = 1; vez = 0; }
+		if (vez == 1 && (datos[0]->Contains("Bebida"))) { key = 1; vez = 0; }
 		else {
 			if (key == 1) {
 
 				String^ nombre_bebida = datos[0];
 				int cpedida = Convert::ToInt32(datos[1]);
-				Bebidas^ objBebida = gcnew Bebidas(nombre_bebida, 0, 0, cpedida, 0, 0);
+				Bebida^ objBebida = gcnew Bebida(nombre_bebida, 0, 0, cpedida, 0, 0);
 				LBebidasEncontrados->Add(objBebida);
 			};
 		};
@@ -71,7 +70,7 @@ int ChefController::LeerNroDeMesa(String^ nombre_archivo) {
 	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
 	return Convert::ToInt32(lineas[0]);
 }
-void ChefController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa) {
+void ChefController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa) {
 	int numeroLinea = 3 + lPlato->Count + lBebidas->Count;
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
 	lineasEscribir->Add(Convert::ToString(numMesa));
@@ -81,8 +80,8 @@ void ChefController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebid
 		String^ lineaIt = objPlato->GetNombre() + ";" + objPlato->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
 	}
-	lineasEscribir->Add("Bebidas");
-	for each (Bebidas ^ objBebida in lBebidas)
+	lineasEscribir->Add("Bebida");
+	for each (Bebida ^ objBebida in lBebidas)
 	{
 		String^ lineaIt = objBebida->GetNombre() + ";" + objBebida->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
@@ -92,7 +91,7 @@ void ChefController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebid
 
 void ChefController::EliminarPedidoxNombre(String^ Producto) {
 	List<Plato^>^ listaPlatos = LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
-	List<Bebidas^>^ LBebidasEncontrados = LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	List<Bebida^>^ LBebidasEncontrados = LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
 	for (int i = 0; i < (listaPlatos->Count); i++) {
 		Plato^ objPlato = listaPlatos[i];
 		if (objPlato->GetNombre() == Producto) {
@@ -101,7 +100,7 @@ void ChefController::EliminarPedidoxNombre(String^ Producto) {
 		}
 	}
 	for (int i = 0; i < (LBebidasEncontrados->Count); i++) {
-		Bebidas^ objBebida = LBebidasEncontrados[i];
+		Bebida^ objBebida = LBebidasEncontrados[i];
 		if (objBebida->GetNombre() == Producto) {
 			LBebidasEncontrados->RemoveAt(i);
 			break;

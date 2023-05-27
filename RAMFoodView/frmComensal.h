@@ -58,7 +58,7 @@ namespace RAMFoodView {
 			}
 		}
 	private: PedidoMesa^ ObjPedidoMesa;
-	private: List<Bebidas^>^ ListaBebidasInfogeneral;
+	private: List<Bebida^>^ ListaBebidasInfogeneral;
 	private: List<Plato^>^ ListaPlatoInfoGeneral;
 	private: System::Windows::Forms::Button^ button1;
 	private: int nuevo_pedido;
@@ -399,7 +399,7 @@ public:
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(135, 37);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Bebidas";
+			this->button2->Text = L"Bebida";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmComensal::button2_Click);
 			// 
@@ -1648,7 +1648,7 @@ void MostrasInfoPlatosYBebidas() {
 	PedidoController^ objPedidoController = gcnew PedidoController();
 	 this->nuevo_pedido = objPedidoController->esNuevoPedido("estado_pedido");
 
-	 List<Bebidas^>^ listaBebidas = objPedidoController->obtenerInfoBebida();
+	 List<Bebida^>^ listaBebidas = objPedidoController->obtenerInfoBebida();
 	 List<Plato^>^ listaPlato = objPedidoController->obtenerInfoPlato();
 	 // Bebidas^ Objeto1 = listaBebidas[0];
 
@@ -1717,7 +1717,7 @@ void MostrasInfoPlatosYBebidas() {
 	 if(this->nuevo_pedido==0){
 		 /*leer valores del texto y setearlos a cada label*/
 		 List<Plato^>^ lista_pedidos_activos_plato = objPedidoController->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-		 List<Bebidas^>^ lista_pedidos_activos_bebida = objPedidoController->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+		 List<Bebida^>^ lista_pedidos_activos_bebida = objPedidoController->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
 		 int id_i=0;
 		 for each (Plato^ plato_i in lista_pedidos_activos_plato) {
 			 /*buscando el id del plato*/
@@ -1753,11 +1753,11 @@ void MostrasInfoPlatosYBebidas() {
 
 		 }
 		 int id_i_b=0;
-		 for each (Bebidas ^ bebida_i in lista_pedidos_activos_bebida) {
+		 for each (Bebida ^ bebida_i in lista_pedidos_activos_bebida) {
 			 /*buscando el id del plato*/
 
 			 String^ nombre_i = bebida_i->GetNombre();
-			 for each (Bebidas ^ bebida_lista_i in ListaBebidasInfogeneral) {
+			 for each (Bebida ^ bebida_lista_i in ListaBebidasInfogeneral) {
 				 String^ nombre_j = bebida_lista_i->GetNombre();
 				 if (nombre_i == nombre_j) {
 					 id_i_b = bebida_lista_i->GetId();

@@ -76,7 +76,7 @@ namespace RAMFoodView {
 			if (tipo == 0) {
 				PedidoController^ objPedidoControllerA = gcnew PedidoController();
 				List<Plato^>^ Lista1 = objPedidoControllerA->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-				List<Bebidas^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+				List<Bebida^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -87,7 +87,7 @@ namespace RAMFoodView {
 					this->dataGridView1->Rows->Add(FilaGrilla);
 				};
 				for (int i = 0; i < Lista2->Count; i++) {
-					Bebidas^ p_i = Lista2[i];
+					Bebida^ p_i = Lista2[i];
 					array<String^>^ FilaGrilla = gcnew array<String^>(3);
 					FilaGrilla[0] = p_i->GetNombre();
 					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
@@ -101,7 +101,7 @@ namespace RAMFoodView {
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
 				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
-				List<Bebidas^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -112,7 +112,7 @@ namespace RAMFoodView {
 					this->dataGridView1->Rows->Add(FilaGrilla);
 				};
 				for (int i = 0; i < Lista2->Count; i++) {
-					Bebidas^ p_i = Lista2[i];
+					Bebida^ p_i = Lista2[i];
 					array<String^>^ FilaGrilla = gcnew array<String^>(3);
 					FilaGrilla[0] = p_i->GetNombre();
 					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
@@ -130,7 +130,7 @@ namespace RAMFoodView {
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
 				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
-				List<Bebidas^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -141,7 +141,7 @@ namespace RAMFoodView {
 					this->dataGridView1->Rows->Add(FilaGrilla);
 				};
 				for (int i = 0; i < Lista2->Count; i++) {
-					Bebidas^ p_i = Lista2[i];
+					Bebida^ p_i = Lista2[i];
 					array<String^>^ FilaGrilla = gcnew array<String^>(3);
 					FilaGrilla[0] = p_i->GetNombre();
 					FilaGrilla[1] = Convert::ToString(p_i->GetCantidadPedida());
@@ -329,7 +329,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			// 
 			// Column1
 			// 
-			this->Column1->HeaderText = L"Comida y Bebidas";
+			this->Column1->HeaderText = L"Comida y Bebida";
 			this->Column1->MinimumWidth = 6;
 			this->Column1->Name = L"Column1";
 			this->Column1->ReadOnly = true;

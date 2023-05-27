@@ -7,8 +7,8 @@ namespace RAMFoodController {
 	public:
 		ChefController();
 		/*métodos migrados de bebidasController*/
-		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebidas^>^ lBebidas, int numMesa);
-		List<Bebidas^>^ LeerPedidosBebidasChef(String^ nombre_archivo);
+		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa);
+		List<Bebida^>^ LeerPedidosBebidasChef(String^ nombre_archivo);
 		List<Plato^>^ LeerPedidosPlatoChef(String^ nombre_archivo);
 		void EliminarPedidoxNombre(String^ Producto);
 		int LeerNroDeMesa(String^ nombre_archivo);

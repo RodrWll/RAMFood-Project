@@ -1,11 +1,21 @@
 #pragma once
 using namespace System;
 namespace RAMFoodModel {
-	public ref class Bebidas
+	public ref class Bebida
 	{
+	private:
+		String^ Nombre;
+		double Precio;
+		int IdImagen;
+		int CantidadPedida;
+		int Tamanho;
+		int Id;
+		int estado;
+		//Ver el archivo plato.h para mayor contexto acerca del estado
 	public:
-		Bebidas();
-		Bebidas(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id);
+		Bebida();
+		Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id);
+		Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id,int estado);
 
 		String^ GetNombre();
 		double GetPrecio();
@@ -27,12 +37,6 @@ namespace RAMFoodModel {
 		int GetTamanho();
 		*/
 
-	private:
-		String^ Nombre;
-		double Precio;
-		int IdImagen;
-		int CantidadPedida;
-		int Tamanho;
-		int Id;
+	
 	};
 }

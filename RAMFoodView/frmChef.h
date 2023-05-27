@@ -277,7 +277,7 @@ namespace RAMFoodView {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(124, 16);
 			this->label4->TabIndex = 8;
-			this->label4->Text = L"Lista de Bebidas";
+			this->label4->Text = L"Lista de Bebida";
 			this->label4->Click += gcnew System::EventHandler(this, &frmChef::label4_Click);
 			// 
 			// button3
@@ -332,12 +332,12 @@ private: void mostrarGrillaPlatos(List<Plato^>^ listaPlatos) {
 		this->dataGridView1->Rows->Add(filaGrilla);
 	}
 }	
-private: void mostrarGrillaBebidas(List<Bebidas^>^ listaBebidasMostrar) {
+private: void mostrarGrillaBebidas(List<Bebida^>^ listaBebidasMostrar) {
 	this->dataGridView2->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 	ChefController^ objChefController = gcnew ChefController();
 	int nroDeMesa = objChefController->LeerNroDeMesa("pedidototal//pedidomesa.txt");
 	for (int i = 0; i < listaBebidasMostrar->Count; i++) {
-		Bebidas^ objBebida = listaBebidasMostrar[i];
+		Bebida^ objBebida = listaBebidasMostrar[i];
 		array<String^>^ filaGrilla = gcnew array<String^>(3);
 		filaGrilla[0] = objBebida->GetNombre();
 		filaGrilla[1] = Convert::ToString(objBebida->GetCantidadPedida());
@@ -349,7 +349,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	ChefController^ objChefController = gcnew ChefController();	
 	List<Plato^>^ ListaPlato = objChefController->LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
-	List<Bebidas^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	List<Bebida^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
 	//PedidoMesa^ objPedidoMesa = gcnew PedidoMesa(0,1, ListaPlato,ListaBebidas);
 	mostrarGrillaPlatos(ListaPlato);
 	mostrarGrillaBebidas(ListaBebidas);
@@ -397,7 +397,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	VentaConfirmacion->ShowDialog();
 	ChefController^ objChefController = gcnew ChefController();
 	List<Plato^>^ ListaPlato = objChefController->LeerPedidosPlatoChef("pedidototal//pedidomesa.txt");
-	List<Bebidas^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
+	List<Bebida^>^ ListaBebidas = objChefController->LeerPedidosBebidasChef("pedidototal//pedidomesa.txt");
 	//PedidoMesa^ objPedidoMesa = gcnew PedidoMesa(0,1, ListaPlato,ListaBebidas);
 	mostrarGrillaPlatos(ListaPlato);
 	mostrarGrillaBebidas(ListaBebidas);

@@ -277,17 +277,17 @@ namespace RAMFoodView {
 #pragma endregion
 private: void Actualizar() {
 	productoController^ objController = gcnew productoController();
-	List<PlatoBebidaMenu^>^ productList = objController->listarMenu();
+	List<Producto^>^ productList = objController->listarMenu();
 	showGrid(productList);
 }
 private: System::Void frmGerenteEstablecerMenu_Load(System::Object^ sender, System::EventArgs^ e) {
 	Actualizar();
 }
 
-void showGrid(List<PlatoBebidaMenu^>^ listaPlatoBebidaMostrar) {
+void showGrid(List<Producto^>^ listaPlatoBebidaMostrar) {
 	this->dgvEstablecerMenu->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 	for (int i = 0; i < listaPlatoBebidaMostrar->Count; i++) {
-		PlatoBebidaMenu^ objPlatoBebida = listaPlatoBebidaMostrar[i];
+		Producto^ objPlatoBebida = listaPlatoBebidaMostrar[i];
 		array<String^>^ filaGrilla = gcnew array<String^>(4);
 		filaGrilla[0] = Convert::ToString(objPlatoBebida->GetId());
 		filaGrilla[1] = objPlatoBebida->GetNombre();
@@ -345,7 +345,7 @@ private: System::Void dgvEstablecerMenu_CellClick(System::Object^ sender, System
 		if (!selectedRow->IsNewRow) {
 			int codigoActualizar = Convert::ToInt32(this->dgvEstablecerMenu->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 			productoController^ objController = gcnew productoController();
-			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			Producto^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
 			String^ nombreArchivo = objPlatoBebidaMenu->GetId().ToString() + ".jpg";
 			String^ carpetaDestino = "Recursos\\productosImgenes";
 			String^ rutaImagen = Path::Combine(carpetaDestino, nombreArchivo);

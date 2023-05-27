@@ -20,7 +20,7 @@ List<Plato^>^ AsistenteController::listarPlatosPedidosMesa()
 	for each (String ^ lineaPedido in lineas) {
 		array<String^>^ datos = lineaPedido->Split(separadores->ToCharArray());
 		int id = Convert::ToInt16(datos[0]);
-		PlatoBebidaMenu^ productoEncontrado = objProductoController->buscarProductoxId(id);
+		Producto^ productoEncontrado = objProductoController->buscarProductoxId(id);
 		if(productoEncontrado->GetTipo() == 2){
 			int cantidad = Convert::ToInt32(datos[1]);
 			Plato^ objPlato = gcnew Plato(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), productoEncontrado->GetId(), cantidad, productoEncontrado->GetId());
@@ -30,19 +30,19 @@ List<Plato^>^ AsistenteController::listarPlatosPedidosMesa()
 	return listaPlatosEncontrados;
 }
 
-List<Bebidas^>^ AsistenteController::listarBebidasPedidosMesa()
+List<Bebida^>^ AsistenteController::listarBebidasPedidosMesa()
 {
 	productoController^ objProductoController = gcnew productoController();
-	List<Bebidas^>^ listabebidasEncontradas = gcnew List<Bebidas^>();
+	List<Bebida^>^ listabebidasEncontradas = gcnew List<Bebida^>();
 	array<String^>^ lineas = File::ReadAllLines("Recursos//Asistente//pedidomesa1Asistente.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaPedido in lineas) {
 		array<String^>^ datos = lineaPedido->Split(separadores->ToCharArray());
 		int id = Convert::ToInt16(datos[0]);
-		PlatoBebidaMenu^ productoEncontrado = objProductoController->buscarProductoxId(id);
+		Producto^ productoEncontrado = objProductoController->buscarProductoxId(id);
 		if (productoEncontrado->GetTipo() == 1) {
 			int cantidad = Convert::ToInt32(datos[1]);
-			Bebidas^ objBebidas = gcnew Bebidas(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), productoEncontrado->GetId(), cantidad,1, productoEncontrado->GetId());
+			Bebida^ objBebidas = gcnew Bebida(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), productoEncontrado->GetId(), cantidad,1, productoEncontrado->GetId());
 			listabebidasEncontradas->Add(objBebidas);
 		}
 	}

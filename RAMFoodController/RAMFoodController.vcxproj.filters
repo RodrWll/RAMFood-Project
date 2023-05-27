@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BebidaPlatosController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="empleadoController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,15 +30,12 @@
     <ClInclude Include="AsistenteController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ChefController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BebidaPlatosController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="empleadoController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="productosController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PedidoController.cpp">
@@ -51,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AsistenteController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChefController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="productosController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -26,8 +26,8 @@ namespace RAMFoodView {
 			//
 			//TODO: Add the constructor code here
 			//
-			BebidaPlatosController^ objController;
-			List<PlatoBebidaMenu^>^ listaPlatoBebidasMostrar = objController->buscarTodas();
+			productoController^ objController;
+			List<Producto^>^ listaPlatoBebidasMostrar = objController->listarProductos();
 			mostrarGrilla(listaPlatoBebidasMostrar);
 		}
 
@@ -331,16 +331,16 @@ namespace RAMFoodView {
 #pragma endregion
 	private: void actualizar() {
 		productoController^ objController = gcnew productoController();
-		List<PlatoBebidaMenu^>^ listaPlatosBebidasMenu = objController->listarProductos();
+		List<Producto^>^ listaPlatosBebidasMenu = objController->listarProductos();
 		mostrarGrilla(listaPlatosBebidasMenu);
 	}
 	private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
 		actualizar();
 	}
-	private: void mostrarGrilla(List<PlatoBebidaMenu^>^ listaPlatosBebidasMenu) {
+	private: void mostrarGrilla(List<Producto^>^ listaPlatosBebidasMenu) {
 		this->dgvProductosEncontrados->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 		for (int i = 0; i < listaPlatosBebidasMenu->Count; i++) {
-			PlatoBebidaMenu^ objPlatoBebidaMenu = listaPlatosBebidasMenu[i];
+			Producto^ objPlatoBebidaMenu = listaPlatosBebidasMenu[i];
 			array<String^>^ filaGrilla = gcnew array<String^>(4);
 			filaGrilla[0] = Convert::ToString(objPlatoBebidaMenu->GetId());
 			filaGrilla[1] = objPlatoBebidaMenu->GetNombre();
@@ -358,9 +358,9 @@ namespace RAMFoodView {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		productoController^ objController;
 		if (lbIdProducto->Text->Trim() != "") {
-			//Búsqueda de producto por el código ingresado por el usuario
+			//Búsqueda de Producto por el código ingresado por el usuario
 			
-			PlatoBebidaMenu^ ojbPlatoBebidaMenu = objController->buscarProductoxId(Convert::ToInt32(lbIdProducto->Text->Trim()));
+			Producto^ ojbPlatoBebidaMenu = objController->buscarProductoxId(Convert::ToInt32(lbIdProducto->Text->Trim()));
 			//Se borran los datos del grid.
 			this->dgvProductosEncontrados->Rows->Clear();
 			this->dgvProductosEncontrados->Rows->Add(gcnew array<String^> {
@@ -372,7 +372,7 @@ namespace RAMFoodView {
 		}
 		else {
 			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
-			List<PlatoBebidaMenu^>^ productList = objController->buscarProductoxNombre(lbNombreProducto->Text->Trim());
+			List<Producto^>^ productList = objController->buscarProductoxNombre(lbNombreProducto->Text->Trim());
 			//Se borran los datos del grid.
 			this->dgvProductosEncontrados->Rows->Clear();
 			mostrarGrilla(productList);
@@ -386,12 +386,12 @@ namespace RAMFoodView {
 			productoController^ objController = gcnew productoController();
 			int yaExiste = objController->existeProductoMenuxId(IdProducto);
 			if(!yaExiste){
-				PlatoBebidaMenu^ objPlatoBebidaMenuDiario = objController->buscarProductoxId(IdProducto);
+				Producto^ objPlatoBebidaMenuDiario = objController->buscarProductoxId(IdProducto);
 				objController->addProductToDailyMenu(objPlatoBebidaMenuDiario);
 				MessageBox::Show("Producto " + objPlatoBebidaMenuDiario->GetNombre() + " agregado");
 			}
 			else {
-				MessageBox::Show("El producto ya existe en el menú");
+				MessageBox::Show("El Producto ya existe en el menú");
 			}
 		}
 		else {
@@ -417,7 +417,7 @@ private: System::Void dgvProductosEncontrados_CellClick(System::Object^ sender, 
 		if (!selectedRow->IsNewRow) {
 			int codigoActualizar = Convert::ToInt32(this->dgvProductosEncontrados->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 			productoController^ objController = gcnew productoController();
-			PlatoBebidaMenu^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
+			Producto^ objPlatoBebidaMenu = objController->buscarProductoxId(codigoActualizar);
 			String^ nombreArchivo = objPlatoBebidaMenu->GetId().ToString() + ".jpg";
 			String^ carpetaDestino = "Recursos\\productosImgenes";
 			String^ rutaImagen = Path::Combine(carpetaDestino, nombreArchivo);

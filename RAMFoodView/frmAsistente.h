@@ -428,7 +428,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 private: void actualizarBebidaGrilla1() {
 	AsistenteController^ objAsistenteController = gcnew AsistenteController();
-	List<Bebidas^>^ listaBebidas = objAsistenteController->listarBebidasPedidosMesa();
+	List<Bebida^>^ listaBebidas = objAsistenteController->listarBebidasPedidosMesa();
 	mostrarBebida(listaBebidas);
 }
 		   // Esta funcion es generia, le puedes poner la lista de platos de la mesa que quieras
@@ -445,10 +445,10 @@ private: void actualizarBebidaGrilla1() {
 
 			}
 }
-	private: void mostrarBebida(List<Bebidas^>^ listaPedidos) {
+	private: void mostrarBebida(List<Bebida^>^ listaPedidos) {
 	this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 		for (int i = 0; i < listaPedidos->Count; i++) {
-			Bebidas^ objBebida = listaPedidos[i];
+			Bebida^ objBebida = listaPedidos[i];
 			array<String^>^ filaGrilla = gcnew array<String^>(3);
 			filaGrilla[0] = objBebida->GetNombre();
 			filaGrilla[1] = Convert::ToString(objBebida->GetCantidadPedida());

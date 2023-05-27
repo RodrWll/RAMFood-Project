@@ -1,6 +1,6 @@
 #pragma once
 #include "Plato.h"
-#include "Bebidas.h"
+#include "Bebida.h"
 using namespace System::Collections::Generic;
 
 namespace RAMFoodModel {
@@ -9,7 +9,7 @@ namespace RAMFoodModel {
 	{
 	public:
 		PedidoMesa();
-		PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebidas^>^ ListaBebidas);
+		PedidoMesa(int Fila, int Mesa, List<Plato^>^ ListaPlatos, List<Bebida^>^ ListaBebidas);
 		void SetCuenta(double Cuenta);
 		double GetCuenta();
 		int getReiniciarPedido();
@@ -24,7 +24,7 @@ namespace RAMFoodModel {
 		double Cuenta;
 		int Mesa;
 		List<Plato^>^ ListaPlatos;
-		List<Bebidas^>^ ListaBebidas;
+		List<Bebida^>^ ListaBebidas;
 		int reiniciarPedido;
 		/* valores para reiniciarPedido:
 		* vale 1: se reinicia los numeros de la interfaz de comnesal

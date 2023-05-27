@@ -18,7 +18,7 @@
     <ClCompile Include="Asistente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bebidas.cpp">
+    <ClCompile Include="Bebida.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Chef.cpp">
@@ -39,7 +39,7 @@
     <ClCompile Include="Plato.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlatoBebidaMenu.cpp">
+    <ClCompile Include="Producto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Usuario.cpp">
@@ -50,7 +50,7 @@
     <ClInclude Include="Asistente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bebidas.h">
+    <ClInclude Include="Bebida.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chef.h">
@@ -71,7 +71,7 @@
     <ClInclude Include="Plato.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlatoBebidaMenu.h">
+    <ClInclude Include="Producto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Usuario.h">

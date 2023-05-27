@@ -6,21 +6,21 @@ namespace RAMFoodController {
 	{
 	public:
 		productoController();
-		List<PlatoBebidaMenu^>^ listarProductos();
-		void escribirProductos(List<PlatoBebidaMenu^>^ listaProductos);
-		void addProducto(PlatoBebidaMenu^ obj);
-		void updateProducto(PlatoBebidaMenu^ obj);
+		List<Producto^>^ listarProductos();
+		void escribirProductos(List<Producto^>^ listaProductos);
+		void addProducto(Producto^ obj);
+		void updateProducto(Producto^ obj);
 		void deleteProducto(int id);
-		PlatoBebidaMenu^ buscarProductoxId(int id);
-		List<PlatoBebidaMenu^>^ buscarProductoxNombre(String^ nombre);
-		List<int>^ listarIdProductos(List<PlatoBebidaMenu^>^ listaProductos);
-		void generarIdProductos(PlatoBebidaMenu^ objProducto);
+		Producto^ buscarProductoxId(int id);
+		List<Producto^>^ buscarProductoxNombre(String^ nombre);
+		List<int>^ listarIdProductos(List<Producto^>^ listaProductos);
+		void generarIdProductos(Producto^ objProducto);
 		//Para el menu
-		List<PlatoBebidaMenu^>^ listarMenu();
-		void escribirMenu (List<PlatoBebidaMenu^>^ listaMenu);
+		List<Producto^>^ listarMenu();
+		void escribirMenu (List<Producto^>^ listaMenu);
 		//Para prevenir que se agregue un plato ya agregado
 		int existeProductoMenuxId(int id);
-		void addProductToDailyMenu(PlatoBebidaMenu^ obj);
+		void addProductToDailyMenu(Producto^ obj);
 		void removeDailyMenuProduct(int id);
 		void generarArchivosMenu();
 	};

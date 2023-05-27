@@ -12,6 +12,6 @@ namespace RAMFoodController {
 			* seran 2 funciones, una para bebidas y otra para comida
 			*/
 			List<Plato^>^ listarPlatosPedidosMesa();
-			List<Bebidas^>^ listarBebidasPedidosMesa();
+			List<Bebida^>^ listarBebidasPedidosMesa();
 	};
 }
