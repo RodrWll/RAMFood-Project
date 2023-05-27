@@ -87,10 +87,10 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(477, 156);
+			this->ClientSize = System::Drawing::Size(477, 222);
 			this->Controls->Add(this->PedidoErrorIndicacion);
 			this->Controls->Add(this->TextoError);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalPedidoVacio";
 			this->Text = L"Pedido no vacío";
 			this->ResumeLayout(false);

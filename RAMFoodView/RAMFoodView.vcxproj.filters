@@ -72,6 +72,9 @@
     <ClCompile Include="frmPrincipal.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmChefConfirmacionDeOrdenTerminada.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -126,6 +129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmPersonal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmChefConfirmacionDeOrdenTerminada.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -233,6 +233,9 @@
     <EmbeddedResource Include="frmComensalGenerarPedido.resx">
       <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalPedidoVacio.resx">
+      <DependentUpon>frmComensalPedidoVacio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGerente.resx">
       <DependentUpon>frmGerente.h</DependentUpon>
     </EmbeddedResource>
