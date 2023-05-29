@@ -1,2 +1,3 @@
-Chaufa de pollo;2;42
+Lomo Saltado;1;30
+Arroz con pollo;1;40
 Bebida

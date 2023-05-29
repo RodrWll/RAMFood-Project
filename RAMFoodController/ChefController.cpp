@@ -57,7 +57,7 @@ List<Bebida^>^ ChefController::LeerPedidosBebidasChef(String^ nombre_archivo) {
 
 				String^ nombre_bebida = datos[0];
 				int cpedida = Convert::ToInt32(datos[1]);
-				Bebida^ objBebida = gcnew Bebida(nombre_bebida, 0, 0, cpedida, 0, 0);
+				Bebida^ objBebida = gcnew Bebida(nombre_bebida, 0, cpedida, 0, 0);
 				LBebidasEncontrados->Add(objBebida);
 			};
 		};

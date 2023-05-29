@@ -10,7 +10,7 @@ productoController::productoController()
 List<Producto^>^ productoController::listarProductos()
 {
 	List<Producto^>^ listaProductos = gcnew List<Producto^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos//productos//productos.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaProducto in lineas) {
 		array<String^>^ datos = lineaProducto->Split(separadores->ToCharArray());
@@ -30,7 +30,7 @@ void productoController::escribirProductos(List<Producto^>^ listaProductos)
 		Producto^ ObjPlatoBebida = listaProductos[i];
 		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";" + ObjPlatoBebida->GetNombre() + ";" + ObjPlatoBebida->GetPrecio() + ";" + ObjPlatoBebida->GetTipo();
 	}
-	File::WriteAllLines("Recursos//productos//productos.txt", lineasArchivo);
+	File::WriteAllLines("Recursos/productos/productos.txt", lineasArchivo);
 }
 void productoController::addProducto(Producto^ objProducto)
 {
@@ -117,7 +117,7 @@ void productoController::generarIdProductos(Producto^ objProducto)
 List<Producto^>^ productoController::listarMenu()
 {
 List<Producto^>^ listaMenu = gcnew List<Producto^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos//productos//menuDelDia.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/menuDelDia.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaMenu in lineas) {
 		array<String^>^ datos = lineaMenu->Split(separadores->ToCharArray());
@@ -134,7 +134,7 @@ array<String^>^ lineasArchivo = gcnew array<String^>(listaMenu->Count);
 		Producto^ ObjPlatoBebida = listaMenu[i];
 		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("Recursos//productos//menuDelDia.txt", lineasArchivo);
+	File::WriteAllLines("Recursos/productos/menuDelDia.txt", lineasArchivo);
 }
 int productoController::existeProductoMenuxId(int id)
 {
@@ -183,11 +183,30 @@ void productoController::generarArchivosMenu()
 		Producto^ ObjPlatoBebida = listaComidas[i];
 		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("Recursos//productos//Platos.txt", lineasArchivo);
+	File::WriteAllLines("Recursos/productos/Platos.txt", lineasArchivo);
 	array<String^>^ lineasArchivo2 = gcnew array<String^>(listaBebidas->Count);
 	for (int i = 0; i < listaBebidas->Count; i++) {
 		Producto^ ObjPlatoBebida = listaBebidas[i];
 		lineasArchivo2[i] = ObjPlatoBebida->GetId() + ";";
 	}
-	File::WriteAllLines("Recursos//productos//Bebidas.txt", lineasArchivo2);
+	File::WriteAllLines("Recursos/productos/Bebidas.txt", lineasArchivo2);
 }
+
+/*nuevo*/
+
+int productoController::buscarIdxNombre(String^ nombre) {
+	
+	int id = 0;
+	array<String^>^ listaLeida = File::ReadAllLines("Recursos/productos/productos.txt");
+
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	productoController^ objProductosController = gcnew productoController();
+	for each (String ^ linea in listaLeida) {
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		if (datos[1]->Contains(nombre)) {
+			return Convert::ToInt32(datos[0]);
+		}
+	}
+	/*si retorna 0, queire decir que no encuentra nada*/
+	return id;
+};

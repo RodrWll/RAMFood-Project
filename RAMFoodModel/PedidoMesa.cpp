@@ -27,6 +27,13 @@ int PedidoMesa::getReiniciarPedido() {
 void PedidoMesa::setReiniciarPedido(int estado) {
 	this->reiniciarPedido = estado;
 };
+void PedidoMesa::setMesa(int numeroMesa) {
+	this->Mesa = numeroMesa;
+};
+
+int PedidoMesa::getMesa() {
+	return this->Mesa;
+};
 /*
 void PedidoMesa::EnviarPedido() {};
 void PedidoMesa::LlamarAsistente() {};

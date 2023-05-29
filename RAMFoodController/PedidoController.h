@@ -15,7 +15,7 @@ namespace RAMFoodController {
 		List<Bebida^>^ LeerPedidosBebidas(String^ nombre_archivo);
 		void guardarPedido(int numeroMesa);
 		/*El método de abajo vacia los archivos y los guarda a otra carpeta donde se alamcenan los pedidos*/
-		void CuentaPagada();
+		void CuentaPagada(int mesa);
 		/*métodos migrados de bebidasController*/
 		List<Bebida^>^ obtenerInfoBebida();
 		List<Plato^>^ obtenerInfoPlato();

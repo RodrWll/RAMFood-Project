@@ -6,23 +6,19 @@ Bebida::Bebida()
 int Bebida::GetCantidadPedida() {
 	return this->CantidadPedida;
 };
-Bebida::Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id)
+Bebida::Bebida(String^ Nombre, double Precio, int CantidadPedida,  int Id)
 {
 	this->Nombre = Nombre;
 	this->Precio = Precio;
-	this->IdImagen = IdImagen;
 	this->CantidadPedida = CantidadPedida;
-	this->Tamanho = Tamanho;
 	this->Id = Id;
 
 }
-Bebida::Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id, int estado)
+Bebida::Bebida(String^ Nombre, double Precio, int CantidadPedida, int Id, int estado)
 {
 	this->Nombre = Nombre;
 	this->Precio = Precio;
-	this->IdImagen = IdImagen;
 	this->CantidadPedida = CantidadPedida;
-	this->Tamanho = Tamanho;
 	this->Id = Id;
 	this->estado = estado;
 }

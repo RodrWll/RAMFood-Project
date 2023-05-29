@@ -23,5 +23,8 @@ namespace RAMFoodController {
 		void addProductToDailyMenu(Producto^ obj);
 		void removeDailyMenuProduct(int id);
 		void generarArchivosMenu();
+
+		/*nuevo*/
+		int buscarIdxNombre(String^ nombre);
 	};
 }
