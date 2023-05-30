@@ -307,10 +307,20 @@ List<Bebida^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo)
 }
 
 /*dirección ya arreglada*/
-void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa) {
+void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt) {
 	int numeroLinea = 1 + lPlato->Count + lBebidas->Count;
+	String^ direccionMesa = Convert::ToString(numMesa) + ".txt";
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
-	List<String^>^ lineasEscribirExterno = gcnew List<String^>(numeroLinea);
+	/*leyendo el archivo externo*/
+	array<String^>^ pedidoanterior = File::ReadAllLines("Recursos/AsistenteChef/pedidomesa"+direccionMesa);
+
+	List<String^>^ lineasEscribirExterno = gcnew List<String^>();
+	if (!(pedidoanterior[0]->Contains("vacio"))) {
+		for each (String^ lin in pedidoanterior)
+		{
+			lineasEscribirExterno->Add(lin);
+		}
+	};
 
 	lineasEscribir->Add(Convert::ToString(numMesa));
 	
@@ -319,18 +329,31 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 	{
 		String^ lineaIt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
-		lineasEscribirExterno->Add(lineaIt);
+		
 	}
 	
 	for each (Bebida^ objBebida in lBebidas)
 	{
 		String^ lineaIt = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre())) + ";" + objBebida->GetCantidadPedida();
+		
 		lineasEscribir->Add(lineaIt);
-		lineasEscribirExterno->Add(lineaIt);
+		
 	}
-	String^ direccionMesa = Convert::ToString(numMesa)+".txt";
+	for each (Plato^ objPlato in lPlatoExt)
+	{
+		String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida() + ";0";
+		lineasEscribirExterno->Add(lineaItExt);
+	}
+	for each (Bebida^ objBebida in lBebidasExt)
+	{
+		String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre())) + ";" + objBebida->GetCantidadPedida() + ";0";
+		lineasEscribirExterno->Add(lineaItExt);
+	}
+
 	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesa.txt",lineasEscribir);
 	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt", lineasEscribir);
+
+	/*externo*/
 	File::WriteAllLines("Recursos//AsistenteChef//pedidomesa"+direccionMesa, lineasEscribirExterno);
 };
 /*no sirve la funcion de abajo*/
@@ -430,13 +453,13 @@ void PedidoController::guardarPedido(int numeroMesa) {
 		{
 			listaBebidasLeidaPedidoFinal->Add(ObjBebida);
 		}
-		escribirArchivoFormatoChef(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, numeroMesa);
+		escribirArchivoFormatoChef(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, numeroMesa, listaPlatoLeida,listaBebidasLeida);
 		//escribirArchivoFormatoAsistente(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, numeroMesa);
 
 	}
 	else {
 		/*archivo vacio, simplemente se escribe*/
-		escribirArchivoFormatoChef(listaPlatoLeida, listaBebidasLeida, numeroMesa);
+		escribirArchivoFormatoChef(listaPlatoLeida, listaBebidasLeida, numeroMesa, listaPlatoLeida, listaBebidasLeida);
 		//escribirArchivoFormatoAsistente(listaPlatoLeida, listaBebidasLeida, numeroMesa);
 
 
@@ -477,8 +500,29 @@ void PedidoController::CuentaPagada(int mesa) {
 	/*archivo interno*/
 	File::WriteAllLines("Recursos//AsistenteChef//pedido"+direccion, lineaVacia);
 	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesa.txt", lineaVacia);
 
-	//File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
-	/*escribiendo también en la carpeta donde está el archivo para asistente*/
 	
 };
+
+/*Esta funcion modifica el estado del pedido de una mesa determinada, asume que nunca un pedido va a pasar de un estado X a un estado menor*/
+void PedidoController::ModificarEstadoPedido(int idProducto, int cantidadPedida, int estadoDelPedido, int numeroDeMesaALeer) {
+	String^ direccion = "pedidomesa" + Convert::ToString(numeroDeMesaALeer)+".txt";
+	array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//AsistenteChef//"+direccion);
+	String^ separadores = ";"; 
+	List<String^>^ lineasEscribir = gcnew List<String^>();
+	for each (String^ linea in lineasLeidas)
+	{
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		int id = Convert::ToInt32(datos[0]);
+		int cpedida = Convert::ToInt32(datos[1]);
+		int estado = Convert::ToInt32(datos[2]);
+		if (id == idProducto && cpedida == cantidadPedida && estado < estadoDelPedido) {
+			datos[2] = Convert::ToString(estadoDelPedido);
+		};
+		String^ linea = datos[0] + ";" + datos[1] + ";" + datos[2];
+		lineasEscribir->Add(linea);
+	}
+	File::WriteAllLines("Recursos//AsistenteChef//" + direccion,lineasEscribir);
+};
+
