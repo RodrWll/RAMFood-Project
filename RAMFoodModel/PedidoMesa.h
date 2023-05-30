@@ -14,6 +14,8 @@ namespace RAMFoodModel {
 		double GetCuenta();
 		int getReiniciarPedido();
 		void setReiniciarPedido(int estado);
+		void setMesa(int numeroMesa);
+		int getMesa();
 				/*
 		void EnviarPedido();
 		void LlamarMozo();

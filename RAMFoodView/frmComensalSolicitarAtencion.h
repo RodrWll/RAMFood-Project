@@ -161,7 +161,7 @@ namespace RAMFoodView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		array<String^>^ lineasLeidas = File::ReadAllLines("pedidototal//pedidomesaAsistente.txt");
+		array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
 
 		if (!(lineasLeidas[0]=="vacio")) {
 			frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1);

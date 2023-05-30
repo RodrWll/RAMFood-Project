@@ -1716,8 +1716,8 @@ void MostrasInfoPlatosYBebidas() {
 	 /*si es 0, indica que ya se hizo un pedido previamente*/
 	 if(this->nuevo_pedido==0){
 		 /*leer valores del texto y setearlos a cada label*/
-		 List<Plato^>^ lista_pedidos_activos_plato = objPedidoController->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-		 List<Bebida^>^ lista_pedidos_activos_bebida = objPedidoController->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+		 List<Plato^>^ lista_pedidos_activos_plato = objPedidoController->LeerPedidosPlato("Recursos/Comensal/pedidotemporal/pedido1.txt");
+		 List<Bebida^>^ lista_pedidos_activos_bebida = objPedidoController->LeerPedidosBebidas("Recursos/Comensal/pedidotemporal/pedido1.txt");
 		 int id_i=0;
 		 for each (Plato^ plato_i in lista_pedidos_activos_plato) {
 			 /*buscando el id del plato*/
@@ -1911,7 +1911,7 @@ private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ 
 	Cantidades_elegidas_bebida[5] = Convert::ToInt32(this->label33->Text);
 	int esPedidoVacio = OrdenEstaVacia();
 	/*vale 1 si no se pide nada, vale 0 si hay algo*/
-	if (esPedidoVacio==0) {
+	if (esPedidoVacio == 0) {
 		PedidoController^ objPedidoController = gcnew PedidoController();
 		objPedidoController->escribirPedidos(
 			this->ListaPlatoInfoGeneral,
@@ -1919,14 +1919,19 @@ private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ 
 			"pedido", Cantidades_elegidas_bebida, Cantidades_elegidas_plato
 		);
 		/*Guardando un 0 en un .txt para comunicar al sistema que no es un pedido nuevo*/
-		objPedidoController->escribirArchivo("estado_pedido", 0);
+		objPedidoController->escribirArchivo("Recursos/Comensal/pedidotemporal/estado_pedido", 0);
 
-		
-		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa,0);
-		this->Visible=false;
+
+		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa, 0);
+		this->Visible = false;
 		Ventana2->ShowDialog();
-		this->buttonVerPedidoTotal->Enabled = true;
-		this->buttonVerPedidoTotal->Visible = true;
+		array<String^>^ mostrarBoton = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
+		if (mostrarBoton[0] != "vacio") {
+			this->buttonVerPedidoTotal->Enabled = true;
+			this->buttonVerPedidoTotal->Visible = true;
+
+		};
+		
 		this->Visible = true;
 
 	}

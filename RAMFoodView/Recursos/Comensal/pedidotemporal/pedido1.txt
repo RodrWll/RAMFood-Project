@@ -1,2 +1,5 @@
-Chaufa de pollo;2;42
 Bebida
+Inka Cola;1;2.7
+Coca Cola;1;3
+Pepsi;1;4.1
+Limonada;1;1

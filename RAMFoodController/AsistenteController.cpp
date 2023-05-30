@@ -42,7 +42,7 @@ List<Bebida^>^ AsistenteController::listarBebidasPedidosMesa()
 		Producto^ productoEncontrado = objProductoController->buscarProductoxId(id);
 		if (productoEncontrado->GetTipo() == 1) {
 			int cantidad = Convert::ToInt32(datos[1]);
-			Bebida^ objBebidas = gcnew Bebida(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), productoEncontrado->GetId(), cantidad,1, productoEncontrado->GetId());
+			Bebida^ objBebidas = gcnew Bebida(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), cantidad, productoEncontrado->GetId());
 			listabebidasEncontradas->Add(objBebidas);
 		}
 	}

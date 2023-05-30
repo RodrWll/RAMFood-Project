@@ -6,16 +6,16 @@ namespace RAMFoodModel {
 	private:
 		String^ Nombre;
 		double Precio;
-		int IdImagen;
+		
 		int CantidadPedida;
-		int Tamanho;
+		//int Tamanho;
 		int Id;
 		int estado;
 		//Ver el archivo plato.h para mayor contexto acerca del estado
 	public:
 		Bebida();
-		Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id);
-		Bebida(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Tamanho, int Id,int estado);
+		Bebida(String^ Nombre, double Precio, int CantidadPedida, int Id);
+		Bebida(String^ Nombre, double Precio, int CantidadPedida, int Id,int estado);
 
 		String^ GetNombre();
 		double GetPrecio();

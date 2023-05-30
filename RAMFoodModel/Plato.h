@@ -6,7 +6,7 @@ namespace RAMFoodModel {
 	private:
 		String^ Nombre;
 		double Precio;
-		int IdImagen;
+	
 		int CantidadPedida;
 		int Id;
 		int estado;
@@ -29,8 +29,8 @@ namespace RAMFoodModel {
 		//Si esta en 3, el plato ha sido entregado. "entregado"
 	public:
 		Plato();
-		Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Id);
-		Plato(String^ Nombre, double Precio, int IdImagen, int CantidadPedida, int Id, int estado);
+		Plato(String^ Nombre, double Precio,  int CantidadPedida, int Id);
+		Plato(String^ Nombre, double Precio,  int CantidadPedida, int Id, int estado);
 		String^ GetNombre();
 		double GetPrecio();
 		int GetCantidadPedida();

@@ -42,6 +42,7 @@ namespace RAMFoodView {
 			this->numMesa = numMesa;
 			this->frmObjPedidoMesa = gcnew PedidoMesa();
 			this->frmObjPedidoMesa = objPedidoMesa;
+			this->frmObjPedidoMesa->setMesa(numMesa);
 			/*estas funciones van después de declarar los atributos del formulario*/
 			GenerarResumen(tipoResumen);
 			ActualizarCuenta();
@@ -75,8 +76,8 @@ namespace RAMFoodView {
 			*/
 			if (tipo == 0) {
 				PedidoController^ objPedidoControllerA = gcnew PedidoController();
-				List<Plato^>^ Lista1 = objPedidoControllerA->LeerPedidosPlato("pedidotemporal//pedido1.txt");
-				List<Bebida^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("pedidotemporal//pedido1.txt");
+				List<Plato^>^ Lista1 = objPedidoControllerA->LeerPedidosPlato("Recursos//Comensal//pedidotemporal//pedido1.txt");
+				List<Bebida^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("Recursos//Comensal//pedidotemporal//pedido1.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -100,8 +101,8 @@ namespace RAMFoodView {
 				/*codigo para la orden total*/
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
-				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
-				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -129,8 +130,8 @@ namespace RAMFoodView {
 				/*codigo para la orden total*/
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
-				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("pedidototal//pedidomesaAsistente.txt");
-				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("pedidototal//pedidomesaAsistente.txt");
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -236,7 +237,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			// 
 			// button_confirmar
 			// 
-			this->button_confirmar->Location = System::Drawing::Point(680, 440);
+			this->button_confirmar->Location = System::Drawing::Point(680, 395);
 			this->button_confirmar->Name = L"button_confirmar";
 			this->button_confirmar->Size = System::Drawing::Size(128, 40);
 			this->button_confirmar->TabIndex = 5;
@@ -395,7 +396,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		PedidoController^ objPedidoControllerB = gcnew PedidoController();
-		objPedidoControllerB->escribirArchivo("estado_pedido", 1);
+		objPedidoControllerB->escribirArchivo("Recursos//Comensal//pedidotemporal//estado_pedido", 1);
 		this->frmObjPedidoMesa->setReiniciarPedido(1);
 		PedidoController^ objPedidoController = gcnew PedidoController();
 		objPedidoController->guardarPedido(this->numMesa);
@@ -415,7 +416,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 		PedidoController^ objPedidoControllerCuentaPagada = gcnew PedidoController();
 		/*en la interfaz las cantidades deben volver a cero*/
 		this->frmObjPedidoMesa->setReiniciarPedido(1);
-		objPedidoControllerCuentaPagada->CuentaPagada();
+		objPedidoControllerCuentaPagada->CuentaPagada(this->frmObjPedidoMesa->getMesa());
 		ventana_confirmacion->ShowDialog();
 		this->Close();
 	
