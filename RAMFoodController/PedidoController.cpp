@@ -148,6 +148,31 @@ int PedidoController::esNuevoPedido(String^ nombre_archivo)
 	return valor;
 }
 
+void PedidoController::ListarPedidosMesa(int numeroDeMesaALeer, List<Plato^>^ listaPlatos, List<Bebida^>^ listaBebidas)
+{
+	productoController^ objProductoController = gcnew productoController();
+	String^ direccion = "pedidomesa" + Convert::ToString(numeroDeMesaALeer) + ".txt";
+	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+	String^ separadores = ";";
+	List<String^>^ lineasEscribir = gcnew List<String^>();
+	for each (String ^ lineaPedido in lineas) {
+		array<String^>^ datos = lineaPedido->Split(separadores->ToCharArray());
+		int id = Convert::ToInt16(datos[0]);
+		Producto^ productoEncontrado = objProductoController->buscarProductoxId(id);
+		int cantidad = Convert::ToInt32(datos[1]);
+		int status = Convert::ToInt32(datos[2]);
+		if (productoEncontrado->GetTipo() == 2) {
+			
+			Plato^ objPlato = gcnew Plato(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), cantidad, productoEncontrado->GetId(), status);
+			listaPlatos->Add(objPlato);
+		}
+		if (productoEncontrado->GetTipo() == 1) {
+			Bebida^ objBebidas = gcnew Bebida(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), cantidad, productoEncontrado->GetId(), status);
+			listaBebidas->Add(objBebidas);
+		}
+	}
+}
+
 
 
 

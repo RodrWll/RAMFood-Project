@@ -6,7 +6,6 @@ namespace RAMFoodModel {
 	private:
 		String^ Nombre;
 		double Precio;
-	
 		int CantidadPedida;
 		int Id;
 		int estado;

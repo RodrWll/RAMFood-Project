@@ -24,7 +24,10 @@ namespace RAMFoodController {
 		void escribirArchivo(String^ nombre_archivo, int valor);
 		array<String^>^ leerArchivo(String^ nombre_archivo);
 		int esNuevoPedido(String^ nombre_archivo);
+		//Funciones que usaran Franco y Misael
+		void ListarPedidosMesa(int numeroDeMesaALeer, List<Plato^>^ listaPlatos, List<Bebida^>^ listaBebidas);
 		void ModificarEstadoPedido(int idProducto, int cantidadPedida, int estadoDelPedido, int numeroDeMesaALeer);
+
 
 	};
 }
