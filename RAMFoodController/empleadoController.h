@@ -2,9 +2,9 @@ namespace RAMFoodController {
 	using namespace System::Collections::Generic;
 	using namespace RAMFoodModel;
 	using namespace System;
-	public ref class UsuarioController {
+	public ref class empleadoController {
 	public:
-		UsuarioController();
+		empleadoController();
 		void escribirArchivo(List<Usuario^>^ ListaUsuarios);
 		List<Usuario^>^ leerArchivo();
 		void AddUsuario(Usuario^ objUsuario);
@@ -14,10 +14,10 @@ namespace RAMFoodController {
 		List<Usuario^>^ QueryUsuarioByNombre(String^ Nombre);
 		List<Usuario^>^ QueryUsuarioByApellido(String^ Apellido);
 		void generarContrasenha(Usuario^ objUsuario);
-		void generarCorreo(Usuario^ objUsuario);
+		String^ generarCorreo(String^ apellido1, String^ apellido2);
 		void generarId(Usuario^ objUsuario);
-		List<Usuario^>^ QueryUsuarioByTipo(int Tipo);
-		List<Usuario^>^ QuerryUsuarioByNombrexTipo(String^ Nombre, int Tipo);
+		List<Usuario^>^ QueryUsuarioByTipo(int Rol);
+		List<Usuario^>^ QuerryUsuarioByNombrexRol(String^ Nombre, int Rol);
 		List<int>^ ListaIdUsuarios(List<Usuario^>^ ListaUsuarios);
 		int VerificaExistenciaUsuario(int Id );
 	};

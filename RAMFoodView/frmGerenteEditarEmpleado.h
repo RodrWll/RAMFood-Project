@@ -47,7 +47,9 @@ namespace RAMFoodView {
 
 	protected:
 	private: Usuario^ objUsuario;
-
+	private: Gerente^ objGerente;
+	private: Asistente^ objAsistente;
+	private: Chef^ objChef;
 
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Button^ button3;
@@ -151,6 +153,8 @@ namespace RAMFoodView {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(245, 262);
 			this->comboBox1->Name = L"comboBox1";
@@ -311,27 +315,42 @@ namespace RAMFoodView {
 		}
 #pragma endregion
 	private: System::Void frmGerenteEditarEmpleado_Load(System::Object^ sender, System::EventArgs^ e) {
+		comboBox1->DropDownStyle = ComboBoxStyle::DropDownList;
 		this->comboBox1->Items->Clear();
 		this->comboBox1->Items->Add("Gerente");
 		this->comboBox1->Items->Add("Asistente");
 		this->comboBox1->Items->Add("Chef");
-		this->textBox1->Text = objUsuario->GetNombreUsuario();
+		/*this->textBox1->Text = objUsuario->GetNombreUsuario();
 		this->textBox2->Text = objUsuario->GetApellidoPat();
-		this->textBox4->Text = objUsuario->GetApellidoMat();
+		this->textBox4->Text = objUsuario->GetApellidoMat();*/
 		this->label9->Text = Convert::ToString(objUsuario->GetId());
-		switch (objUsuario->GetTipo())
+
+		switch (objUsuario->GetRol())
 		{
 		case 1:
 			//this->comboBox1->Text = "Gerente";
 			this->comboBox1->SelectedIndex = 0;
+			objGerente = dynamic_cast<Gerente^>(objUsuario);
+			this->textBox1->Text = objGerente->GetNombre();
+			this->textBox2->Text = objGerente->GetApellidoPat();
+			this->textBox4->Text = objGerente->GetApellidoMat();
 			break;
 		case 2:
 			//this->comboBox1->Text = "Asistente";
 			this->comboBox1->SelectedIndex = 1;
+			objAsistente = dynamic_cast<Asistente^>(objUsuario);
+			this->textBox1->Text = objAsistente->GetNombre();
+			this->textBox2->Text = objAsistente->GetApellidoPat();
+			this->textBox4->Text = objAsistente->GetApellidoMat();
+
 			break;
 		case 3:
 			//this->comboBox1->Text = "Chef";
 			this->comboBox1->SelectedIndex = 2;
+			objChef = dynamic_cast<Chef^>(objUsuario);
+			this->textBox1->Text = objChef->GetNombre();
+			this->textBox2->Text = objChef->GetApellidoPat();
+			this->textBox4->Text = objChef->GetApellidoMat();
 			break;
 		default:
 			break;
@@ -340,7 +359,7 @@ namespace RAMFoodView {
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
-	   private: int Tipo(String^ puesto) {
+	   private: int VerificaRol(String^ puesto) {
 		   if (puesto == "Gerente") {
 			   return 1;
 		   }
@@ -349,6 +368,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		   }
 		   if (puesto == "Chef") {
 			   return 3;
+		   }
+		   else {
+			   0;
 		   }
 	   }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -359,25 +381,53 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	{
 		MessageBox::Show("Seleccione profesión.");
 	}
-	else if (Tipo(this->comboBox1->Text) == 0) {
+	else if (VerificaRol(this->comboBox1->Text) == 0) {
 		MessageBox::Show("Seleccione profesión correcta.");
 	}
 	else {
-		UsuarioController^ objUsuarioController = gcnew UsuarioController();
-		
-		objUsuario->SetNombreUsuario(this->textBox1->Text);
-		objUsuario->SetApellidoPat(this->textBox2->Text);
-		objUsuario->SetApellidoMat(this->textBox4->Text);
-		objUsuario->setTipo(Tipo(this->comboBox1->Text));
-		objUsuarioController->generarCorreo(objUsuario);
-		//No se modifica el Id
-		this->label7->Text = objUsuario->GetCorreo();
+		empleadoController^ objUsuarioController = gcnew empleadoController();
+		int Rol = this->VerificaRol(this->comboBox1->Text);
+		String^ nombre = this->textBox1->Text;
+		String^ apellidoPat = this->textBox2->Text;
+		String^ apellidoMat = this->textBox4->Text;
+		String^ correo = objUsuarioController->generarCorreo(apellidoPat, apellidoMat);
+		int id = Convert::ToInt32(this->label9->Text);
+
+		switch (Rol)
+		{
+		case 1:
+			objGerente = gcnew Gerente(objUsuario->GetId(), Rol, 1, objUsuario->GetFechaContrato(),nullptr, correo, objUsuario->GetContrasenha(), nombre, apellidoPat, apellidoMat);
+			break;
+		case 2:
+			objAsistente = gcnew Asistente(objUsuario->GetId(), Rol, 1, objUsuario->GetFechaContrato(), nullptr, correo, objUsuario->GetContrasenha(), nombre, apellidoPat, apellidoMat);
+			break;
+		case 3:
+			objChef = gcnew Chef(objUsuario->GetId(), Rol, 1, objUsuario->GetFechaContrato(), nullptr, correo, objUsuario->GetContrasenha(), nombre, apellidoPat, apellidoMat);
+			break;
+		default:
+			break;
+		}
+		this->label7->Text = correo;
 		this->button2->Enabled = true;
 	}
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	UsuarioController^ objUsuarioController = gcnew UsuarioController();
-	objUsuarioController->UpdateUsuario(objUsuario);
+	empleadoController^ objUsuarioController = gcnew empleadoController();
+	int Rol = this->VerificaRol(this->comboBox1->Text);
+	switch (Rol)
+	{
+	case 1:
+		objUsuarioController->UpdateUsuario(objGerente);
+		break;
+	case 2:
+		objUsuarioController->UpdateUsuario(objAsistente);
+		break;
+	case 3:
+		objUsuarioController->UpdateUsuario(objChef);
+		break;
+	default:
+		break;
+	}
 	MessageBox::Show("El usuario ha sido modificado correctamente");
 	this->Close();
 }

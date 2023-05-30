@@ -187,7 +187,7 @@ namespace RAMFoodView {
 			frmGerente^ ventanaGerente = gcnew frmGerente();
 			frmAsistente^ ventanaAsistente = gcnew frmAsistente();
 			frmChef^ ventanaChef = gcnew frmChef();
-			switch (objUsuario->GetTipo())
+			switch (objUsuario->GetRol())
 			{
 			case 1:
 				this->Visible=false;

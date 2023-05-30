@@ -6,19 +6,32 @@ Usuario::Usuario() {
 	this->Puesto[1] = "Asistente";
 	this->Puesto[2] = "Chef";
 }
-void Usuario::Usuario1(String^ NombreUsuario, String^ Contrasenha)
+
+RAMFoodModel::Usuario::Usuario(int Id, int Rol, int Status, String^ FechaContrato, String^ FechaDesactivacion, String^ Correo, String^ Contrasenha)
 {
-	this->NombreUsuario = NombreUsuario;
+	this->Id = Id;
+	this->Rol = Rol;
+	this->Status = Status;
+	this->FechaContrato = FechaContrato;
+	this->FechaDesactivacion = FechaDesactivacion;
+	this->Correo = Correo;
 	this->Contrasenha = Contrasenha;
+	this->Puesto[0] = "Gerente";
+	this->Puesto[1] = "Asistente";
+	this->Puesto[2] = "Chef";
 }
-Usuario::Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Tipo) {
+
+Usuario::Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Rol) {
 	this->NombreUsuario = NombreUsuario;
 	this->ApellidoPat = ApellidoPat;
 	this->ApellidoMat = ApellidoMat;
 	this->Id = Id;
 	this->Contrasenha = Contrasenha;
-	this->Tipo = Tipo;
+	this->Rol = Rol;
 	this->Correo = Correo;
+	this->Puesto[0] = "Gerente";
+	this->Puesto[1] = "Asistente";
+	this->Puesto[2] = "Chef";
 }
 
 void Usuario::SetNombreUsuario(String^  NombreUsuario)
@@ -66,14 +79,41 @@ String^ RAMFoodModel::Usuario::GetContrasenha()
 	return this->Contrasenha;
 }
 
-void RAMFoodModel::Usuario::setTipo(int Tipo)
+void RAMFoodModel::Usuario::SetRol(int Rol)
 {
-	this->Tipo = Tipo;
+	this->Rol = Rol;
 }
 
-int RAMFoodModel::Usuario::GetTipo()
+int RAMFoodModel::Usuario::GetRol()
 {
-	return this->Tipo;
+	return this->Rol;
+}
+
+void Usuario::SetStatus(int Status)
+{
+	this->Status = Status;
+}
+int Usuario::GetStatus()
+{
+	return this->Status;
+}
+
+void Usuario::SetFechaContrato(String^ FechaContrato)
+{
+	this->FechaContrato = FechaContrato;
+}
+String^ Usuario::GetFechaContrato()
+{
+	return this->FechaContrato;
+}
+
+void Usuario::SetFechaDesactivacion(String^ FechaDesactivacion)
+{
+	this->FechaDesactivacion = FechaDesactivacion;
+}
+String^ Usuario::GetFechaDesactivacion()
+{
+	return this->FechaDesactivacion;
 }
 
 void RAMFoodModel::Usuario::SetCorreo(String^ Correo)

@@ -422,6 +422,7 @@ private: void Actualizar() {
 
 }
 private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
+	comboBox1->DropDownStyle = ComboBoxStyle::DropDownList;
 	Actualizar();
 	this->comboBox1->Items->Clear();
 	this->comboBox1->Items->Add("");

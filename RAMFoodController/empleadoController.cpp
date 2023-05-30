@@ -7,7 +7,7 @@ using namespace System::Collections::Generic;
 using namespace System;
 using namespace System::IO;
 
-UsuarioController::UsuarioController() {
+empleadoController::empleadoController() {
 }
 
 //Usuario^ dirección al objeto de tipo Usuario
@@ -15,62 +15,111 @@ UsuarioController::UsuarioController() {
 //List<Usuario^>^ esto es un puntero a un objeto de tipo Lista que tiene direcciones de objetos de tipo Usuario.
 
 
-List<Usuario^>^ UsuarioController::leerArchivo()
+List<Usuario^>^ empleadoController::leerArchivo()
 {
 	//Se lee el archivo y se almacena en un arreglo de String
 	List< Usuario^ >^ listaUsuariosLeer = gcnew List<Usuario^>();
 	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
 	String^ separadores = ";";
 	List<array<String^>^>^ listaDatos = gcnew List<array<String^>^>();
+	
 
 	for each (String ^ lineasUsuarios in lineas)
 	{
 		array<String^>^ datos = lineasUsuarios->Split(separadores->ToCharArray());
 		int Id = Convert::ToInt32(datos[0]);
-		int Tipo = Convert::ToInt32(datos[1]);
-		String^ NombreUsuario = datos[2];
-		String^ ApellidoPat = datos[3];
-		String^ ApellidoMat = datos[4];
+		int Rol = Convert::ToInt32(datos[1]);
+		int Status = Convert::ToInt32(datos[2]);
+		String^ FechaContrato = datos[3];
+		String^ FechaDesactivacion = datos[4];
 		String^ Correo = datos[5];
 		String^ Contrasenha = datos[6];
-		Usuario^ objUsuario = gcnew Usuario(NombreUsuario, ApellidoPat, ApellidoMat, Id, Correo, Contrasenha, Tipo);
+		String^ Nombre = datos[7];
+		String^ ApellidoPat = datos[8];
+		String^ ApellidoMat = datos[9];
+		Usuario^ objUsuario = gcnew Usuario(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha);
+		switch (Rol)
+		{
+		case 1:
+			objUsuario = gcnew Gerente(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha, Nombre, ApellidoPat, ApellidoMat);
+			break;
+		case 2:
+			objUsuario = gcnew Asistente(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha, Nombre, ApellidoPat, ApellidoMat);
+			break;
+		case 3:
+			objUsuario = gcnew Chef(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha, Nombre, ApellidoPat, ApellidoMat);
+			break;
+		default:
+			objUsuario = gcnew Usuario(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha);
+			break;
+		}
 		listaUsuariosLeer->Add(objUsuario);
 	}
 	return listaUsuariosLeer;
 }
 
-void UsuarioController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
+void empleadoController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
 {
 	array<String^>^ lineasArchivo = gcnew array<String^>(ListaUsuarios->Count);
 	for (int i = 0; i < ListaUsuarios->Count; i++) {
 		Usuario^ objUsuario = ListaUsuarios[i];
-		lineasArchivo[i] = objUsuario->GetId() + ";" + objUsuario->GetTipo() + ";" + objUsuario->GetNombreUsuario() + ";" + objUsuario->GetApellidoPat() + ";" + objUsuario->GetApellidoMat() + ";" + objUsuario->GetCorreo() + ";" + objUsuario->GetContrasenha();
+
+		if(Gerente^ objGerente = dynamic_cast<Gerente^>(objUsuario))
+		{
+			lineasArchivo[i] = objGerente->GetId() + ";" + objGerente->GetRol() + ";" + objGerente->GetStatus() + ";" + objGerente->GetFechaContrato() + ";" + objGerente->GetFechaDesactivacion() + ";" + objGerente->GetCorreo() + ";" + objGerente->GetContrasenha() + ";" + objGerente->GetNombre() + ";" + objGerente->GetApellidoPat() + ";" + objGerente->GetApellidoMat();
+		}
+		else if (Asistente^ objAsistente = dynamic_cast<Asistente^>(objUsuario)) {
+			lineasArchivo[i] = objAsistente->GetId() + ";" + objAsistente->GetRol() + ";" + objAsistente->GetStatus() + ";" + objAsistente->GetFechaContrato() + ";" + objAsistente->GetFechaDesactivacion() + ";" + objAsistente->GetCorreo() + ";" + objAsistente->GetContrasenha() + ";" + objAsistente->GetNombre() + ";" + objAsistente->GetApellidoPat() + ";" + objAsistente->GetApellidoMat();
+		}
+		else if (Chef^ objChef = dynamic_cast<Chef^>(objUsuario)) {
+			lineasArchivo[i] = objChef->GetId() + ";" + objChef->GetRol() + ";" + objChef->GetStatus() + ";" + objChef->GetFechaContrato() + ";" + objChef->GetFechaDesactivacion() + ";" + objChef->GetCorreo() + ";" + objChef->GetContrasenha() + ";" + objChef->GetNombre() + ";" + objChef->GetApellidoPat() + ";" + objChef->GetApellidoMat();
+		}
 	}
 	File::WriteAllLines("Usuarios.txt", lineasArchivo);
 }
 
-void UsuarioController::AddUsuario(Usuario^ objUsuario)
+void empleadoController::AddUsuario(Usuario^ objUsuario)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
-	listaUsuarios->Add(objUsuario);
+	
+	Gerente^ objGerente;
+	Asistente^ objAsistente;
+	Chef^ objChef;
+	switch (objUsuario->GetRol())
+	{
+	case 1:
+		objGerente = dynamic_cast<Gerente^>(objUsuario);
+		listaUsuarios->Add(objGerente);
+		break;
+	case 2:
+		objAsistente = dynamic_cast<Asistente^>(objUsuario);
+		listaUsuarios->Add(objAsistente);
+		break;
+	case 3:
+		objChef = dynamic_cast<Chef^>(objUsuario);
+		listaUsuarios->Add(objChef);
+		break;
+	default:
+		break;
+	}
 	escribirArchivo(listaUsuarios);
 }
 
-void UsuarioController::deleteUsuario(int Id)
+void empleadoController::deleteUsuario(int Id)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
 		if (listaUsuarios[i]->GetId() == Id)
 		{
-			listaUsuarios->RemoveAt(i);
+			listaUsuarios[i]->SetStatus(0);
 			break;
 		}
 	}
 	escribirArchivo(listaUsuarios);
 }
 
-void UsuarioController::UpdateUsuario(Usuario^ UsuarioModificar)
+void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
 	for (int i = 0; i < listaUsuarios->Count; i++)
@@ -84,7 +133,7 @@ void UsuarioController::UpdateUsuario(Usuario^ UsuarioModificar)
 	escribirArchivo(listaUsuarios);
 }
 
-Usuario^ UsuarioController::QueryUsuarioById(int Id)
+Usuario^ empleadoController::QueryUsuarioById(int Id)
 {
 	Usuario^ objUsuario;
 	List<Usuario^>^ listaUsuarios = leerArchivo();
@@ -99,13 +148,46 @@ Usuario^ UsuarioController::QueryUsuarioById(int Id)
 	return objUsuario;
 }
 
-List<Usuario^>^ RAMFoodController::UsuarioController::QueryUsuarioByNombre(String^ Nombre)
+List<Usuario^>^ empleadoController::QueryUsuarioByNombre(String^ Nombre)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
-		if (listaUsuarios[i]->GetNombreUsuario()->Contains(Nombre))
+		Usuario^ usuario = listaUsuarios[i];
+		// Verificar si el usuario es un Gerente y el nombre coincide
+		Gerente^ gerente = dynamic_cast<Gerente^>(usuario);
+		if (gerente != nullptr && gerente->GetNombre()->Contains(Nombre))
+		{
+			listaUsuariosEncontrados->Add(usuario);
+			continue; // Pasar a la siguiente iteración del ciclo
+		}
+
+		// Verificar si el usuario es un Asistente y el nombre coincide
+		Asistente^ asistente = dynamic_cast<Asistente^>(usuario);
+		if (asistente != nullptr && asistente->GetNombre()->Contains(Nombre))
+		{
+			listaUsuariosEncontrados->Add(usuario);
+			continue; // Pasar a la siguiente iteración del ciclo
+		}
+
+		// Verificar si el usuario es un Chef y el nombre coincide
+		Chef^ chef = dynamic_cast<Chef^>(usuario);
+		if (chef != nullptr && chef->GetNombre()->Contains(Nombre))
+		{
+			listaUsuariosEncontrados->Add(usuario);
+		}
+	}
+	return listaUsuariosEncontrados;
+}
+
+List<Usuario^>^ empleadoController::QueryUsuarioByTipo(int Rol)
+{
+	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
+	for (int i = 0; i < listaUsuarios->Count; i++)
+	{
+		if (listaUsuarios[i]->GetRol() == Rol)
 		{
 			listaUsuariosEncontrados->Add(listaUsuarios[i]);
 		}
@@ -113,41 +195,68 @@ List<Usuario^>^ RAMFoodController::UsuarioController::QueryUsuarioByNombre(Strin
 	return listaUsuariosEncontrados;
 }
 
-List<Usuario^>^ UsuarioController::QueryUsuarioByTipo(int Tipo)
+List<Usuario^>^ empleadoController::QuerryUsuarioByNombrexRol(String^ Nombre, int Rol)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
-		if (listaUsuarios[i]->GetTipo() == Tipo)
-		{
-			listaUsuariosEncontrados->Add(listaUsuarios[i]);
-		}
-	}
-	return listaUsuariosEncontrados;
-}
+		Usuario^ usuario = listaUsuarios[i];
 
-List<Usuario^>^ UsuarioController::QuerryUsuarioByNombrexTipo(String^ Nombre, int Tipo)
-{
-	List<Usuario^>^ listaUsuarios = leerArchivo();
-	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
-	for (int i = 0; i < listaUsuarios->Count; i++)
-	{
-		if (Tipo == 0) {
-			listaUsuariosEncontrados = QueryUsuarioByNombre(Nombre);
+		// Verificar si el usuario cumple con el criterio de búsqueda por nombre
+		bool cumpleNombre = false;
+		String^ nombreCompleto = "";
+
+		Gerente^ gerente = dynamic_cast<Gerente^>(usuario);
+		if (gerente != nullptr)
+		{
+			nombreCompleto = gerente->GetNombre() + " " + gerente->GetApellidoPat() + " " + gerente->GetApellidoMat();
 		}
 		else
 		{
-			if (listaUsuarios[i]->GetTipo() == Tipo && listaUsuarios[i]->GetNombreUsuario()->Contains(Nombre))
+			Asistente^ asistente = dynamic_cast<Asistente^>(usuario);
+			if (asistente != nullptr)
 			{
-				listaUsuariosEncontrados->Add(listaUsuarios[i]);
+				nombreCompleto = asistente->GetNombre() + " " + asistente->GetApellidoPat() + " " + asistente->GetApellidoMat();
 			}
-		}	
+			else
+			{
+				Chef^ chef = dynamic_cast<Chef^>(usuario);
+				if (chef != nullptr)
+				{
+					nombreCompleto = chef->GetNombre() + " " + chef->GetApellidoPat() + " " + chef->GetApellidoMat();
+				}
+			}
+		}
+
+		if (Rol == 0)
+		{
+			// Búsqueda solo por nombre
+			if (nombreCompleto->ToLower()->Contains(Nombre->ToLower()))
+			{
+				cumpleNombre = true;
+			}
+		}
+		else
+		{
+			// Búsqueda por nombre y rol
+			if (nombreCompleto->Contains(Nombre) && usuario->GetRol() == Rol)
+			{
+				cumpleNombre = true;
+			}
+		}
+
+		// Agregar el usuario a la lista de usuarios encontrados si cumple con los criterios
+		if (cumpleNombre)
+		{
+			listaUsuariosEncontrados->Add(usuario);
+		}
 	}
+
 	return listaUsuariosEncontrados;
 	
 }
-List<int>^ UsuarioController::ListaIdUsuarios(List<Usuario^>^ ListaUsuarios)
+List<int>^ empleadoController::ListaIdUsuarios(List<Usuario^>^ ListaUsuarios)
 {
 	List<int>^ listaIdUsuarios = gcnew List<int>();
 	for (int i = 0; i < ListaUsuarios->Count; i++)
@@ -156,7 +265,7 @@ List<int>^ UsuarioController::ListaIdUsuarios(List<Usuario^>^ ListaUsuarios)
 	}
 	return listaIdUsuarios;
 }
-int UsuarioController::VerificaExistenciaUsuario(int Id)
+int empleadoController::VerificaExistenciaUsuario(int Id)
 {
 	int existe = 0;
 
@@ -171,7 +280,7 @@ int UsuarioController::VerificaExistenciaUsuario(int Id)
 	}
 	return existe;
 }
-List<Usuario^>^ UsuarioController::QueryUsuarioByApellido(String^ Apellido)
+List<Usuario^>^ empleadoController::QueryUsuarioByApellido(String^ Apellido)
 {
 	List<Usuario^>^ listaUsuarios = leerArchivo();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
@@ -185,16 +294,11 @@ List<Usuario^>^ UsuarioController::QueryUsuarioByApellido(String^ Apellido)
 	return listaUsuariosEncontrados;
 }
 
-void UsuarioController::generarCorreo(Usuario^ objUsuario)
-{
-	String^ apellidoPat = objUsuario->GetApellidoPat();
-	String^ apelldioMat = objUsuario->GetApellidoMat();
-	apellidoPat = apellidoPat->ToLower();
-	apelldioMat = apelldioMat->ToLower();
-	String^ correo = apellidoPat + apelldioMat + "@RAMFood.com";
-	objUsuario->SetCorreo(correo);
+String^ empleadoController::generarCorreo(String^ apellido1, String^ apellido2)
+{	
+	return apellido1->ToLower() + apellido2->ToLower() + "@RAMFood.com";
 }
-void UsuarioController::generarId(Usuario^ objUsuario)
+void empleadoController::generarId(Usuario^ objUsuario)
 {
 	int nextId = 1;
 	List<int>^ existingIds = ListaIdUsuarios(leerArchivo());
@@ -209,7 +313,7 @@ void UsuarioController::generarId(Usuario^ objUsuario)
 	}
 	objUsuario->SetId(nextId);
 }
-void UsuarioController::generarContrasenha(Usuario^ objUsuario)
+void empleadoController::generarContrasenha(Usuario^ objUsuario)
 {
 	std::srand(static_cast<unsigned int>(std::time(nullptr)));
 	int cifra1 = std::rand() % 9 + 1;  // Generar una cifra entre 1 y 9

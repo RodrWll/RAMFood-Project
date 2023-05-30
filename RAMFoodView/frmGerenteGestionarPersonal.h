@@ -83,9 +83,6 @@ namespace RAMFoodView {
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteGestionarPersonal::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -112,41 +109,14 @@ namespace RAMFoodView {
 			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Column1,
 					this->Column2, this->Column3, this->Column4, this->Column5
 			});
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView1->Location = System::Drawing::Point(203, 147);
 			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
@@ -192,7 +162,7 @@ namespace RAMFoodView {
 			this->Column5->MinimumWidth = 6;
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
-			this->Column5->Width = 98;
+			this->Column5->Width = 80;
 			// 
 			// button1
 			// 
@@ -339,26 +309,30 @@ namespace RAMFoodView {
 		this-> dataGridView1->Rows->Clear();
 		for (int i = 0; i < listaUsuarios->Count; i++) {
 			Usuario^ objUsuario = listaUsuarios[i];
-			array<String^>^ filaGrid = gcnew array<String^>(5);
-			filaGrid[0] = Convert::ToString(objUsuario->GetId());
-			switch (objUsuario->GetTipo())
-			{
-				case 1:
-					filaGrid[1] = "Gerente";
-					break;
-				case 2:
-					filaGrid[1] = "Asistente";
-					break;
-				case 3:
-					filaGrid[1] = "Chef";
-					break;
-				default:
-					break;
+			if(objUsuario->GetStatus()){
+
+				array<String^>^ filaGrid = gcnew array<String^>(5);
+				filaGrid[0] = Convert::ToString(objUsuario->GetId());
+				filaGrid[1] = objUsuario->Puesto[(objUsuario->GetRol()) - 1];
+				filaGrid[4] = objUsuario->GetCorreo();
+				if (Gerente^ gerente = dynamic_cast<Gerente^>(objUsuario))
+				{
+					filaGrid[2] = gerente->GetNombre();
+					filaGrid[3] = gerente->GetApellidoPat() + " " + gerente->GetApellidoMat();
+				}
+				else if (Asistente^ asistente = dynamic_cast<Asistente^>(objUsuario))
+				{
+					filaGrid[2] = asistente->GetNombre();
+					filaGrid[3] = asistente->GetApellidoPat() + " " + asistente->GetApellidoMat();
+				}
+				else if (Chef^ chef = dynamic_cast<Chef^>(objUsuario))
+				{
+					filaGrid[2] = chef->GetNombre();
+					filaGrid[3] = chef->GetApellidoPat() + " " + chef->GetApellidoMat();
+				}
+
+				this->dataGridView1->Rows->Add(filaGrid);
 			}
-			filaGrid[2] = objUsuario->GetNombreUsuario();
-			filaGrid[3] = objUsuario->GetApellidoPat()+" "+objUsuario->GetApellidoMat();
-			filaGrid[4] = objUsuario->GetCorreo();
-			this->dataGridView1->Rows->Add(filaGrid);
 		}
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -372,7 +346,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 void Actualizar() {
 	List<Usuario^>^ listaUsuarios;
-	UsuarioController^ objUsuarioController = gcnew UsuarioController();
+	empleadoController^ objUsuarioController = gcnew empleadoController();
 	listaUsuarios = objUsuarioController->leerArchivo();
 	showGrid(listaUsuarios);
 
@@ -383,7 +357,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 		if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value) {
 			int id = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-			UsuarioController^ objUsuarioController = gcnew UsuarioController();
+			empleadoController^ objUsuarioController = gcnew empleadoController();
 			objUsuarioController->deleteUsuario(id);
 			MessageBox::Show("Empleado despedido");
 			Actualizar();
@@ -404,7 +378,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value) {
 			
 			int id = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-			UsuarioController^ objUsuarioController = gcnew UsuarioController();
+			empleadoController^ objUsuarioController = gcnew empleadoController();
 			Usuario^ objUsuario = objUsuarioController->QueryUsuarioById(id);
 			frmGerenteEditarEmpleado^ ventanaEditarEmpleado = gcnew frmGerenteEditarEmpleado(objUsuario);
 			//Se crea la nueva ventana y se envia como parametro el usuario a editar
@@ -422,7 +396,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ NombreBuscar = this->textBox1->Text;
 	int PuestoBuscar = this->comboBox1->SelectedIndex;
-	UsuarioController^ objUsuarioController = gcnew UsuarioController();
+	empleadoController^ objUsuarioController = gcnew empleadoController();
 	if( PuestoBuscar== 0 && NombreBuscar== ""){
 		//MessageBox::Show("Ingrese un campo de busqueda");
 		Actualizar();
@@ -430,7 +404,7 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	else
 	{
 		/*Buscar por nombre y puesto*/
-		List<Usuario^>^ listaUsuariosEncontrados = objUsuarioController->QuerryUsuarioByNombrexTipo(NombreBuscar, PuestoBuscar);
+		List<Usuario^>^ listaUsuariosEncontrados = objUsuarioController->QuerryUsuarioByNombrexRol(NombreBuscar, PuestoBuscar);
 		if (listaUsuariosEncontrados->Count == 0) {
 			MessageBox::Show("No se encontraron resultados");
 			Actualizar();
@@ -447,6 +421,7 @@ private: System::Void frmGerenteGestionarPersonal_Load(System::Object^ sender, S
 	this->comboBox1->Items->Add("");
 	this->comboBox1->Items->AddRange(listaPuestos);
 	this->comboBox1->SelectedIndex = 0;
+	comboBox1->DropDownStyle = ComboBoxStyle::DropDownList;
 }
 };
 }
