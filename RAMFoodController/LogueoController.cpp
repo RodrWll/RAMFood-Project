@@ -22,14 +22,16 @@ List<array<String^>^>^ LogueoController::leerArchivo()
     {
         array<String^>^ datos = lineasUsuarios->Split(separadores->ToCharArray());
         int Id = Convert::ToInt32(datos[0]);
-        int Tipo = Convert::ToInt32(datos[1]);
+        int Rol = Convert::ToInt32(datos[1]);
+        int Status = Convert::ToInt32(datos[2]);
         String^ Correo = datos[5];
         String^ Contrasenha = datos[6];
         array<String^>^ credenciales = gcnew array<String^>(4);
         credenciales [0] = Id.ToString();
-        credenciales [1] = Tipo.ToString();
-        credenciales [2] = Correo;
-        credenciales [3] = Contrasenha;
+        credenciales [1] = Rol.ToString();
+        credenciales [2] = Status.ToString();
+        credenciales [3] = Correo;
+        credenciales [4] = Contrasenha;
         listaCredencialesLeer->Add(credenciales);
     }
     return listaCredencialesLeer;
@@ -54,7 +56,7 @@ Usuario^ LogueoController::ObtenerUsuario(String^ CorreoUsuario, String^ Contras
 		if (credenciales[2]->Equals(CorreoUsuario) && credenciales[3]->Equals(Contrasenha))
 		{
             int id = Convert::ToInt32(credenciales[0]);
-			UsuarioController^ controladorUsuario = gcnew UsuarioController();
+			empleadoController^ controladorUsuario = gcnew empleadoController();
             usuario = controladorUsuario->QueryUsuarioById(id);
 			
             break;

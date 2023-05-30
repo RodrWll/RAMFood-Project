@@ -1,10 +1,7 @@
-1;1;Rodrigo;Agurto;Tumialan;agurtotumialan@RAMFood.com;64968786
-2;1;Franco;Galvez;Zuñiga;galvezzuñiga@RAMFood.com;91730796
-4;1;Misael;Huarcaya;N;huarcayan@RAMFood.com;77676914
-5;1;Juan ;Garcia;Perez;garciaperez@RAMFood.com;83744674
-6;3;Alan;Garcia;Pistolas;garciapistolas@RAMFood.com;20956403
-7;2;Ana;Hernandez;Gutierrez;hernandezgutierrez@RAMFood.com;12880050
-9;3;Laura;Moreno;Canseco;morenocanseco@RAMFood.com;77916408
-3;1;Jesus;Gonzalete;Cuellar;gonzaletecuellar@RAMFood.com;42764693
-8;2;Omar;Ruiz;Cabrera;ruizcabrera@RAMFood.com;62445157
-10;3;Jeremy;Acuña;Siqueiros;acuñasiqueiros@RAMFood.com;57325308
+1;1;1;01/01/2006;;agurtotumialan@RAMFood.com;64968786;Rodrigo;Agurto;Tumialan
+2;2;1;29/05/2023;;garciapistolas@RAMFood.com;89939609;Alan;Garcia;Pistolas
+3;3;1;29/05/2023;;cocadiez@RAMFood.com;60001723;Maradona;Coca;Diez
+4;1;1;29/05/2023;;galvezzuñiga@RAMFood.com;27398088;Franco;Galvez;Zuñiga
+5;1;1;29/05/2023;;huarcayan@RAMFood.com;47780707;Misael;Huarcaya;N
+6;1;1;29/05/2023;;cristobalagui@RAMFood.com;12286128;Angelo;Cristobal;Agui
+7;2;1;29/05/2023;;hernandezguitierrez@RAMFood.com;10386702;Ana;Hernandez;Guitierrez
