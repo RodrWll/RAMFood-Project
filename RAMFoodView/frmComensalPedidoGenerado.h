@@ -54,6 +54,7 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensalPedidoGenerado::typeid));
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -117,6 +118,7 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1253, 750);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensalPedidoGenerado";
 			this->Text = L"Pedido Generado";

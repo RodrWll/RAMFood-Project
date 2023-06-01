@@ -16,7 +16,7 @@ List<array<String^>^>^ LogueoController::leerArchivo()
     //Se lee el archivo y se almacena en un arreglo de String
     
     List<array<String^>^>^ listaCredencialesLeer = gcnew List<array<String^>^>();
-    array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
+    array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
     String^ separadores = ";";
     for each (String ^ lineasUsuarios in lineas)
     {
