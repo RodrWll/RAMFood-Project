@@ -18,6 +18,7 @@ using namespace std;
 using namespace RAMFoodModel;
 
 //constructor
+//Ver como poner el constructor, si se cierra la sesion del gerente, tal vez se apague la faja :,v
 microcontroller::microcontroller() {
 	this->status = 0;
 }
