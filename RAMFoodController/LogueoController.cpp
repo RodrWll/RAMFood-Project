@@ -26,7 +26,7 @@ List<array<String^>^>^ LogueoController::leerArchivo()
         int Status = Convert::ToInt32(datos[2]);
         String^ Correo = datos[5];
         String^ Contrasenha = datos[6];
-        array<String^>^ credenciales = gcnew array<String^>(4);
+        array<String^>^ credenciales = gcnew array<String^>(5);
         credenciales [0] = Id.ToString();
         credenciales [1] = Rol.ToString();
         credenciales [2] = Status.ToString();
@@ -41,7 +41,7 @@ bool LogueoController::VerificarCredenciales(String^ CorreoUsuario, String^ Cont
     List<array<String^>^>^ listaCredenciales = leerArchivo();
     for each (array<String^> ^ credenciales in listaCredenciales)
     {
-        if (credenciales[2]->Equals(CorreoUsuario) && credenciales[3]->Equals(Contrasenha))
+        if (credenciales[3]->Equals(CorreoUsuario) && credenciales[4]->Equals(Contrasenha))
         {
             return true; // Las credenciales son válidas
         }
@@ -50,17 +50,30 @@ bool LogueoController::VerificarCredenciales(String^ CorreoUsuario, String^ Cont
 }
 Usuario^ LogueoController::ObtenerUsuario(String^ CorreoUsuario, String^ Contrasenha) {
     List<array<String^>^>^ listaCredenciales = leerArchivo();
-    Usuario^ usuario =gcnew Usuario();
+    Usuario^ objUsuario = gcnew Usuario();
     for each (array<String^> ^ credenciales in listaCredenciales)
 	{
-		if (credenciales[2]->Equals(CorreoUsuario) && credenciales[3]->Equals(Contrasenha))
+		if (credenciales[3]->Equals(CorreoUsuario) && credenciales[4]->Equals(Contrasenha))
 		{
             int id = Convert::ToInt32(credenciales[0]);
 			empleadoController^ controladorUsuario = gcnew empleadoController();
-            usuario = controladorUsuario->QueryUsuarioById(id);
-			
+            objUsuario = controladorUsuario->QueryUsuarioById(id);
+            switch (objUsuario->GetRol())
+            {
+            case 1:
+                objUsuario = dynamic_cast<Gerente^>(objUsuario);
+                break;
+            case 2:
+                objUsuario = dynamic_cast<Asistente^>(objUsuario);
+                break;
+            case 3:
+                objUsuario = dynamic_cast<Chef^>(objUsuario);
+                break;
+            default:
+                break;
+            }			
             break;
 		}
 	}
-    return usuario;
+    return objUsuario;
 }

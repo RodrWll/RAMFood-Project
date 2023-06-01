@@ -113,6 +113,7 @@ void empleadoController::deleteUsuario(int Id)
 		if (listaUsuarios[i]->GetId() == Id)
 		{
 			listaUsuarios[i]->SetStatus(0);
+			listaUsuarios[i]->SetFechaDesactivacion(DateTime::Now.ToString("dd/MM/yyyy"));
 			break;
 		}
 	}
@@ -142,7 +143,21 @@ Usuario^ empleadoController::QueryUsuarioById(int Id)
 		if(listaUsuarios[i]->GetId() == Id)
 		{
 			objUsuario = listaUsuarios[i];
-			break;
+			//devuelvo un objChef , objAsistente u objGerente dependiendo del rol
+			switch (objUsuario->GetRol())
+			{
+			case 1:
+				objUsuario = dynamic_cast<Gerente^>(objUsuario);
+				break;
+			case 2:
+				objUsuario = dynamic_cast<Asistente^>(objUsuario);
+				break;
+			case 3:
+				objUsuario = dynamic_cast<Chef^>(objUsuario);
+				break;
+			default:
+				break;
+			}
 		}
 	}
 	return objUsuario;
