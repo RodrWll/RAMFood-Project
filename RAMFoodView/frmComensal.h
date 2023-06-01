@@ -1568,7 +1568,7 @@ public:
 			// 
 			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->buttonVerPedidoTotal->Location = System::Drawing::Point(600, 11);
-			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(4);
 			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
 			this->buttonVerPedidoTotal->Size = System::Drawing::Size(225, 44);
 			this->buttonVerPedidoTotal->TabIndex = 36;
@@ -1582,6 +1582,7 @@ public:
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1253, 750);
 			this->Controls->Add(this->groupBox16);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensal";

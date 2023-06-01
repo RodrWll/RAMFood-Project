@@ -12,7 +12,6 @@ namespace RAMFoodController {
 		void UpdateUsuario(Usuario^ UsuarioModificar);
 		Usuario^ QueryUsuarioById(int Id);
 		List<Usuario^>^ QueryUsuarioByNombre(String^ Nombre);
-		List<Usuario^>^ QueryUsuarioByApellido(String^ Apellido);
 		void generarContrasenha(Usuario^ objUsuario);
 		String^ generarCorreo(String^ apellido1, String^ apellido2);
 		void generarId(Usuario^ objUsuario);
