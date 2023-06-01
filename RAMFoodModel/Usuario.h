@@ -11,9 +11,6 @@ namespace RAMFoodModel {
 		String^ FechaDesactivacion;
 		String^ Correo;
 		String^ Contrasenha;
-		String^ NombreUsuario;
-		String^ ApellidoPat;
-		String^ ApellidoMat;
 		
 		
 		
@@ -23,7 +20,6 @@ namespace RAMFoodModel {
 		array<String^>^ Puesto = gcnew array<String^>(3);
 		Usuario();
 		Usuario(int Id, int Rol, int Status, String^ FechaContrato, String^ FechaDesactivacion, String^ Correo,	String^ Contrasenha);
-		Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Rol);
 		
 		void SetId(int Id);
 		int GetId();
@@ -41,15 +37,6 @@ namespace RAMFoodModel {
 		
 		void SetCorreo(String^ Correo);
 		String^ GetCorreo();
-
-
-
-		void SetNombreUsuario(String^ NombreUsuario);
-		String^ GetNombreUsuario();
-		void SetApellidoPat(String^ ApellidoPat);
-		String^ GetApellidoPat();
-		void SetApellidoMat(String^ ApellidoMat);
-		String^ GetApellidoMat();
 	};
 }
 

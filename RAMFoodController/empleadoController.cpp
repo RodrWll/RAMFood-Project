@@ -295,20 +295,6 @@ int empleadoController::VerificaExistenciaUsuario(int Id)
 	}
 	return existe;
 }
-List<Usuario^>^ empleadoController::QueryUsuarioByApellido(String^ Apellido)
-{
-	List<Usuario^>^ listaUsuarios = leerArchivo();
-	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
-	for (int i = 0; i < listaUsuarios->Count; i++)
-	{
-		if (listaUsuarios[i]->GetApellidoMat()->Contains(Apellido) || listaUsuarios[i]->GetApellidoPat()->Contains(Apellido) )
-		{
-			listaUsuariosEncontrados->Add(listaUsuarios[i]);
-		}
-	}
-	return listaUsuariosEncontrados;
-}
-
 String^ empleadoController::generarCorreo(String^ apellido1, String^ apellido2)
 {	
 	return apellido1->ToLower() + apellido2->ToLower() + "@RAMFood.com";
