@@ -19,7 +19,7 @@ List<Usuario^>^ empleadoController::leerArchivo()
 {
 	//Se lee el archivo y se almacena en un arreglo de String
 	List< Usuario^ >^ listaUsuariosLeer = gcnew List<Usuario^>();
-	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
 	String^ separadores = ";";
 	List<array<String^>^>^ listaDatos = gcnew List<array<String^>^>();
 	
@@ -75,7 +75,7 @@ void empleadoController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
 			lineasArchivo[i] = objChef->GetId() + ";" + objChef->GetRol() + ";" + objChef->GetStatus() + ";" + objChef->GetFechaContrato() + ";" + objChef->GetFechaDesactivacion() + ";" + objChef->GetCorreo() + ";" + objChef->GetContrasenha() + ";" + objChef->GetNombre() + ";" + objChef->GetApellidoPat() + ";" + objChef->GetApellidoMat();
 		}
 	}
-	File::WriteAllLines("Usuarios.txt", lineasArchivo);
+	File::WriteAllLines("Recursos\\Usuarios\\Usuarios.txt", lineasArchivo);
 }
 
 void empleadoController::AddUsuario(Usuario^ objUsuario)
