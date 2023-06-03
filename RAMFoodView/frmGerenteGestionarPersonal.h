@@ -49,6 +49,7 @@ namespace RAMFoodView {
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: int id;
+	private: int confirmar;
 	protected:
 
 
@@ -244,7 +245,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
 				static_cast<System::Int32>(static_cast<System::Byte>(34)));
-			this->button4->Location = System::Drawing::Point(1006, 462);
+			this->button4->Location = System::Drawing::Point(1006, 458);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(183, 61);
 			this->button4->TabIndex = 4;
@@ -428,15 +429,23 @@ void Actualizar() {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Solo funciona cuando se selecciona una fila
+	
+	
 	if (this->dataGridView1->SelectedRows->Count > 0) {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 		if (this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value) {
 			int id = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 			empleadoController^ objUsuarioController = gcnew empleadoController();
-			if(this->id != id) {
-				objUsuarioController->deleteUsuario(id);
-				MessageBox::Show("Empleado despedido");
-				Actualizar();
+			System::Windows::Forms::DialogResult result;
+			if(this->id != id) { 
+				result = MessageBox::Show("Seguro que deseas despedir a este empleado?", "Confirmar", MessageBoxButtons::YesNo);
+
+				if(result == System::Windows::Forms::DialogResult::Yes)
+				{
+					objUsuarioController->deleteUsuario(id);
+					MessageBox::Show("Empleado despedido");
+					Actualizar();
+				}
 			}
 			else {
 				MessageBox::Show("No puedes despedirte a ti mismo");

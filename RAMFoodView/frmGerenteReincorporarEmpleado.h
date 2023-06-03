@@ -178,9 +178,8 @@ namespace RAMFoodView {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(238)),
-				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->button1->Location = System::Drawing::Point(110, 364);
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(110, 362);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(200, 62);
 			this->button1->TabIndex = 24;
@@ -394,6 +393,7 @@ namespace RAMFoodView {
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmGerenteReincorporarEmpleado";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Reincorporar personal";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteReincorporarEmpleado::frmGerenteReincorporarEmpleado_Load);
 			this->groupBox1->ResumeLayout(false);

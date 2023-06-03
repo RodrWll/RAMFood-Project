@@ -237,7 +237,7 @@ namespace RAMFoodView {
 			this->groupBox1->Size = System::Drawing::Size(540, 474);
 			this->groupBox1->TabIndex = 11;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Productos agregados:";
+			this->groupBox1->Text = L"Lista previa de productos agregados:";
 			// 
 			// button1
 			// 
@@ -342,10 +342,15 @@ private: System::Void button11_Click_1(System::Object^ sender, System::EventArgs
 	int filaSeleccionada = this->dgvEstablecerMenu->SelectedRows[0]->Index;
 	if (this->dgvEstablecerMenu->Rows[filaSeleccionada]->Cells[0]->Value) {
 		int codigoEliminar = Convert::ToInt32(this->dgvEstablecerMenu->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		productoController^ objController = gcnew productoController();
-		objController->removeDailyMenuProduct(codigoEliminar);
-		Actualizar();
-		MessageBox::Show("Producto eliminado del menú");
+		System::Windows::Forms::DialogResult result;
+		result = MessageBox::Show("¿Está seguro que desea eliminar el producto de la lista previa del menú?", "Eliminar producto del menú", MessageBoxButtons::YesNo);
+		if (result == System::Windows::Forms::DialogResult::Yes)
+		{
+			productoController^ objController = gcnew productoController();
+			objController->removeDailyMenuProduct(codigoEliminar);
+			Actualizar();
+			MessageBox::Show("Producto eliminado del menú");
+		}
 	}
 	else {
 		MessageBox::Show("Seleccione una fila");
