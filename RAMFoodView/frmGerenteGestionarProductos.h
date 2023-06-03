@@ -562,17 +562,22 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 		try{
 			if (System::IO::File::Exists(rutaImagen))
 			{
-				this->pictureBox1->Image = nullptr;//Se deja de usar la imagen
-				
-				System::IO::File::Delete(rutaImagen);
+				System::Windows::Forms::DialogResult result;
+				result = MessageBox::Show("¿Está seguro que desea eliminar el producto?", "Eliminar producto", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+				if (result == System::Windows::Forms::DialogResult::Yes)
+				{
+					this->pictureBox1->Image = nullptr;//Se deja de usar la imagen
 
-				objController->deleteProducto(codigoEliminar);
-				MessageBox::Show("Producto eliminado con exito");
-				Actualizar();
-				clearInputs();
-				this->btnAddBebidaPlato->Enabled = true;
-				this->label1->Visible = false;
-				this->textBox1->Visible = false;
+					System::IO::File::Delete(rutaImagen);
+
+					objController->deleteProducto(codigoEliminar);
+					MessageBox::Show("Producto eliminado con exito");
+					Actualizar();
+					clearInputs();
+					this->btnAddBebidaPlato->Enabled = true;
+					this->label1->Visible = false;
+					this->textBox1->Visible = false;
+				}
 			}
 			else {
 				MessageBox::Show("No se pudo eliminar la imagen.");

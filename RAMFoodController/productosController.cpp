@@ -54,13 +54,14 @@ void productoController::deleteProducto(int id)
 List<Producto^>^ listaProductos = listarProductos();
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetId() == id) {
-			listaProductos->RemoveAt(i);//se elimina de la lista de productos
+			
 			if(existeProductoMenuxId(listaProductos[i]->GetId()))//se elimina del menu si es que esta
 			{
 				removeDailyMenuProduct(listaProductos[i]->GetId());
 				generarArchivosMenu();//se actualizan los archivos del menu
 
 			}
+			listaProductos->RemoveAt(i);//se elimina de la lista de productos
 			break;
 		}
 	}

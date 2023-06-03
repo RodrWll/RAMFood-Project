@@ -471,7 +471,7 @@ private: int VerificaRol(String^ puesto) {
 		return 3;
 	}
 	else {
-		0;
+		return 0;
 	}
 }
 private:void obtenerNuevaInfo() {
