@@ -118,9 +118,11 @@
     <ClCompile Include="Comensal.cpp" />
     <ClCompile Include="Gerente.cpp" />
     <ClCompile Include="microcontroller.cpp" />
+    <ClCompile Include="OrdenMesa.cpp" />
     <ClCompile Include="PedidoMesa.cpp" />
     <ClCompile Include="Plato.cpp" />
     <ClCompile Include="Producto.cpp" />
+    <ClCompile Include="ProductoPedido.cpp" />
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +132,11 @@
     <ClInclude Include="Comensal.h" />
     <ClInclude Include="Gerente.h" />
     <ClInclude Include="microcontroller.h" />
+    <ClInclude Include="OrdenMesa.h" />
     <ClInclude Include="PedidoMesa.h" />
     <ClInclude Include="Plato.h" />
     <ClInclude Include="Producto.h" />
+    <ClInclude Include="ProductoPedido.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

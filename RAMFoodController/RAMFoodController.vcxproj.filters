@@ -33,6 +33,9 @@
     <ClInclude Include="ChefController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OrdenController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="empleadoController.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="productosController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrdenController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
