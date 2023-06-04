@@ -30,9 +30,7 @@ namespace RAMFoodModel {
 		int reiniciarPedido;
 		/* valores para reiniciarPedido:
 		* vale 1: se reinicia los numeros de la interfaz de comnesal
-		* vale 0:  no se reinicia
-		
-		
+		* vale 0:  no se reinicia		
 		*/
 	};
 
