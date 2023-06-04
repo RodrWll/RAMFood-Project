@@ -141,6 +141,7 @@
     <ClCompile Include="frmGerenteEstablecerMenu.cpp" />
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
+    <ClCompile Include="frmGerenteReincorporarEmpleado.cpp" />
     <ClCompile Include="frmPersonal.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="main.cpp" />
@@ -204,6 +205,9 @@
     <ClInclude Include="frmGerenteGestionarProductos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmGerenteReincorporarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPersonal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -233,8 +237,14 @@
     <EmbeddedResource Include="frmComensalGenerarPedido.resx">
       <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalPedidoGenerado.resx">
+      <DependentUpon>frmComensalPedidoGenerado.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComensalPedidoVacio.resx">
       <DependentUpon>frmComensalPedidoVacio.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalSolicitarAtencion.resx">
+      <DependentUpon>frmComensalSolicitarAtencion.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerente.resx">
       <DependentUpon>frmGerente.h</DependentUpon>
@@ -256,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerenteGestionarProductos.resx">
       <DependentUpon>frmGerenteGestionarProductos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteReincorporarEmpleado.resx">
+      <DependentUpon>frmGerenteReincorporarEmpleado.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonal.resx">
       <DependentUpon>frmPersonal.h</DependentUpon>

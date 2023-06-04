@@ -70,6 +70,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
+
 	private:
 
 
@@ -123,8 +124,7 @@ namespace RAMFoodView {
 			// 
 			// gbFormulario
 			// 
-			this->gbFormulario->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(185)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
-				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->gbFormulario->BackColor = System::Drawing::Color::Transparent;
 			this->gbFormulario->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->gbFormulario->Controls->Add(this->pictureBox1);
 			this->gbFormulario->Controls->Add(this->textBox1);
@@ -167,21 +167,24 @@ namespace RAMFoodView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(43, 213);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(33, 20);
+			this->label1->Size = System::Drawing::Size(35, 24);
 			this->label1->TabIndex = 17;
 			this->label1->Text = L"Id:";
 			this->label1->Visible = false;
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(238)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button1->Location = System::Drawing::Point(80, 266);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
@@ -201,9 +204,12 @@ namespace RAMFoodView {
 			// 
 			// btnAddBebidaPlato
 			// 
-			this->btnAddBebidaPlato->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->btnAddBebidaPlato->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)),
+				static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->btnAddBebidaPlato->FlatAppearance->BorderSize = 0;
 			this->btnAddBebidaPlato->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnAddBebidaPlato->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)),
+				static_cast<System::Int32>(static_cast<System::Byte>(238)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnAddBebidaPlato->Location = System::Drawing::Point(296, 266);
 			this->btnAddBebidaPlato->Margin = System::Windows::Forms::Padding(4);
 			this->btnAddBebidaPlato->Name = L"btnAddBebidaPlato";
@@ -215,9 +221,12 @@ namespace RAMFoodView {
 			// 
 			// button7
 			// 
-			this->button7->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(238)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button7->Location = System::Drawing::Point(183, 545);
 			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
@@ -239,24 +248,24 @@ namespace RAMFoodView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(44, 151);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(212, 20);
+			this->label4->Size = System::Drawing::Size(223, 24);
 			this->label4->TabIndex = 5;
 			this->label4->Text = L"Tipo Bebida/Comida:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(43, 104);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(77, 20);
+			this->label3->Size = System::Drawing::Size(80, 24);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Precio:";
 			// 
@@ -271,22 +280,25 @@ namespace RAMFoodView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(43, 47);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(228, 20);
+			this->label2->Size = System::Drawing::Size(238, 24);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Nombre del Producto: ";
 			// 
 			// button10
 			// 
-			this->button10->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button10->FlatAppearance->BorderSize = 0;
 			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(238)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button10->Location = System::Drawing::Point(666, 186);
 			this->button10->Margin = System::Windows::Forms::Padding(4);
 			this->button10->Name = L"button10";
@@ -298,10 +310,13 @@ namespace RAMFoodView {
 			// 
 			// button8
 			// 
-			this->button8->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->button8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button8->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button8->FlatAppearance->BorderSize = 0;
 			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(201)), static_cast<System::Int32>(static_cast<System::Byte>(238)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->button8->Location = System::Drawing::Point(666, 84);
 			this->button8->Margin = System::Windows::Forms::Padding(4);
 			this->button8->Name = L"button8";
@@ -313,8 +328,8 @@ namespace RAMFoodView {
 			// 
 			// dataGridView1
 			// 
-			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)),
-				static_cast<System::Int32>(static_cast<System::Byte>(124)), static_cast<System::Int32>(static_cast<System::Byte>(144)));
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
+				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(166)));
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView1->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -372,16 +387,16 @@ namespace RAMFoodView {
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(164)), static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(63)));
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(170)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->button2->FlatAppearance->BorderSize = 0;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(208)),
-				static_cast<System::Int32>(static_cast<System::Byte>(164)));
-			this->button2->Location = System::Drawing::Point(1128, 640);
+			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->button2->Location = System::Drawing::Point(1123, 618);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(148, 40);
+			this->button2->Size = System::Drawing::Size(183, 62);
 			this->button2->TabIndex = 13;
 			this->button2->Text = L"REGRESAR";
 			this->button2->UseVisualStyleBackColor = false;
@@ -391,9 +406,9 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(67)), static_cast<System::Int32>(static_cast<System::Byte>(124)),
-				static_cast<System::Int32>(static_cast<System::Byte>(144)));
-			this->ClientSize = System::Drawing::Size(1362, 733);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(166)));
+			this->ClientSize = System::Drawing::Size(1334, 705);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->gbFormulario);
 			this->Controls->Add(this->dataGridView1);
@@ -401,6 +416,8 @@ namespace RAMFoodView {
 			this->Controls->Add(this->button8);
 			this->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmGerenteGestionarProductos";
@@ -545,17 +562,22 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 		try{
 			if (System::IO::File::Exists(rutaImagen))
 			{
-				this->pictureBox1->Image = nullptr;//Se deja de usar la imagen
-				
-				System::IO::File::Delete(rutaImagen);
+				System::Windows::Forms::DialogResult result;
+				result = MessageBox::Show("¿Está seguro que desea eliminar el producto?", "Eliminar producto", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+				if (result == System::Windows::Forms::DialogResult::Yes)
+				{
+					this->pictureBox1->Image = nullptr;//Se deja de usar la imagen
 
-				objController->deleteProducto(codigoEliminar);
-				MessageBox::Show("Producto eliminado con exito");
-				Actualizar();
-				clearInputs();
-				this->btnAddBebidaPlato->Enabled = true;
-				this->label1->Visible = false;
-				this->textBox1->Visible = false;
+					System::IO::File::Delete(rutaImagen);
+
+					objController->deleteProducto(codigoEliminar);
+					MessageBox::Show("Producto eliminado con exito");
+					Actualizar();
+					clearInputs();
+					this->btnAddBebidaPlato->Enabled = true;
+					this->label1->Visible = false;
+					this->textBox1->Visible = false;
+				}
 			}
 			else {
 				MessageBox::Show("No se pudo eliminar la imagen.");

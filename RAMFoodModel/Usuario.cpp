@@ -21,46 +21,6 @@ RAMFoodModel::Usuario::Usuario(int Id, int Rol, int Status, String^ FechaContrat
 	this->Puesto[2] = "Chef";
 }
 
-Usuario::Usuario(String^ NombreUsuario, String^ ApellidoPat, String^ ApellidoMat, int Id, String^ Correo, String^ Contrasenha, int Rol) {
-	this->NombreUsuario = NombreUsuario;
-	this->ApellidoPat = ApellidoPat;
-	this->ApellidoMat = ApellidoMat;
-	this->Id = Id;
-	this->Contrasenha = Contrasenha;
-	this->Rol = Rol;
-	this->Correo = Correo;
-	this->Puesto[0] = "Gerente";
-	this->Puesto[1] = "Asistente";
-	this->Puesto[2] = "Chef";
-}
-
-void Usuario::SetNombreUsuario(String^  NombreUsuario)
-{
-	this->NombreUsuario = NombreUsuario;
-}
-String^ Usuario::GetNombreUsuario()
-{
-	return this->NombreUsuario;
-}
-void Usuario::SetApellidoPat(String^ ApellidoPat)
-{
-	this->ApellidoPat = ApellidoPat;
-}
-String^ Usuario::GetApellidoPat()
-{
-	return this->ApellidoPat;
-}
-
-void RAMFoodModel::Usuario::SetApellidoMat(String^ ApellidoMat)
-{
-	this->ApellidoMat = ApellidoMat;
-}
-String^ RAMFoodModel::Usuario::GetApellidoMat()
-{
-	return this->ApellidoMat;
-}
-
-
 void RAMFoodModel::Usuario::SetId(int Id)
 {
 	this->Id = Id;

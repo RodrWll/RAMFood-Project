@@ -19,7 +19,7 @@ List<Usuario^>^ empleadoController::leerArchivo()
 {
 	//Se lee el archivo y se almacena en un arreglo de String
 	List< Usuario^ >^ listaUsuariosLeer = gcnew List<Usuario^>();
-	array<String^>^ lineas = File::ReadAllLines("Usuarios.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
 	String^ separadores = ";";
 	List<array<String^>^>^ listaDatos = gcnew List<array<String^>^>();
 	
@@ -75,7 +75,7 @@ void empleadoController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
 			lineasArchivo[i] = objChef->GetId() + ";" + objChef->GetRol() + ";" + objChef->GetStatus() + ";" + objChef->GetFechaContrato() + ";" + objChef->GetFechaDesactivacion() + ";" + objChef->GetCorreo() + ";" + objChef->GetContrasenha() + ";" + objChef->GetNombre() + ";" + objChef->GetApellidoPat() + ";" + objChef->GetApellidoMat();
 		}
 	}
-	File::WriteAllLines("Usuarios.txt", lineasArchivo);
+	File::WriteAllLines("Recursos\\Usuarios\\Usuarios.txt", lineasArchivo);
 }
 
 void empleadoController::AddUsuario(Usuario^ objUsuario)
@@ -113,6 +113,7 @@ void empleadoController::deleteUsuario(int Id)
 		if (listaUsuarios[i]->GetId() == Id)
 		{
 			listaUsuarios[i]->SetStatus(0);
+			listaUsuarios[i]->SetFechaDesactivacion(DateTime::Now.ToString("dd/MM/yyyy"));
 			break;
 		}
 	}
@@ -142,7 +143,21 @@ Usuario^ empleadoController::QueryUsuarioById(int Id)
 		if(listaUsuarios[i]->GetId() == Id)
 		{
 			objUsuario = listaUsuarios[i];
-			break;
+			//devuelvo un objChef , objAsistente u objGerente dependiendo del rol
+			switch (objUsuario->GetRol())
+			{
+			case 1:
+				objUsuario = dynamic_cast<Gerente^>(objUsuario);
+				break;
+			case 2:
+				objUsuario = dynamic_cast<Asistente^>(objUsuario);
+				break;
+			case 3:
+				objUsuario = dynamic_cast<Chef^>(objUsuario);
+				break;
+			default:
+				break;
+			}
 		}
 	}
 	return objUsuario;
@@ -280,20 +295,6 @@ int empleadoController::VerificaExistenciaUsuario(int Id)
 	}
 	return existe;
 }
-List<Usuario^>^ empleadoController::QueryUsuarioByApellido(String^ Apellido)
-{
-	List<Usuario^>^ listaUsuarios = leerArchivo();
-	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
-	for (int i = 0; i < listaUsuarios->Count; i++)
-	{
-		if (listaUsuarios[i]->GetApellidoMat()->Contains(Apellido) || listaUsuarios[i]->GetApellidoPat()->Contains(Apellido) )
-		{
-			listaUsuariosEncontrados->Add(listaUsuarios[i]);
-		}
-	}
-	return listaUsuariosEncontrados;
-}
-
 String^ empleadoController::generarCorreo(String^ apellido1, String^ apellido2)
 {	
 	return apellido1->ToLower() + apellido2->ToLower() + "@RAMFood.com";

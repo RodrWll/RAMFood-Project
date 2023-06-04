@@ -64,7 +64,9 @@ namespace RAMFoodView {
 	private: Gerente^ objGerente;
 	private: Asistente^ objAsistente;
 	private: Chef^ objChef;
-		/// <summary>
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+		   /// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
@@ -95,6 +97,8 @@ namespace RAMFoodView {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -124,7 +128,7 @@ namespace RAMFoodView {
 			// 
 			this->label3->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(53, 173);
+			this->label3->Location = System::Drawing::Point(53, 176);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(195, 29);
 			this->label3->TabIndex = 2;
@@ -134,7 +138,7 @@ namespace RAMFoodView {
 			// 
 			this->label4->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(53, 261);
+			this->label4->Location = System::Drawing::Point(53, 246);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(111, 30);
 			this->label4->TabIndex = 3;
@@ -142,6 +146,7 @@ namespace RAMFoodView {
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::Color::White;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1->Location = System::Drawing::Point(275, 43);
@@ -152,6 +157,7 @@ namespace RAMFoodView {
 			// 
 			// textBox2
 			// 
+			this->textBox2->BackColor = System::Drawing::Color::White;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox2->Location = System::Drawing::Point(275, 105);
@@ -162,6 +168,7 @@ namespace RAMFoodView {
 			// 
 			// textBox4
 			// 
+			this->textBox4->BackColor = System::Drawing::Color::White;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox4->Location = System::Drawing::Point(275, 173);
@@ -172,50 +179,67 @@ namespace RAMFoodView {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->BackColor = System::Drawing::Color::White;
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->comboBox1->Location = System::Drawing::Point(275, 258);
+			this->comboBox1->Location = System::Drawing::Point(275, 243);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(155, 32);
 			this->comboBox1->TabIndex = 8;
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(153, 337);
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(155, 350);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(200, 62);
 			this->button1->TabIndex = 9;
 			this->button1->Text = L"Generar credenciales";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerenteAgregarEmpleado::button1_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button2->Enabled = false;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::Color::White;
 			this->button2->Location = System::Drawing::Point(215, 228);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(191, 62);
 			this->button2->TabIndex = 10;
 			this->button2->Text = L"Añadir empleado";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteAgregarEmpleado::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(170)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(777, 378);
+			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
+				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->button3->Location = System::Drawing::Point(929, 418);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(191, 65);
+			this->button3->Size = System::Drawing::Size(183, 65);
 			this->button3->TabIndex = 11;
 			this->button3->Text = L"Regresar";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &frmGerenteAgregarEmpleado::button3_Click);
 			// 
 			// label5
@@ -223,6 +247,8 @@ namespace RAMFoodView {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->label5->Location = System::Drawing::Point(22, 78);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(85, 24);
@@ -234,6 +260,8 @@ namespace RAMFoodView {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->label6->Location = System::Drawing::Point(22, 146);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(132, 24);
@@ -243,37 +271,37 @@ namespace RAMFoodView {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Montserrat", 13.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(84)));
+			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->label7->Location = System::Drawing::Point(180, 78);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 24);
+			this->label7->Size = System::Drawing::Size(0, 28);
 			this->label7->TabIndex = 16;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label8->Font = (gcnew System::Drawing::Font(L"Montserrat", 13.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(84)));
+			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->label8->Location = System::Drawing::Point(180, 146);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(0, 24);
+			this->label8->Size = System::Drawing::Size(0, 28);
 			this->label8->TabIndex = 17;
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label9->Font = (gcnew System::Drawing::Font(L"Montserrat", 13.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(84)));
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->label9->Location = System::Drawing::Point(180, 27);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(0, 24);
+			this->label9->Size = System::Drawing::Size(0, 28);
 			this->label9->TabIndex = 18;
 			// 
 			// label10
@@ -289,6 +317,9 @@ namespace RAMFoodView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::Color::Transparent;
+			this->groupBox1->Controls->Add(this->dateTimePicker1);
+			this->groupBox1->Controls->Add(this->label11);
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->textBox4);
@@ -298,15 +329,40 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->groupBox1->Location = System::Drawing::Point(44, 44);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(478, 425);
+			this->groupBox1->Size = System::Drawing::Size(477, 439);
 			this->groupBox1->TabIndex = 20;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Datos del nuevo empleado:";
+			this->groupBox1->Text = L"Datos del nuevo empleado";
+			// 
+			// dateTimePicker1
+			// 
+			this->dateTimePicker1->Enabled = false;
+			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dateTimePicker1->Location = System::Drawing::Point(271, 299);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(159, 32);
+			this->dateTimePicker1->TabIndex = 11;
+			// 
+			// label11
+			// 
+			this->label11->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->Location = System::Drawing::Point(53, 305);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(212, 33);
+			this->label11->TabIndex = 10;
+			this->label11->Text = L"Fecha de contrato:";
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->BackColor = System::Drawing::Color::Transparent;
 			this->groupBox2->Controls->Add(this->label10);
 			this->groupBox2->Controls->Add(this->label9);
 			this->groupBox2->Controls->Add(this->label8);
@@ -314,6 +370,10 @@ namespace RAMFoodView {
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->label5);
 			this->groupBox2->Controls->Add(this->button2);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(1)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->groupBox2->Location = System::Drawing::Point(562, 44);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(550, 315);
@@ -326,7 +386,9 @@ namespace RAMFoodView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
-			this->ClientSize = System::Drawing::Size(1165, 511);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(166)));
+			this->ClientSize = System::Drawing::Size(1143, 508);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button3);
@@ -447,15 +509,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		default:
 			break;
 		}
-
-		/*objUsuario->SetNombreUsuario(this->textBox1->Text);
-		objUsuario->SetApellidoPat(this->textBox2->Text);
-		objUsuario->SetApellidoMat(this->textBox4->Text);
-		objUsuario->SetRol( Rol(this->comboBox1->Text));*/
-		
-		/*this->label7->Text = objUsuario->GetCorreo();
-		this->label8->Text = objUsuario->GetContrasenha();
-		this->label9->Text = Convert::ToString(objUsuario->GetId());*/
 		this->button2-> Enabled = true;
 	}
 }

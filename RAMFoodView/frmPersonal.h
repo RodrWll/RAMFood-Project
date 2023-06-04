@@ -41,6 +41,9 @@ namespace RAMFoodView {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: Gerente^ objGerente = gcnew Gerente();
+	private: Chef^ objChef = gcnew Chef();
+	private: Asistente^ objAsistente = gcnew Asistente();
 	protected:
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button1;
@@ -167,6 +170,7 @@ namespace RAMFoodView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmPersonal";
 			this->Text = L"Personal";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -184,31 +188,59 @@ namespace RAMFoodView {
 		LogueoController^ objLogueoController = gcnew LogueoController();
 		if (objLogueoController->VerificarCredenciales(correo,contrasena)) {
 			Usuario^ objUsuario = objLogueoController->ObtenerUsuario(correo, contrasena);
-			frmGerente^ ventanaGerente = gcnew frmGerente();
-			frmAsistente^ ventanaAsistente = gcnew frmAsistente();
-			frmChef^ ventanaChef = gcnew frmChef();
+			//agregar cuando frm chef y asistente esten listos
+			//frmAsistente^ ventanaAsistente = gcnew frmAsistente(objAsistente);
+			//frmChef^ ventanaChef = gcnew frmChef(objChef);
 			switch (objUsuario->GetRol())
 			{
+				
 			case 1:
-				this->Visible=false;
-				ventanaGerente->ShowDialog();
-				this->Close();
+				objGerente = dynamic_cast<Gerente^>(objUsuario);				
 				break;
 			case 2:
-				
-				this->Visible = false;
-				ventanaAsistente->ShowDialog();
-				this->Close();
+				objAsistente = dynamic_cast<Asistente^>(objUsuario);
 				break;
 			case 3:
-				
+				objChef = dynamic_cast<Chef^>(objUsuario);
+				break;
+			default:
+				break;
+			}
+			if(objUsuario->GetRol() == 1){
 				this->Visible = false;
+				frmGerente^ ventanaGerente = gcnew frmGerente(objGerente);
+				ventanaGerente->ShowDialog();
+				this->Close();
+			}
+			frmAsistente^ ventanaAsistente = gcnew frmAsistente();
+			frmChef^ ventanaChef = gcnew frmChef();
+
+			/*switch (objUsuario->GetRol())
+			{
+
+			case 1:
+				this->Visible = false;
+				ventanaGerente->ShowDialog();
+				this->Close();
+
+				break;
+			case 2:
+				this->Visible = false;
+				
+				ventanaAsistente->ShowDialog();
+				this->Close();
+
+				break;
+			case 3:
+				objChef = dynamic_cast<Chef^>(objUsuario);
+				this->Visible = false;
+				
 				ventanaChef->ShowDialog();
 				this->Close();
 				break;
 			default:
 				break;
-			}
+			}*/
 		}
 		else {
 			MessageBox::Show("Usuario o contraseña incorrectos");
