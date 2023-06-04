@@ -2,23 +2,66 @@
 Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso de aplicativos digitales y mecanismos.
 
 ## Indicaciones para los desarrolladores
+* Nota
+	* No olvidar...
+
 ---
-* Se agregó el atributo estado a la clase plato y bebida.
+* Formato del archivo pedidoMesaGeneral.txt concierne a la clase OrdenMesa.
+
+	``` ID_CUENTA;MESA;CUENTA;ESTADO;FECHA ```
+
+	| ID_CUENTA | MESA | CUENTA | ESTADO_cuenta | FECHA |
+	|------------|------|--------|--------|-------|
+
+	* ID_CUENTA: Identificador de la cuenta.
+	* MESA: Número de la mesa.
+	* CUENTA: Cantidad total a pagar. El comensal al darle a pagar cuenta, se calcula el total de la cuenta.
+	* ESTADO_cuenta: Estado de la cuenta.
+
+		| ESTADO_cuenta | SIGNIFICADO |
+		|:-----------:|:------|
+		| 0 | Vacio. La mesa está vacía |
+		| 1 | El comensal está haciendo pedidos |
+		| 2 | El comensal ya pagó la cuenta |
+	* FECHA: Fecha en formato ```DD/MM/AAAA ```.
+
+* Formato del archivo pedidoMesa.txt concierne a la clase OrdenMesa.
+
+	``` ID_CUENTA;ID_PRODUCTO_PEDIDO;ID_PRODUCTO;CANTIDAD;ESTADO_PEDIDO ```
+
+	| ID_CUENTA | ID_PRODUCTO_PEDIDO | ID_PRODUCTO | CANTIDAD | ESTADO_PEDIDO |
+	|------------|------|--------|--------|-------|
+
+	* ID_CUENTA: Identificador de la cuenta.
+	* ID_PRODUCTO_PEDIDO: Identificador del producto pedido.
+	* ID_PRODUCTO: Identificador del producto.
+	* CANTIDAD: Cantidad del producto.
+	* ESTADO_PEDIDO: Estado del pedido. 
+		* La interpretación dependerá del rol.
+
+		| ESTADO_PEDIDO | SIGNIFICADO |
+		|:-----------:|:------|
+		| 0 | Aun no se está preparando |
+		| 1 | Se está preparando (un chef tomó el pedido) |
+		| 2 | Listo para entregar (el chef terminó de preparar el pedido) |
+		| 3 | Entregado (el asistente entregó el pedido) |
+
+
 * Para obtener información del producto se debe usar el metodo ` buscarProductoxId(int id)` de la clase ProductoController,
 ```
 productoController = gcnew ProductoController();
 Producto ^ objProducto = productoController->buscarProductoxId(id);
 ```
-* Se obtiene el tipo del producto con ` objProducto->>GetTipo()`, retorna 1 o 2. `1` para `Bebida` y `2` para `Plato`
 
-* Se  trabajará con el siguiente formato para leer los archivos de los pedidos.
-``` 
-ID;CANTIDAD PEDIDAD; ESTADO
-```
-* Entrar al archivo plato.h para conocer más acerca de los estados.
+* Se obtiene el tipo del producto con ` objProducto->GetTipo()`
 
+|          | Tipo | 
+|----------|:----------:|
+| Bebida   |     1    |
+| Plato    |	2     |
 
 ---
+## Indicaciones para subir cambios al repositorio
 1. Clonar el repositorio en su computadora. 
 2. Crear una rama con su nombre.
 3. Realizar los cambios en su rama.
