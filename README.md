@@ -2,9 +2,6 @@
 Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso de aplicativos digitales y mecanismos.
 
 ## Indicaciones para los desarrolladores
-* Nota
-	* No olvidar...
-
 ---
 * Formato del archivo pedidoMesaGeneral.txt concierne a la clase OrdenMesa.
 
