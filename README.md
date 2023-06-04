@@ -25,7 +25,7 @@ Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso 
 		| 2 | El comensal ya pagó la cuenta |
 	* FECHA: Fecha en formato ```DD/MM/AAAA ```.
 
-* Formato del archivo pedidoMesa.txt concierne a la clase OrdenMesa.
+* Formato del archivo DetallePedidoMesaGeneral.txt concierne a la clase ProductoPedido.
 
 	``` ID_CUENTA;ID_PRODUCTO_PEDIDO;ID_PRODUCTO;CANTIDAD;ESTADO_PEDIDO ```
 
