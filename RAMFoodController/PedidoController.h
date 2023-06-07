@@ -7,15 +7,14 @@ namespace RAMFoodController {
 	public:
 		PedidoController();
 		
-		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt);
-		void escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa);
+		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt,OrdenMesa^ objOrdenMesa);
 		List<Plato^>^ LeerPedidosPlatoFinal(String^ nombre_archivo);
 		List<Bebida^>^ LeerPedidosBebidasFinal(String^ nombre_archivo);
 		List<Plato^>^ LeerPedidosPlato(String^ nombre_archivo);
 		List<Bebida^>^ LeerPedidosBebidas(String^ nombre_archivo);
-		void guardarPedido(int numeroMesa);
+		void guardarPedido(OrdenMesa^ objOrdenMesa);
 		/*El método de abajo vacia los archivos y los guarda a otra carpeta donde se alamcenan los pedidos*/
-		void CuentaPagada(int mesa);
+		void CuentaPagada(OrdenMesa^ mesa);
 		/*métodos migrados de bebidasController*/
 		List<Bebida^>^ obtenerInfoBebida();
 		List<Plato^>^ obtenerInfoPlato();

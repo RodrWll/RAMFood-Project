@@ -332,26 +332,33 @@ List<Bebida^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo)
 }
 
 /*dirección ya arreglada*/
-void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt) {
+void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt,OrdenMesa^ objOrdenMesa) {
 	int numeroLinea = 1 + lPlato->Count + lBebidas->Count;
-	String^ direccionMesa = Convert::ToString(numMesa) + ".txt";
+	
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
 	/*leyendo el archivo externo*/
-	array<String^>^ pedidoanterior = File::ReadAllLines("Recursos/AsistenteChef/pedidomesa"+direccionMesa);
-
+	/*cambiar a lectura del nuevo archivo*/
+	array<String^>^ pedidoanterior = File::ReadAllLines("NewComensal/DetallePedidoMesaGeneral.txt");
+	array<String^>^ lineasPedidoGeneralActualizarCuenta = File::ReadAllLines("NewComensal/pedidoMesaGeneral.txt");
+	//array<String^>^ lineasPedidoMesaGeneralAnterior = File::ReadAllLines();
 	List<String^>^ lineasEscribirExterno = gcnew List<String^>();
+	List<String^>^ lineasEscribirExternoPedidoMesa = gcnew List<String^>();
+	List<String^>^ lineasEscribirExternoActualizarCuenta = gcnew List<String^>();
 	if (!(pedidoanterior[0]->Contains("vacio"))) {
 		for each (String^ lin in pedidoanterior)
 		{
 			lineasEscribirExterno->Add(lin);
 		}
 	};
-
-	lineasEscribir->Add(Convert::ToString(numMesa));
+	/*hasta aqui*/
+	/*borrar esto linea (abajo) si causa errores*/
+	lineasEscribir->Add("1");
 	
 	productoController^ objPController = gcnew productoController();
+	
 	for each (Plato^ objPlato in lPlato)
 	{
+		
 		String^ lineaIt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida();
 		lineasEscribir->Add(lineaIt);
 		
@@ -364,50 +371,97 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 		lineasEscribir->Add(lineaIt);
 		
 	}
+	/*formato del archivo DetallePedidoMesaGeneral.txt*/
+	/*leyendo ID ultimo*/
+	//general
+	array<String^>^ idUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	//detalles
+	array<String^>^ idPedido = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoIdPedidoMesa.txt");
+	int idSiguiente = Convert::ToInt32(idPedido[0]);
+	
 	for each (Plato^ objPlato in lPlatoExt)
-	{
-		String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida() + ";0";
+	{	
+		idSiguiente = idSiguiente + 1;
+		String^ idProducto = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre()));
+		String^ lineaItExt = Convert::ToString(idUltimo[0]) + ";" + Convert::ToString(idSiguiente) + ";" + idProducto + ";" + objPlato->GetCantidadPedida() + ";0";
+		//String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida() + ";0";
 		lineasEscribirExterno->Add(lineaItExt);
 	}
 	for each (Bebida^ objBebida in lBebidasExt)
 	{
-		String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre())) + ";" + objBebida->GetCantidadPedida() + ";0";
+		idSiguiente = idSiguiente + 1;
+		String^ idProducto = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre()));
+		String^ lineaItExt = Convert::ToString(idUltimo[0]) + ";" + Convert::ToString(idSiguiente) + ";" + idProducto + ";" + objBebida->GetCantidadPedida() + ";0";
+		//String^ lineaItExt = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre())) + ";" + objBebida->GetCantidadPedida() + ";0";
 		lineasEscribirExterno->Add(lineaItExt);
 	}
+	//escribiendo ultimo id
+	List<String^>^ idDetalleActualizar = gcnew List<String^>();
+	idDetalleActualizar->Add(Convert::ToString(idSiguiente));
+	File::WriteAllLines("Recursos/Comensal/pedidotemporal/ultimoIdPedidoMesa.txt", idDetalleActualizar);
+	
+	/*formato del archivo pedidoMesaGeneral.txt*/
 
+	/*revisar esto de abajo, se puede borrar uno de los dos de abajo*/
 	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesa.txt",lineasEscribir);
 	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt", lineasEscribir);
 
 	/*externo*/
-	File::WriteAllLines("Recursos//AsistenteChef//pedidomesa"+direccionMesa, lineasEscribirExterno);
-};
-/*no sirve la funcion de abajo*/
-void PedidoController::escribirArchivoFormatoAsistente(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, int numMesa) {
-	int numeroLinea = 1 + lPlato->Count + lBebidas->Count;
-	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
-	List<String^>^ lineasEscribirExterno = gcnew List<String^>(numeroLinea);
-
-	lineasEscribir->Add(Convert::ToString(numMesa));
-
-	productoController^ objPController = gcnew productoController();
-	for each (Plato ^ objPlato in lPlato)
+	int existeIdCuenta=0;
+	String^ separadores = ";";
+	for each (String^ linea in lineasPedidoGeneralActualizarCuenta)
 	{
-		String^ lineaIt = Convert::ToString(objPController->buscarIdxNombre(objPlato->GetNombre())) + ";" + objPlato->GetCantidadPedida();
-		lineasEscribir->Add(lineaIt);
-		lineasEscribirExterno->Add(lineaIt);
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		String^ idCuenta = Convert::ToString(objOrdenMesa->GetId());
+
+		if (datos[0]->Contains(idUltimo[0])) {
+			existeIdCuenta = 1;
+		}
+		
+	};
+
+	File::WriteAllLines("NewComensal/DetallePedidoMesaGeneral.txt", lineasEscribirExterno);
+
+
+	/*crea una nueva cuenta o actualizar cuenta del id cuenta y guardar*/
+	if (existeIdCuenta) {
+		for each (String ^ linea in lineasPedidoGeneralActualizarCuenta)
+		{
+			array<String^>^ datos = linea->Split(separadores->ToCharArray());
+			String^ idCuenta = idUltimo[0];
+			double cuentaTotal = Convert::ToDouble(datos[3])+ objOrdenMesa->GetCuenta();
+			if (datos[0]->Contains(idCuenta)) {
+				datos[3] = Convert::ToString(cuentaTotal);
+				linea = datos[0] + ";" + datos[1] + ";" + datos[2] + ";" + datos[3] + ";" + datos[4];
+
+			}
+			lineasEscribirExternoActualizarCuenta->Add(linea);
+
+		}
+		File::WriteAllLines("NewComensal/pedidoMesaGeneral.txt", lineasEscribirExternoActualizarCuenta);
+
+
+	}
+	else {
+		/*agregando nueva cuenta*/
+		for each (String^ linea in lineasPedidoGeneralActualizarCuenta)
+		{
+			lineasEscribirExternoActualizarCuenta->Add(linea);
+
+		};
+		//3;2;2;20;04/06/2023
+		int nMesa = objOrdenMesa->GetMesa();
+		double cuentaTotal = objOrdenMesa->GetCuenta();
+		String^ fechaCuenta = DateTime::Now.ToString("dd/MM/yyyy");
+		String^ lineaNueva = Convert::ToString(idUltimo[0]) + ";" + Convert::ToString(nMesa) + ";1" + ";"+Convert::ToString(cuentaTotal) +";" + fechaCuenta;
+		lineasEscribirExternoActualizarCuenta->Add(lineaNueva);
+		File::WriteAllLines("NewComensal/pedidoMesaGeneral.txt", lineasEscribirExternoActualizarCuenta);
+
 	}
 
-	for each (Bebida ^ objBebida in lBebidas)
-	{
-		String^ lineaIt = Convert::ToString(objPController->buscarIdxNombre(objBebida->GetNombre())) + ";" + objBebida->GetCantidadPedida();
-		lineasEscribir->Add(lineaIt);
-		lineasEscribirExterno->Add(lineaIt);
-	}
-	String^ direccionMesa = Convert::ToString(numMesa) + ".txt";
-	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt", lineasEscribir);
-	File::WriteAllLines("Recursos//AsistenteChef//pedidomesa" + direccionMesa, lineasEscribirExterno);
 };
-void PedidoController::guardarPedido(int numeroMesa) {
+
+void PedidoController::guardarPedido(OrdenMesa^ objOrdenMesa) {
 	List<Bebida^>^ listaBebidasLeida = gcnew List<Bebida^>();
 	List<Plato^>^ listaPlatoLeida = gcnew List<Plato^>();
 	listaBebidasLeida = this->LeerPedidosBebidas("Recursos//Comensal//pedidotemporal//pedido1.txt");
@@ -478,13 +532,13 @@ void PedidoController::guardarPedido(int numeroMesa) {
 		{
 			listaBebidasLeidaPedidoFinal->Add(ObjBebida);
 		}
-		escribirArchivoFormatoChef(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, numeroMesa, listaPlatoLeida,listaBebidasLeida);
+		escribirArchivoFormatoChef(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, listaPlatoLeida,listaBebidasLeida, objOrdenMesa);
 		//escribirArchivoFormatoAsistente(listaPlatoLeidaPedidoFinal, listaBebidasLeidaPedidoFinal, numeroMesa);
 
 	}
 	else {
 		/*archivo vacio, simplemente se escribe*/
-		escribirArchivoFormatoChef(listaPlatoLeida, listaBebidasLeida, numeroMesa, listaPlatoLeida, listaBebidasLeida);
+		escribirArchivoFormatoChef(listaPlatoLeida, listaBebidasLeida, listaPlatoLeida, listaBebidasLeida,objOrdenMesa);
 		//escribirArchivoFormatoAsistente(listaPlatoLeida, listaBebidasLeida, numeroMesa);
 
 
@@ -493,22 +547,65 @@ void PedidoController::guardarPedido(int numeroMesa) {
 
 };
 
-void PedidoController::CuentaPagada(int mesa) {
+void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
+	//se mantiene
 	array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//Comensal//pedidoTotal//pedidomesa.txt");
 	List<String^>^ lineasEscribir = gcnew List<String^>();
+	List<String^>^ lineaEscribirPedidoGeneral = gcnew List<String^>();
 	List<String^>^ lineaVacia = gcnew List<String^>();
+	List<String^>^ lineaInicializarIdDetallePedido = gcnew List<String^>();
+	List<String^>^ idPedidoGeneralActualizado = gcnew List<String^>();
+	List<String^>^ actualizarEstadoPedidoGeneral = gcnew List<String^>();
 	for each (String^ linea in lineasLeidas) 
 	{
 		lineasEscribir->Add(linea);
 	}
-	/*Escribe en registro*/
+	//leer archivo pedidos general
+	array<String^>^ lineasPedidoGeneral = File::ReadAllLines("NewComensal/pedidoMesaGeneral.txt");
+	String^ separadores = ";";
+	//modificar la linea con el id correspodnite, el estado a 0
+	array<String^>^ numId = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	String^ idCuenta = Convert::ToString(numId[0]);
+	for each (String^ linea in lineasPedidoGeneral) {
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		if (datos[0]->Contains(idCuenta)) {
+			datos[2] = "0";//Creo que no es necesario considerar el 2, dado que una vez se paga la cuenta la mesa estaría vacía
+			linea = datos[0] + ";" + datos[1] + ";" + datos[2] + ";" + datos[3] + ";" + datos[4];
+
+		};
+		actualizarEstadoPedidoGeneral->Add(linea);
+
+	};
+/*
+	for each (String^ lineas in lineasLeidas) {
+		lineaEscribirPedidoGeneral->Add(lineas);
+	}*/
+
+	lineaVacia->Add("vacio");
+	array<String^>^ idCuentaUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	int num = Convert::ToInt32(idCuentaUltimo[0]) + 1;
+	idPedidoGeneralActualizado->Add(Convert::ToString(num));
+	
+
+	//guardar cambios
+	//externi
+	File::WriteAllLines("NewComensal/pedidoMesaGeneral.txt", actualizarEstadoPedidoGeneral);
+	
+	//interno
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesa.txt", lineaVacia);
+	
+	File::WriteAllLines("Recursos//Comensal//pedidoTemporal//ultimoId.txt", idPedidoGeneralActualizado);
+
+	/*
+	//Escribe en registro
 	String^ direccion = "mesa" + Convert::ToString(mesa)+".txt";
-	/*leer lo que había y reeescribir*/
+	//leer lo que había y reeescribir
 
 	array<String^>^ lineasLeidas2 = File::ReadAllLines("Recursos//Comensal//RegistroPedidos//" + direccion);
 	
 	if (!(lineasLeidas2[0]->Contains("vacio"))) {
-		/*rescribir*/
+		//rescribir
 		for each (String^ linea in lineasLeidas2)
 		{
 			lineasEscribir->Add(linea);
@@ -518,15 +615,17 @@ void PedidoController::CuentaPagada(int mesa) {
 	else {
 		File::WriteAllLines("Recursos//Comensal//RegistroPedidos//" + direccion, lineasEscribir);
 	}
-	/*incializando archivos de la carpeta pedido total para que sean usados por otros comensales*/
-	lineaVacia->Add("vacio");// se tiene que escribir vacio en los archivos, si no surgirá un error
-	/*archivos de Franco y Misael*/
-	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedido"+direccion,lineaVacia);
-	/*archivo interno*/
-	File::WriteAllLines("Recursos//AsistenteChef//pedido"+direccion, lineaVacia);
-	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
-	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesa.txt", lineaVacia);
+	*/
 
+	/*incializando archivos de la carpeta pedido total para que sean usados por otros comensales*/
+	//lineaVacia->Add("vacio");// se tiene que escribir vacio en los archivos, si no surgirá un error
+	//archivos de Franco y Misael
+	/*
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedido"+direccion,lineaVacia);
+	//archivo interno
+	File::WriteAllLines("Recursos//AsistenteChef//pedido"+direccion, lineaVacia);
+	
+	*/
 	
 };
 

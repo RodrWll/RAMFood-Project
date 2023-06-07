@@ -47,8 +47,8 @@ void OrdenMesa::SetEstado(int EstadoOrden) {
 int OrdenMesa::GetEstado() {
     return this->Estado;
 }
-void OrdenMesa::SetCuenta() {
-    this->cuenta = cuenta;
+void OrdenMesa::SetCuenta( double numero) {
+    this->cuenta = numero;
 }
 double OrdenMesa::GetCuenta() {
     return this->cuenta;

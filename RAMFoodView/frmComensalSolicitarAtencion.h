@@ -37,6 +37,20 @@ namespace RAMFoodView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
+		frmComensalSolicitarAtencion(PedidoMesa^ objPedidoMesa, int numeroMesa, int pedidovacio, OrdenMesa^ objOrdenMesa)
+		{
+			this->numMesa = numeroMesa;
+			this->frmObjPedidoMesa = gcnew PedidoMesa();
+			this->frmObjPedidoMesa = objPedidoMesa;
+			this->pedidovacio = pedidovacio;
+			this->frmOrdenMesa = gcnew OrdenMesa();
+			this->frmOrdenMesa = objOrdenMesa;
+			InitializeComponent();
+
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -55,6 +69,7 @@ namespace RAMFoodView {
 	private: int numMesa;
 	private: int pedidovacio;
 	private: PedidoMesa^ frmObjPedidoMesa;
+	private: OrdenMesa^ frmOrdenMesa;
 	protected:
 
 
@@ -166,9 +181,8 @@ namespace RAMFoodView {
 		array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
 
 		if (!(lineasLeidas[0]=="vacio")) {
-			frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1);
+			frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1,this->frmOrdenMesa);
 			cuenta->FormatoCuenta();
-			
 			cuenta->ShowDialog();
 			this->Close();
 		}
