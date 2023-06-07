@@ -17,7 +17,7 @@ namespace RAMFoodModel {
 		void SetFecha(String^ fecha);
 		void SetEstado(int EstadoOrden);
 		int GetEstado();
-		void SetCuenta();
+		void SetCuenta(double numero);
 		double GetCuenta();
 		//si el estado=1: significa que la orden no ha sido pagada
 		//si el estado=2: significa que la orden ya ha sido pagada

@@ -19,6 +19,6 @@ void main(array <String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	frmChef ventana;
+	frmComensal ventana;
 	Application::Run(% ventana); /*Aqui estoy ejecutando la ventana inicial*/
 }
