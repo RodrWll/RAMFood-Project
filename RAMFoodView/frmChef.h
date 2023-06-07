@@ -365,6 +365,18 @@ private: void mostrarGrillaBebidas(List<ProductoPedido^>^ listaBebidas) {
 		this->dataGridView2->Rows->Add(filaGrilla);
 	}
 }
+private: void actualizarGrilla() {
+	OrdenController^ objOrdenController = gcnew OrdenController();
+	List<ProductoPedido^>^ listaPlatosPedidos = gcnew List<ProductoPedido^>();
+	List<ProductoPedido^>^ listaBebidasPedidos = gcnew List<ProductoPedido^>();
+	//Tipo 1: bebida
+	//TIpo 2: plato
+	String^ chef = "chef";
+	listaBebidasPedidos = objOrdenController->buscarListaBebidasPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
+	listaPlatosPedidos = objOrdenController->buscarListaPlatosPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
+	mostrarGrillaPlatos(listaPlatosPedidos);
+	mostrarGrillaBebidas(listaBebidasPedidos);
+}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	OrdenController^ objOrdenController = gcnew OrdenController();
@@ -415,7 +427,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Este plato ya esta siendo preparado");
 	}
 
-
+	actualizarGrilla();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
