@@ -22,12 +22,25 @@ namespace RAMFoodController {
 		//Método que nos ayuda cambiar el estado del producto Pedido
 		
 		*/
-		//void actualizarEstado(int idProductoPedido,int estado);
+		void actualizarEstado(int idPedido, int idProductoPedido, int estado);
 		List<ProductoPedido^>^ ReadOrderDetailsFromFile(String^ filePath, int orderId);
 		List<OrdenMesa^>^ ReadOrdersFromFile(String^ filePath);
+		List<OrdenMesa^>^ ReadAllOrdersFromFile(String^ filePath);
 
 		List<ProductoPedido^>^ buscarListaPlatosPedidos(String^ filePath,String^ usuario); //Esta funcion te devuelve una listaProductosPedidosActivos (Platos): es decir que no hayan sido pagados todavia
 
 		List<ProductoPedido^>^ buscarListaBebidasPedidos(String^ filePath, String^ usuario);//Esta funcion te devuelve una listaProductosPedidosActivos (Bebidas): es decir que no hayan sido pagados todavia
+
+		List<String^>^ OrdenController::buscarListaIdsPlatos(String^ filePath);
+		List<String^>^ OrdenController::buscarListaIdsBebidas(String^ filePath);
+		List<String^>^ OrdenController::ReadOrderIds(String^ filePath, int orderId);
+
+		Producto^ buscarObjProducto(int idPedido,int idProductoPedido);
+		ProductoPedido^ OrdenController::buscarProductoPedidoxId(int idPedido, int idProductoPedido);
+
+
+
+
+
 	};
 }

@@ -25,10 +25,11 @@ namespace RAMFoodView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		frmChefConfirmacionDeOrdenTerminada(String^ nombreSeleccionado)
+		frmChefConfirmacionDeOrdenTerminada(int idPedido,int idProductoPedido)
 		{
 			InitializeComponent();
-			this->nombreSeleccionado = nombreSeleccionado;
+			this->idPedido = idPedido;
+			this->idProductoPedido = idProductoPedido;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -49,7 +50,8 @@ namespace RAMFoodView {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: String^ nombreSeleccionado;
+	private: int idProductoPedido;
+	private: int idPedido;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::Label^ label1;
 	private:
@@ -152,12 +154,16 @@ namespace RAMFoodView {
 		this->Close();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		ChefController^ ojbChefController = gcnew ChefController();
-		ojbChefController->EliminarPedidoxNombre(this->nombreSeleccionado);
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		objOrdenController->actualizarEstado(idPedido, idProductoPedido, 2);
 		this->Close();
+
 	}
 	private: System::Void frmChefConfirmacionDeOrdenTerminada_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->label1->Text = this->nombreSeleccionado;
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		productoController^ objProductoController = gcnew productoController();
+		this->label1->Text = objProductoController->buscarProductoxId(objOrdenController->buscarObjProducto(idPedido, idProductoPedido)->GetId())->GetNombre();
+		
 	}
 };
 }
