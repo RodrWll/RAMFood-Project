@@ -53,6 +53,7 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensalPedidoVacio::typeid));
 			this->TextoError = (gcnew System::Windows::Forms::Label());
 			this->PedidoErrorIndicacion = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -90,6 +91,7 @@ namespace RAMFoodView {
 			this->ClientSize = System::Drawing::Size(477, 222);
 			this->Controls->Add(this->PedidoErrorIndicacion);
 			this->Controls->Add(this->TextoError);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalPedidoVacio";
 			this->Text = L"Pedido no vacío";

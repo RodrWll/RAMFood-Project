@@ -75,6 +75,9 @@
     <ClCompile Include="frmChefConfirmacionDeOrdenTerminada.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmGerenteReincorporarEmpleado.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmChefConfirmacionDeOrdenTerminada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteReincorporarEmpleado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

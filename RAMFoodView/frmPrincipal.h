@@ -76,9 +76,9 @@ namespace RAMFoodView {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(162, 12);
+			this->pictureBox1->Location = System::Drawing::Point(161, 12);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(406, 372);
+			this->pictureBox1->Size = System::Drawing::Size(407, 374);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -134,6 +134,7 @@ namespace RAMFoodView {
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmPrincipal";
 			this->Text = L"RAMFood";
 			this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
