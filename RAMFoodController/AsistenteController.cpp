@@ -15,7 +15,7 @@ List<Plato^>^ AsistenteController::listarPlatosPedidosMesa()
 {
 	productoController^ objProductoController = gcnew productoController();
 	List<Plato^>^ listaPlatosEncontrados = gcnew List<Plato^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos//Asistente//pedidomesa1Asistente.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//pedidomesa1.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaPedido in lineas) {
 		array<String^>^ datos = lineaPedido->Split(separadores->ToCharArray());
@@ -23,7 +23,7 @@ List<Plato^>^ AsistenteController::listarPlatosPedidosMesa()
 		Producto^ productoEncontrado = objProductoController->buscarProductoxId(id);
 		if(productoEncontrado->GetTipo() == 2){
 			int cantidad = Convert::ToInt32(datos[1]);
-			Plato^ objPlato = gcnew Plato(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), productoEncontrado->GetId(), cantidad, productoEncontrado->GetId());
+			Plato^ objPlato = gcnew Plato(productoEncontrado->GetNombre(), productoEncontrado->GetPrecio(), cantidad, productoEncontrado->GetId());
 			listaPlatosEncontrados->Add(objPlato);
 		}
 	}
@@ -34,7 +34,7 @@ List<Bebida^>^ AsistenteController::listarBebidasPedidosMesa()
 {
 	productoController^ objProductoController = gcnew productoController();
 	List<Bebida^>^ listabebidasEncontradas = gcnew List<Bebida^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos//Asistente//pedidomesa1Asistente.txt");
+	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//pedidomesa1.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaPedido in lineas) {
 		array<String^>^ datos = lineaPedido->Split(separadores->ToCharArray());
@@ -48,3 +48,15 @@ List<Bebida^>^ AsistenteController::listarBebidasPedidosMesa()
 	}
 	return listabebidasEncontradas;
 }
+
+void AsistenteController::LeerArchivoEstadoAsistencia(int numeroMesa) {
+	String^ direccion = "asistenciamesa" + Convert::ToString(numeroMesa) + ".txt";
+	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+
+}
+
+void AsistenteController::LeerArchivoEstadoCobranza(int numeroMesa) {
+	String^ direccion = "asistenciamesa" + Convert::ToString(numeroMesa) + ".txt";
+	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+}
+
