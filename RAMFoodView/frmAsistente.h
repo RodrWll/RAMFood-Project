@@ -38,6 +38,7 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
+	private: microcontroller^ objMicrocontroller =gcnew microcontroller();
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -47,23 +48,8 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
 
-
-
 	private: System::Windows::Forms::GroupBox^ groupBox3;
 	private: System::Windows::Forms::DataGridView^ dataGridView3;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
@@ -129,6 +115,7 @@ namespace RAMFoodView {
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmAsistente::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -774,7 +761,9 @@ namespace RAMFoodView {
 			this->Controls->Add(this->button1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmAsistente";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Asistente";
 			this->Load += gcnew System::EventHandler(this, &frmAsistente::frmAsistente_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -1052,6 +1041,8 @@ namespace RAMFoodView {
 		double precio = Convert::ToDouble(this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString());
 		if ("Listo para entregar" == this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 1);
+			//Se indica a la faja el numero de mesa a enviar
+			objMicrocontroller->setEnvio(1);
 			actualizarPlatoGrilla1();
 		}
 	}
@@ -1098,6 +1089,8 @@ namespace RAMFoodView {
 		double precio = Convert::ToDouble(this->dataGridView2->Rows[filaSeleccionada]->Cells[2]->Value->ToString());
 		if ("Listo para entregar" == this->dataGridView2->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 2);
+			//Se indica a la faja el numero de mesa a enviar
+			objMicrocontroller->setEnvio(2);
 			actualizarPlatoGrilla2();
 		}
 	}
@@ -1115,6 +1108,8 @@ namespace RAMFoodView {
 		if ("Listo para entregar" == this->dataGridView3->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 3);
 			actualizarPlatoGrilla3();
+			//Se indica a la faja el numero de mesa a enviar
+			objMicrocontroller->setEnvio(3);
 		}
 	}
 	private: void actualizarAlertas1() {
