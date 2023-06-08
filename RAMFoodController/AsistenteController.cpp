@@ -49,14 +49,61 @@ List<Bebida^>^ AsistenteController::listarBebidasPedidosMesa()
 	return listabebidasEncontradas;
 }
 
-void AsistenteController::LeerArchivoEstadoAsistencia(int numeroMesa) {
+String^ AsistenteController::LeerArchivoEstadoAsistencia(int numeroMesa) {
 	String^ direccion = "asistenciamesa" + Convert::ToString(numeroMesa) + ".txt";
 	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
-
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	String^ estado = lineas[0];
+	return estado;
 }
 
-void AsistenteController::LeerArchivoEstadoCobranza(int numeroMesa) {
-	String^ direccion = "asistenciamesa" + Convert::ToString(numeroMesa) + ".txt";
+String^ AsistenteController::LeerArchivoEstadoCobranza(int numeroMesa) {
+	String^ direccion = "cobranzamesa" + Convert::ToString(numeroMesa) + ".txt";
 	array<String^>^ lineas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+	String^ estado = lineas[0];
+	return estado;
 }
+
+void AsistenteController::ModificarEstadoAsistencia(int numeroDeMesaALeer, int estadoAsis) {
+	String^ direccion = "asistenciamesa" + Convert::ToString(numeroDeMesaALeer) + ".txt";
+	array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+	String^ separadores = ";";/*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	List<String^>^ lineasEscribir = gcnew List<String^>();
+	for each (String ^ linea in lineasLeidas)
+	{
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		int estado = Convert::ToInt32(datos[0]);
+		estado = estadoAsis;
+		if (estadoAsis == 0) {
+			datos[0] = Convert::ToString(1);
+		}
+		else {
+			datos[0] = Convert::ToString(0);
+		}
+		String^ linea = datos[0];
+		lineasEscribir->Add(linea);
+	}
+	File::WriteAllLines("Recursos//AsistenteChef//" + direccion, lineasEscribir);
+};
+
+void AsistenteController::ModificarEstadoCobranza(int numeroDeMesaALeer, int estadoCob) {
+	String^ direccion = "cobranzamesa" + Convert::ToString(numeroDeMesaALeer) + ".txt";
+	array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//AsistenteChef//" + direccion);
+	List<String^>^ lineasEscribir = gcnew List<String^>();
+	for each (String ^ linea in lineasLeidas)
+	{
+		array<String^>^ datos = linea->Split(';');
+		int estado = Convert::ToInt32(datos[0]);
+		estado = estadoCob;
+		if (estadoCob == 0) {
+			datos[0] = Convert::ToString(1);
+		}
+		else {
+			datos[0] = Convert::ToString(0);
+		}
+		String^ linea = datos[0];
+		lineasEscribir->Add(linea);
+	}
+	File::WriteAllLines("Recursos//AsistenteChef//" + direccion, lineasEscribir);
+};
 
