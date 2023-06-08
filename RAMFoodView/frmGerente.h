@@ -70,6 +70,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button7;
 
 	protected:
 
@@ -88,6 +89,7 @@ namespace RAMFoodView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerente::typeid));
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -106,6 +108,7 @@ namespace RAMFoodView {
 			// groupBox2
 			// 
 			this->groupBox2->BackColor = System::Drawing::Color::Transparent;
+			this->groupBox2->Controls->Add(this->button7);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->button2);
 			this->groupBox2->Controls->Add(this->button1);
@@ -113,19 +116,37 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->groupBox2->Location = System::Drawing::Point(195, 31);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(611, 109);
+			this->groupBox2->Size = System::Drawing::Size(700, 109);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Abrir/Cerrar restaurante";
+			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->button7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.BackgroundImage")));
+			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button7->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button7->FlatAppearance->BorderSize = 0;
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->ForeColor = System::Drawing::Color::White;
+			this->button7->Location = System::Drawing::Point(631, 39);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(45, 42);
+			this->button7->TabIndex = 11;
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &frmGerente::button7_Click);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
 			this->label6->BackColor = System::Drawing::Color::Black;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Montserrat", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::IndianRed;
-			this->label6->Location = System::Drawing::Point(483, 47);
+			this->label6->Location = System::Drawing::Point(470, 40);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(51, 24);
+			this->label6->Size = System::Drawing::Size(73, 34);
 			this->label6->TabIndex = 2;
 			this->label6->Text = L"OFF";
 			// 
@@ -153,7 +174,7 @@ namespace RAMFoodView {
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(153, 39);
+			this->button1->Location = System::Drawing::Point(155, 39);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(96, 40);
 			this->button1->TabIndex = 0;
@@ -326,7 +347,7 @@ namespace RAMFoodView {
 		//agregando el microcontrolador de la clase microcontroller
 microcontroller^ esp32 = gcnew microcontroller();
 void updateLabel() {
-	if (esp32->getStatus() == 1) {
+	if (esp32->getStatusMotor() == 1) {
 		this->label6->Text = "ABIERTO";
 		this->label6->ForeColor = System::Drawing::Color::Lime;
 	}
@@ -344,12 +365,12 @@ void updateLabel() {
 	}
 		   //Esta funcion se ejecuta cuando se quiere abrir el restaurante
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		esp32->setStatus(1);
+		esp32->setStatusMotor(1);
 		updateLabel();
 	}
 		   //Esta funcion se ejecuta cuando se quiere cerrar el restaurante
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		esp32->setStatus(0);
+		esp32->setStatusMotor(0);
 		updateLabel();
 	}
 		   //Este boton se encarga de abrir la ventana de gestionar personal
@@ -382,6 +403,9 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Cerrar esta ventana
 	this->Close();
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	updateLabel();
 }
 };
 }
