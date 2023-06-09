@@ -7,6 +7,7 @@
 #include "frmGerenteGestionarPersonal.h"
 #include "frmGerenteGestionarProductos.h"
 #include "frmGerenteEstablecerMenu.h"
+#include "frmReporte.h"
 
 namespace RAMFoodView {
 
@@ -399,6 +400,10 @@ private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ 
 
 
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmReporte^ ventana = gcnew frmReporte();
+	this->Visible = false;
+	ventana->ShowDialog();
+	this->Visible = true;
 
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
