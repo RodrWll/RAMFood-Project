@@ -399,6 +399,7 @@ private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ 
 
 
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Cerrar esta ventana
