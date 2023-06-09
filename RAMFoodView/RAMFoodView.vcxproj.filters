@@ -78,9 +78,15 @@
     <ClCompile Include="frmGerenteReincorporarEmpleado.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+
+    <ClCompile Include="frmReporte.cpp">
+    <Filter>Header Files</Filter>
+    </ClCompile>
+
     <ClCompile Include="frmChefMenuDia.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -141,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmGerenteReincorporarEmpleado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmReporte.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmChefMenuDia.h">
