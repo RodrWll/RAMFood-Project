@@ -21,8 +21,8 @@ using namespace RAMFoodModel;
 //constructor
 //Ver como poner el constructor, si se cierra la sesion del gerente, tal vez se apague la faja :,v
 microcontroller::microcontroller() {
-	this->URL = "http://192.168.18.60";
-	//this->URL = "http://10.101.43.148";
+	//this->URL = "http://192.168.18.60";
+	this->URL = "http://10.101.41.217";
 	this->ROUTE_MOTOR = "/Motor";
 	this->ROUTE_MESA = "/Mesa";
 	this->ROUTE_ERROR = "/ErrorFaja";
