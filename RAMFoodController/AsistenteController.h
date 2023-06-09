@@ -13,7 +13,9 @@ namespace RAMFoodController {
 			*/
 			List<Plato^>^ listarPlatosPedidosMesa();
 			List<Bebida^>^ listarBebidasPedidosMesa();
-			void LeerArchivoEstadoAsistencia(int numeroMesa);
-			void LeerArchivoEstadoCobranza(int numeroMesa);
+			String^ LeerArchivoEstadoAsistencia(int numeroMesa);
+			String^ LeerArchivoEstadoCobranza(int numeroMesa);
+			void ModificarEstadoAsistencia(int numeroDeMesaALeer, int estadoAsis);
+			void ModificarEstadoCobranza(int numeroDeMesaALeer, int estadoCob);
 	};
 }
