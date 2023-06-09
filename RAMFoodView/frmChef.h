@@ -1,5 +1,6 @@
 #pragma once
 #include "frmChefConfirmacionDeOrdenTerminada.h"
+#include "frmChefMenuDia.h"
 namespace RAMFoodView {
 
 	using namespace System;
@@ -21,6 +22,8 @@ namespace RAMFoodView {
 		frmChef(void)
 		{
 			InitializeComponent();
+			this->idPedidoChef = 0;
+			this->idProductoPedidoChef = 0;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -52,7 +55,8 @@ namespace RAMFoodView {
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-
+	private: int idPedidoChef;
+	private: int idProductoPedidoChef;
 
 
 
@@ -67,6 +71,11 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
 
 
 
@@ -120,6 +129,11 @@ namespace RAMFoodView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
@@ -155,7 +169,6 @@ namespace RAMFoodView {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(555, 402);
 			this->dataGridView1->TabIndex = 0;
 			// 
@@ -195,7 +208,7 @@ namespace RAMFoodView {
 			this->button1->BackColor = System::Drawing::Color::LightCyan;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(1264, 175);
+			this->button1->Location = System::Drawing::Point(1249, 180);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(132, 74);
 			this->button1->TabIndex = 1;
@@ -208,7 +221,7 @@ namespace RAMFoodView {
 			this->button2->BackColor = System::Drawing::Color::LightCyan;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(1264, 315);
+			this->button2->Location = System::Drawing::Point(1249, 319);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(132, 79);
 			this->button2->TabIndex = 2;
@@ -247,7 +260,6 @@ namespace RAMFoodView {
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 51;
 			this->dataGridView2->RowTemplate->Height = 24;
-			this->dataGridView2->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView2->Size = System::Drawing::Size(553, 402);
 			this->dataGridView2->TabIndex = 6;
 			// 
@@ -319,12 +331,63 @@ namespace RAMFoodView {
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &frmChef::button3_Click);
 			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(1240, 476);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(156, 49);
+			this->button4->TabIndex = 10;
+			this->button4->Text = L"MENU";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmChef::button4_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(47, 577);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(205, 16);
+			this->label1->TabIndex = 11;
+			this->label1->Text = L"USTED SE ENCARGANDO DE : ";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(275, 577);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(27, 16);
+			this->label2->TabIndex = 12;
+			this->label2->Text = L"****";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(442, 577);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(60, 16);
+			this->label5->TabIndex = 13;
+			this->label5->Text = L"PLATOS";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(375, 577);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(27, 16);
+			this->label6->TabIndex = 14;
+			this->label6->Text = L"****";
+			// 
 			// frmChef
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::AliceBlue;
 			this->ClientSize = System::Drawing::Size(1423, 637);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -386,6 +449,29 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	mostrarGrillaPlatos(listaPlatosPedidos);
 	mostrarGrillaBebidas(listaBebidasPedidos);
 }
+private: Void actualizar() {
+	OrdenController^ objOrdenController = gcnew OrdenController();
+	List<ProductoPedido^>^ listaPlatosPedidos = gcnew List<ProductoPedido^>();
+	List<ProductoPedido^>^ listaBebidasPedidos = gcnew List<ProductoPedido^>();
+	//Tipo 1: bebida
+	//TIpo 2: plato
+	String^ chef = "chef";
+	listaBebidasPedidos = objOrdenController->buscarListaBebidasPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
+	listaPlatosPedidos = objOrdenController->buscarListaPlatosPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
+	mostrarGrillaPlatos(listaPlatosPedidos);
+	mostrarGrillaBebidas(listaBebidasPedidos);
+	ProductoPedido^ objProductoPedido = objOrdenController->buscarProductoPedidoxId(idPedidoChef, idProductoPedidoChef);
+	if (objProductoPedido->GetEstado() == 1) {
+		this->label2->Text = objProductoPedido->GetObjProducto()->GetNombre();
+		this->label6->Text = Convert::ToString(objProductoPedido->GetCantidadPedida());
+	}
+	else {
+		this->label2->Text = "";
+		this->label6->Text = "";
+	}
+
+
+}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	OrdenController^ objOrdenController = gcnew OrdenController();
 	List<String^>^ listaIdsPlatosPedidos = gcnew List<String^>();
@@ -416,6 +502,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		productoController^ objProductoController = gcnew productoController();
 		MessageBox::Show("Usted ha seleccionado el plato " + objProductoController->buscarProductoxId(objOrdenController->buscarObjProducto(idPedido, idProductoPedido)->GetId())->GetNombre());
 		this->button1->Enabled = false;
+		this->button2->Enabled = true;
+		this->idPedidoChef = idPedido;
+		this->idProductoPedidoChef = idProductoPedido;
+		this->dataGridView1->Enabled = false;
+		this->dataGridView2->Enabled = false;
+		actualizar();
+
+
 	}
 	else {
 		MessageBox::Show("Este plato ya esta siendo preparado");
@@ -432,7 +526,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	listaIdsBebidasPedidos = objOrdenController->buscarListaIdsBebidas("NewComensal//pedidoMesaGeneral.txt");
 	int idProductoPedido;
 	int idPedido;
-	if ((this->dataGridView1->SelectedRows->Count) > 0) {
+
+	/*if ((this->dataGridView1->SelectedRows->Count) > 0) {
 		String^ filaSeleccionada = Convert::ToString(this->dataGridView1->SelectedRows[0]->Index);
 		idProductoPedido = Convert::ToInt32(this->dataGridView1->Rows[Convert::ToInt32(filaSeleccionada)]->Cells[0]->Value->ToString());
 		idPedido = Convert::ToInt32(listaIdsPlatosPedidos[Convert::ToInt32(filaSeleccionada)]);
@@ -460,18 +555,30 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else {
 		MessageBox::Show("Este plato todavia no esta siendo preparado");
+	}*/
+	ProductoPedido^ objProductoPedido = objOrdenController->buscarProductoPedidoxId(idPedidoChef, idProductoPedidoChef);
+	if ((objProductoPedido->GetEstado()) == 1) {
+		frmChefConfirmacionDeOrdenTerminada^ VentaConfirmacion = gcnew frmChefConfirmacionDeOrdenTerminada(idPedidoChef, idProductoPedidoChef);
+		VentaConfirmacion->ShowDialog();
+		objProductoPedido = objOrdenController->buscarProductoPedidoxId(idPedidoChef, idProductoPedidoChef);
+		if (objProductoPedido->GetEstado() == 2) {
+			this->button1->Enabled = true;
+			this->dataGridView1->Enabled = true;
+			this->dataGridView2->Enabled = true;
+			actualizar();
+		}
 	}
-	List<ProductoPedido^>^ listaPlatosPedidos = gcnew List<ProductoPedido^>();
-	List<ProductoPedido^>^ listaBebidasPedidos = gcnew List<ProductoPedido^>();
-	//Tipo 1: bebida
-	//TIpo 2: plato
-	String^ chef = "chef";
-	listaBebidasPedidos = objOrdenController->buscarListaBebidasPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
-	listaPlatosPedidos = objOrdenController->buscarListaPlatosPedidos("NewComensal//pedidoMesaGeneral.txt", chef);
-	mostrarGrillaPlatos(listaPlatosPedidos);
-	mostrarGrillaBebidas(listaBebidasPedidos);
+	else {
+		MessageBox::Show("Este plato todavia no esta siendo preparado");
+	}
+	
 }
 private: System::Void frmChef_Load(System::Object^ sender, System::EventArgs^ e) {
+	this->button2->Enabled = false;
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmChefMenuDia^ objFrmChefMenuDia = gcnew frmChefMenuDia();
+	objFrmChefMenuDia->ShowDialog();
 }
 };
 }
