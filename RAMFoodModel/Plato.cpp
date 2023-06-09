@@ -42,6 +42,14 @@ String^ Plato::GetNombre() {
 double Plato::GetPrecio() {
 	return this->Precio;
 };
+
+int Plato::GetEstado() {
+	return this->estado;
+};
+
+void Plato::SetEstado(int estado) {
+	this->estado = estado;
+};
 //Estos Metodos no estan definidos todavia
 
 /*

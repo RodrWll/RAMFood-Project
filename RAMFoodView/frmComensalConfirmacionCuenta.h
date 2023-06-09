@@ -68,7 +68,7 @@ namespace RAMFoodView {
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(205, 79);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(117, 97);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
@@ -82,9 +82,9 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->pictureBox1);
 			this->groupBox1->Location = System::Drawing::Point(-9, 47);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox1->Size = System::Drawing::Size(547, 247);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
@@ -114,7 +114,7 @@ namespace RAMFoodView {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(167, 324);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(171, 28);
 			this->button1->TabIndex = 2;
@@ -130,8 +130,9 @@ namespace RAMFoodView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalConfirmacionCuenta";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"frmComensalConfirmacionCuenta";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->groupBox1->ResumeLayout(false);

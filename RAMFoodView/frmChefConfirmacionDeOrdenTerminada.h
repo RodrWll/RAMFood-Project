@@ -25,10 +25,11 @@ namespace RAMFoodView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		frmChefConfirmacionDeOrdenTerminada(String^ nombreSeleccionado)
+		frmChefConfirmacionDeOrdenTerminada(int idPedido,int idProductoPedido)
 		{
 			InitializeComponent();
-			this->nombreSeleccionado = nombreSeleccionado;
+			this->idPedido = idPedido;
+			this->idProductoPedido = idProductoPedido;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -49,7 +50,8 @@ namespace RAMFoodView {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: String^ nombreSeleccionado;
+	private: int idProductoPedido;
+	private: int idPedido;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::Label^ label1;
 	private:
@@ -65,6 +67,7 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmChefConfirmacionDeOrdenTerminada::typeid));
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -79,9 +82,9 @@ namespace RAMFoodView {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(88, 25);
+			this->groupBox1->Location = System::Drawing::Point(77, 36);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(253, 46);
+			this->groupBox1->Size = System::Drawing::Size(255, 43);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Confirma la orden";
@@ -115,7 +118,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->groupBox2->Location = System::Drawing::Point(98, 134);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(243, 41);
+			this->groupBox2->Size = System::Drawing::Size(245, 38);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"como terminada";
@@ -125,7 +128,7 @@ namespace RAMFoodView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(169, 87);
+			this->label1->Location = System::Drawing::Point(163, 82);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(85, 29);
 			this->label1->TabIndex = 5;
@@ -135,13 +138,15 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(485, 357);
+			this->ClientSize = System::Drawing::Size(487, 354);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmChefConfirmacionDeOrdenTerminada";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Load += gcnew System::EventHandler(this, &frmChefConfirmacionDeOrdenTerminada::frmChefConfirmacionDeOrdenTerminada_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -152,12 +157,16 @@ namespace RAMFoodView {
 		this->Close();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		ChefController^ ojbChefController = gcnew ChefController();
-		ojbChefController->EliminarPedidoxNombre(this->nombreSeleccionado);
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		objOrdenController->actualizarEstado(idPedido, idProductoPedido, 2);
 		this->Close();
+
 	}
 	private: System::Void frmChefConfirmacionDeOrdenTerminada_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->label1->Text = this->nombreSeleccionado;
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		productoController^ objProductoController = gcnew productoController();
+		this->label1->Text = objProductoController->buscarProductoxId(objOrdenController->buscarObjProducto(idPedido, idProductoPedido)->GetId())->GetNombre();
+		
 	}
 };
 }

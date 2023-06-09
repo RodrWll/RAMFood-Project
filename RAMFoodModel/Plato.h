@@ -34,9 +34,12 @@ namespace RAMFoodModel {
 		double GetPrecio();
 		int GetCantidadPedida();
 		int GetId();
+		int GetEstado();
 
 		void SetCantidadPedida(int cantidad);
 		void SetPrecio(double precio);
+		void SetEstado(int estado);
+		
 
 		/*
 		void SetNombre();

@@ -74,12 +74,12 @@ namespace RAMFoodView {
 			// PedidoErrorIndicacion
 			// 
 			this->PedidoErrorIndicacion->AutoSize = true;
-			this->PedidoErrorIndicacion->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->PedidoErrorIndicacion->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->PedidoErrorIndicacion->Location = System::Drawing::Point(164, 82);
+			this->PedidoErrorIndicacion->Location = System::Drawing::Point(160, 90);
 			this->PedidoErrorIndicacion->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->PedidoErrorIndicacion->Name = L"PedidoErrorIndicacion";
-			this->PedidoErrorIndicacion->Size = System::Drawing::Size(129, 16);
+			this->PedidoErrorIndicacion->Size = System::Drawing::Size(174, 20);
 			this->PedidoErrorIndicacion->TabIndex = 1;
 			this->PedidoErrorIndicacion->Text = L"Inténtelo de nuevo";
 			this->PedidoErrorIndicacion->Click += gcnew System::EventHandler(this, &frmComensalPedidoVacio::PedidoErrorIndicacion_Click);
@@ -94,6 +94,7 @@ namespace RAMFoodView {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalPedidoVacio";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Pedido no vacío";
 			this->ResumeLayout(false);
 			this->PerformLayout();
