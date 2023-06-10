@@ -1587,6 +1587,7 @@ public:
 			this->IsMdiContainer = true;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensal";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"frmComensal";
 			this->Load += gcnew System::EventHandler(this, &frmComensal::frmComensal_Load);
 			this->groupBox1->ResumeLayout(false);

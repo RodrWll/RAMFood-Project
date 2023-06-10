@@ -38,7 +38,7 @@ void microcontroller::setStatusMotor(int status) {
 	this->status = status;
 	//mandar el status al microcontrolador, es decir se manda el status al arduino usando el metodo sendBit
 	//Se manda el status al arduino usando el metodo sendBit
-	sendBit(status, "onMotor", this->ROUTE_MOTOR);
+	//sendBit(status, "onMotor", this->ROUTE_MOTOR);
 }
 //Para verificar si el servidor está encendido
 bool microcontroller::isServerAvailable(const std::string& url){

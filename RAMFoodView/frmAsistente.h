@@ -38,7 +38,7 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-	private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	//private: microcontroller^ objMicrocontroller =gcnew microcontroller();
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -1042,7 +1042,7 @@ namespace RAMFoodView {
 		if ("Listo para entregar" == this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 1);
 			//Se indica a la faja el numero de mesa a enviar
-			objMicrocontroller->setEnvio(1);
+			//objMicrocontroller->setEnvio(1);
 			actualizarPlatoGrilla1();
 		}
 	}
@@ -1090,7 +1090,7 @@ namespace RAMFoodView {
 		if ("Listo para entregar" == this->dataGridView2->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 2);
 			//Se indica a la faja el numero de mesa a enviar
-			objMicrocontroller->setEnvio(2);
+			//objMicrocontroller->setEnvio(2);
 			actualizarPlatoGrilla2();
 		}
 	}
@@ -1109,7 +1109,7 @@ namespace RAMFoodView {
 			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 3);
 			actualizarPlatoGrilla3();
 			//Se indica a la faja el numero de mesa a enviar
-			objMicrocontroller->setEnvio(3);
+			//objMicrocontroller->setEnvio(3);
 		}
 	}
 	private: void actualizarAlertas1() {

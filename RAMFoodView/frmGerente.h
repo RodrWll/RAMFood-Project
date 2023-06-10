@@ -58,6 +58,7 @@ namespace RAMFoodView {
 		}
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: Gerente^ objGerente =gcnew Gerente();
+	//private: microcontroller^ esp32 = gcnew microcontroller();
 	protected:
 
 	private: System::Windows::Forms::Label^ label6;
@@ -286,7 +287,6 @@ namespace RAMFoodView {
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Gerente";
-			this->groupBox1->Enter += gcnew System::EventHandler(this, &frmGerente::groupBox1_Enter);
 			// 
 			// label1
 			// 
@@ -307,8 +307,8 @@ namespace RAMFoodView {
 			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button5->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
-				static_cast<System::Int32>(static_cast<System::Byte>(34)));
+			this->button5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(239)), static_cast<System::Int32>(static_cast<System::Byte>(233)),
+				static_cast<System::Int32>(static_cast<System::Byte>(231)));
 			this->button5->Location = System::Drawing::Point(856, 23);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(183, 46);
@@ -346,33 +346,31 @@ namespace RAMFoodView {
 #pragma endregion
 
 		//agregando el microcontrolador de la clase microcontroller
-microcontroller^ esp32 = gcnew microcontroller();
-void updateLabel() {
-	if (esp32->getStatusMotor() == 1) {
-		this->label6->Text = "ABIERTO";
-		this->label6->ForeColor = System::Drawing::Color::Lime;
-	}
-	else {
-		this->label6->Text = "CERRADO";
-		this->label6->ForeColor = System::Drawing::Color::IndianRed;
-	}
-}
 	private: System::Void frmGerente_Load(System::Object^ sender, System::EventArgs^ e) {
-		updateLabel();
-		this->label1->Text = "Bienvenido, " + objGerente->GetNombre()+ " " + objGerente->GetApellidoPat()+ " " + objGerente->GetApellidoMat();
+		//updateLabel();
+		this->label1->Text = "Bienvenido, " + objGerente->GetNombre() + " " + objGerente->GetApellidoPat() + " " + objGerente->GetApellidoMat();
+	}
+	void updateLabel() {
+
+		/*if (esp32->getStatusMotor() == 1) {
+			this->label6->Text = "ABIERTO";
+			this->label6->ForeColor = System::Drawing::Color::Lime;
+		}
+		else {
+			this->label6->Text = "CERRADO";
+			this->label6->ForeColor = System::Drawing::Color::IndianRed;
+		}*/
 	}
 
-	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
-	}
 		   //Esta funcion se ejecuta cuando se quiere abrir el restaurante
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		esp32->setStatusMotor(1);
-		updateLabel();
+		//esp32->setStatusMotor(1);
+		//updateLabel();
 	}
 		   //Esta funcion se ejecuta cuando se quiere cerrar el restaurante
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		esp32->setStatusMotor(0);
-		updateLabel();
+		//esp32->setStatusMotor(0);
+		//updateLabel();
 	}
 		   //Este boton se encarga de abrir la ventana de gestionar personal
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -82,9 +82,9 @@ namespace RAMFoodView {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(77, 36);
+			this->groupBox1->Location = System::Drawing::Point(70, 26);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(255, 43);
+			this->groupBox1->Size = System::Drawing::Size(274, 23);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Confirma la orden";
@@ -116,9 +116,9 @@ namespace RAMFoodView {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox2->Location = System::Drawing::Point(98, 134);
+			this->groupBox2->Location = System::Drawing::Point(97, 114);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(245, 38);
+			this->groupBox2->Size = System::Drawing::Size(236, 36);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"como terminada";
@@ -138,7 +138,7 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(487, 354);
+			this->ClientSize = System::Drawing::Size(463, 299);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->button2);

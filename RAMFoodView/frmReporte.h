@@ -90,9 +90,10 @@ namespace RAMFoodView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(236, 9);
+			this->label1->Location = System::Drawing::Point(315, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(140, 17);
+			this->label1->Size = System::Drawing::Size(170, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"INFORME GENERAL";
 			this->label1->Click += gcnew System::EventHandler(this, &frmReporte::label1_Click);
@@ -100,9 +101,11 @@ namespace RAMFoodView {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->chartPlatos);
-			this->groupBox1->Location = System::Drawing::Point(12, 29);
+			this->groupBox1->Location = System::Drawing::Point(16, 36);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(293, 230);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Size = System::Drawing::Size(391, 283);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
@@ -113,18 +116,21 @@ namespace RAMFoodView {
 			this->chartPlatos->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chartPlatos->Legends->Add(legend1);
-			this->chartPlatos->Location = System::Drawing::Point(6, 19);
+			this->chartPlatos->Location = System::Drawing::Point(8, 23);
+			this->chartPlatos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->chartPlatos->Name = L"chartPlatos";
-			this->chartPlatos->Size = System::Drawing::Size(281, 194);
+			this->chartPlatos->Size = System::Drawing::Size(375, 239);
 			this->chartPlatos->TabIndex = 0;
 			this->chartPlatos->Text = L"chart1";
 			// 
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->chartBebidas);
-			this->groupBox2->Location = System::Drawing::Point(311, 29);
+			this->groupBox2->Location = System::Drawing::Point(415, 36);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(293, 230);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Size = System::Drawing::Size(391, 283);
 			this->groupBox2->TabIndex = 2;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"groupBox2";
@@ -135,18 +141,21 @@ namespace RAMFoodView {
 			this->chartBebidas->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chartBebidas->Legends->Add(legend2);
-			this->chartBebidas->Location = System::Drawing::Point(7, 19);
+			this->chartBebidas->Location = System::Drawing::Point(9, 23);
+			this->chartBebidas->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->chartBebidas->Name = L"chartBebidas";
-			this->chartBebidas->Size = System::Drawing::Size(280, 194);
+			this->chartBebidas->Size = System::Drawing::Size(373, 239);
 			this->chartBebidas->TabIndex = 0;
 			this->chartBebidas->Text = L"chart2";
 			// 
 			// groupBox3
 			// 
 			this->groupBox3->Controls->Add(this->chartVentas);
-			this->groupBox3->Location = System::Drawing::Point(18, 265);
+			this->groupBox3->Location = System::Drawing::Point(24, 326);
+			this->groupBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(396, 258);
+			this->groupBox3->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox3->Size = System::Drawing::Size(528, 318);
 			this->groupBox3->TabIndex = 3;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"groupBox3";
@@ -157,31 +166,35 @@ namespace RAMFoodView {
 			this->chartVentas->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chartVentas->Legends->Add(legend3);
-			this->chartVentas->Location = System::Drawing::Point(19, 14);
+			this->chartVentas->Location = System::Drawing::Point(25, 17);
+			this->chartVentas->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->chartVentas->Name = L"chartVentas";
-			this->chartVentas->Size = System::Drawing::Size(339, 238);
+			this->chartVentas->Size = System::Drawing::Size(452, 293);
 			this->chartVentas->TabIndex = 0;
 			this->chartVentas->Text = L"chart1";
 			// 
 			// buttonRegresar
 			// 
-			this->buttonRegresar->Location = System::Drawing::Point(480, 543);
+			this->buttonRegresar->Location = System::Drawing::Point(640, 668);
+			this->buttonRegresar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->buttonRegresar->Name = L"buttonRegresar";
-			this->buttonRegresar->Size = System::Drawing::Size(75, 23);
+			this->buttonRegresar->Size = System::Drawing::Size(100, 28);
 			this->buttonRegresar->TabIndex = 4;
 			this->buttonRegresar->Text = L"Regresar";
 			this->buttonRegresar->UseVisualStyleBackColor = true;
+			this->buttonRegresar->Click += gcnew System::EventHandler(this, &frmReporte::buttonRegresar_Click);
 			// 
 			// frmReporte
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(607, 578);
+			this->ClientSize = System::Drawing::Size(809, 711);
 			this->Controls->Add(this->buttonRegresar);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmReporte";
 			this->Text = L"frmReporte";
 			this->Load += gcnew System::EventHandler(this, &frmReporte::frmReporte_Load);
@@ -251,5 +264,8 @@ namespace RAMFoodView {
 		}
 
 	};
+private: System::Void buttonRegresar_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }
