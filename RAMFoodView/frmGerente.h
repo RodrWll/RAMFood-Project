@@ -58,7 +58,7 @@ namespace RAMFoodView {
 		}
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: Gerente^ objGerente =gcnew Gerente();
-	//private: microcontroller^ esp32 = gcnew microcontroller();
+	private: microcontroller^ esp32 = gcnew microcontroller();
 	protected:
 
 	private: System::Windows::Forms::Label^ label6;
@@ -347,30 +347,36 @@ namespace RAMFoodView {
 
 		//agregando el microcontrolador de la clase microcontroller
 	private: System::Void frmGerente_Load(System::Object^ sender, System::EventArgs^ e) {
-		//updateLabel();
+		updateLabel();
 		this->label1->Text = "Bienvenido, " + objGerente->GetNombre() + " " + objGerente->GetApellidoPat() + " " + objGerente->GetApellidoMat();
 	}
 	void updateLabel() {
-
-		/*if (esp32->getStatusMotor() == 1) {
-			this->label6->Text = "ABIERTO";
-			this->label6->ForeColor = System::Drawing::Color::Lime;
+		int status = esp32->getStatusMotor();
+		if (esp32->getErrorMessage() == "") {
+			if (status == 1) {
+				this->label6->Text = "ABIERTO";
+				this->label6->ForeColor = System::Drawing::Color::Lime;
+			}
+			else {
+				this->label6->Text = "CERRADO";
+				this->label6->ForeColor = System::Drawing::Color::IndianRed;
+			}
 		}
 		else {
-			this->label6->Text = "CERRADO";
-			this->label6->ForeColor = System::Drawing::Color::IndianRed;
-		}*/
+			MessageBox::Show(esp32->getErrorMessage(), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
 	}
 
 		   //Esta funcion se ejecuta cuando se quiere abrir el restaurante
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		//esp32->setStatusMotor(1);
-		//updateLabel();
+		esp32->setStatusMotor(1);
+		updateLabel();
 	}
 		   //Esta funcion se ejecuta cuando se quiere cerrar el restaurante
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		//esp32->setStatusMotor(0);
-		//updateLabel();
+		esp32->setStatusMotor(0);
+		updateLabel();
+		
 	}
 		   //Este boton se encarga de abrir la ventana de gestionar personal
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
