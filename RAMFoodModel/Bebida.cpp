@@ -41,6 +41,14 @@ String^ Bebida::GetNombre() {
 double Bebida::GetPrecio() {
 	return this->Precio;
 }
+
+int Bebida::GetEstado() {
+	return this->estado;
+};
+
+void Bebida::SetEstado(int estado) {
+	this->estado = estado;
+};
 /*
 
 void Bebida::SetNombre() {};

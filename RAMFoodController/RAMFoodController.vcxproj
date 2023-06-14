@@ -26,6 +26,7 @@
     <ClInclude Include="empleadoController.h" />
     <ClInclude Include="LogueoController.h" />
     <ClInclude Include="productosController.h" />
+    <ClInclude Include="ReporteController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsistenteController.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="empleadoController.cpp" />
     <ClCompile Include="LogueoController.cpp" />
     <ClCompile Include="productosController.cpp" />
+    <ClCompile Include="ReporteController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RAMFoodModel\RAMFoodModel.vcxproj">
