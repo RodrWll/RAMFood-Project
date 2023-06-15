@@ -1,7 +1,3 @@
-Chaufa;3;63
-Chicharron de Pollo;2;81
-Pollo a la Brasa;2;36
+Lomo Saltado;1;30
+Arroz con pollo;1;40
 Bebida
-Red Bull;4;32
-Limonada;4;4
-Chicha morada;3;12

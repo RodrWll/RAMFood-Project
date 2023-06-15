@@ -1,7 +1,7 @@
 #pragma once
 #include "frmComensalAsistenciaSolicitada.h"
 #include "frmComensalGenerarPedido.h"
-#include "frmComensalPedidoVacio.h"
+
 namespace RAMFoodView {
 
 	using namespace System;
@@ -75,6 +75,7 @@ namespace RAMFoodView {
 
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Button^ AtrasLlamarMozo;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
 
 	private:
 		/// <summary>
@@ -95,7 +96,9 @@ namespace RAMFoodView {
 			this->Asistencia = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->AtrasLlamarMozo = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -103,95 +106,112 @@ namespace RAMFoodView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(156, 169);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(116, 35);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(477, 39);
+			this->label1->Size = System::Drawing::Size(385, 31);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"¿Qué acción desea realizar\?";
 			// 
 			// PagarCuenta
 			// 
-			this->PagarCuenta->Location = System::Drawing::Point(132, 284);
-			this->PagarCuenta->Margin = System::Windows::Forms::Padding(4);
+			this->PagarCuenta->BackColor = System::Drawing::Color::White;
+			this->PagarCuenta->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->PagarCuenta->Location = System::Drawing::Point(111, 256);
 			this->PagarCuenta->Name = L"PagarCuenta";
-			this->PagarCuenta->Size = System::Drawing::Size(200, 65);
+			this->PagarCuenta->Size = System::Drawing::Size(150, 42);
 			this->PagarCuenta->TabIndex = 1;
 			this->PagarCuenta->Text = L"PAGAR CUENTA";
-			this->PagarCuenta->UseVisualStyleBackColor = true;
+			this->PagarCuenta->UseVisualStyleBackColor = false;
 			this->PagarCuenta->Click += gcnew System::EventHandler(this, &frmComensalSolicitarAtencion::button1_Click);
 			// 
 			// Asistencia
 			// 
-			this->Asistencia->Location = System::Drawing::Point(483, 284);
-			this->Asistencia->Margin = System::Windows::Forms::Padding(4);
+			this->Asistencia->BackColor = System::Drawing::Color::White;
+			this->Asistencia->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Asistencia->Location = System::Drawing::Point(351, 256);
 			this->Asistencia->Name = L"Asistencia";
-			this->Asistencia->Size = System::Drawing::Size(200, 65);
+			this->Asistencia->Size = System::Drawing::Size(150, 42);
 			this->Asistencia->TabIndex = 2;
 			this->Asistencia->Text = L"ASISTENCIA";
-			this->Asistencia->UseVisualStyleBackColor = true;
+			this->Asistencia->UseVisualStyleBackColor = false;
 			this->Asistencia->Click += gcnew System::EventHandler(this, &frmComensalSolicitarAtencion::button2_Click);
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->groupBox1->BackColor = System::Drawing::Color::DarkRed;
 			this->groupBox1->Controls->Add(this->AtrasLlamarMozo);
 			this->groupBox1->Controls->Add(this->Asistencia);
-			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->PagarCuenta);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(168, 84);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(860, 471);
+			this->groupBox1->Size = System::Drawing::Size(645, 383);
 			this->groupBox1->TabIndex = 3;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"ACCIÓN";
 			// 
 			// AtrasLlamarMozo
 			// 
-			this->AtrasLlamarMozo->Location = System::Drawing::Point(8, 423);
-			this->AtrasLlamarMozo->Margin = System::Windows::Forms::Padding(4);
+			this->AtrasLlamarMozo->Location = System::Drawing::Point(6, 344);
 			this->AtrasLlamarMozo->Name = L"AtrasLlamarMozo";
-			this->AtrasLlamarMozo->Size = System::Drawing::Size(144, 41);
+			this->AtrasLlamarMozo->Size = System::Drawing::Size(108, 33);
 			this->AtrasLlamarMozo->TabIndex = 3;
 			this->AtrasLlamarMozo->Text = L"Atrás";
 			this->AtrasLlamarMozo->UseVisualStyleBackColor = true;
 			this->AtrasLlamarMozo->Click += gcnew System::EventHandler(this, &frmComensalSolicitarAtencion::AtrasLlamarMozo_Click);
 			// 
+			// groupBox2
+			// 
+			this->groupBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->groupBox2->Controls->Add(this->label1);
+			this->groupBox2->Location = System::Drawing::Point(12, 137);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(645, 100);
+			this->groupBox2->TabIndex = 4;
+			this->groupBox2->TabStop = false;
+			// 
 			// frmComensalSolicitarAtencion
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1193, 761);
+			this->ClientSize = System::Drawing::Size(671, 428);
+			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalSolicitarAtencion";
 			this->Text = L"frmComensalSolicitarAtencion";
 			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
+		System::Windows::Forms::DialogResult result;
+		result = MessageBox::Show("¿Está seguro?", "Confirmar", MessageBoxButtons::YesNo);
 
-		if (!(lineasLeidas[0]=="vacio")) {
-			frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1,this->frmOrdenMesa);
-			cuenta->FormatoCuenta();
-			cuenta->ShowDialog();
-			this->Close();
+		if (result == System::Windows::Forms::DialogResult::Yes)
+		{
+			array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
+
+			if (!(lineasLeidas[0] == "vacio")) {
+				frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1, this->frmOrdenMesa);
+				cuenta->FormatoCuenta();
+				cuenta->ShowDialog();
+				this->Close();
+			}
+			else {
+				MessageBox::Show("El registro de pedido está vacío");
+				
+			}
+
+			
 		}
-		else {
 
-			frmComensalPedidoVacio^ ventana = gcnew frmComensalPedidoVacio();
-			ventana->ShowDialog();
-		}
-
+	
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmComensalAsistenciaSolicitada^ venta_emergente = gcnew frmComensalAsistenciaSolicitada();
