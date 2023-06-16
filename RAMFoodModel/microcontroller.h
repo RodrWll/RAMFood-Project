@@ -11,6 +11,7 @@ namespace RAMFoodModel {
 		String^ ROUTE_MESA;
 		String^ ROUTE_ERROR;
 		int status;
+		int sensor4;
 		String^ errorMessage;
 	public:
 		microcontroller();
@@ -20,6 +21,7 @@ namespace RAMFoodModel {
 		void setEnvio(int nroMesa);
 		int getError();
 		void sendBit(int bit, const std::string& variable, String^ route);
-		bool isServerAvailable(const std::string& url);
+		int getDato(String^ direction);
+		String^ getErrorMessage();
 	};
 }
