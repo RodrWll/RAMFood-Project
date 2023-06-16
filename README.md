@@ -1,5 +1,8 @@
 # RAMFood
 Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso de aplicativos digitales y mecanismos.
+#Estilo de los forms
+link del colorPiker: https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg/related
+link del color referencial: https://elements.envato.com/es/modern-restaurant-food-menu-7JSJK6/preview
 
 ## Indicaciones para los desarrolladores
 ---
