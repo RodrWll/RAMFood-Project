@@ -14,6 +14,7 @@ namespace RAMFoodController {
 		Producto^ buscarProductoxId(int id);
 		List<Producto^>^ buscarProductoxNombre(String^ nombre);
 		List<int>^ listarIdProductos(List<Producto^>^ listaProductos);
+		double obtenerPrecioXId(int id);
 		void generarIdProductos(Producto^ objProducto);
 		//Para el menu
 		List<Producto^>^ listarMenu();

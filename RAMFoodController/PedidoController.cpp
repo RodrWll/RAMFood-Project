@@ -59,25 +59,21 @@ List<Plato^>^ PedidoController::obtenerInfoPlato() {
 }
 
 void PedidoController::escribirPedidos(List<Plato^>^ listaPlatosMesa, List<Bebida^>^ listaBebidasMesa,
-String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
+String^ nombre_archivo, List<String^>^ cantidad_bebida, List<String^>^ cantidad_platos) {
 	/*Formando lista con los datos de los platos*/
-
+	productoController^ objProductoController = gcnew productoController();
 	List<String^>^ primera_lista = gcnew List<String^>();
-	/*
-	String^ es_nuevo_pedido = "1";
-	primera_lista->Add(es_nuevo_pedido);
-	*/
-	/*for (int numero=0; numero<5;numero++)*/
-	for (int numero = 0; numero < 6; numero++) {
-		if (cantidad_platos[numero] > 0) {
-
+	int lp = cantidad_platos->Count;
+	int lb = cantidad_bebida->Count;
+	for (int numero = 0; numero < lp; numero++) {
+		int cantidadI = Convert::ToInt32(cantidad_platos[numero]);
+		if (cantidadI > 0) {
+			double precioUnitario = objProductoController->obtenerPrecioXId(listaPlatosMesa[numero]->GetId());
 			/*plato1;cantidad;precio*/
-			double precio = Convert::ToDouble(cantidad_platos[numero]) * (listaPlatosMesa[numero]->GetPrecio());
+			double precio = Convert::ToDouble(cantidadI) * precioUnitario;
 			String^ nombre = listaPlatosMesa[numero]->GetNombre();
-			String^ texto = nombre + ";" + Convert::ToString(cantidad_platos[numero]) + ";" + Convert::ToString(precio);
+			String^ texto = nombre + ";" + Convert::ToString(cantidadI) + ";" + Convert::ToString(precio);
 			primera_lista->Add(texto);
-
-			/*primera_lista[y] = nombre + ";" + Convert::ToString(cantidad_platos[numero]) + ";";*/
 
 		};
 
@@ -85,35 +81,14 @@ String^ nombre_archivo, int cantidad_bebida[], int cantidad_platos[]) {
 
 	primera_lista->Add("Bebida");/*nombre para controlar la parte donde empieza las bebidas, creo que ser� util para hacer el reporte*/
 
-
-	/*Formando lista con los datos de las bebidas*/
-	/*
-	for each (int numero in cantidad_bebida) {
-		if (numero > 0) {
-
-
-			double precio = Convert::ToDouble(numero) * (listaBebidasMesa[i]->GetPrecio());
-			primera_lista[y] = listaBebidasMesa[i]->GetNombre() + ";" + Convert::ToString(numero) + ";" + Convert::ToString(precio);
-			y = y + 1;
-
-		};
-		i = i + 1;
-	};
-	*/
-
 	for (int numero = 0; numero < 6; numero++) {
-		if (cantidad_bebida[numero] > 0) {
-
+		int cantidadI = Convert::ToInt32(cantidad_bebida[numero]);
+		if (cantidadI > 0) {
+			double precioUnitario = objProductoController->obtenerPrecioXId(listaBebidasMesa[numero]->GetId());
 			String^ nombre = listaBebidasMesa[numero]->GetNombre();
-			double precio = Convert::ToDouble(cantidad_bebida[numero]) * (listaBebidasMesa[numero]->GetPrecio());
-			String^ texto = nombre + ";" + Convert::ToString(cantidad_bebida[numero]) + ";" + Convert::ToString(precio);
+			double precio = Convert::ToDouble(cantidadI) * precioUnitario;
+			String^ texto = nombre + ";" + Convert::ToString(cantidadI) + ";" + Convert::ToString(precio);
 			primera_lista->Add(texto);
-
-			//primera_lista[y] = nombre + ";" + Convert::ToString(cantidad_bebida[numero]) + ";";
-			/*
-			String^ texto = nombre + ";" + Convert::ToString(cantidad_platos[numero]) + ";" + Convert::ToString(precio);
-			primera_lista->Add(texto);
-			*/
 
 		};
 
