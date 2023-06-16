@@ -150,7 +150,7 @@ List<ProductoPedido^>^ OrdenController::buscarListaPlatosPedidos(String^ filePat
             ProductoPedido^ objProductoPedido = gcnew ProductoPedido();
             objProductoPedido = listaProductosEncontrados[j];
             if (usuario == "chef") {
-                if ((objProductoPedido->GetObjProducto()->GetTipo()) == 2 && (objProductoPedido->GetEstado() == 1 || objProductoPedido->GetEstado() == 0)) {
+                if ((objProductoPedido->GetObjProducto()->GetTipo()) == 2 && (objProductoPedido->GetEstado() == 0)) {
                     listaPlatosPedidos->Add(objProductoPedido);
                 }
             }
@@ -175,7 +175,7 @@ List<ProductoPedido^>^ OrdenController::buscarListaBebidasPedidos(String^ filePa
             ProductoPedido^ objProductoPedido = gcnew ProductoPedido();
             objProductoPedido = listaProductosEncontrados[j];
             if (usuario == "chef") {
-                if ((objProductoPedido->GetObjProducto()->GetTipo()) == 1 && (objProductoPedido->GetEstado() == 1 || objProductoPedido->GetEstado() == 0)) {
+                if ((objProductoPedido->GetObjProducto()->GetTipo()) == 1 && (objProductoPedido->GetEstado() == 0)) {
                     listaBebidasPedidos->Add(objProductoPedido);                     
                 }
             }
@@ -201,7 +201,7 @@ List<String^>^ OrdenController::buscarListaIdsBebidas(String^ filePath) {
         for (int j = 0; j < listaProductosEncontrados->Count; j++) {
             ProductoPedido^ objProductoPedido = gcnew ProductoPedido();
             objProductoPedido = listaProductosEncontrados[j];         
-            if ((objProductoPedido->GetObjProducto()->GetTipo()) == 1 && (objProductoPedido->GetEstado() == 1 || objProductoPedido->GetEstado() == 0)) {
+            if ((objProductoPedido->GetObjProducto()->GetTipo()) == 1 && (objProductoPedido->GetEstado() == 0)) {
                 listaIdsBebidasPedidos->Add(listaIdsEncontrados[j]);
             }            
         }
@@ -220,7 +220,7 @@ List<String^>^ OrdenController::buscarListaIdsPlatos(String^ filePath) {
         for (int j = 0; j < listaProductosEncontrados->Count; j++) {
             ProductoPedido^ objProductoPedido = gcnew ProductoPedido();
             objProductoPedido = listaProductosEncontrados[j];
-            if ((objProductoPedido->GetObjProducto()->GetTipo()) == 2 && (objProductoPedido->GetEstado() == 1 || objProductoPedido->GetEstado() == 0)) {
+            if ((objProductoPedido->GetObjProducto()->GetTipo()) == 2 && (objProductoPedido->GetEstado() == 0)) {
                 listaIdsPlatosPedidos->Add(listaIdsEncontrados[j]);
             }
         }
