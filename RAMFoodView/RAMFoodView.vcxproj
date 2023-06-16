@@ -132,8 +132,9 @@
     <ClCompile Include="frmComensalAsistenciaSolicitada.cpp" />
     <ClCompile Include="frmComensalConfirmacionCuenta.cpp" />
     <ClCompile Include="frmComensalGenerarPedido.cpp" />
+    <ClCompile Include="frmComensalIngresarClave.cpp" />
+    <ClCompile Include="frmComensalIngresarClaveCuenta.cpp" />
     <ClCompile Include="frmComensalPedidoGenerado.cpp" />
-    <ClCompile Include="frmComensalPedidoVacio.cpp" />
     <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
     <ClCompile Include="frmGerente.cpp" />
     <ClCompile Include="frmGerenteAgregarEmpleado.cpp" />
@@ -145,6 +146,7 @@
     <ClCompile Include="frmGerenteReincorporarEmpleado.cpp" />
     <ClCompile Include="frmPersonal.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
+    <ClCompile Include="frmPruebaNuevaInterfaz.cpp" />
     <ClCompile Include="frmReporte.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -181,10 +183,13 @@
     <ClInclude Include="frmComensalGenerarPedido.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmComensalPedidoGenerado.h">
+    <ClInclude Include="frmComensalIngresarClave.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmComensalPedidoVacio.h">
+    <ClInclude Include="frmComensalIngresarClaveCuenta.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmComensalPedidoGenerado.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmComensalSolicitarAtencion.h">
@@ -220,6 +225,9 @@
     <ClInclude Include="frmPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmPruebaNuevaInterfaz.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmReporte.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -249,11 +257,14 @@
     <EmbeddedResource Include="frmComensalGenerarPedido.resx">
       <DependentUpon>frmComensalGenerarPedido.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalIngresarClave.resx">
+      <DependentUpon>frmComensalIngresarClave.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalIngresarClaveCuenta.resx">
+      <DependentUpon>frmComensalIngresarClaveCuenta.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComensalPedidoGenerado.resx">
       <DependentUpon>frmComensalPedidoGenerado.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmComensalPedidoVacio.resx">
-      <DependentUpon>frmComensalPedidoVacio.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmComensalSolicitarAtencion.resx">
       <DependentUpon>frmComensalSolicitarAtencion.h</DependentUpon>
@@ -287,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPruebaNuevaInterfaz.resx">
+      <DependentUpon>frmPruebaNuevaInterfaz.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporte.resx">
       <DependentUpon>frmReporte.h</DependentUpon>

@@ -67,12 +67,11 @@ namespace RAMFoodView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(173, 362);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(151, 254);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(440, 20);
+			this->label1->Size = System::Drawing::Size(376, 21);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"En breve, se acercará un asistente para atenderlo";
 			// 
@@ -81,36 +80,37 @@ namespace RAMFoodView {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(168, 63);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(148, 32);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(455, 40);
+			this->label2->Size = System::Drawing::Size(374, 37);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"ASISTENCIA SOLICITADA";
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->InitialImage = nullptr;
-			this->pictureBox1->Location = System::Drawing::Point(273, 129);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
+			this->pictureBox1->Location = System::Drawing::Point(215, 72);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(275, 197);
+			this->pictureBox1->Size = System::Drawing::Size(206, 160);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::SystemColors::Desktop;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(287, 410);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->ForeColor = System::Drawing::SystemColors::Control;
+			this->button1->Location = System::Drawing::Point(235, 289);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(223, 55);
+			this->button1->Size = System::Drawing::Size(167, 45);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Regresar a la carta";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmComensalAsistenciaSolicitada::button1_Click);
 			// 
 			// groupBox1
@@ -120,23 +120,21 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->pictureBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(16, 15);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox1->Location = System::Drawing::Point(-3, 39);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(856, 500);
+			this->groupBox1->Size = System::Drawing::Size(676, 354);
 			this->groupBox1->TabIndex = 4;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
 			// 
 			// frmComensalAsistenciaSolicitada
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(892, 516);
+			this->BackColor = System::Drawing::Color::DarkRed;
+			this->ClientSize = System::Drawing::Size(669, 419);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalAsistenciaSolicitada";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"frmComensalAsistenciaSolicitada";

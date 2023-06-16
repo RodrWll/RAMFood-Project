@@ -211,3 +211,20 @@ int productoController::buscarIdxNombre(String^ nombre) {
 	/*si retorna 0, queire decir que no encuentra nada*/
 	return id;
 };
+
+double productoController::obtenerPrecioXId(int id) {
+	int precio = 0;
+	array<String^>^ listaLeida = File::ReadAllLines("Recursos/productos/productos.txt");
+
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	productoController^ objProductosController = gcnew productoController();
+	for each (String ^ linea in listaLeida) {
+		array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		if (datos[0]->Contains(Convert::ToString(id))) {
+			return Convert::ToDouble(datos[2]);
+		}
+	}
+	/*si retorna 0, queire decir que no encuentra nada*/
+	return precio;
+
+};
