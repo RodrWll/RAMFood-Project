@@ -125,7 +125,8 @@ namespace RAMFoodView {
 			// 
 			// button7
 			// 
-			this->button7->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
+				static_cast<System::Int32>(static_cast<System::Byte>(104)));
 			this->button7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.BackgroundImage")));
 			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button7->Cursor = System::Windows::Forms::Cursors::Hand;
