@@ -7,9 +7,31 @@ using namespace System::IO;
 productoController::productoController()
 {
 }
+void productoController::abrirConexion()
+{
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a202021;Password=WbMpwW8j";
+	this->objConexion->Open();
+}
+void productoController::cerrarConexion()
+{
+	this->objConexion->Close();
+}
 List<Producto^>^ productoController::listarProductos()
 {
 	List<Producto^>^ listaProductos = gcnew List<Producto^>();
+	List<Producto^>^ listaProductosBD = gcnew List<Producto^>();
+	abrirConexion();
+
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui indico que sentencia voy a ejecutar*/
+	objSentencia->CommandText = "select * from Productos";
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+
 	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
 	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	for each (String ^ lineaProducto in lineas) {
@@ -21,8 +43,20 @@ List<Producto^>^ productoController::listarProductos()
 		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
 		listaProductos->Add(objPlatoBebidaMenu);
 	}
+	while (objData->Read()) 
+	{
+		int Id = safe_cast<int>(objData[0]);
+		String^ Nombre = safe_cast<String^>(objData[1]);
+		double Precio = safe_cast<double>(objData[2]);	
+		int Tipo = safe_cast<int>(objData[3]);
+		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
+		listaProductosBD->Add(objPlatoBebidaMenu);
+	}
+	cerrarConexion();
+
 	return listaProductos;
 }
+
 void productoController::escribirProductos(List<Producto^>^ listaProductos)
 {
 	array<String^>^ lineasArchivo = gcnew array<String^>(listaProductos->Count);
