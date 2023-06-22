@@ -19,7 +19,7 @@ namespace RAMFoodController {
 		List<Bebida^>^ obtenerInfoBebida();
 		List<Plato^>^ obtenerInfoPlato();
 		void escribirPedidos(List<Plato^>^ listaPlatosMesa, List<Bebida^>^ listaBebidasMesa, String^ nombre_archivo,
-		int cantidad_bebida[], int cantidad_platos[]);
+		List<String^>^ cantidad_bebida, List<String^>^ cantidad_platos);
 		void escribirArchivo(String^ nombre_archivo, int valor);
 		array<String^>^ leerArchivo(String^ nombre_archivo);
 		int esNuevoPedido(String^ nombre_archivo);

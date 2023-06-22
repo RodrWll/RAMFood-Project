@@ -14,4 +14,4 @@
 14;Limonada;1;1
 15;Chicha morada;4;1
 16;Ceviche de conchas negras;45;2
-17;Pollo a la Brasa;18;2
+17;Pollo a la Brasa;35;2
