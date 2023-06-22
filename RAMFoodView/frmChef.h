@@ -171,14 +171,15 @@ namespace RAMFoodView {
 			this->dataGridView1->AllowUserToResizeRows = false;
 			this->dataGridView1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView1->BackgroundColor = System::Drawing::Color::AliceBlue;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(211)));
 			this->dataGridView1->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
 			this->dataGridView1->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
 			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::AliceBlue;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Black;
 			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::Window;
 			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::Color::AliceBlue;
 			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
@@ -200,7 +201,7 @@ namespace RAMFoodView {
 			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->EnableHeadersVisualStyles = false;
 			this->dataGridView1->GridColor = System::Drawing::SystemColors::WindowText;
-			this->dataGridView1->Location = System::Drawing::Point(56, 131);
+			this->dataGridView1->Location = System::Drawing::Point(59, 130);
 			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
@@ -251,12 +252,15 @@ namespace RAMFoodView {
 			// button1
 			// 
 			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button1->BackColor = System::Drawing::Color::LightCyan;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->button1->FlatAppearance->BorderSize = 2;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(1311, 187);
+			this->button1->Location = System::Drawing::Point(1302, 186);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(135, 74);
+			this->button1->Size = System::Drawing::Size(144, 74);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"TOMAR ORDEN";
 			this->button1->UseVisualStyleBackColor = false;
@@ -265,12 +269,16 @@ namespace RAMFoodView {
 			// button2
 			// 
 			this->button2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button2->BackColor = System::Drawing::Color::LightCyan;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+			this->button2->FlatAppearance->BorderSize = 2;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(1311, 330);
+			this->button2->Location = System::Drawing::Point(1302, 333);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(135, 79);
+			this->button2->Size = System::Drawing::Size(144, 79);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"ORDEN TERMINADA";
 			this->button2->UseVisualStyleBackColor = false;
@@ -284,14 +292,15 @@ namespace RAMFoodView {
 			this->dataGridView2->AllowUserToResizeRows = false;
 			this->dataGridView2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->dataGridView2->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView2->BackgroundColor = System::Drawing::Color::AliceBlue;
+			this->dataGridView2->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(211)));
 			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
 			this->dataGridView2->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
 			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::Color::AliceBlue;
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::Black;
 			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::Window;
 			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::Color::AliceBlue;
 			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
@@ -313,7 +322,7 @@ namespace RAMFoodView {
 			this->dataGridView2->DefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridView2->EnableHeadersVisualStyles = false;
 			this->dataGridView2->GridColor = System::Drawing::SystemColors::WindowText;
-			this->dataGridView2->Location = System::Drawing::Point(709, 131);
+			this->dataGridView2->Location = System::Drawing::Point(693, 130);
 			this->dataGridView2->MultiSelect = false;
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
@@ -364,11 +373,14 @@ namespace RAMFoodView {
 			// button3
 			// 
 			this->button3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button3->BackColor = System::Drawing::Color::Azure;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->button3->FlatAppearance->BorderSize = 2;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::Black;
-			this->button3->Location = System::Drawing::Point(600, 24);
+			this->button3->Location = System::Drawing::Point(613, 12);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(135, 79);
 			this->button3->TabIndex = 9;
@@ -379,9 +391,13 @@ namespace RAMFoodView {
 			// button4
 			// 
 			this->button4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button4->Location = System::Drawing::Point(1311, 484);
+			this->button4->FlatAppearance->BorderSize = 2;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Location = System::Drawing::Point(1292, 483);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(159, 49);
+			this->button4->Size = System::Drawing::Size(168, 49);
 			this->button4->TabIndex = 10;
 			this->button4->Text = L"MENU";
 			this->button4->UseVisualStyleBackColor = true;
@@ -390,22 +406,24 @@ namespace RAMFoodView {
 			// label1
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label1->BackColor = System::Drawing::Color::Azure;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(264, 673);
+			this->label1->Location = System::Drawing::Point(196, 666);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(270, 34);
+			this->label1->Size = System::Drawing::Size(361, 34);
 			this->label1->TabIndex = 11;
 			this->label1->Text = L"USTED SE ENCARGANDO DE : ";
 			// 
 			// label2
 			// 
 			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label2->BackColor = System::Drawing::Color::MistyRose;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(551, 676);
+			this->label2->Location = System::Drawing::Point(563, 669);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(218, 28);
 			this->label2->TabIndex = 12;
@@ -414,10 +432,11 @@ namespace RAMFoodView {
 			// label6
 			// 
 			this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label6->BackColor = System::Drawing::Color::MistyRose;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->label6->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(956, 676);
+			this->label6->Location = System::Drawing::Point(1037, 672);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(61, 28);
 			this->label6->TabIndex = 14;
@@ -426,11 +445,14 @@ namespace RAMFoodView {
 			// label4
 			// 
 			this->label4->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(938, 551);
+			this->label4->BackColor = System::Drawing::Color::Black;
+			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::Window;
+			this->label4->Location = System::Drawing::Point(917, 552);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(167, 34);
+			this->label4->Size = System::Drawing::Size(193, 34);
 			this->label4->TabIndex = 8;
 			this->label4->Text = L"Lista de Bebidas";
 			this->label4->Click += gcnew System::EventHandler(this, &frmChef::label4_Click);
@@ -438,17 +460,20 @@ namespace RAMFoodView {
 			// label3
 			// 
 			this->label3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(229, 551);
+			this->label3->BackColor = System::Drawing::Color::Black;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::SystemColors::Window;
+			this->label3->Location = System::Drawing::Point(264, 547);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(183, 39);
+			this->label3->Size = System::Drawing::Size(174, 39);
 			this->label3->TabIndex = 7;
 			this->label3->Text = L"Lista de Platos";
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->BackColor = System::Drawing::Color::SkyBlue;
+			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
 			this->groupBox1->Controls->Add(this->label7);
 			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->Controls->Add(this->label2);
@@ -465,7 +490,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(1486, 741);
+			this->groupBox1->Size = System::Drawing::Size(1492, 739);
 			this->groupBox1->TabIndex = 15;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"groupBox1";
@@ -473,12 +498,13 @@ namespace RAMFoodView {
 			// label7
 			// 
 			this->label7->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label7->BackColor = System::Drawing::Color::Azure;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Malgun Gothic", 10.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(240)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(211)));
+			this->label7->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(811, 673);
+			this->label7->Location = System::Drawing::Point(853, 669);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(113, 34);
+			this->label7->Size = System::Drawing::Size(154, 34);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"CANTIDAD: ";
 			// 

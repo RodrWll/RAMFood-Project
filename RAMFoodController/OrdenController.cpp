@@ -5,99 +5,126 @@ using namespace RAMFoodModel;
 using namespace System::Collections::Generic;
 using namespace System;
 using namespace System::IO;
+using namespace System::Data::SqlClient;
+using namespace System::Data;
+
 
 OrdenController::OrdenController() {
-
+    this->objConexion = gcnew SqlConnection();
+   
 }
-
+//
+// Metodos para abrir la conección con la base de datos
+void OrdenController::abrirConexion() {
+    /*Cadena de conexion: Servidor de BD, usuario de BD, password BD, nombre de la BD*/
+    if (this->objConexion->State != ConnectionState::Open) {
+        this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
+        this->objConexion->Open(); /*Apertura de la conexion a BD*/
+    }
+    
+}
+void OrdenController::cerrarConexion() {
+    if (this->objConexion->State != ConnectionState::Closed) {
+        this->objConexion->Close();
+    }
+    
+}
 // Method for searching an order by ID
 
 List<ProductoPedido^>^ OrdenController::ReadOrderDetailsFromFile(String^ filePath, int orderId) {
     List<ProductoPedido^>^ orderDetails = gcnew List<ProductoPedido^>();
+    /*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    /*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+    objSentencia->Connection = this->objConexion;
+    /*Aqui voy a indicar la sentencia que voy a ejecutar*/
+    objSentencia->CommandText = "select * from DetallePedido where idPedido=" + orderId;
+    /*Aqui ejecuto la sentencia en la Base de Datos*/
+    /*Para Select siempre sera ExecuteReader*/
+    /*Para select siempre va a devolver un SqlDataReader*/
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
+
+    
     try {
-        StreamReader^ reader = gcnew StreamReader(filePath);
-        String^ line;
-        while ((line = reader->ReadLine()) != nullptr) {
-            array<String^>^ data = line->Split(';');
-
-            int orderID = Int32::Parse(data[0]);
-
-            if (orderID == orderId) {
-                int id = Int32::Parse(data[1]);
-                int productoId = Int32::Parse(data[2]);
-                int cantidadPedida = Int32::Parse(data[3]);                
-                int estado = Int32::Parse(data[4]);               
-                productoController^ objProductoController = gcnew productoController();
-                Producto^ objProducto = objProductoController->buscarProductoxId(productoId);
-                ProductoPedido^ product = gcnew ProductoPedido(id, objProducto, cantidadPedida, estado);
-                orderDetails->Add(product);
-            }
+        while (objData->Read()) {
+            int id = safe_cast<int>(objData[0]);
+            int productoId = safe_cast<int>(objData[2]);
+            int cantidadPedida = safe_cast<int>(objData[3]);
+            int estado = safe_cast<int>(objData[4]);
+            productoController^ objProductoController = gcnew productoController();
+            Producto^ objProducto = objProductoController->buscarProductoxId(productoId);
+            ProductoPedido^ product = gcnew ProductoPedido(id, objProducto, cantidadPedida, estado);
+            orderDetails->Add(product);
         }
-
-        reader->Close();
     }
     catch (Exception^ ex) {
         Console::WriteLine("Error: " + ex->Message);
     }
-
+    
     return orderDetails;
 }
 
 List<OrdenMesa^>^ OrdenController::ReadOrdersFromFile(String^ filePath) {
     List<OrdenMesa^>^ orders = gcnew List<OrdenMesa^>();
-
+    abrirConexion();    
+    /*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    /*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+    objSentencia->Connection = this->objConexion;
+    /*Aqui voy a indicar la sentencia que voy a ejecutar*/
+    objSentencia->CommandText = "select * from PedidoGeneralMesa where estado=1";
+    /*Aqui ejecuto la sentencia en la Base de Datos*/
+    /*Para Select siempre sera ExecuteReader*/
+    /*Para select siempre va a devolver un SqlDataReader*/
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
     try {
-        StreamReader^ reader = gcnew StreamReader(filePath);
-
-        String^ line;
-        while ((line = reader->ReadLine()) != nullptr) {
-            array<String^>^ data = line->Split(';');
-
-            int orderId = Int32::Parse(data[0]);
-            int mesa = Int32::Parse(data[1]);
-            int estado = Int32::Parse(data[2]);
-            String^ fecha = data[3];       
-            if (estado == 1) {
-                List<ProductoPedido^>^ orderDetails = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", orderId);
-                OrdenMesa^ order = gcnew OrdenMesa(orderId, mesa, estado, orderDetails, fecha);
-                orders->Add(order);
-            }
-           
+        while (objData->Read()) {
+            int orderId = safe_cast<int>(objData[0]);
+            int mesa = safe_cast<int>(objData[1]);
+            int estado = safe_cast<int>(objData[2]);
+            String^ fecha = safe_cast<String^>(objData[4]);            
+            List<ProductoPedido^>^ orderDetails = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", orderId);            
+            OrdenMesa^ order = gcnew OrdenMesa(orderId, mesa, estado, orderDetails, fecha);
+            orders->Add(order);        
         }
-        reader->Close();
-    }
+    }    
     catch (Exception^ ex) {
         Console::WriteLine("Error: " + ex->Message);
-    }
-
+    }    
+    cerrarConexion();
     return orders;
 }
 
-List<OrdenMesa^>^ OrdenController::ReadAllOrdersFromFile(String^ filePath) {
-    List<OrdenMesa^>^ orders = gcnew List<OrdenMesa^>();
+List<OrdenMesa^>^ OrdenController::ReadAllOrdersFromFile(String^ filePath) {   
 
+    List<OrdenMesa^>^ orders = gcnew List<OrdenMesa^>();    
+    /*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    /*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+    objSentencia->Connection = this->objConexion;
+    /*Aqui voy a indicar la sentencia que voy a ejecutar*/
+    objSentencia->CommandText = "select * from PedidoGeneralMesa";
+    /*Aqui ejecuto la sentencia en la Base de Datos*/
+    /*Para Select siempre sera ExecuteReader*/
+    /*Para select siempre va a devolver un SqlDataReader*/
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
     try {
-        StreamReader^ reader = gcnew StreamReader(filePath);
-
-        String^ line;
-        while ((line = reader->ReadLine()) != nullptr) {
-            array<String^>^ data = line->Split(';');
-            int orderId = Int32::Parse(data[0]);
-            int mesa = Int32::Parse(data[1]);
-            int estado = Int32::Parse(data[2]);
-            String^ fecha = data[3];            
+        while (objData->Read()) {
+            int orderId = safe_cast<int>(objData[0]);
+            int mesa = safe_cast<int>(objData[1]);
+            int estado = safe_cast<int>(objData[2]);
+            String^ fecha = safe_cast<String^>(objData[3]);           
             List<ProductoPedido^>^ orderDetails = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", orderId);
             OrdenMesa^ order = gcnew OrdenMesa(orderId, mesa, estado, orderDetails, fecha);
             orders->Add(order);
             
 
         }
-        reader->Close();
     }
     catch (Exception^ ex) {
         Console::WriteLine("Error: " + ex->Message);
     }
-
+    cerrarConexion();
     return orders;
 }
 
@@ -230,21 +257,26 @@ List<String^>^ OrdenController::buscarListaIdsPlatos(String^ filePath) {
 
 List<String^>^ OrdenController::ReadOrderIds(String^ filePath, int orderId) {
     List<String^>^ orderIds = gcnew List<String^>();
-    try {
-        StreamReader^ reader = gcnew StreamReader(filePath);
-        String^ line;
-        while ((line = reader->ReadLine()) != nullptr) {
-            array<String^>^ data = line->Split(';');
-            int orderID = Int32::Parse(data[0]);
-            if (orderID == orderId) {               
-                orderIds->Add(Convert::ToString(orderID));
-            }
+    abrirConexion();
+    /*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    /*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+    objSentencia->Connection = this->objConexion;
+    /*Aqui voy a indicar la sentencia que voy a ejecutar*/
+    objSentencia->CommandText = "select * from DetallePedido where idPedido=" + orderId;
+    /*Aqui ejecuto la sentencia en la Base de Datos*/
+    /*Para Select siempre sera ExecuteReader*/
+    /*Para select siempre va a devolver un SqlDataReader*/
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
+    try {        
+        while (objData->Read()) {                        
+            orderIds->Add((safe_cast<String^>(objData[1])));            
         }
-        reader->Close();
     }
     catch (Exception^ ex) {
         Console::WriteLine("Error: " + ex->Message);
     }
+    cerrarConexion();
     return orderIds;
 }
 

@@ -6,22 +6,42 @@ using namespace System;
 using namespace System::IO;
 productoController::productoController()
 {
+	this->objConexion = gcnew SqlConnection();
+
+}
+// Metodos para abrir la conección con la base de datos
+void productoController::abrirConexion() {
+	/*Cadena de conexion: Servidor de BD, usuario de BD, password BD, nombre de la BD*/
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
+	this->objConexion->Open(); /*Apertura de la conexion a BD*/
+}
+void productoController::cerrarConexion() {
+	this->objConexion->Close();
 }
 List<Producto^>^ productoController::listarProductos()
 {
 	List<Producto^>^ listaProductos = gcnew List<Producto^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	for each (String ^ lineaProducto in lineas) {
-		array<String^>^ datos = lineaProducto->Split(separadores->ToCharArray());
-		int Id = Convert::ToInt32(datos[0]);
-		String^ Nombre = datos[1];
-		double Precio = Convert::ToDouble(datos[2]);
-		int Tipo = Convert::ToInt32(datos[3]);
+	abrirConexion();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "select * from Productos";
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while(objData->Read()) {		
+		int Id = safe_cast<int>(objData[0]);
+		String^ Nombre = safe_cast<String^>(objData[1]);
+		double Precio = safe_cast<double>(objData[2]);
+		int Tipo = safe_cast<int>(objData[3]);
 		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
 		listaProductos->Add(objPlatoBebidaMenu);
 	}
 	return listaProductos;
+	cerrarConexion();
 }
 void productoController::escribirProductos(List<Producto^>^ listaProductos)
 {
