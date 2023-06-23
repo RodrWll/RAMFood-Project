@@ -9,6 +9,7 @@ namespace RAMFoodModel {
 	public:
 		OrdenMesa();
 		OrdenMesa(int id, int Mesa,int EstadoOrden, List<ProductoPedido^>^ listaProductosPedidos,String^ Fecha);
+		OrdenMesa(int id, int Mesa, int EstadoOrden, int cuenta, String^ fecha);
 		void SetId(int Id);
 		int GetId();
 		void SetMesa(int numeroMesa);

@@ -14,7 +14,13 @@ OrdenMesa::OrdenMesa() {
     fecha = nullptr;
  
 }
-
+OrdenMesa::OrdenMesa(int id, int Mesa, int EstadoOrden, int cuenta, String^ fecha) {
+    this->id = id;
+    this->mesa = Mesa;
+    this->Estado = EstadoOrden;
+    this->cuenta = cuenta;
+    this->fecha = fecha;
+};
 // Parameterized constructor
 OrdenMesa::OrdenMesa(int id, int Mesa,int EstadoOrden, List<ProductoPedido^>^ listaProductosPedidos, String^ Fecha) {
     this->id = id;
