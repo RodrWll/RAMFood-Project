@@ -6,6 +6,7 @@ using namespace System;
 using namespace System::IO;
 productoController::productoController()
 {
+	this->objConexion = gcnew SqlConnection();
 }
 void productoController::abrirConexion()
 {
@@ -71,6 +72,11 @@ void productoController::addProducto(Producto^ objProducto)
 	List<Producto^>^ listaProductos = listarProductos();
 	listaProductos->Add(objProducto);
 	escribirProductos(listaProductos);
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "insert into Productos (nombreProducto, precio, tipo) values("+ objProducto->GetNombre() + objProducto->GetPrecio()+ objProducto->GetTipo() + ")";
 }
 void productoController::updateProducto(Producto^ objProducto)
 {
