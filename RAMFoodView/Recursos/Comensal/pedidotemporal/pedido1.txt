@@ -1,3 +1,4 @@
 Lomo Saltado;1;30
 Arroz con pollo;1;40
 Bebida
+Inka Cola;3;8.1

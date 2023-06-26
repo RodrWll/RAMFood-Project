@@ -16,9 +16,10 @@ PedidoController::PedidoController() {
 //métodos para la conexion a base de datos
 
 void PedidoController::conectarBD() {
+	
 	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
 	this->objConexion->Open();
-
+	
 };
 
 
@@ -69,7 +70,7 @@ List<OrdenMesa^>^ PedidoController::BuscarPedidoGeneralxnumMesa(int numMesa) {
 		int idGeneral = safe_cast<int>(objData[0]);
 		int numMesa = safe_cast<int>(objData[1]);
 		int estado = safe_cast<int>(objData[2]);
-		int cuenta = safe_cast<int>(objData[3]);
+		double cuenta = safe_cast<double>(objData[3]);
 		String^ fecha = safe_cast<String^>(objData[4]);
 		
 
@@ -118,39 +119,53 @@ List<Plato^>^ PedidoController::obtenerPedidoComensal(int numMesa) {
 
 
 void PedidoController::insertarProductosTablaDetallePedido(List<Plato^>^ lPlato, List<Bebida^>^ lBebida, OrdenMesa^ objOrdenMesa) {
-	conectarBD();
-	SqlCommand^ objSentencia = gcnew SqlCommand();
-	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
-	objSentencia->Connection = this->objConexion;
 	int idPedido = obtenerIdPedidoGeneralxNmesa(objOrdenMesa->GetMesa());
-	for each (Plato^ objPlatoI in lPlato)
+	productoController^ objProductoControllerPedido = gcnew productoController();
+
+
+		for each (Plato^ objPlatoI in lPlato)
 	{
-		int id= objPlatoI->GetId();
+		conectarBD();
+		SqlCommand^ objSentencia = gcnew SqlCommand();
+		/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+		objSentencia->Connection = this->objConexion;
+		
+		List<Producto^>^ listaDeProductos = objProductoControllerPedido->buscarProductoxNombre(objPlatoI->GetNombre());
+		int id= listaDeProductos[0]->GetId();
 		int cantidad = objPlatoI->GetCantidadPedida();
 		int estado = objPlatoI->GetEstado();
 		String^ valores = Convert::ToString(idPedido)+ ", "+Convert::ToString(id) + ", " + Convert::ToString(cantidad) + ", " + Convert::ToString(estado);
 		objSentencia->CommandText = "INSERT DetallePedido(idPedido,idProducto,cantidad,estado) VALUES("+valores+")";
+		objSentencia->ExecuteReader();
+		cerrarConexionBD();
 		/*Aqui ejecuto la sentencia en la Base de Datos*/
 		/*Para Select siempre sera ExecuteReader*/
 		/*Para select siempre va a devolver un SqlDataReader*/
-		SqlDataReader^ objData = objSentencia->ExecuteReader();
+		//objData = objSentencia->ExecuteReader();
 
 	}
 	for each (Bebida ^ objBebidaI in lBebida)
 	{
-		int id = objBebidaI->GetId();
+		conectarBD();
+		SqlCommand^ objSentencia = gcnew SqlCommand();
+		/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+		objSentencia->Connection = this->objConexion;
+
+		List<Producto^>^ listaDeProductos = objProductoControllerPedido->buscarProductoxNombre(objBebidaI->GetNombre());
+		int id = listaDeProductos[0]->GetId();
 		int cantidad = objBebidaI->GetCantidadPedida();
 		int estado = objBebidaI->GetEstado();
 		String^ valores = Convert::ToString(idPedido) + ", " + Convert::ToString(id) + ", " + Convert::ToString(cantidad) + ", " + Convert::ToString(estado);
 		objSentencia->CommandText = "INSERT DetallePedido(idPedido,idProducto,cantidad,estado) VALUES(" + valores + ")";
+		objSentencia->ExecuteReader();
+		cerrarConexionBD();
 		/*Aqui ejecuto la sentencia en la Base de Datos*/
 		/*Para Select siempre sera ExecuteReader*/
 		/*Para select siempre va a devolver un SqlDataReader*/
-		SqlDataReader^ objData = objSentencia->ExecuteReader();
+		//objData = objSentencia->ExecuteReader();
 
 	}
-	cerrarConexionBD();
-
+	
 };
 
 
@@ -344,14 +359,15 @@ void  PedidoController::agregarNuevoPedidoGeneral(OrdenMesa^ objOrdenMesa) {
 	conectarBD();
 
 	int nMesa = objOrdenMesa->GetMesa();
-	
-	String^ fechaCuenta = DateTime::Now.ToString("dd/MM/yyyy");
+	//"yyyyMMdd"
+	String^ fechaCuenta = DateTime::Now.ToString("yyyyMMdd");
+
 	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
 	objSentencia->Connection = this->objConexion;
 	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
-	String^ valores = Convert::ToString(nMesa)+", 0, 0, "+fechaCuenta;
+	String^ valores = Convert::ToString(nMesa)+", 0, 0, "+"'"+fechaCuenta+ "'";
 	objSentencia->CommandText = "INSERT PedidoGeneralMesa(numeroMesa,estado,cuenta,fecha) VALUES(" + valores + ")";
 	/*Aqui ejecuto la sentencia en la Base de Datos*/
 	/*Para Select siempre sera ExecuteReader*/
@@ -672,12 +688,12 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 	List<String^>^ lineasEscribir = gcnew List<String^>(numeroLinea);
 	/*leyendo el archivo externo*/
 	/*cambiar a lectura del nuevo archivo*/
-	array<String^>^ pedidoanterior = File::ReadAllLines("NewComensal/DetallePedidoMesaGeneral.txt");
 	//leyendo lo que hay en la talba PedidoMesaGeneral
 	List<Plato^>^ listaPedidoAnterior = gcnew List<Plato^>();
 	listaPedidoAnterior = obtenerPedidoComensal(objOrdenMesa->GetMesa());
 
-	array<String^>^ lineasPedidoGeneralActualizarCuenta = File::ReadAllLines("NewComensal/pedidoMesaGeneral.txt");
+
+	//array<String^>^ lineasPedidoGeneralActualizarCuenta = File::ReadAllLines("NewComensal/pedidoMesaGeneral.txt");
 	//array<String^>^ lineasPedidoMesaGeneralAnterior = File::ReadAllLines();
 	List<String^>^ lineasEscribirExterno = gcnew List<String^>();
 	List<String^>^ lineasEscribirExternoPedidoMesa = gcnew List<String^>();
@@ -806,7 +822,8 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 
 
 		//agregando nueva cuenta
-		agregarNuevoPedidoGeneral(objOrdenMesa);
+		//agregarNuevoPedidoGeneral(objOrdenMesa);
+		
 		/*
 		for each (String^ linea in lineasPedidoGeneralActualizarCuenta)
 		{
@@ -1004,7 +1021,9 @@ void PedidoController::guardarPedido(OrdenMesa^ objOrdenMesa) {
 
 	}
 	else {
-		/*archivo vacio, simplemente se escribe*/
+		
+		/*archivo vacio, simplemente se escribe y se agrega una nueva fila a pedido general*/
+		agregarNuevoPedidoGeneral(objOrdenMesa);
 		escribirArchivoFormatoChef(listaPlatoLeida, listaBebidasLeida, listaPlatoLeida, listaBebidasLeida, objOrdenMesa);
 		//escribirArchivoFormatoAsistente(listaPlatoLeida, listaBebidasLeida, numeroMesa);
 
@@ -1014,8 +1033,8 @@ void PedidoController::guardarPedido(OrdenMesa^ objOrdenMesa) {
 
 };
 
-
-void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
+//version txt
+void PedidoController::CuentaPagadaTxt(OrdenMesa^ mesa) {
 	//se mantiene
 	//array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//Comensal//pedidoTotal//pedidomesa.txt");
 	//List<String^>^ lineasEscribir = gcnew List<String^>();
@@ -1095,6 +1114,107 @@ void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
 	
 	*/
 	
+};
+
+//version BD
+
+void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
+	//se mantiene
+	//array<String^>^ lineasLeidas = File::ReadAllLines("Recursos//Comensal//pedidoTotal//pedidomesa.txt");
+	//List<String^>^ lineasEscribir = gcnew List<String^>();
+
+
+	List<String^>^ lineaEscribirPedidoGeneral = gcnew List<String^>();
+	List<String^>^ lineaVacia = gcnew List<String^>();
+	List<String^>^ lineaInicializarIdDetallePedido = gcnew List<String^>();
+	List<String^>^ idPedidoGeneralActualizado = gcnew List<String^>();
+	List<String^>^ actualizarEstadoPedidoGeneral = gcnew List<String^>();
+
+	int idPedido = obtenerIdPedidoGeneralxNmesa(mesa->GetMesa());
+	conectarBD();
+
+
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+
+	objSentencia->CommandText = "UPDATE PedidoGeneralMesa SET estado=2 WHERE id=" + Convert::ToString(idPedido);
+	
+	objSentencia->ExecuteReader();
+
+	cerrarConexionBD();
+
+	//for each (String^ linea in lineasLeidas) 
+	//{
+		//lineasEscribir->Add(linea);
+	//}
+	//leer archivo pedidos general
+	//array<String^>^ lineasPedidoGeneral = File::ReadAllLines("NewComensal/pedidoMesaGeneral.txt");
+	//String^ separadores = ";";
+	//modificar la linea con el id correspodnite, el estado a 0
+	//array<String^>^ numId = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	//String^ idCuenta = Convert::ToString(numId[0]);
+	//for each (String ^ linea in lineasPedidoGeneral) {
+		//array<String^>^ datos = linea->Split(separadores->ToCharArray());
+		//if (datos[0]->Contains(idCuenta)) {
+		//	datos[2] = "0";//Creo que no es necesario considerar el 2, dado que una vez se paga la cuenta la mesa estaría vacía
+			//linea = datos[0] + ";" + datos[1] + ";" + datos[2] + ";" + datos[3] + ";" + datos[4];
+
+	//	};
+		//actualizarEstadoPedidoGeneral->Add(linea);
+
+	//};
+	/*
+		for each (String^ lineas in lineasLeidas) {
+			lineaEscribirPedidoGeneral->Add(lineas);
+		}*/
+
+	lineaVacia->Add("vacio");
+	//array<String^>^ idCuentaUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	//int num = Convert::ToInt32(idCuentaUltimo[0]) + 1;
+	//idPedidoGeneralActualizado->Add(Convert::ToString(num));
+
+
+	//guardar cambios
+	//externi
+	//File::WriteAllLines("NewComensal/pedidoMesaGeneral.txt", actualizarEstadoPedidoGeneral);
+
+	//interno
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
+	//File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesa.txt", lineaVacia);
+
+	//File::WriteAllLines("Recursos//Comensal//pedidoTemporal//ultimoId.txt", idPedidoGeneralActualizado);
+
+	/*
+	//Escribe en registro
+	String^ direccion = "mesa" + Convert::ToString(mesa)+".txt";
+	//leer lo que había y reeescribir
+
+	array<String^>^ lineasLeidas2 = File::ReadAllLines("Recursos//Comensal//RegistroPedidos//" + direccion);
+
+	if (!(lineasLeidas2[0]->Contains("vacio"))) {
+		//rescribir
+		for each (String^ linea in lineasLeidas2)
+		{
+			lineasEscribir->Add(linea);
+		}
+		File::WriteAllLines("Recursos//Comensal//RegistroPedidos//" + direccion, lineasEscribir);
+	}
+	else {
+		File::WriteAllLines("Recursos//Comensal//RegistroPedidos//" + direccion, lineasEscribir);
+	}
+	*/
+
+	/*incializando archivos de la carpeta pedido total para que sean usados por otros comensales*/
+	//lineaVacia->Add("vacio");// se tiene que escribir vacio en los archivos, si no surgirá un error
+	//archivos de Franco y Misael
+	/*
+	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedido"+direccion,lineaVacia);
+	//archivo interno
+	File::WriteAllLines("Recursos//AsistenteChef//pedido"+direccion, lineaVacia);
+
+	*/
+
 };
 
 /*Esta funcion modifica el estado del pedido de una mesa determinada, asume que nunca un pedido va a pasar de un estado X a un estado menor*/

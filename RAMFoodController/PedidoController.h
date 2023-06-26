@@ -21,6 +21,7 @@ namespace RAMFoodController {
 		void guardarPedido(OrdenMesa^ objOrdenMesa);
 		/*El método de abajo vacia los archivos y los guarda a otra carpeta donde se alamcenan los pedidos*/
 		void CuentaPagada(OrdenMesa^ mesa);
+		void CuentaPagadaTxt(OrdenMesa^ mesa);
 		/*métodos migrados de bebidasController*/
 		List<Bebida^>^ obtenerInfoBebida();
 		List<Plato^>^ obtenerInfoPlato();

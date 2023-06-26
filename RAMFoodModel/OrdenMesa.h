@@ -9,7 +9,7 @@ namespace RAMFoodModel {
 	public:
 		OrdenMesa();
 		OrdenMesa(int id, int Mesa,int EstadoOrden, List<ProductoPedido^>^ listaProductosPedidos,String^ Fecha);
-		OrdenMesa(int id, int Mesa, int EstadoOrden, int cuenta, String^ fecha);
+		OrdenMesa(int id, int Mesa, int EstadoOrden, double cuenta, String^ fecha);
 		void SetId(int Id);
 		int GetId();
 		void SetMesa(int numeroMesa);
@@ -29,7 +29,7 @@ namespace RAMFoodModel {
 		List<ProductoPedido^>^ listaProductosPedidos;
 		String^ fecha; //Formato dd/mm/aa	
 		int Estado;
-		int cuenta;
+		double cuenta;
 
 	};
 

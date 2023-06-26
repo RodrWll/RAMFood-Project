@@ -14,7 +14,7 @@ OrdenMesa::OrdenMesa() {
     fecha = nullptr;
  
 }
-OrdenMesa::OrdenMesa(int id, int Mesa, int EstadoOrden, int cuenta, String^ fecha) {
+OrdenMesa::OrdenMesa(int id, int Mesa, int EstadoOrden, double cuenta, String^ fecha) {
     this->id = id;
     this->mesa = Mesa;
     this->Estado = EstadoOrden;
