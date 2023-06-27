@@ -11,6 +11,12 @@ Producto::Producto(int Id, String^ Nombre, double Precio, int Tipo) {
 	this->Tipo = Tipo;
 	this->Id = Id;
 }
+RAMFoodModel::Producto::Producto(String^ Nombre, double Precio, int Tipo)
+{
+	this->Nombre = Nombre;
+	this->Precio = Precio;
+	this->Tipo = Tipo;
+}
 String^ Producto::GetNombre() {
 	return this->Nombre;
 }
