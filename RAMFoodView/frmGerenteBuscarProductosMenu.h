@@ -87,6 +87,9 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteBuscarProductosMenu::typeid));
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -111,14 +114,15 @@ namespace RAMFoodView {
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(43)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(180)));
-			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button3->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Montserrat", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button3->Location = System::Drawing::Point(48, 136);
 			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
@@ -130,33 +134,35 @@ namespace RAMFoodView {
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(175)), static_cast<System::Int32>(static_cast<System::Byte>(34)),
-				static_cast<System::Int32>(static_cast<System::Byte>(38)));
-			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Montserrat", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(13, 515);
 			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(193, 63);
 			this->button2->TabIndex = 18;
-			this->button2->Text = L"REGRESAR";
+			this->button2->Text = L"Regresar";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteBuscarProductosMenu::button2_Click);
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(43)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(180)));
-			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Montserrat", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->Location = System::Drawing::Point(149, 136);
 			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
@@ -169,21 +175,59 @@ namespace RAMFoodView {
 			// dgvProductosEncontrados
 			// 
 			this->dgvProductosEncontrados->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
-			this->dgvProductosEncontrados->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)),
-				static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(104)));
+			this->dgvProductosEncontrados->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->dgvProductosEncontrados->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dgvProductosEncontrados->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
+			this->dgvProductosEncontrados->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgvProductosEncontrados->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dgvProductosEncontrados->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvProductosEncontrados->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column5,
 					this->Column6, this->Column7, this->Column8
 			});
-			this->dgvProductosEncontrados->GridColor = System::Drawing::SystemColors::Highlight;
+			this->dgvProductosEncontrados->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->dgvProductosEncontrados->Location = System::Drawing::Point(256, 30);
 			this->dgvProductosEncontrados->Margin = System::Windows::Forms::Padding(4);
 			this->dgvProductosEncontrados->MultiSelect = false;
 			this->dgvProductosEncontrados->Name = L"dgvProductosEncontrados";
+			this->dgvProductosEncontrados->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgvProductosEncontrados->RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this->dgvProductosEncontrados->RowHeadersVisible = false;
 			this->dgvProductosEncontrados->RowHeadersWidth = 51;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->dgvProductosEncontrados->RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this->dgvProductosEncontrados->RowTemplate->Height = 24;
 			this->dgvProductosEncontrados->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvProductosEncontrados->Size = System::Drawing::Size(353, 471);
@@ -197,7 +241,7 @@ namespace RAMFoodView {
 			this->Column5->MinimumWidth = 6;
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
-			this->Column5->Width = 49;
+			this->Column5->Width = 52;
 			// 
 			// Column6
 			// 
@@ -206,7 +250,7 @@ namespace RAMFoodView {
 			this->Column6->MinimumWidth = 6;
 			this->Column6->Name = L"Column6";
 			this->Column6->ReadOnly = true;
-			this->Column6->Width = 90;
+			this->Column6->Width = 95;
 			// 
 			// Column7
 			// 
@@ -215,7 +259,7 @@ namespace RAMFoodView {
 			this->Column7->MinimumWidth = 6;
 			this->Column7->Name = L"Column7";
 			this->Column7->ReadOnly = true;
-			this->Column7->Width = 77;
+			this->Column7->Width = 85;
 			// 
 			// Column8
 			// 
@@ -224,53 +268,61 @@ namespace RAMFoodView {
 			this->Column8->MinimumWidth = 6;
 			this->Column8->Name = L"Column8";
 			this->Column8->ReadOnly = true;
-			this->Column8->Width = 65;
+			this->Column8->Width = 70;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label7->Location = System::Drawing::Point(14, 84);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(80, 20);
+			this->label7->Size = System::Drawing::Size(66, 19);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"Nombre";
 			// 
 			// lbNombreProducto
 			// 
-			this->lbNombreProducto->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbNombreProducto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->lbNombreProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->lbNombreProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbNombreProducto->Location = System::Drawing::Point(202, 84);
 			this->lbNombreProducto->Margin = System::Windows::Forms::Padding(4);
 			this->lbNombreProducto->Name = L"lbNombreProducto";
-			this->lbNombreProducto->Size = System::Drawing::Size(205, 28);
+			this->lbNombreProducto->Size = System::Drawing::Size(205, 26);
 			this->lbNombreProducto->TabIndex = 14;
 			// 
 			// lbIdProducto
 			// 
-			this->lbIdProducto->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbIdProducto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->lbIdProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->lbIdProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbIdProducto->Location = System::Drawing::Point(202, 30);
 			this->lbIdProducto->Margin = System::Windows::Forms::Padding(4);
 			this->lbIdProducto->Name = L"lbIdProducto";
-			this->lbIdProducto->Size = System::Drawing::Size(205, 28);
+			this->lbIdProducto->Size = System::Drawing::Size(205, 26);
 			this->lbIdProducto->TabIndex = 13;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label6->Location = System::Drawing::Point(14, 30);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(110, 20);
+			this->label6->Size = System::Drawing::Size(95, 19);
 			this->label6->TabIndex = 12;
 			this->label6->Text = L"Id Producto";
 			// 
@@ -284,10 +336,10 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->lbIdProducto);
 			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox1->Location = System::Drawing::Point(15, 34);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
@@ -311,10 +363,10 @@ namespace RAMFoodView {
 			this->groupBox2->Controls->Add(this->button3);
 			this->groupBox2->Controls->Add(this->dgvProductosEncontrados);
 			this->groupBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(237)), static_cast<System::Int32>(static_cast<System::Byte>(242)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox2->Location = System::Drawing::Point(509, 34);
 			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox2->Name = L"groupBox2";
@@ -326,15 +378,15 @@ namespace RAMFoodView {
 			// 
 			// frmGerenteBuscarProductosMenu
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(10, 19);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(10)), static_cast<System::Int32>(static_cast<System::Byte>(77)),
-				static_cast<System::Int32>(static_cast<System::Byte>(104)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(1228, 591);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
-			this->Font = (gcnew System::Drawing::Font(L"Montserrat", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
