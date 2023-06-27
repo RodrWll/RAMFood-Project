@@ -6,10 +6,11 @@ using namespace System;
 using namespace System::IO;
 productoController::productoController()
 {
+	this->objConexion = gcnew SqlConnection();
 }
 void productoController::abrirConexion()
 {
-	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a202021;Password=WbMpwW8j";
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
 	this->objConexion->Open();
 }
 void productoController::cerrarConexion()
@@ -54,7 +55,7 @@ List<Producto^>^ productoController::listarProductos()
 	}
 	cerrarConexion();
 
-	return listaProductos;
+	return listaProductosBD;
 }
 
 void productoController::escribirProductos(List<Producto^>^ listaProductos)
@@ -71,6 +72,21 @@ void productoController::addProducto(Producto^ objProducto)
 	List<Producto^>^ listaProductos = listarProductos();
 	listaProductos->Add(objProducto);
 	escribirProductos(listaProductos);
+	
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	int id = objProducto->GetId();
+	String^ nombre = objProducto->GetNombre();
+	double precio = objProducto->GetPrecio();
+	int tipo = objProducto->GetTipo();
+	String^ valores = " ' " + nombre + " ' " + ", " + Convert::ToString(precio) + ", " + Convert::ToString(tipo);
+	objSentencia->CommandText = "INSERT Productos(nombreProducto,precio,tipo ) VALUES("+valores + ")";
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
 }
 void productoController::updateProducto(Producto^ objProducto)
 {
@@ -81,11 +97,13 @@ void productoController::updateProducto(Producto^ objProducto)
 				break;
 			}
 	}
+	//addProducto(objProducto);
+
 	escribirProductos(listaProductos);
 }
 void productoController::deleteProducto(int id)
 {
-List<Producto^>^ listaProductos = listarProductos();
+	List<Producto^>^ listaProductos = listarProductos();
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetId() == id) {
 			

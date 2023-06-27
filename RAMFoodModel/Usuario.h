@@ -20,6 +20,7 @@ namespace RAMFoodModel {
 		array<String^>^ Puesto = gcnew array<String^>(3);
 		Usuario();
 		Usuario(int Id, int Rol, int Status, String^ FechaContrato, String^ FechaDesactivacion, String^ Correo,	String^ Contrasenha);
+		Usuario(int Rol, int Status, String^ FechaContrato, String^ FechaDesactivacion, String^ Correo, String^ Contrasenha);
 		
 		void SetId(int Id);
 		int GetId();

@@ -1,8 +1,8 @@
+1;Ceviche;27.87;2
 2;Lomo Saltado;30;2
 3;Arroz con pollo;40;2
 4;Chaufa;21;2
 5;Estofado;25;2
-1;Ceviche;27.87;2
 6;Inka Cola;2.7;1
 7;Coca Cola;3;1
 8;Chicharron de Pollo;40.5;2
@@ -15,3 +15,4 @@
 15;Chicha morada;4;1
 16;Ceviche de conchas negras;45;2
 17;Pollo a la Brasa;35;2
+18;Aji de gallina;27;2
