@@ -21,6 +21,6 @@ void main(array <String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	frmGerenteGestionarProductos ventana;
+	frmComensal ventana;
 	Application::Run(% ventana); /*Aqui estoy ejecutando la ventana inicial*/
 }
