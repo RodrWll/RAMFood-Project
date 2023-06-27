@@ -21,6 +21,19 @@ RAMFoodModel::Usuario::Usuario(int Id, int Rol, int Status, String^ FechaContrat
 	this->Puesto[2] = "Chef";
 }
 
+RAMFoodModel::Usuario::Usuario(int Rol, int Status, String^ FechaContrato, String^ FechaDesactivacion, String^ Correo, String^ Contrasenha)
+{
+	this->Rol = Rol;
+	this->Status = Status;
+	this->FechaContrato = FechaContrato;
+	this->FechaDesactivacion = FechaDesactivacion;
+	this->Correo = Correo;
+	this->Contrasenha = Contrasenha;
+	this->Puesto[0] = "Gerente";
+	this->Puesto[1] = "Asistente";
+	this->Puesto[2] = "Chef";
+}
+
 void RAMFoodModel::Usuario::SetId(int Id)
 {
 	this->Id = Id;

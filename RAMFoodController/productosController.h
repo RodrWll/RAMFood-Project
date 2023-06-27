@@ -2,11 +2,16 @@ namespace RAMFoodController {
 	using namespace System::Collections::Generic;
 	using namespace RAMFoodModel;
 	using namespace System;
+	using namespace System::Data::SqlClient;
 	public ref class productoController
 	{
+	private:
+		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
 		productoController();
 		List<Producto^>^ listarProductos();
+		void abrirConexion();
+		void cerrarConexion();
 		void escribirProductos(List<Producto^>^ listaProductos);
 		void addProducto(Producto^ obj);
 		void updateProducto(Producto^ obj);

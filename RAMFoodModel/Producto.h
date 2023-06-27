@@ -13,7 +13,7 @@ namespace RAMFoodModel {
 	public:
 		Producto();
 		Producto(int Id, String^ Nombre, double Precio, int Tipo);
-
+		Producto(String^ Nombre, double Precio, int Tipo);
 		String^ GetNombre();
 		void SetNombre(String^ Nombre);
 		int GetId();
