@@ -54,4 +54,11 @@ double OrdenMesa::GetCuenta() {
     return this->cuenta;
 }
 
+void OrdenMesa::SetListaProductosPedidos(List<ProductoPedido^>^ listaProductosPedidos) {
+    this->listaProductosPedidos = listaProductosPedidos;
+}
+List<ProductoPedido^>^ OrdenMesa::GetListaProductosPedidos() {
+    return this->listaProductosPedidos;
+}
+
 

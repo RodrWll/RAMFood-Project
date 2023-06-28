@@ -89,14 +89,28 @@ List<Producto^>^ listaProductos = listarProductos();
 }
 Producto^ productoController::buscarProductoxId(int id)
 {
-	List<Producto^>^ listaProductos = listarProductos();
-	Producto^ objProducto;
+	//List<Producto^>^ listaProductos = listarProductos();
+	/*
 	for (int i = 0; i < listaProductos->Count; i++) {
 		if (listaProductos[i]->GetId() == id) {
 			objProducto = listaProductos[i];
 			break;
 		}
+	}*/
+	Producto^ objProducto;
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT * FROM Productos WHERE id = " + Convert::ToString(id);
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	if (objData->Read()) {
+		int Id = safe_cast<int>(objData[0]);
+		String^ Nombre = safe_cast<String^>(objData[1]);
+		double Precio = safe_cast<double>(objData[2]);
+		int Tipo = safe_cast<int>(objData[3]);
+		objProducto = gcnew Producto(Id, Nombre, Precio, Tipo);
 	}
+	cerrarConexion();
 	return objProducto;
 }
 List<Producto^>^ productoController::buscarProductoxNombre(String^ nombre)
