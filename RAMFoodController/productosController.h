@@ -6,12 +6,15 @@ namespace RAMFoodController {
 	public ref class productoController
 	{
 	private: 
+
 		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
 		void abrirConexion();
 		void cerrarConexion();
 		productoController();
 		List<Producto^>^ listarProductos();
+		void abrirConexion();
+		void cerrarConexion();
 		void escribirProductos(List<Producto^>^ listaProductos);
 		void addProducto(Producto^ obj);
 		void updateProducto(Producto^ obj);
@@ -28,7 +31,7 @@ namespace RAMFoodController {
 		int existeProductoMenuxId(int id);
 		void addProductToDailyMenu(Producto^ obj);
 		void removeDailyMenuProduct(int id);
-		void generarArchivosMenu();
+		void generarMenu();
 
 		/*nuevo*/
 		int buscarIdxNombre(String^ nombre);

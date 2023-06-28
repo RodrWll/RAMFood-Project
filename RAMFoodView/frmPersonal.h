@@ -96,9 +96,11 @@ namespace RAMFoodView {
 			// 
 			// label1
 			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(191, 237);
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label1->Location = System::Drawing::Point(200, 237);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(189, 43);
 			this->label1->TabIndex = 1;
@@ -106,6 +108,11 @@ namespace RAMFoodView {
 			// 
 			// button1
 			// 
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->Location = System::Drawing::Point(10, 8);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(92, 25);
@@ -116,13 +123,22 @@ namespace RAMFoodView {
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->textBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->textBox1->Location = System::Drawing::Point(10, 34);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(345, 22);
+			this->textBox1->Size = System::Drawing::Size(345, 26);
 			this->textBox1->TabIndex = 5;
 			// 
 			// button2
 			// 
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(228, 456);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(92, 30);
@@ -134,6 +150,10 @@ namespace RAMFoodView {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->textBox1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox1->Location = System::Drawing::Point(87, 283);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(367, 76);
@@ -144,6 +164,10 @@ namespace RAMFoodView {
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->textBox2);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox2->Location = System::Drawing::Point(87, 365);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(367, 76);
@@ -153,9 +177,13 @@ namespace RAMFoodView {
 			// 
 			// textBox2
 			// 
+			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->textBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->textBox2->Location = System::Drawing::Point(10, 36);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(345, 22);
+			this->textBox2->Size = System::Drawing::Size(345, 26);
 			this->textBox2->TabIndex = 10;
 			this->textBox2->UseSystemPasswordChar = true;
 			// 
@@ -163,6 +191,8 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(545, 507);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);

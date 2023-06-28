@@ -76,7 +76,7 @@ namespace RAMFoodView {
 			this->groupBox1->BackColor = System::Drawing::Color::DarkRed;
 			this->label1->Text = "Cuenta";
 			this->button2->Visible = false;
-			this->button_confirmar->Visible = true;
+			this->button_confirmar->Visible = false;
 
 
 		};

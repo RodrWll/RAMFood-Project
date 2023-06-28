@@ -5,6 +5,6 @@
 5;1;1;29/05/2023;;huarcayac@RAMFood.com;47780707;Misael;Huarcaya;C
 6;1;1;03/06/2023;;cristobalagui@RAMFood.com;12286128;Angelo;Cristobal;Agui
 7;2;1;15/06/2023;;hernandezguitierrez@RAMFood.com;10386702;Ana;Hernandez;Guitierrez
-8;3;1;03/06/2023;;gallardomolino@RAMFood.com;62691308;Diegote;Gallardo;Molino
+8;3;1;28/06/2023;;gallardomolino@RAMFood.com;62691308;Diegote;Gallardo;Molino
 9;2;1;01/06/2023;;zetajota@RAMFood.com;14080997;Jimer;Zeta;Jota
 10;3;1;29/05/2023;;horarcioleuteno@RAMFood.com;17060749;Francisco;Horarcio;Leuteno
