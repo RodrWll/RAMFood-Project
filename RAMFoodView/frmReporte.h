@@ -1,5 +1,5 @@
 #pragma once
-
+#include<iostream>
 namespace RAMFoodView {
 
 	using namespace System;
@@ -57,6 +57,9 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::GroupBox^ groupBox4;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::GroupBox^ groupBox5;
+	private: System::Windows::Forms::Label^ label4;
+
+
 
 	protected:
 
@@ -73,12 +76,12 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->chartPlatos = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
@@ -94,6 +97,7 @@ namespace RAMFoodView {
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->BeginInit();
 			this->groupBox2->SuspendLayout();
@@ -128,10 +132,12 @@ namespace RAMFoodView {
 			// 
 			// chartPlatos
 			// 
-			chartArea4->Name = L"ChartArea1";
-			this->chartPlatos->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->chartPlatos->Legends->Add(legend4);
+			chartArea1->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea1->Name = L"ChartArea1";
+			this->chartPlatos->ChartAreas->Add(chartArea1);
+			this->chartPlatos->Cursor = System::Windows::Forms::Cursors::Cross;
+			legend1->Name = L"Legend1";
+			this->chartPlatos->Legends->Add(legend1);
 			this->chartPlatos->Location = System::Drawing::Point(6, 19);
 			this->chartPlatos->Name = L"chartPlatos";
 			this->chartPlatos->Size = System::Drawing::Size(281, 194);
@@ -150,10 +156,12 @@ namespace RAMFoodView {
 			// 
 			// chartBebidas
 			// 
-			chartArea5->Name = L"ChartArea1";
-			this->chartBebidas->ChartAreas->Add(chartArea5);
-			legend5->Name = L"Legend1";
-			this->chartBebidas->Legends->Add(legend5);
+			chartArea2->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea2->Name = L"ChartArea1";
+			this->chartBebidas->ChartAreas->Add(chartArea2);
+			this->chartBebidas->Cursor = System::Windows::Forms::Cursors::Cross;
+			legend2->Name = L"Legend1";
+			this->chartBebidas->Legends->Add(legend2);
 			this->chartBebidas->Location = System::Drawing::Point(7, 19);
 			this->chartBebidas->Name = L"chartBebidas";
 			this->chartBebidas->Size = System::Drawing::Size(280, 194);
@@ -165,26 +173,28 @@ namespace RAMFoodView {
 			this->groupBox3->Controls->Add(this->chartVentas);
 			this->groupBox3->Location = System::Drawing::Point(6, 253);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(387, 258);
+			this->groupBox3->Size = System::Drawing::Size(586, 258);
 			this->groupBox3->TabIndex = 3;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"V";
 			// 
 			// chartVentas
 			// 
-			chartArea6->Name = L"ChartArea1";
-			this->chartVentas->ChartAreas->Add(chartArea6);
-			legend6->Name = L"Legend1";
-			this->chartVentas->Legends->Add(legend6);
+			chartArea3->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea3->Name = L"ChartArea1";
+			this->chartVentas->ChartAreas->Add(chartArea3);
+			this->chartVentas->Cursor = System::Windows::Forms::Cursors::Cross;
+			legend3->Name = L"Legend1";
+			this->chartVentas->Legends->Add(legend3);
 			this->chartVentas->Location = System::Drawing::Point(22, 14);
 			this->chartVentas->Name = L"chartVentas";
-			this->chartVentas->Size = System::Drawing::Size(339, 238);
+			this->chartVentas->Size = System::Drawing::Size(558, 238);
 			this->chartVentas->TabIndex = 0;
 			this->chartVentas->Text = L"chart1";
 			// 
 			// buttonRegresar
 			// 
-			this->buttonRegresar->Location = System::Drawing::Point(629, 600);
+			this->buttonRegresar->Location = System::Drawing::Point(688, 600);
 			this->buttonRegresar->Name = L"buttonRegresar";
 			this->buttonRegresar->Size = System::Drawing::Size(75, 23);
 			this->buttonRegresar->TabIndex = 4;
@@ -194,6 +204,7 @@ namespace RAMFoodView {
 			// 
 			// fechaInicio
 			// 
+			this->fechaInicio->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
 			this->fechaInicio->Location = System::Drawing::Point(99, 19);
 			this->fechaInicio->Name = L"fechaInicio";
 			this->fechaInicio->Size = System::Drawing::Size(200, 20);
@@ -201,6 +212,7 @@ namespace RAMFoodView {
 			// 
 			// fechaFin
 			// 
+			this->fechaFin->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
 			this->fechaFin->Location = System::Drawing::Point(348, 18);
 			this->fechaFin->Name = L"fechaFin";
 			this->fechaFin->Size = System::Drawing::Size(200, 20);
@@ -236,6 +248,7 @@ namespace RAMFoodView {
 			this->groupBox4->Size = System::Drawing::Size(611, 514);
 			this->groupBox4->TabIndex = 9;
 			this->groupBox4->TabStop = false;
+			this->groupBox4->Visible = false;
 			// 
 			// label3
 			// 
@@ -258,11 +271,24 @@ namespace RAMFoodView {
 			this->groupBox5->TabIndex = 11;
 			this->groupBox5->TabStop = false;
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(640, 239);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(181, 78);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L" Seleccione el rango de fechas para \r\n      poder ver un informe de:\r\n\r\n     Top "
+				L"5 platos más vendidos\r\n     Top 5 bebidas más vendidas\r\n      Ventas por día en "
+				L"ese rango";
+			this->label4->Click += gcnew System::EventHandler(this, &frmReporte::label4_Click);
+			// 
 			// frmReporte
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(724, 635);
+			this->ClientSize = System::Drawing::Size(825, 635);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->botonGenerar);
@@ -297,64 +323,151 @@ private: System::Void buttonRegresar_Click(System::Object^ sender, System::Event
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ fechaInicio = this->fechaInicio->Text;
-	String^ fechaFin = this->fechaFin->Text;
-
-	this->chartPlatos->Titles->Add("Top 5 platos más vendidos");
-	this->chartBebidas->Titles->Add("Top 5 bebidas más vendidas");
-	this->chartVentas->Titles->Add("Ventas por fecha");
-	//lo de abajo, código para producir los gráficos
-
-	ReporteController^ objController = gcnew ReporteController();
-	productoController^ objProductosController = gcnew productoController();
-	List<String^>^ PlatosTopId = gcnew List<String^>();
-	List<String^>^ PlatosTopValor = gcnew List<String^>();
-	List<String^>^ BebidasTopId = gcnew List<String^>();
-	List<String^>^ BebidasTopValor = gcnew List<String^>();
-	List<String^>^ Fechas = gcnew List<String^>();
-	List<String^>^ VentasXFecha = gcnew List<String^>();
-
-
-	objController->obtenerTopPlatos(PlatosTopId, PlatosTopValor);
-	objController->obtenerTopBebidas(BebidasTopId, BebidasTopValor);
-	objController->obtenerVentasTotal(Fechas, VentasXFecha);
 	
-	Producto^ productoI = gcnew Producto();
-	int i = 0;
-	//chartPlatos
-	for (i = 0; i < 5; i++) {
 
-		productoI = objProductosController->buscarProductoxId(Convert::ToInt32(PlatosTopId[i]));
+	
+	DateTime fI = Convert::ToDateTime(this->fechaInicio->Text);
+	DateTime fF = Convert::ToDateTime(this->fechaFin->Text);
+	String^ fechaCuenta = DateTime::Now.ToString("yyyy-MM-dd");
+	DateTime fHoy = Convert::ToDateTime(fechaCuenta);
+	if (DateTime::Compare(fHoy,fF) >= 0) {
+		if (DateTime::Compare(fF, fI) > 0) {
+			this->chartPlatos->Series->Clear();
+			this->chartBebidas->Series->Clear();
+			this->chartVentas->Series->Clear();
 
-		//titulos
-		Series^ seriePlato = this->chartPlatos->Series->Add(productoI->GetNombre());
-		//cantidades
+			this->chartPlatos->Titles->Clear();
+			this->chartBebidas->Titles->Clear();
+			this->chartVentas->Titles->Clear();
 
-		seriePlato->Label = PlatosTopValor[i];
-		seriePlato->Points->Add(Convert::ToInt32(PlatosTopValor[i]));
+			if (fI > fF) {
+
+
+			}
+			this->fechaInicio->CustomFormat = "yyyy-MM-dd";
+			this->fechaFin->CustomFormat = "yyyy-MM-dd";
+			String^ fechaInicio = this->fechaInicio->Text;
+			String^ fechaFin = this->fechaFin->Text;
+
+			this->chartPlatos->Titles->Add("Top 5 platos más vendidos");
+			this->chartBebidas->Titles->Add("Top 5 bebidas más vendidas");
+			this->chartVentas->Titles->Add("Ventas por fecha");
+			//lo de abajo, código para producir los gráficos
+
+			ReporteController^ objController = gcnew ReporteController();
+			productoController^ objProductosController = gcnew productoController();
+			List<String^>^ PlatosTopId = gcnew List<String^>();
+			List<String^>^ PlatosTopValor = gcnew List<String^>();
+			List<String^>^ BebidasTopId = gcnew List<String^>();
+			List<String^>^ BebidasTopValor = gcnew List<String^>();
+			List<String^>^ Fechas = gcnew List<String^>();
+			List<String^>^ VentasXFecha = gcnew List<String^>();
+
+
+			objController->obtenerTopPlatos(PlatosTopId, PlatosTopValor, fechaInicio, fechaFin);
+			objController->obtenerTopBebidas(BebidasTopId, BebidasTopValor, fechaInicio, fechaFin);
+			objController->obtenerVentasTotal(Fechas, VentasXFecha, fechaInicio, fechaFin);
+
+			Producto^ productoI = gcnew Producto();
+			int i = 0;
+			//chartPlatos
+			int limiteTopPlatos = PlatosTopId->Count;
+			int limiteTopBebidas = BebidasTopId->Count;
+
+			int iP = 5;
+			int iB = 5;
+			if (limiteTopPlatos < 5) {
+				iP = limiteTopPlatos;
+			};
+			if (limiteTopBebidas < 5) {
+				iB = limiteTopBebidas;
+			};
+
+			if (PlatosTopId->Count > 0) {
+				this->chartPlatos->Visible = true;
+				for (i = 0; i < iP; i++) {
+
+					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(PlatosTopId[i]));
+
+					//titulos
+					Series^ seriePlato = this->chartPlatos->Series->Add(productoI->GetNombre());
+					//cantidades
+
+					seriePlato->Label = PlatosTopValor[i];
+					seriePlato->Points->Add(Convert::ToInt32(PlatosTopValor[i]));
+					
+				}
+			}
+			else {
+				MessageBox::Show("Lo sentimos, no hay suficientes datos para calcular el top de Platos en ese rango");
+				this->chartPlatos->Visible = false;
+
+			}
+
+			//chart bebidas
+			if (BebidasTopId->Count > 0) {
+
+				this->chartBebidas->Visible = true;
+
+				for (i = 0; i < iB; i++) {
+					//titulos
+					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(BebidasTopId[i]));
+					Series^ serieBebida = this->chartBebidas->Series->Add(productoI->GetNombre());
+					//cantidades
+
+					serieBebida->Label = BebidasTopValor[i];
+					serieBebida->Points->Add(Convert::ToInt32(BebidasTopValor[i]));
+				}
+				//chart venta total
+			}
+			else {
+				MessageBox::Show("Lo sentimos, no hay suficientes datos para calcular el top de Bebidas en ese rango");
+				this->chartBebidas->Visible = false;
+
+			}
+
+			if (VentasXFecha->Count > 0) {
+				this->chartVentas->Visible = true;
+				for (i = 0; i < Fechas->Count; i++) {
+					//titulos
+					//cambiar en fechas si es que se necesita
+					Series^ serieFecha = this->chartVentas->Series->Add("( S/ "+VentasXFecha[i]+" ) "+ Fechas[i]->Replace(" 00:00:00"," "));
+					//cantidades
+					//serieFecha->Label = VentasXFecha[i];
+					serieFecha->Points->Add(Convert::ToDouble(VentasXFecha[i]));
+				}
+
+
+			}
+			else {
+				MessageBox::Show("Lo sentimos, no hay suficientes datos para calcular las ventas en ese rango");
+				this->chartVentas->Visible = false;
+
+			}
+			//limpiando lista porque causan problemas
+
+			PlatosTopId->Clear();
+			PlatosTopValor->Clear();
+			BebidasTopId->Clear();
+			BebidasTopValor->Clear();
+			Fechas->Clear();
+			VentasXFecha->Clear();
+			this->groupBox4->Visible = true;
+
+		}
+		else {
+			MessageBox::Show("El orden de las fechas no es correcto o las fechas son la misma");
+		}
 	}
-	//chart bebidas
-	for (i = 0; i < 5; i++) {
-		//titulos
-		productoI = objProductosController->buscarProductoxId(Convert::ToInt32(BebidasTopId[i]));
-		Series^ serieBebida = this->chartBebidas->Series->Add(productoI->GetNombre());
-		//cantidades
-
-		serieBebida->Label = BebidasTopValor[i];
-		serieBebida->Points->Add(Convert::ToInt32(BebidasTopValor[i]));
+	else {
+		MessageBox::Show("No puede consultar fechas mayores a la actual");
 	}
-	//chart venta total
-
-	for (i = 0; i < Fechas->Count; i++) {
-		//titulos
-		Series^ serieFecha = this->chartVentas->Series->Add(Fechas[i]);
-		//cantidades
-		serieFecha->Label = VentasXFecha[i];
-		serieFecha->Points->Add(Convert::ToInt32(VentasXFecha[i]));
-	}
-
+	
 	//hasta aquí
+	
+
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
