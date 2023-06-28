@@ -10,7 +10,7 @@ productoController::productoController()
 }
 void productoController::abrirConexion()
 {
-	//Verificar si la conexion ya está abierta
+	//Verificar si la conexion ya estÃ¡ abierta
 	if (this->objConexion->State == System::Data::ConnectionState::Open)
 	{
 		return;
@@ -21,7 +21,7 @@ void productoController::abrirConexion()
 }
 void productoController::cerrarConexion()
 {
-	//verificar si la conexion ya está cerrada
+	//verificar si la conexion ya estÃ¡ cerrada
 	if (this->objConexion->State == System::Data::ConnectionState::Closed)
 	{
 		return;
@@ -33,7 +33,6 @@ List<Producto^>^ productoController::listarProductos()
 	List<Producto^>^ listaProductos = gcnew List<Producto^>();
 	List<Producto^>^ listaProductosBD = gcnew List<Producto^>();
 	abrirConexion();
-
 	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
@@ -148,6 +147,7 @@ void productoController::deleteProducto(int id)
 }
 Producto^ productoController::buscarProductoxId(int id)
 {
+
 	Producto^ objProducto = nullptr;
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();

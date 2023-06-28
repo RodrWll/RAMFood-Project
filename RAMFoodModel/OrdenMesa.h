@@ -20,6 +20,9 @@ namespace RAMFoodModel {
 		int GetEstado();
 		void SetCuenta(double numero);
 		double GetCuenta();
+		void SetListaProductosPedidos(List<ProductoPedido^>^ listaProductosPedidos);
+		List<ProductoPedido^>^ GetListaProductosPedidos();
+
 		//si el estado=1: significa que la orden no ha sido pagada
 		//si el estado=2: significa que la orden ya ha sido pagada
 
