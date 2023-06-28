@@ -10,6 +10,7 @@ using namespace System::IO;
 PedidoController::PedidoController() {
 
 	this->objConexion = gcnew SqlConnection();
+	
 };
 
 
@@ -19,13 +20,13 @@ void PedidoController::conectarBD() {
 	
 	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
 	this->objConexion->Open();
-	
+	this->objConexion->State;
 };
 
 
 void PedidoController::cerrarConexionBD() {
 	this->objConexion->Close();
-
+	this->objConexion->State;
 };
 
 int PedidoController::obtenerIdPedidoGeneralxNmesa(int numMesa) {
