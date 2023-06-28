@@ -12,10 +12,10 @@ namespace RAMFoodController {
 		SqlConnection^ objConexion;
 	public:
 		ReporteController();
-		void obtenerTopPlatos(List<String^>^ listaId, List<String^>^ listaValor);
-		void obtenerTopBebidas(List<String^>^ listaId, List<String^>^ listaValor);
+		void obtenerTopPlatos(List<String^>^ listaId, List<String^>^ listaValor, String^ fechaInicio, String^ FechaFin);
+		void obtenerTopBebidas(List<String^>^ listaId, List<String^>^ listaValor, String^ fechaInicio, String^ FechaFin);
 		void obtenerTopPlatosTxt(List<String^>^ listaId, List<String^>^ listaValor);
-		void obtenerVentasTotal(List<String^>^ listaFechas, List<String^>^ listaCuenta);
+		void obtenerVentasTotal(List<String^>^ listaFechas, List<String^>^ listaCuenta,String^ fechaInicio, String^ FechaFin);
 		void obtenerVentasTotalTxt(List<String^>^ listaFechas, List<String^>^ listaCuenta);
 		void conectarBD();
 		void cerrarConexionBD();
