@@ -181,7 +181,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->dataGridView1->RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView1->Size = System::Drawing::Size(970, 368);
+			this->dataGridView1->Size = System::Drawing::Size(1186, 480);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// Column1
@@ -190,7 +190,7 @@ namespace RAMFoodView {
 			this->Column1->MinimumWidth = 6;
 			this->Column1->Name = L"Column1";
 			this->Column1->Visible = false;
-			this->Column1->Width = 67;
+			this->Column1->Width = 63;
 			// 
 			// Column2
 			// 
@@ -270,7 +270,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button4->Location = System::Drawing::Point(1113, 535);
+			this->button4->Location = System::Drawing::Point(1305, 635);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(183, 61);
 			this->button4->TabIndex = 4;
@@ -398,7 +398,7 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1367, 636);
+			this->ClientSize = System::Drawing::Size(1560, 745);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button5);
@@ -408,6 +408,7 @@ namespace RAMFoodView {
 			this->Controls->Add(this->button1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmGerenteGestionarPersonal";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Gestionar Personal";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::frmGerenteGestionarPersonal_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

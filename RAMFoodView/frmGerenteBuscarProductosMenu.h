@@ -26,9 +26,6 @@ namespace RAMFoodView {
 			//
 			//TODO: Add the constructor code here
 			//
-			productoController^ objController;
-			List<Producto^>^ listaPlatoBebidasMostrar = objController->listarProductos();
-			mostrarGrilla(listaPlatoBebidasMostrar);
 		}
 
 	protected:
@@ -60,13 +57,17 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::TextBox^ lbIdProducto;
 
 	private: System::Windows::Forms::Label^ label6;
+
+
+
+
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -174,6 +175,9 @@ namespace RAMFoodView {
 			// 
 			// dgvProductosEncontrados
 			// 
+			this->dgvProductosEncontrados->AllowUserToAddRows = false;
+			this->dgvProductosEncontrados->AllowUserToDeleteRows = false;
+			this->dgvProductosEncontrados->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dgvProductosEncontrados->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
 			this->dgvProductosEncontrados->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
@@ -183,7 +187,7 @@ namespace RAMFoodView {
 			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			dataGridViewCellStyle1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
@@ -193,14 +197,16 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
 			this->dgvProductosEncontrados->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this->dgvProductosEncontrados->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvProductosEncontrados->ColumnHeadersHeight = 35;
+			this->dgvProductosEncontrados->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
 			this->dgvProductosEncontrados->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Column5,
 					this->Column6, this->Column7, this->Column8
 			});
+			this->dgvProductosEncontrados->EnableHeadersVisualStyles = false;
 			this->dgvProductosEncontrados->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dgvProductosEncontrados->Location = System::Drawing::Point(256, 30);
+			this->dgvProductosEncontrados->Location = System::Drawing::Point(228, 31);
 			this->dgvProductosEncontrados->Margin = System::Windows::Forms::Padding(4);
 			this->dgvProductosEncontrados->MultiSelect = false;
 			this->dgvProductosEncontrados->Name = L"dgvProductosEncontrados";
@@ -208,7 +214,7 @@ namespace RAMFoodView {
 			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
@@ -230,7 +236,7 @@ namespace RAMFoodView {
 			this->dgvProductosEncontrados->RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this->dgvProductosEncontrados->RowTemplate->Height = 24;
 			this->dgvProductosEncontrados->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dgvProductosEncontrados->Size = System::Drawing::Size(353, 471);
+			this->dgvProductosEncontrados->Size = System::Drawing::Size(391, 471);
 			this->dgvProductosEncontrados->TabIndex = 16;
 			this->dgvProductosEncontrados->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteBuscarProductosMenu::dgvProductosEncontrados_CellClick);
 			// 
@@ -241,7 +247,8 @@ namespace RAMFoodView {
 			this->Column5->MinimumWidth = 6;
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
-			this->Column5->Width = 52;
+			this->Column5->Visible = false;
+			this->Column5->Width = 125;
 			// 
 			// Column6
 			// 
@@ -250,7 +257,7 @@ namespace RAMFoodView {
 			this->Column6->MinimumWidth = 6;
 			this->Column6->Name = L"Column6";
 			this->Column6->ReadOnly = true;
-			this->Column6->Width = 95;
+			this->Column6->Width = 106;
 			// 
 			// Column7
 			// 
@@ -259,7 +266,7 @@ namespace RAMFoodView {
 			this->Column7->MinimumWidth = 6;
 			this->Column7->Name = L"Column7";
 			this->Column7->ReadOnly = true;
-			this->Column7->Width = 85;
+			this->Column7->Width = 95;
 			// 
 			// Column8
 			// 
@@ -268,19 +275,19 @@ namespace RAMFoodView {
 			this->Column8->MinimumWidth = 6;
 			this->Column8->Name = L"Column8";
 			this->Column8->ReadOnly = true;
-			this->Column8->Width = 70;
+			this->Column8->Width = 75;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label7->Location = System::Drawing::Point(14, 84);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(66, 19);
+			this->label7->Size = System::Drawing::Size(79, 22);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"Nombre";
 			// 
@@ -288,41 +295,43 @@ namespace RAMFoodView {
 			// 
 			this->lbNombreProducto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->lbNombreProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbNombreProducto->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->lbNombreProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbNombreProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbNombreProducto->Location = System::Drawing::Point(202, 84);
 			this->lbNombreProducto->Margin = System::Windows::Forms::Padding(4);
 			this->lbNombreProducto->Name = L"lbNombreProducto";
-			this->lbNombreProducto->Size = System::Drawing::Size(205, 26);
+			this->lbNombreProducto->Size = System::Drawing::Size(205, 30);
 			this->lbNombreProducto->TabIndex = 14;
 			// 
 			// lbIdProducto
 			// 
 			this->lbIdProducto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->lbIdProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbIdProducto->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->lbIdProducto->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbIdProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->lbIdProducto->Location = System::Drawing::Point(202, 30);
 			this->lbIdProducto->Margin = System::Windows::Forms::Padding(4);
 			this->lbIdProducto->Name = L"lbIdProducto";
-			this->lbIdProducto->Size = System::Drawing::Size(205, 26);
+			this->lbIdProducto->Size = System::Drawing::Size(205, 30);
 			this->lbIdProducto->TabIndex = 13;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label6->Location = System::Drawing::Point(14, 30);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(95, 19);
+			this->label6->Size = System::Drawing::Size(114, 22);
 			this->label6->TabIndex = 12;
 			this->label6->Text = L"Id Producto";
 			// 
@@ -336,7 +345,7 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->lbIdProducto);
 			this->groupBox1->Controls->Add(this->label6);
 			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
@@ -363,7 +372,7 @@ namespace RAMFoodView {
 			this->groupBox2->Controls->Add(this->button3);
 			this->groupBox2->Controls->Add(this->dgvProductosEncontrados);
 			this->groupBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
@@ -382,7 +391,7 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1228, 591);
+			this->ClientSize = System::Drawing::Size(1253, 597);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
@@ -405,50 +414,79 @@ namespace RAMFoodView {
 #pragma endregion
 	private: void actualizar() {
 		productoController^ objController = gcnew productoController();
-		List<Producto^>^ listaPlatosBebidasMenu = objController->listarProductos();
-		mostrarGrilla(listaPlatosBebidasMenu);
+		List<Producto^>^ listaProductos = objController->listarProductos();
+		//Verficamos si el producto ya est'a en la tabla ListaPreviaMenu, si es asi, no lo mostramos. Usamos la funcion existeProductoMenuxId
+		/*for (int i = 0; i < listaProductos->Count; i++) {
+			Producto^ objProducto = listaProductos[i];
+			productoController^ objController = gcnew productoController();
+			if (objController->existeProductoMenuxId(objProducto->GetId())) {
+				listaProductos->RemoveAt(i);
+				i--;
+			}
+		}*/
+		mostrarGrilla(listaProductos);
 	}
 	private: System::Void frmGerenteGestionarProductos_Load(System::Object^ sender, System::EventArgs^ e) {
 		actualizar();
 	}
 	private: void mostrarGrilla(List<Producto^>^ listaPlatosBebidasMenu) {
 		this->dgvProductosEncontrados->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+		productoController^ objController = gcnew productoController();
 		for (int i = 0; i < listaPlatosBebidasMenu->Count; i++) {
-			Producto^ objPlatoBebidaMenu = listaPlatosBebidasMenu[i];
-			array<String^>^ filaGrilla = gcnew array<String^>(4);
-			filaGrilla[0] = Convert::ToString(objPlatoBebidaMenu->GetId());
-			filaGrilla[1] = objPlatoBebidaMenu->GetNombre();
-			filaGrilla[2] = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
-			if (objPlatoBebidaMenu->GetTipo() == 1) {
-				filaGrilla[3] = "Bebida";
+			
+				Producto^ objPlatoBebidaMenu = listaPlatosBebidasMenu[i];
+				
+				if (!objController->existeProductoMenuxId(objPlatoBebidaMenu->GetId()))
+				{
+				array<String^>^ filaGrilla = gcnew array<String^>(4);
+				filaGrilla[0] = Convert::ToString(objPlatoBebidaMenu->GetId());
+				filaGrilla[1] = objPlatoBebidaMenu->GetNombre();
+				filaGrilla[2] = Convert::ToString(objPlatoBebidaMenu->GetPrecio());
+				if (objPlatoBebidaMenu->GetTipo() == 1) {
+					filaGrilla[3] = "Bebida";
+				}
+				else if (objPlatoBebidaMenu->GetTipo() == 2)
+				{
+					filaGrilla[3] = "Comida";
+				}
+				this->dgvProductosEncontrados->Rows->Add(filaGrilla);
 			}
-			else if (objPlatoBebidaMenu->GetTipo() == 2)
-			{
-				filaGrilla[3] = "Comida";
-			}
-			this->dgvProductosEncontrados->Rows->Add(filaGrilla);
 		}
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		productoController^ objController;
+		productoController^ objController = gcnew productoController();
 		if (lbIdProducto->Text->Trim() != "") {
 			//Búsqueda de Producto por el código ingresado por el usuario
 			
 			Producto^ ojbPlatoBebidaMenu = objController->buscarProductoxId(Convert::ToInt32(lbIdProducto->Text->Trim()));
 			//Se borran los datos del grid.
 			this->dgvProductosEncontrados->Rows->Clear();
-			this->dgvProductosEncontrados->Rows->Add(gcnew array<String^> {
-				"" + Convert::ToString(ojbPlatoBebidaMenu->GetId()),
-					ojbPlatoBebidaMenu->GetNombre(),
-					Convert::ToString(ojbPlatoBebidaMenu->GetPrecio()),
-					Convert::ToString(ojbPlatoBebidaMenu->GetTipo())
-			});
+			if( ojbPlatoBebidaMenu != nullptr){
+				this->dgvProductosEncontrados->Rows->Add(gcnew array<String^> {
+					"" + Convert::ToString(ojbPlatoBebidaMenu->GetId()),
+						ojbPlatoBebidaMenu->GetNombre(),
+						Convert::ToString(ojbPlatoBebidaMenu->GetPrecio()),
+						Convert::ToString(ojbPlatoBebidaMenu->GetTipo())
+				});
+			}
+			else {
+				MessageBox::Show("No se encontró el producto");
+				lbIdProducto->Text = "";
+				lbNombreProducto->Text = "";
+
+			}
 		}
 		else {
 			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
 			List<Producto^>^ productList = objController->buscarProductoxNombre(lbNombreProducto->Text->Trim());
 			//Se borran los datos del grid.
 			this->dgvProductosEncontrados->Rows->Clear();
+			//Verficamos si la lista esta vacia
+			if (productList->Count == 0) {
+				MessageBox::Show("No se encontró el producto");
+				lbIdProducto->Text = "";
+				lbNombreProducto->Text = "";
+			}
 			mostrarGrilla(productList);
 		}
 	}
@@ -463,6 +501,7 @@ namespace RAMFoodView {
 				Producto^ objPlatoBebidaMenuDiario = objController->buscarProductoxId(IdProducto);
 				objController->addProductToDailyMenu(objPlatoBebidaMenuDiario);
 				MessageBox::Show("Producto " + objPlatoBebidaMenuDiario->GetNombre() + " agregado");
+				actualizar();
 			}
 			else {
 				MessageBox::Show("El Producto ya existe en el menú");

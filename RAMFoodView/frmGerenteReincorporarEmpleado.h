@@ -60,6 +60,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::Button^ button3;
 
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -123,9 +124,9 @@ namespace RAMFoodView {
 			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox1->Location = System::Drawing::Point(36, 32);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox1->Size = System::Drawing::Size(580, 622);
 			this->groupBox1->TabIndex = 32;
 			this->groupBox1->TabStop = false;
@@ -136,7 +137,7 @@ namespace RAMFoodView {
 			this->dateTimePicker1->Enabled = false;
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(311, 393);
-			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(238, 30);
 			this->dateTimePicker1->TabIndex = 32;
@@ -192,10 +193,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(151, 498);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Location = System::Drawing::Point(167, 521);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(275, 85);
+			this->button1->Size = System::Drawing::Size(237, 62);
 			this->button1->TabIndex = 24;
 			this->button1->Text = L"Reincorporar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -212,7 +213,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(311, 312);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(238, 30);
 			this->comboBox1->TabIndex = 23;
@@ -226,7 +227,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->textBox4->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->textBox4->Location = System::Drawing::Point(311, 236);
-			this->textBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox4->Margin = System::Windows::Forms::Padding(4);
 			this->textBox4->MaxLength = 10;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(238, 30);
@@ -242,7 +243,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->textBox2->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->textBox2->Location = System::Drawing::Point(308, 162);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox2->Margin = System::Windows::Forms::Padding(4);
 			this->textBox2->MaxLength = 10;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(238, 30);
@@ -258,7 +259,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(38)));
 			this->textBox1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->textBox1->Location = System::Drawing::Point(311, 88);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(238, 30);
 			this->textBox1->TabIndex = 10;
@@ -362,7 +363,7 @@ namespace RAMFoodView {
 			this->dataGridView1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->dataGridView1->Location = System::Drawing::Point(635, 32);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
@@ -437,10 +438,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button3->Location = System::Drawing::Point(1621, 568);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button3->Location = System::Drawing::Point(1196, 553);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(252, 85);
+			this->button3->Size = System::Drawing::Size(237, 62);
 			this->button3->TabIndex = 34;
 			this->button3->Text = L"Regresar";
 			this->button3->UseVisualStyleBackColor = false;
@@ -452,7 +453,7 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1917, 690);
+			this->ClientSize = System::Drawing::Size(1546, 665);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->groupBox1);
@@ -461,7 +462,7 @@ namespace RAMFoodView {
 			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmGerenteReincorporarEmpleado";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Reincorporar personal";
