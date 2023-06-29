@@ -118,17 +118,17 @@ namespace RAMFoodView {
 			this->gbMenu->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->gbMenu->Name = L"gbMenu";
 			this->gbMenu->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->gbMenu->Size = System::Drawing::Size(542, 512);
+			this->gbMenu->Size = System::Drawing::Size(571, 561);
 			this->gbMenu->TabIndex = 10;
 			this->gbMenu->TabStop = false;
 			this->gbMenu->Text = L"Agregar productos al menú del día:";
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(88, 48);
+			this->pictureBox1->Location = System::Drawing::Point(59, 48);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(378, 255);
+			this->pictureBox1->Size = System::Drawing::Size(405, 296);
 			this->pictureBox1->TabIndex = 24;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -143,10 +143,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button9->Location = System::Drawing::Point(51, 374);
+			this->button9->Location = System::Drawing::Point(24, 390);
 			this->button9->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(209, 59);
+			this->button9->Size = System::Drawing::Size(226, 69);
 			this->button9->TabIndex = 4;
 			this->button9->Text = L"Buscar productos";
 			this->button9->UseVisualStyleBackColor = false;
@@ -163,10 +163,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button11->Location = System::Drawing::Point(281, 374);
+			this->button11->Location = System::Drawing::Point(276, 390);
 			this->button11->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(209, 59);
+			this->button11->Size = System::Drawing::Size(217, 69);
 			this->button11->TabIndex = 5;
 			this->button11->Text = L"Eliminar Producto";
 			this->button11->UseVisualStyleBackColor = false;
@@ -241,7 +241,7 @@ namespace RAMFoodView {
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
 			this->Column5->Visible = false;
-			this->Column5->Width = 59;
+			this->Column5->Width = 125;
 			// 
 			// Column6
 			// 
@@ -280,11 +280,11 @@ namespace RAMFoodView {
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
 			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->groupBox1->Location = System::Drawing::Point(649, 21);
+			this->groupBox1->Location = System::Drawing::Point(608, 21);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox1->Size = System::Drawing::Size(620, 722);
+			this->groupBox1->Size = System::Drawing::Size(620, 799);
 			this->groupBox1->TabIndex = 11;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Lista previa de productos agregados:";
@@ -301,7 +301,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button4->Location = System::Drawing::Point(213, 630);
+			this->button4->Location = System::Drawing::Point(213, 668);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(234, 60);
 			this->button4->TabIndex = 23;
@@ -321,7 +321,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(20, 652);
+			this->button1->Location = System::Drawing::Point(20, 729);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(163, 59);
@@ -336,7 +336,7 @@ namespace RAMFoodView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1370, 754);
+			this->ClientSize = System::Drawing::Size(1329, 831);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->gbMenu);
