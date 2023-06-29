@@ -9,8 +9,6 @@ namespace RAMFoodController {
 
 		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
-		void abrirConexion();
-		void cerrarConexion();
 		productoController();
 		List<Producto^>^ listarProductos();
 		void abrirConexion();

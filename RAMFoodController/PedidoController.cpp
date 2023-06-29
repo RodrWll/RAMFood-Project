@@ -72,7 +72,7 @@ List<OrdenMesa^>^ PedidoController::BuscarPedidoGeneralxnumMesa(int numMesa) {
 		int numMesa = safe_cast<int>(objData[1]);
 		int estado = safe_cast<int>(objData[2]);
 		double cuenta = safe_cast<double>(objData[3]);
-		String^ fecha = safe_cast<String^>(objData[4]);
+		String^ fecha = Convert::ToString(Convert::ToDateTime((objData[4])));
 		
 
 		//OrdenMesa(int id, int Mesa,int EstadoOrden, List<ProductoPedido^>^ listaProductosPedidos,String^ Fecha)
@@ -386,12 +386,12 @@ void  PedidoController::agregarNuevoPedidoGeneral(OrdenMesa^ objOrdenMesa) {
 List<Bebida^>^ PedidoController::obtenerInfoBebida() {
 	/*En esta lista vamos a colocar la informaci�n de las carreras que encontremos en el archivo de texto*/
 	List<Bebida^>^ listaBebidasEncontradas = gcnew List<Bebida^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/Bebidas.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/Bebidas.txt");
+	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	/*controoler del producto*/
 	productoController^ objProductosController=gcnew productoController();
-	for each (String ^ lineaBebida in lineas) {
-		array<String^>^ datos = lineaBebida->Split(separadores->ToCharArray());
+	//for each (String ^ lineaBebida in lineas) {
+		//array<String^>^ datos = lineaBebida->Split(separadores->ToCharArray());
 		/*
 		int id = Convert::ToInt32(datos[0]);
 		String^ nombre = datos[1];
@@ -399,35 +399,80 @@ List<Bebida^>^ PedidoController::obtenerInfoBebida() {
 		
 		Bebida^ objBebida = gcnew Bebida(nombre, PrecioBebida, 1, 0, 0, id);
 		*/
-		int id = Convert::ToInt32(datos[0]);
+		//int id = Convert::ToInt32(datos[0]);
+		//Producto^ objProducto = gcnew Producto();
+		//objProducto = objProductosController->buscarProductoxId(id);
+		//Bebida^ objBebida = gcnew Bebida(objProducto->GetNombre(),objProducto->GetPrecio(),0,objProducto->GetId(),0);
+		//listaBebidasEncontradas->Add(objBebida);
+	//}
+
+	conectarBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	
+	objSentencia->Connection = this->objConexion;
+
+	objSentencia->CommandText = "SELECT * FROM BebidasMenu";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+
+	while (objData->Read()) {
 		Producto^ objProducto = gcnew Producto();
-		objProducto = objProductosController->buscarProductoxId(id);
-		Bebida^ objBebida = gcnew Bebida(objProducto->GetNombre(),objProducto->GetPrecio(),0,objProducto->GetId(),0);
+		objProducto = objProductosController->buscarProductoxId(safe_cast<Int32>(objData[0]));
+		
+		Bebida^ objBebida = gcnew Bebida(objProducto->GetNombre(), objProducto->GetPrecio(), 0, objProducto->GetId(), 0);
 		listaBebidasEncontradas->Add(objBebida);
+
 	}
+	
+	cerrarConexionBD();
+
+
+
 	return listaBebidasEncontradas;
 }
 List<Plato^>^ PedidoController::obtenerInfoPlato() {
 	/*En esta lista vamos a colocar la informaci�n de las carreras que encontremos en el archivo de texto*/
 	List<Plato^>^ listaPlatosEncontrados = gcnew List<Plato^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos/productos/Platos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/Platos.txt");
+	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	productoController^ objProductosController = gcnew productoController();
-	for each (String^ lineaPlato in lineas) {
-		array<String^>^ datos = lineaPlato->Split(separadores->ToCharArray());
-		/*
-		int id = Convert::ToInt32(datos[0]);
-		String^ nombre = datos[1];
-		double PrecioPlato = Convert::ToDouble(datos[2]);		
-		Plato^ objPlato = gcnew Plato(nombre, PrecioPlato, 1, 0, id);
-		*/
-		int id = Convert::ToInt32(datos[0]);
-		String^ texrt = datos[0];
+	//for each (String^ lineaPlato in lineas) {
+	//	array<String^>^ datos = lineaPlato->Split(separadores->ToCharArray());
+	//	/*
+	//	int id = Convert::ToInt32(datos[0]);
+	//	String^ nombre = datos[1];
+	//	double PrecioPlato = Convert::ToDouble(datos[2]);		
+	//	Plato^ objPlato = gcnew Plato(nombre, PrecioPlato, 1, 0, id);
+	//	*/
+	//	int id = Convert::ToInt32(datos[0]);
+	//	String^ texrt = datos[0];
+	//	Producto^ objProducto = gcnew Producto();
+	//	objProducto = objProductosController->buscarProductoxId(id);
+	//	Plato^ objPlato = gcnew Plato(objProducto->GetNombre(), objProducto->GetPrecio(), 0, objProducto->GetId(), 0);
+	//	listaPlatosEncontrados->Add(objPlato);
+	//}
+
+	conectarBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+
+	objSentencia->Connection = this->objConexion;
+
+	objSentencia->CommandText = "SELECT * FROM PlatosMenu";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+
+	while (objData->Read()) {
 		Producto^ objProducto = gcnew Producto();
-		objProducto = objProductosController->buscarProductoxId(id);
+		objProducto = objProductosController->buscarProductoxId(safe_cast<Int32>(objData[0]));
+
 		Plato^ objPlato = gcnew Plato(objProducto->GetNombre(), objProducto->GetPrecio(), 0, objProducto->GetId(), 0);
 		listaPlatosEncontrados->Add(objPlato);
+
 	}
+
+	cerrarConexionBD();
+
+
 	return listaPlatosEncontrados;
 }
 
