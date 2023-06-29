@@ -22,4 +22,6 @@
 29;Pisco sour;12.5;2
 30;Leche de tigre;19;2
 31;Papa a la huancaina criollo;18;2
-0;Sudado de mariscos;35;2
+32;Sudado de mariscos;35;2
+33;Maracuyá;5;1
+0;Chicha de jora;5;1
