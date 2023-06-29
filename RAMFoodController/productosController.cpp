@@ -42,7 +42,6 @@ List<Producto^>^ productoController::listarProductos()
 	/*Para Select siempre sera ExecuteReader*/
 	/*Para select siempre va a devolver un SqlDataReader*/
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
-
 	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
 	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
 	//for each (String ^ lineaProducto in lineas) {
@@ -60,7 +59,9 @@ List<Producto^>^ productoController::listarProductos()
 		String^ Nombre = safe_cast<String^>(objData[1]);
 		double Precio = safe_cast<double>(objData[2]);	
 		int Tipo = safe_cast<int>(objData[3]);
-		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
+		int menu = safe_cast<int>(objData[4]);
+		int status = safe_cast<int>(objData[5]);
+		Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo, menu, status);
 		listaProductosBD->Add(objPlatoBebidaMenu);
 	}
 	cerrarConexion();
@@ -90,11 +91,11 @@ void productoController::addProducto(Producto^ objProducto)
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
 	//int id = objProducto->GetId();
-	String^ nombre = " ' " + objProducto->GetNombre() + " ' ";
+	String^ nombre = " '" + objProducto->GetNombre() + "' ";
 	double precio = objProducto->GetPrecio();
 	int tipo = objProducto->GetTipo();
-	String^ valores = nombre + ", " + Convert::ToString(precio) + ", " + Convert::ToString(tipo);
-	objSentencia->CommandText = "INSERT Productos(nombreProducto,precio,tipo ) VALUES("+valores + ")";
+	String^ valores = nombre + ", " + Convert::ToString(precio) + ", " + Convert::ToString(tipo) + ",0, 1";
+	objSentencia->CommandText = "INSERT Productos(nombreProducto,precio,tipo, menu,status ) VALUES("+valores + ")";
 	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
 }
@@ -138,12 +139,16 @@ void productoController::deleteProducto(int id)
 	//	}
 	//}
 	//escribirProductos(listaProductos);
+	
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
-	objSentencia->CommandText = "DELETE FROM Productos WHERE id = " + Convert::ToString(id);
+	objSentencia->CommandText = "UPDATE Productos SET status = 0, menu=0 WHERE id = " + Convert::ToString(id);
+	/*
+	objSentencia->CommandText = "DELETE FROM Productos WHERE id = " + Convert::ToString(id);*/
 	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
+	generarMenu();//se actualizan los archivos del menu
 }
 Producto^ productoController::buscarProductoxId(int id)
 {
@@ -234,7 +239,7 @@ List<Producto^>^ productoController::listarMenu()
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
-	objSentencia->CommandText = "SELECT * FROM ListaPreviaMenu";
+	objSentencia->CommandText = "SELECT * FROM Productos Where menu=1 AND status=1";
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
 	
 	while (objData->Read()) {
@@ -302,7 +307,8 @@ void productoController::addProductToDailyMenu(Producto^ obj)
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
-	objSentencia->CommandText = "INSERT INTO ListaPreviaMenu VALUES (" + obj->GetId() + ")";
+	//objSentencia->CommandText = "INSERT INTO ListaPreviaMenu VALUES (" + obj->GetId() + ")";
+	objSentencia->CommandText = "UPDATE Productos SET menu=1 WHERE id = " + Convert::ToString(obj->GetId());
 	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
 }
@@ -320,7 +326,8 @@ void productoController::removeDailyMenuProduct(int id)
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
-	objSentencia->CommandText = "DELETE FROM ListaPreviaMenu WHERE id = " + id;
+	//objSentencia->CommandText = "DELETE FROM ListaPreviaMenu WHERE id = " + id;
+	objSentencia->CommandText = "UPDATE Productos SET menu=0 WHERE id = " + Convert::ToString(id);
 	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
 }

@@ -8,6 +8,30 @@ using namespace System;
 using namespace System::IO;
 
 empleadoController::empleadoController() {
+	this->objConexion = gcnew SqlConnection();
+}
+
+void empleadoController::abrirConexion()
+{
+	//Verificar si la conexion ya está abierta
+	if (this->objConexion->State == System::Data::ConnectionState::Open)
+	{
+		return;
+	}
+
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
+	this->objConexion->Open();
+}
+
+void empleadoController::cerrarConexion()
+{
+	//verificar si la conexion ya está cerrada
+	if (this->objConexion->State == System::Data::ConnectionState::Closed)
+	{
+		return;
+	}
+	this->objConexion->Close();
+	
 }
 
 //Usuario^ dirección al objeto de tipo Usuario
@@ -85,11 +109,28 @@ void empleadoController::AddUsuario(Usuario^ objUsuario)
 	Gerente^ objGerente;
 	Asistente^ objAsistente;
 	Chef^ objChef;
+	//Usando base de datos, la informacion se guardara en una tabla llamada Usuarios,se guarda el Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha, Nombre, ApellidoPat, ApellidoMat
 	switch (objUsuario->GetRol())
 	{
 	case 1:
 		objGerente = dynamic_cast<Gerente^>(objUsuario);
 		listaUsuarios->Add(objGerente);
+		//abrirConexion();
+		////Se inserta en la tabla Usuarios
+		//SqlCommand^ objSentencia = gcnew SqlCommand();
+		//objSentencia->Connection = this->objConexion;
+		//int Rol = objGerente->GetRol();
+		//int Status = objGerente->GetStatus();
+		//String^ FechaContrato = objGerente->GetFechaContrato();
+		//String^ FechaDesactivacion = objGerente->GetFechaDesactivacion();
+		//String^ Correo = objGerente->GetCorreo();
+		//String^ Contrasenha = objGerente->GetContrasenha();
+		//String^ Nombre = objGerente->GetNombre();
+		//String^ ApellidoPat = objGerente->GetApellidoPat();
+		//String^ ApellidoMat = objGerente->GetApellidoMat();
+		//objSentencia->CommandText = "INSERT INTO Usuarios VALUES(" + Rol + "," + Status + ",'" + FechaContrato + "','" + FechaDesactivacion + "','" + Correo + "','" + Contrasenha + "','" + Nombre + "','" + ApellidoPat + "','" + ApellidoMat + "')";
+		//ver si se puede cambiar a vaarchar la contraseña en la tabla
+
 		break;
 	case 2:
 		objAsistente = dynamic_cast<Asistente^>(objUsuario);
@@ -102,6 +143,11 @@ void empleadoController::AddUsuario(Usuario^ objUsuario)
 	default:
 		break;
 	}
+	
+	
+
+
+
 	escribirArchivo(listaUsuarios);
 }
 
