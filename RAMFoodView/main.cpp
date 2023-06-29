@@ -13,6 +13,7 @@
 #include "frmPrincipal.h"
 #include "frmReporte.h"
 #include "frmPruebaNuevaInterfaz.h"
+#include "frmReporte.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace RAMFoodView;
@@ -21,6 +22,6 @@ void main(array <String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	frmGerente ventana;
+	frmComensal ventana;
 	Application::Run(% ventana); /*Aqui estoy ejecutando la ventana inicial*/
 }

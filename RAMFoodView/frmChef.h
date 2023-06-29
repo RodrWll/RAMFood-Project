@@ -159,9 +159,9 @@ namespace RAMFoodView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -518,18 +518,16 @@ namespace RAMFoodView {
 			this->groupBox1->TabIndex = 15;
 			this->groupBox1->TabStop = false;
 			// 
-			// label7
+			// label4
 			// 
-			this->label7->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(672, 532);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(127, 40);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"CANTIDAD: ";
+			this->label4->Location = System::Drawing::Point(522, 141);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(156, 22);
+			this->label4->TabIndex = 17;
+			this->label4->Text = L"Lista de bebidas";
 			// 
 			// label3
 			// 
@@ -542,16 +540,18 @@ namespace RAMFoodView {
 			this->label3->TabIndex = 16;
 			this->label3->Text = L"Lista de platos";
 			// 
-			// label4
+			// label7
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(522, 141);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(156, 22);
-			this->label4->TabIndex = 17;
-			this->label4->Text = L"Lista de bebidas";
+			this->label7->Location = System::Drawing::Point(672, 532);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(127, 40);
+			this->label7->TabIndex = 15;
+			this->label7->Text = L"CANTIDAD: ";
 			// 
 			// frmChef
 			// 

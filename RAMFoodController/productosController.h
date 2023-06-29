@@ -5,7 +5,8 @@ namespace RAMFoodController {
 	using namespace System::Data::SqlClient;
 	public ref class productoController
 	{
-	private:
+	private: 
+
 		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
 		productoController();

@@ -115,19 +115,55 @@ private: System::Windows::Forms::DataGridView^ dataGridViewBebidas;
 
 
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ columnaNombre;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPrecioUnidad;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ Columnamenos;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaCantidad;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ ColumnaMas;
-	private: System::Windows::Forms::DataGridViewImageColumn^ ColumnaImagen;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ menos;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
-	private: System::Windows::Forms::DataGridViewButtonColumn^ mas;
-	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewImageColumn1;
+
+
+
+
+
+
+
+
+
+
+
+
 private: System::Windows::Forms::Button^ botonMesa;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ columnaNombre;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPrecioUnidad;
+private: System::Windows::Forms::DataGridViewButtonColumn^ Columnamenos;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaCantidad;
+private: System::Windows::Forms::DataGridViewButtonColumn^ ColumnaMas;
+private: System::Windows::Forms::DataGridViewImageColumn^ ColumnaImagen;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
+private: System::Windows::Forms::DataGridViewButtonColumn^ menos;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
+private: System::Windows::Forms::DataGridViewButtonColumn^ mas;
+private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewImageColumn1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public:
 
 public:
@@ -147,37 +183,25 @@ public:
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle17 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle18 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle16 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensal::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle23 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle24 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle19 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle20 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle21 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle22 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridViewPlatos = (gcnew System::Windows::Forms::DataGridView());
-			this->columnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaPrecioUnidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Columnamenos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->ColumnaCantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaMas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->ColumnaImagen = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridViewBebidas = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->BotonSiguiente = (gcnew System::Windows::Forms::Button());
 			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
@@ -187,6 +211,18 @@ public:
 			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
 			this->botonMesa = (gcnew System::Windows::Forms::Button());
 			this->buttonVerPedidoTotal = (gcnew System::Windows::Forms::Button());
+			this->columnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaPrecioUnidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Columnamenos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->ColumnaCantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaMas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->ColumnaImagen = (gcnew System::Windows::Forms::DataGridViewImageColumn());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewPlatos))->BeginInit();
 			this->groupBox9->SuspendLayout();
@@ -202,10 +238,10 @@ public:
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(66, 15);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Location = System::Drawing::Point(88, 18);
+			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 28);
+			this->button1->Size = System::Drawing::Size(116, 34);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Comidas";
 			this->button1->UseVisualStyleBackColor = false;
@@ -219,10 +255,10 @@ public:
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button2->Location = System::Drawing::Point(168, 15);
-			this->button2->Margin = System::Windows::Forms::Padding(2);
+			this->button2->Location = System::Drawing::Point(224, 18);
+			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(101, 28);
+			this->button2->Size = System::Drawing::Size(135, 34);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Bebida";
 			this->button2->UseVisualStyleBackColor = false;
@@ -234,11 +270,11 @@ public:
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->groupBox1->Controls->Add(this->dataGridViewPlatos);
 			this->groupBox1->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->groupBox1->Location = System::Drawing::Point(62, 49);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
+			this->groupBox1->Location = System::Drawing::Point(83, 60);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox1->Size = System::Drawing::Size(735, 496);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox1->Size = System::Drawing::Size(980, 610);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"C";
@@ -248,90 +284,39 @@ public:
 			// 
 			this->dataGridViewPlatos->AllowUserToAddRows = false;
 			this->dataGridViewPlatos->AllowUserToDeleteRows = false;
+			this->dataGridViewPlatos->AllowUserToResizeColumns = false;
+			this->dataGridViewPlatos->AllowUserToResizeRows = false;
 			this->dataGridViewPlatos->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
 			this->dataGridViewPlatos->CausesValidation = false;
 			this->dataGridViewPlatos->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridViewPlatos->ColumnHeadersVisible = false;
 			this->dataGridViewPlatos->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->columnaNombre,
 					this->ColumnaPrecioUnidad, this->Columnamenos, this->ColumnaCantidad, this->ColumnaMas, this->ColumnaImagen
 			});
-			this->dataGridViewPlatos->Location = System::Drawing::Point(106, 53);
+			this->dataGridViewPlatos->Location = System::Drawing::Point(32, 24);
+			this->dataGridViewPlatos->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridViewPlatos->MultiSelect = false;
 			this->dataGridViewPlatos->Name = L"dataGridViewPlatos";
-			dataGridViewCellStyle17->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle17->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle17->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->dataGridViewPlatos->ReadOnly = true;
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle17->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle17->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
-			dataGridViewCellStyle17->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle17->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle17->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewPlatos->RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewPlatos->RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridViewPlatos->RowHeadersVisible = false;
-			dataGridViewCellStyle18->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+			this->dataGridViewPlatos->RowHeadersWidth = 51;
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->dataGridViewPlatos->RowsDefaultCellStyle = dataGridViewCellStyle18;
-			this->dataGridViewPlatos->Size = System::Drawing::Size(497, 360);
+			this->dataGridViewPlatos->RowsDefaultCellStyle = dataGridViewCellStyle6;
+			this->dataGridViewPlatos->Size = System::Drawing::Size(917, 549);
 			this->dataGridViewPlatos->TabIndex = 1;
 			this->dataGridViewPlatos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensal::dataGridViewPlatos_CellContentClick);
-			// 
-			// columnaNombre
-			// 
-			dataGridViewCellStyle13->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->columnaNombre->DefaultCellStyle = dataGridViewCellStyle13;
-			this->columnaNombre->Frozen = true;
-			this->columnaNombre->HeaderText = L"nombre";
-			this->columnaNombre->Name = L"columnaNombre";
-			this->columnaNombre->Width = 150;
-			// 
-			// ColumnaPrecioUnidad
-			// 
-			this->ColumnaPrecioUnidad->HeaderText = L"PrecioUnidad";
-			this->ColumnaPrecioUnidad->Name = L"ColumnaPrecioUnidad";
-			this->ColumnaPrecioUnidad->ReadOnly = true;
-			// 
-			// Columnamenos
-			// 
-			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle14->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->Columnamenos->DefaultCellStyle = dataGridViewCellStyle14;
-			this->Columnamenos->FillWeight = 20;
-			this->Columnamenos->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Columnamenos->HeaderText = L"menos";
-			this->Columnamenos->Name = L"Columnamenos";
-			this->Columnamenos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->Columnamenos->Text = L"-";
-			this->Columnamenos->Width = 20;
-			// 
-			// ColumnaCantidad
-			// 
-			dataGridViewCellStyle15->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->ColumnaCantidad->DefaultCellStyle = dataGridViewCellStyle15;
-			this->ColumnaCantidad->HeaderText = L"cantidad";
-			this->ColumnaCantidad->Name = L"ColumnaCantidad";
-			this->ColumnaCantidad->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			// 
-			// ColumnaMas
-			// 
-			dataGridViewCellStyle16->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle16->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->ColumnaMas->DefaultCellStyle = dataGridViewCellStyle16;
-			this->ColumnaMas->FillWeight = 20;
-			this->ColumnaMas->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->ColumnaMas->HeaderText = L"mas";
-			this->ColumnaMas->Name = L"ColumnaMas";
-			this->ColumnaMas->Text = L"+";
-			this->ColumnaMas->Width = 20;
-			// 
-			// ColumnaImagen
-			// 
-			this->ColumnaImagen->HeaderText = L"imagen";
-			this->ColumnaImagen->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ColumnaImagen.Image")));
-			this->ColumnaImagen->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
-			this->ColumnaImagen->Name = L"ColumnaImagen";
 			// 
 			// groupBox9
 			// 
@@ -339,11 +324,11 @@ public:
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
 			this->groupBox9->Controls->Add(this->dataGridViewBebidas);
 			this->groupBox9->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->groupBox9->Location = System::Drawing::Point(66, 50);
-			this->groupBox9->Margin = System::Windows::Forms::Padding(2);
+			this->groupBox9->Location = System::Drawing::Point(88, 62);
+			this->groupBox9->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox9->Name = L"groupBox9";
-			this->groupBox9->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox9->Size = System::Drawing::Size(731, 493);
+			this->groupBox9->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox9->Size = System::Drawing::Size(975, 607);
 			this->groupBox9->TabIndex = 35;
 			this->groupBox9->TabStop = false;
 			this->groupBox9->Text = L"B";
@@ -353,90 +338,39 @@ public:
 			// 
 			this->dataGridViewBebidas->AllowUserToAddRows = false;
 			this->dataGridViewBebidas->AllowUserToDeleteRows = false;
+			this->dataGridViewBebidas->AllowUserToResizeColumns = false;
+			this->dataGridViewBebidas->AllowUserToResizeRows = false;
 			this->dataGridViewBebidas->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
 			this->dataGridViewBebidas->CausesValidation = false;
 			this->dataGridViewBebidas->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridViewBebidas->ColumnHeadersVisible = false;
 			this->dataGridViewBebidas->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn3, this->menos, this->dataGridViewTextBoxColumn2, this->mas, this->dataGridViewImageColumn1
 			});
-			this->dataGridViewBebidas->Location = System::Drawing::Point(102, 39);
+			this->dataGridViewBebidas->Location = System::Drawing::Point(25, 22);
+			this->dataGridViewBebidas->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridViewBebidas->MultiSelect = false;
 			this->dataGridViewBebidas->Name = L"dataGridViewBebidas";
-			dataGridViewCellStyle23->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle23->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle23->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->dataGridViewBebidas->ReadOnly = true;
+			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle11->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle23->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle23->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
-			dataGridViewCellStyle23->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle23->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle23->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewBebidas->RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+			dataGridViewCellStyle11->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle11->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
+			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewBebidas->RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this->dataGridViewBebidas->RowHeadersVisible = false;
-			dataGridViewCellStyle24->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+			this->dataGridViewBebidas->RowHeadersWidth = 51;
+			dataGridViewCellStyle12->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->dataGridViewBebidas->RowsDefaultCellStyle = dataGridViewCellStyle24;
-			this->dataGridViewBebidas->Size = System::Drawing::Size(497, 360);
+			this->dataGridViewBebidas->RowsDefaultCellStyle = dataGridViewCellStyle12;
+			this->dataGridViewBebidas->Size = System::Drawing::Size(910, 540);
 			this->dataGridViewBebidas->TabIndex = 3;
 			this->dataGridViewBebidas->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensal::dataGridViewBebidas_CellContentClick);
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			dataGridViewCellStyle19->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->dataGridViewTextBoxColumn1->DefaultCellStyle = dataGridViewCellStyle19;
-			this->dataGridViewTextBoxColumn1->Frozen = true;
-			this->dataGridViewTextBoxColumn1->HeaderText = L"nombre";
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			this->dataGridViewTextBoxColumn1->Width = 150;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"PrecioUnidad";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			// 
-			// menos
-			// 
-			dataGridViewCellStyle20->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle20->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->menos->DefaultCellStyle = dataGridViewCellStyle20;
-			this->menos->FillWeight = 20;
-			this->menos->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->menos->HeaderText = L"menos";
-			this->menos->Name = L"menos";
-			this->menos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->menos->Text = L"-";
-			this->menos->Width = 20;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			dataGridViewCellStyle21->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->dataGridViewTextBoxColumn2->DefaultCellStyle = dataGridViewCellStyle21;
-			this->dataGridViewTextBoxColumn2->HeaderText = L"cantidad";
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			this->dataGridViewTextBoxColumn2->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			// 
-			// mas
-			// 
-			dataGridViewCellStyle22->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle22->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->mas->DefaultCellStyle = dataGridViewCellStyle22;
-			this->mas->FillWeight = 20;
-			this->mas->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->mas->HeaderText = L"mas";
-			this->mas->Name = L"mas";
-			this->mas->Text = L"+";
-			this->mas->Width = 20;
-			// 
-			// dataGridViewImageColumn1
-			// 
-			this->dataGridViewImageColumn1->HeaderText = L"imagen";
-			this->dataGridViewImageColumn1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"dataGridViewImageColumn1.Image")));
-			this->dataGridViewImageColumn1->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
-			this->dataGridViewImageColumn1->Name = L"dataGridViewImageColumn1";
 			// 
 			// BotonSiguiente
 			// 
@@ -444,10 +378,10 @@ public:
 			this->BotonSiguiente->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->BotonSiguiente->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->BotonSiguiente->Location = System::Drawing::Point(616, 16);
-			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(2);
+			this->BotonSiguiente->Location = System::Drawing::Point(821, 20);
+			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->BotonSiguiente->Name = L"BotonSiguiente";
-			this->BotonSiguiente->Size = System::Drawing::Size(185, 29);
+			this->BotonSiguiente->Size = System::Drawing::Size(247, 36);
 			this->BotonSiguiente->TabIndex = 16;
 			this->BotonSiguiente->Text = L"Resumen del pedido";
 			this->BotonSiguiente->UseVisualStyleBackColor = false;
@@ -457,10 +391,10 @@ public:
 			// 
 			this->button17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button17->Location = System::Drawing::Point(53, 561);
-			this->button17->Margin = System::Windows::Forms::Padding(2);
+			this->button17->Location = System::Drawing::Point(71, 690);
+			this->button17->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button17->Name = L"button17";
-			this->button17->Size = System::Drawing::Size(135, 37);
+			this->button17->Size = System::Drawing::Size(180, 46);
 			this->button17->TabIndex = 17;
 			this->button17->Text = L"Atras";
 			this->button17->UseVisualStyleBackColor = true;
@@ -470,11 +404,11 @@ public:
 			this->groupBox8->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->groupBox8->Controls->Add(this->label20);
 			this->groupBox8->Controls->Add(this->label19);
-			this->groupBox8->Location = System::Drawing::Point(282, 551);
-			this->groupBox8->Margin = System::Windows::Forms::Padding(2);
+			this->groupBox8->Location = System::Drawing::Point(376, 678);
+			this->groupBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox8->Name = L"groupBox8";
-			this->groupBox8->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox8->Size = System::Drawing::Size(266, 49);
+			this->groupBox8->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox8->Size = System::Drawing::Size(355, 60);
 			this->groupBox8->TabIndex = 18;
 			this->groupBox8->TabStop = false;
 			// 
@@ -483,10 +417,9 @@ public:
 			this->label20->AutoSize = true;
 			this->label20->Font = (gcnew System::Drawing::Font(L"Times New Roman", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label20->Location = System::Drawing::Point(129, 10);
-			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label20->Location = System::Drawing::Point(172, 12);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(51, 31);
+			this->label20->Size = System::Drawing::Size(61, 37);
 			this->label20->TabIndex = 31;
 			this->label20->Text = L"S/0";
 			this->label20->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -497,10 +430,9 @@ public:
 			this->label19->AutoSize = true;
 			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label19->Location = System::Drawing::Point(21, 18);
-			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label19->Location = System::Drawing::Point(28, 22);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(114, 20);
+			this->label19->Size = System::Drawing::Size(140, 25);
 			this->label19->TabIndex = 0;
 			this->label19->Text = L"Monto Total :";
 			this->label19->Click += gcnew System::EventHandler(this, &frmComensal::label19_Click);
@@ -512,10 +444,10 @@ public:
 			this->button15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button15->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->button15->Location = System::Drawing::Point(637, 561);
-			this->button15->Margin = System::Windows::Forms::Padding(2);
+			this->button15->Location = System::Drawing::Point(849, 690);
+			this->button15->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(151, 30);
+			this->button15->Size = System::Drawing::Size(201, 37);
 			this->button15->TabIndex = 19;
 			this->button15->Text = L"Llamar a un mozo";
 			this->button15->UseVisualStyleBackColor = false;
@@ -536,11 +468,11 @@ public:
 			this->groupBox16->Controls->Add(this->button1);
 			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(5, 11);
-			this->groupBox16->Margin = System::Windows::Forms::Padding(2);
+			this->groupBox16->Location = System::Drawing::Point(7, 14);
+			this->groupBox16->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox16->Name = L"groupBox16";
-			this->groupBox16->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox16->Size = System::Drawing::Size(864, 600);
+			this->groupBox16->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox16->Size = System::Drawing::Size(1152, 738);
 			this->groupBox16->TabIndex = 37;
 			this->groupBox16->TabStop = false;
 			this->groupBox16->Text = L"MENÚ DEL DÍA";
@@ -551,9 +483,10 @@ public:
 			this->botonMesa->BackColor = System::Drawing::Color::White;
 			this->botonMesa->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->botonMesa->Location = System::Drawing::Point(307, 14);
+			this->botonMesa->Location = System::Drawing::Point(409, 17);
+			this->botonMesa->Margin = System::Windows::Forms::Padding(4);
 			this->botonMesa->Name = L"botonMesa";
-			this->botonMesa->Size = System::Drawing::Size(82, 30);
+			this->botonMesa->Size = System::Drawing::Size(109, 37);
 			this->botonMesa->TabIndex = 37;
 			this->botonMesa->Text = L"Mesa 1";
 			this->botonMesa->UseVisualStyleBackColor = false;
@@ -564,23 +497,156 @@ public:
 			this->buttonVerPedidoTotal->BackColor = System::Drawing::Color::Snow;
 			this->buttonVerPedidoTotal->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->buttonVerPedidoTotal->Location = System::Drawing::Point(442, 15);
+			this->buttonVerPedidoTotal->Location = System::Drawing::Point(589, 18);
+			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(4);
 			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
-			this->buttonVerPedidoTotal->Size = System::Drawing::Size(169, 30);
+			this->buttonVerPedidoTotal->Size = System::Drawing::Size(225, 37);
 			this->buttonVerPedidoTotal->TabIndex = 36;
 			this->buttonVerPedidoTotal->Text = L"Ver Pedido Total";
 			this->buttonVerPedidoTotal->UseVisualStyleBackColor = false;
 			this->buttonVerPedidoTotal->Click += gcnew System::EventHandler(this, &frmComensal::buttonVerPedidoTotal_Click_1);
 			// 
+			// columnaNombre
+			// 
+			dataGridViewCellStyle1->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->columnaNombre->DefaultCellStyle = dataGridViewCellStyle1;
+			this->columnaNombre->Frozen = true;
+			this->columnaNombre->HeaderText = L"nombre";
+			this->columnaNombre->MinimumWidth = 6;
+			this->columnaNombre->Name = L"columnaNombre";
+			this->columnaNombre->ReadOnly = true;
+			this->columnaNombre->Width = 250;
+			// 
+			// ColumnaPrecioUnidad
+			// 
+			this->ColumnaPrecioUnidad->HeaderText = L"PrecioUnidad";
+			this->ColumnaPrecioUnidad->MinimumWidth = 6;
+			this->ColumnaPrecioUnidad->Name = L"ColumnaPrecioUnidad";
+			this->ColumnaPrecioUnidad->ReadOnly = true;
+			// 
+			// Columnamenos
+			// 
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle2->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->Columnamenos->DefaultCellStyle = dataGridViewCellStyle2;
+			this->Columnamenos->FillWeight = 20;
+			this->Columnamenos->HeaderText = L"menos";
+			this->Columnamenos->MinimumWidth = 6;
+			this->Columnamenos->Name = L"Columnamenos";
+			this->Columnamenos->ReadOnly = true;
+			this->Columnamenos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->Columnamenos->Text = L"-";
+			this->Columnamenos->Width = 20;
+			// 
+			// ColumnaCantidad
+			// 
+			dataGridViewCellStyle3->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->ColumnaCantidad->DefaultCellStyle = dataGridViewCellStyle3;
+			this->ColumnaCantidad->HeaderText = L"cantidad";
+			this->ColumnaCantidad->MinimumWidth = 6;
+			this->ColumnaCantidad->Name = L"ColumnaCantidad";
+			this->ColumnaCantidad->ReadOnly = true;
+			this->ColumnaCantidad->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->ColumnaCantidad->Width = 150;
+			// 
+			// ColumnaMas
+			// 
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle4->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->ColumnaMas->DefaultCellStyle = dataGridViewCellStyle4;
+			this->ColumnaMas->FillWeight = 20;
+			this->ColumnaMas->HeaderText = L"mas";
+			this->ColumnaMas->MinimumWidth = 6;
+			this->ColumnaMas->Name = L"ColumnaMas";
+			this->ColumnaMas->ReadOnly = true;
+			this->ColumnaMas->Text = L"+";
+			this->ColumnaMas->Width = 20;
+			// 
+			// ColumnaImagen
+			// 
+			this->ColumnaImagen->HeaderText = L"imagen";
+			this->ColumnaImagen->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ColumnaImagen.Image")));
+			this->ColumnaImagen->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
+			this->ColumnaImagen->MinimumWidth = 6;
+			this->ColumnaImagen->Name = L"ColumnaImagen";
+			this->ColumnaImagen->ReadOnly = true;
+			this->ColumnaImagen->Width = 125;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			dataGridViewCellStyle7->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->dataGridViewTextBoxColumn1->DefaultCellStyle = dataGridViewCellStyle7;
+			this->dataGridViewTextBoxColumn1->Frozen = true;
+			this->dataGridViewTextBoxColumn1->HeaderText = L"nombre";
+			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			this->dataGridViewTextBoxColumn1->ReadOnly = true;
+			this->dataGridViewTextBoxColumn1->Width = 250;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"PrecioUnidad";
+			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			// 
+			// menos
+			// 
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle8->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->menos->DefaultCellStyle = dataGridViewCellStyle8;
+			this->menos->FillWeight = 20;
+			this->menos->HeaderText = L"menos";
+			this->menos->MinimumWidth = 6;
+			this->menos->Name = L"menos";
+			this->menos->ReadOnly = true;
+			this->menos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->menos->Text = L"-";
+			this->menos->Width = 20;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			dataGridViewCellStyle9->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->dataGridViewTextBoxColumn2->DefaultCellStyle = dataGridViewCellStyle9;
+			this->dataGridViewTextBoxColumn2->HeaderText = L"cantidad";
+			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			this->dataGridViewTextBoxColumn2->ReadOnly = true;
+			this->dataGridViewTextBoxColumn2->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewTextBoxColumn2->Width = 150;
+			// 
+			// mas
+			// 
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle10->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->mas->DefaultCellStyle = dataGridViewCellStyle10;
+			this->mas->FillWeight = 20;
+			this->mas->HeaderText = L"mas";
+			this->mas->MinimumWidth = 6;
+			this->mas->Name = L"mas";
+			this->mas->ReadOnly = true;
+			this->mas->Text = L"+";
+			this->mas->Width = 20;
+			// 
+			// dataGridViewImageColumn1
+			// 
+			this->dataGridViewImageColumn1->HeaderText = L"imagen";
+			this->dataGridViewImageColumn1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"dataGridViewImageColumn1.Image")));
+			this->dataGridViewImageColumn1->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
+			this->dataGridViewImageColumn1->MinimumWidth = 6;
+			this->dataGridViewImageColumn1->Name = L"dataGridViewImageColumn1";
+			this->dataGridViewImageColumn1->ReadOnly = true;
+			this->dataGridViewImageColumn1->Width = 125;
+			// 
 			// frmComensal
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(880, 609);
+			this->ClientSize = System::Drawing::Size(1173, 750);
 			this->Controls->Add(this->groupBox16);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensal";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"frmComensal";

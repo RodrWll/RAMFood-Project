@@ -1,4 +1,4 @@
-Lomo Saltado;1;30
-Arroz con pollo;1;40
+Ceviche ;1;27.87
+Papa a la Huancaina ;1;20
 Bebida
-Inka Cola;3;8.1
+Inka Cola ;1;2.7

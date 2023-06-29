@@ -5,8 +5,11 @@
 using namespace System::Collections::Generic;
 using namespace RAMFoodModel;
 using namespace System;
+using namespace System::Data::SqlClient;
 namespace RAMFoodController {
-	public ref class OrdenController {
+	public ref class OrdenController {	
+	private:
+		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
 		OrdenController();		
 		/*
@@ -22,6 +25,10 @@ namespace RAMFoodController {
 		//Método que nos ayuda cambiar el estado del producto Pedido
 		
 		*/
+		//metodos para abrir coneccion con el servidor de datos
+		void abrirConexion();
+		void cerrarConexion();
+
 		void actualizarEstado(int idPedido, int idProductoPedido, int estado);
 		List<ProductoPedido^>^ ReadOrderDetailsFromFile(String^ filePath, int orderId);
 		List<OrdenMesa^>^ ReadOrdersFromFile(String^ filePath);
