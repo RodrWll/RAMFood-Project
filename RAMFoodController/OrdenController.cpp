@@ -34,15 +34,9 @@ void OrdenController::cerrarConexion() {
 List<ProductoPedido^>^ OrdenController::ReadOrderDetailsFromFile(String^ filePath, int orderId) {
     abrirConexion();
     List<ProductoPedido^>^ orderDetails = gcnew List<ProductoPedido^>();
-    /*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
     SqlCommand^ objSentencia = gcnew SqlCommand();
-    /*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
     objSentencia->Connection = this->objConexion;
-    /*Aqui voy a indicar la sentencia que voy a ejecutar*/
     objSentencia->CommandText = "select * from DetallePedido where idPedido=" + orderId;
-    /*Aqui ejecuto la sentencia en la Base de Datos*/
-    /*Para Select siempre sera ExecuteReader*/
-    /*Para select siempre va a devolver un SqlDataReader*/
     SqlDataReader^ objData = objSentencia->ExecuteReader();
 
     List<int>^ listaIds = gcnew List<int>();
@@ -130,8 +124,7 @@ List<OrdenMesa^>^ OrdenController::ReadAllOrdersFromFile(String^ filePath) {
             String^ fecha = safe_cast<String^>(objData[3]);           
             List<ProductoPedido^>^ orderDetails = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", orderId);
             OrdenMesa^ order = gcnew OrdenMesa(orderId, mesa, estado, orderDetails, fecha);
-            orders->Add(order);
-            
+            orders->Add(order);            
 
         }
     }
@@ -362,4 +355,63 @@ Producto^ OrdenController:: buscarObjProducto(int idPedido, int idProductoPedido
         }
     }
     return objProducto;
+}
+
+OrdenMesa^ OrdenController::ReadOrderDetailsxNroMesa(int mesa) {
+    OrdenMesa^ order = gcnew OrdenMesa();
+    abrirConexion();
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    objSentencia->Connection = this->objConexion;
+    objSentencia->CommandText = "select * from PedidoGeneralMesa where estado=1 and numeroMesa="+mesa;
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
+    try {
+        while (objData->Read()) {
+            int orderId = safe_cast<int>(objData[0]);
+            int mesa = safe_cast<int>(objData[1]);
+            int estado = safe_cast<int>(objData[2]);
+            DateTime fechaFormateDate = safe_cast<DateTime>(objData[4]);
+            String^ fechaString = fechaFormateDate.ToString("dd/MM/yyyy");
+            List<ProductoPedido^>^ orderDetails = nullptr;
+            OrdenMesa^ order2 = gcnew OrdenMesa(orderId, mesa, estado, orderDetails, fechaString);
+            order = order2;
+        }
+        cerrarConexion();
+        for (int i = 0; i < 1; i++) {
+            int orderId = order->GetId();
+            List<ProductoPedido^>^ orderDetails = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", orderId);
+            order->SetListaProductosPedidos(orderDetails);
+        }
+    }
+    catch (Exception^ ex) {
+        Console::WriteLine("Error: " + ex->Message);
+    }
+    return order;
+}
+
+String^ OrdenController::ReadEstadoDelProductoPedido(int estado) {
+    String^ estadoString;
+    if (estado == 0) {
+        estadoString = "En espera";
+    }
+    else if (estado == 1) {
+        estadoString = "En preparación";
+    }
+    else if (estado == 2) {
+        estadoString = "Listo para entregar";
+    }
+    else if (estado == 3) {
+        estadoString = "Entregado";
+    }
+    return estadoString;
+}
+
+String^ OrdenController::ReadTipoDeProductoPedido(int tipo) {
+    String^ estadoString;
+    if (tipo == 1) {
+        estadoString = "Bebida";
+    }    
+    else if (tipo == 2) {
+        estadoString = "Plato";
+    }
+    return estadoString;
 }

@@ -41,13 +41,12 @@ namespace RAMFoodController {
 		List<String^>^ OrdenController::buscarListaIdsPlatos(String^ filePath);
 		List<String^>^ OrdenController::buscarListaIdsBebidas(String^ filePath);
 		List<String^>^ OrdenController::ReadOrderIds(String^ filePath, int orderId);
-
 		Producto^ buscarObjProducto(int idPedido,int idProductoPedido);
 		ProductoPedido^ OrdenController::buscarProductoPedidoxId(int idPedido, int idProductoPedido);
 
-
-
-
+		OrdenMesa^ ReadOrderDetailsxNroMesa(int mesa);
+		String^ ReadEstadoDelProductoPedido(int estado);
+		String^ ReadTipoDeProductoPedido(int tipo);
 
 	};
 }

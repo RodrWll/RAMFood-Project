@@ -82,7 +82,7 @@ namespace RAMFoodView {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(70, 26);
+			this->groupBox1->Location = System::Drawing::Point(97, 26);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(274, 23);
 			this->groupBox1->TabIndex = 2;
@@ -128,7 +128,7 @@ namespace RAMFoodView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(163, 82);
+			this->label1->Location = System::Drawing::Point(163, 72);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(85, 29);
 			this->label1->TabIndex = 5;
