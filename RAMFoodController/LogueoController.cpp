@@ -8,6 +8,28 @@ using namespace System;
 using namespace System::IO;
 
 LogueoController::LogueoController() {
+    this->objConexion = gcnew SqlConnection();
+}
+
+void LogueoController::abrirConexion()
+{
+    //Verificar si la conexion ya está abierta
+    if (this->objConexion->State == System::Data::ConnectionState::Open)
+    {
+        return;
+    }
+
+    this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20202021;User Id=a20202021;Password=WbMpwW8j";
+    this->objConexion->Open();
+}
+void LogueoController::cerrarConexion()
+{
+    //verificar si la conexion ya está cerrada
+    if (this->objConexion->State == System::Data::ConnectionState::Closed)
+    {
+        return;
+    }
+    this->objConexion->Close();
 
 }
 

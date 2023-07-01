@@ -12,7 +12,7 @@ namespace RAMFoodController {
 		void cerrarConexion();
 
 		void escribirArchivo(List<Usuario^>^ ListaUsuarios);
-		List<Usuario^>^ leerArchivo();
+		List<Usuario^>^ ListarUsuarios();
 		void AddUsuario(Usuario^ objUsuario);
 		void deleteUsuario(int Id);
 		void UpdateUsuario(Usuario^ UsuarioModificar);

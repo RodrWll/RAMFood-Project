@@ -268,7 +268,7 @@ namespace RAMFoodView {
 			this->bttnEstablecerMenu->Name = L"bttnEstablecerMenu";
 			this->bttnEstablecerMenu->Size = System::Drawing::Size(252, 70);
 			this->bttnEstablecerMenu->TabIndex = 6;
-			this->bttnEstablecerMenu->Text = L"Establecer Menu";
+			this->bttnEstablecerMenu->Text = L"Establecer Menú";
 			this->bttnEstablecerMenu->UseVisualStyleBackColor = false;
 			this->bttnEstablecerMenu->Click += gcnew System::EventHandler(this, &frmGerente::bttnEstablecerMenu_Click);
 			// 
@@ -308,7 +308,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox1->Location = System::Drawing::Point(52, 96);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(987, 582);
+			this->groupBox1->Size = System::Drawing::Size(1169, 665);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Gerente";
@@ -352,7 +352,7 @@ namespace RAMFoodView {
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1090, 689);
+			this->ClientSize = System::Drawing::Size(1314, 842);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
