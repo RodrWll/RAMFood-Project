@@ -39,28 +39,42 @@ void empleadoController::cerrarConexion()
 //List<Usuario^>^ esto es un puntero a un objeto de tipo Lista que tiene direcciones de objetos de tipo Usuario.
 
 
-List<Usuario^>^ empleadoController::leerArchivo()
+List<Usuario^>^ empleadoController::ListarUsuarios()
 {
 	//Se lee el archivo y se almacena en un arreglo de String
 	List< Usuario^ >^ listaUsuariosLeer = gcnew List<Usuario^>();
-	array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
-	String^ separadores = ";";
-	List<array<String^>^>^ listaDatos = gcnew List<array<String^>^>();
-	
-
-	for each (String ^ lineasUsuarios in lineas)
+	//ahora con base de datos
+	List< Usuario^ >^ listaUsuarios = gcnew List<Usuario^>();
+	this->abrirConexion();
+	SqlCommand^ objComando = gcnew SqlCommand();
+	objComando->Connection = this->objConexion;
+	objComando->CommandText = "SELECT * FROM Usuarios";
+	SqlDataReader^ objData = objComando->ExecuteReader();
+	while (objData->Read())
 	{
-		array<String^>^ datos = lineasUsuarios->Split(separadores->ToCharArray());
-		int Id = Convert::ToInt32(datos[0]);
-		int Rol = Convert::ToInt32(datos[1]);
-		int Status = Convert::ToInt32(datos[2]);
-		String^ FechaContrato = datos[3];
-		String^ FechaDesactivacion = datos[4];
-		String^ Correo = datos[5];
-		String^ Contrasenha = datos[6];
-		String^ Nombre = datos[7];
-		String^ ApellidoPat = datos[8];
-		String^ ApellidoMat = datos[9];
+	int Id = safe_cast<int>(objData[0]);
+		int Rol = safe_cast<int>(objData[1]);
+		int Status = safe_cast<int>(objData[2]);
+		//Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")
+		//Obtenemos la fecha de contrato en formato string "dd/MM/yyyy"
+		//El formato en que est'a en base de datos es yyyy-MM-dd
+		String^ FechaContrato = Convert::ToString(Convert::ToDateTime(objData[3]));
+		//Si aun no se ha despedido al usuario, la fecha de desactivacion es nula
+		String^ FechaDesactivacion;
+		if (objData[4] == System::DBNull::Value)
+		{
+			FechaDesactivacion = nullptr;
+		}
+		else
+		{
+			String^ FechaDesactivacion = Convert::ToString(Convert::ToDateTime(objData[4]));
+
+		}
+		String^ Correo = safe_cast<String^>(objData[5]);
+		String^ Contrasenha = safe_cast<String^>(objData[6]);
+		String^ Nombre = safe_cast<String^>(objData[7]);
+		String^ ApellidoPat = safe_cast<String^>(objData[8]);
+		String^ ApellidoMat = safe_cast<String^>(objData[9]);
 		Usuario^ objUsuario = gcnew Usuario(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha);
 		switch (Rol)
 		{
@@ -77,9 +91,10 @@ List<Usuario^>^ empleadoController::leerArchivo()
 			objUsuario = gcnew Usuario(Id, Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha);
 			break;
 		}
-		listaUsuariosLeer->Add(objUsuario);
+		listaUsuarios->Add(objUsuario);
 	}
-	return listaUsuariosLeer;
+	this->cerrarConexion();
+	return listaUsuarios;
 }
 
 void empleadoController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
@@ -104,72 +119,93 @@ void empleadoController::escribirArchivo(List<Usuario^>^ ListaUsuarios)
 
 void empleadoController::AddUsuario(Usuario^ objUsuario)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	//List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	
 	Gerente^ objGerente;
 	Asistente^ objAsistente;
 	Chef^ objChef;
 	//Usando base de datos, la informacion se guardara en una tabla llamada Usuarios,se guarda el Rol, Status, FechaContrato, FechaDesactivacion, Correo, Contrasenha, Nombre, ApellidoPat, ApellidoMat
+	/*int Rol = 0;
+	int Status = 0;
+	String^ FechaContrato = nullptr;
+	String^ FechaDesactivacion = nullptr;
+	String^ Correo = nullptr;
+	String^ Contrasenha = nullptr;
+	String^ Nombre = nullptr;
+	String^ ApellidoPat = nullptr;
+	String^ ApellidoMat = nullptr;*/
+	abrirConexion();
+	//Se inserta en la tabla Usuarios
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+
+
 	switch (objUsuario->GetRol())
 	{
 	case 1:
 		objGerente = dynamic_cast<Gerente^>(objUsuario);
-		listaUsuarios->Add(objGerente);
-		//abrirConexion();
-		////Se inserta en la tabla Usuarios
-		//SqlCommand^ objSentencia = gcnew SqlCommand();
-		//objSentencia->Connection = this->objConexion;
-		//int Rol = objGerente->GetRol();
-		//int Status = objGerente->GetStatus();
-		//String^ FechaContrato = objGerente->GetFechaContrato();
-		//String^ FechaDesactivacion = objGerente->GetFechaDesactivacion();
-		//String^ Correo = objGerente->GetCorreo();
-		//String^ Contrasenha = objGerente->GetContrasenha();
-		//String^ Nombre = objGerente->GetNombre();
-		//String^ ApellidoPat = objGerente->GetApellidoPat();
-		//String^ ApellidoMat = objGerente->GetApellidoMat();
-		//objSentencia->CommandText = "INSERT INTO Usuarios VALUES(" + Rol + "," + Status + ",'" + FechaContrato + "','" + FechaDesactivacion + "','" + Correo + "','" + Contrasenha + "','" + Nombre + "','" + ApellidoPat + "','" + ApellidoMat + "')";
-		//ver si se puede cambiar a vaarchar la contraseña en la tabla
+		//listaUsuarios->Add(objGerente);
+		
+		
+		objSentencia->CommandText = "INSERT INTO Usuarios VALUES(" + objGerente->GetRol() + "," + objGerente->GetStatus() + ",'" + objGerente->GetFechaContrato() + "',NULL,'" + objGerente->GetCorreo() + "','" + objGerente->GetContrasenha() + "','" + objGerente->GetNombre() + "','" + objGerente->GetApellidoPat() + "','" + objGerente->GetApellidoMat() + "')";
+		objSentencia->ExecuteNonQuery();
+
+		
 
 		break;
 	case 2:
 		objAsistente = dynamic_cast<Asistente^>(objUsuario);
-		listaUsuarios->Add(objAsistente);
+		//listaUsuarios->Add(objAsistente);
+
+		objSentencia->CommandText = "INSERT INTO Usuarios VALUES(" + objAsistente->GetRol() + "," + objAsistente->GetStatus() + ",'" + objAsistente->GetFechaContrato() + "','" + objAsistente->GetFechaDesactivacion() + "','" + objAsistente->GetCorreo() + "','" + objAsistente->GetContrasenha() + "','" + objAsistente->GetNombre() + "','" + objAsistente->GetApellidoPat() + "','" + objAsistente->GetApellidoMat() + "')";
+		objSentencia->ExecuteNonQuery();
 		break;
 	case 3:
 		objChef = dynamic_cast<Chef^>(objUsuario);
-		listaUsuarios->Add(objChef);
+		//listaUsuarios->Add(objChef);
+		objSentencia->CommandText = "INSERT INTO Usuarios VALUES(" + objChef->GetRol() + "," + objChef->GetStatus() + ",'" + objChef->GetFechaContrato() + "','" + objChef->GetFechaDesactivacion() + "','" + objChef->GetCorreo() + "','" + objChef->GetContrasenha() + "','" + objChef->GetNombre() + "','" + objChef->GetApellidoPat() + "','" + objChef->GetApellidoMat() + "')";
+		objSentencia->ExecuteNonQuery();
+
 		break;
 	default:
 		break;
 	}
-	
-	
+	cerrarConexion();
 
-
-
-	escribirArchivo(listaUsuarios);
+	//escribirArchivo(listaUsuarios);
 }
 
 void empleadoController::deleteUsuario(int Id)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
+	abrirConexion();
+	//Se actualiza en la tabla Usuarios
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
 		if (listaUsuarios[i]->GetId() == Id)
 		{
 			listaUsuarios[i]->SetStatus(0);
 			listaUsuarios[i]->SetFechaDesactivacion(DateTime::Now.ToString("dd/MM/yyyy"));
+			objSentencia->CommandText = "UPDATE Usuarios SET Status = " + listaUsuarios[i]->GetStatus() + ", FechaDesactivacion = '" + listaUsuarios[i]->GetFechaDesactivacion() + "' WHERE Id = " + listaUsuarios[i]->GetId();
+			objSentencia->ExecuteNonQuery();
+
+
 			break;
 		}
 	}
+	cerrarConexion();
 	escribirArchivo(listaUsuarios);
 }
 
 void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
-	for (int i = 0; i < listaUsuarios->Count; i++)
+	Gerente^ objGerente;
+	Asistente^ objAsistente;
+	Chef^ objChef;
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
+	/*for (int i = 0; i < listaUsuarios->Count; i++)
 	{
 		if (listaUsuarios[i]->GetId() == UsuarioModificar->GetId())
 		{
@@ -177,13 +213,110 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			break;
 		}
 	}
-	escribirArchivo(listaUsuarios);
+	escribirArchivo(listaUsuarios);*/
+	
+
+	abrirConexion();
+	//Se actualiza en la tabla Usuarios
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	//se modifican todos los campos de la tabla Usuarios
+	switch (UsuarioModificar->GetRol())
+	{
+		case 1:
+			objGerente = dynamic_cast<Gerente^>(UsuarioModificar);
+			if (objGerente->GetFechaDesactivacion()== nullptr)// no ha sido despedido 
+			{
+				objSentencia-> CommandText = "UPDATE Usuarios SET Rol = " + objGerente->GetRol() + 
+							", Status = " + objGerente->GetStatus() + 
+							", FechaContrato = '" + Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")+
+							"', FechaDesactivacion = NULL" +
+							", Correo = '" + objGerente->GetCorreo() + 
+							//"', Contrasenha = '" + objGerente->GetContrasenha() + 
+							"', Nombre = '" + objGerente->GetNombre() + 
+							"', ApellidoPat = '" + objGerente->GetApellidoPat() + 
+							"', ApellidoMat = '" + objGerente->GetApellidoMat() + 
+							"' WHERE Id = " + objGerente->GetId();
+			}	else {
+				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objGerente->GetRol() +
+					", Status = " + objGerente->GetStatus() +
+					", FechaContrato = '" + Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")+
+					//"', Correo = '" + objGerente->GetCorreo() +
+					//"', Contrasenha = '" + objGerente->GetContrasenha() +
+					//"', Nombre = '" + objGerente->GetNombre() +
+					//"', ApellidoPat = '" + objGerente->GetApellidoPat() +
+					//"', ApellidoMat = '" + objGerente->GetApellidoMat() +
+					"' WHERE Id = " + objGerente->GetId();
+			}
+			objSentencia->ExecuteNonQuery();
+		break;
+		case 2:
+			objAsistente = dynamic_cast<Asistente^>(UsuarioModificar);
+			if (objAsistente->GetFechaDesactivacion() == nullptr)
+			{
+				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objAsistente->GetRol() +
+					", Status = " + objAsistente->GetStatus() +
+					", FechaContrato = '" + Convert::ToDateTime(objAsistente->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					"', FechaDesactivacion = NULL" +
+					", Correo = '" + objAsistente->GetCorreo() +
+					"', Contrasenha = '" + objAsistente->GetContrasenha() +
+					"', Nombre = '" + objAsistente->GetNombre() +
+					"', ApellidoPat = '" + objAsistente->GetApellidoPat() +
+					"', ApellidoMat = '" + objAsistente->GetApellidoMat() +
+					"' WHERE Id = " + objAsistente->GetId();
+			}
+			else {
+				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objAsistente->GetRol() +
+					", Status = " + objAsistente->GetStatus() +
+					", FechaContrato = '" + Convert::ToDateTime(objAsistente->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					"', Correo = '" + objAsistente->GetCorreo() +
+					"', Contrasenha = '" + objAsistente->GetContrasenha() +
+					"', Nombre = '" + objAsistente->GetNombre() +
+					"', ApellidoPat = '" + objAsistente->GetApellidoPat() +
+					"', ApellidoMat = '" + objAsistente->GetApellidoMat() +
+					"' WHERE Id = " + objAsistente->GetId();
+			}
+			objSentencia->ExecuteNonQuery();
+			break;
+		case 3:
+			objChef = dynamic_cast<Chef^>(UsuarioModificar);
+			if (objChef->GetFechaDesactivacion() == nullptr)
+			{
+				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objChef->GetRol() +
+					", Status = " + objChef->GetStatus() +
+					", FechaContrato = '" + Convert::ToDateTime(objChef->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					"', FechaDesactivacion = NULL" +
+					", Correo = '" + objChef->GetCorreo() +
+					"', Contrasenha = '" + objChef->GetContrasenha() +
+					"', Nombre = '" + objChef->GetNombre() +
+					"', ApellidoPat = '" + objChef->GetApellidoPat() +
+					"', ApellidoMat = '" + objChef->GetApellidoMat() +
+					"' WHERE Id = " + objChef->GetId();
+			}
+			else {
+				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objChef->GetRol() +
+					", Status = " + objChef->GetStatus() +
+					", FechaContrato = '" + Convert::ToDateTime(objChef->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					"', Correo = '" + objChef->GetCorreo() +
+					"', Contrasenha = '" + objChef->GetContrasenha() +
+					"', Nombre = '" + objChef->GetNombre() +
+					"', ApellidoPat = '" + objChef->GetApellidoPat() +
+					"', ApellidoMat = '" + objChef->GetApellidoMat() +
+					"' WHERE Id = " + objChef->GetId();
+			}
+			objSentencia->ExecuteNonQuery();
+			break;
+			default:
+				break;
+	}
+	cerrarConexion();
+
 }
 
 Usuario^ empleadoController::QueryUsuarioById(int Id)
 {
 	Usuario^ objUsuario;
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	for(int i=0; i<listaUsuarios->Count; i++)
 	{
 		if(listaUsuarios[i]->GetId() == Id)
@@ -211,7 +344,7 @@ Usuario^ empleadoController::QueryUsuarioById(int Id)
 
 List<Usuario^>^ empleadoController::QueryUsuarioByNombre(String^ Nombre)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
@@ -244,7 +377,7 @@ List<Usuario^>^ empleadoController::QueryUsuarioByNombre(String^ Nombre)
 
 List<Usuario^>^ empleadoController::QueryUsuarioByTipo(int Rol)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
@@ -258,7 +391,7 @@ List<Usuario^>^ empleadoController::QueryUsuarioByTipo(int Rol)
 
 List<Usuario^>^ empleadoController::QuerryUsuarioByNombrexRol(String^ Nombre, int Rol)
 {
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
@@ -330,7 +463,7 @@ int empleadoController::VerificaExistenciaUsuario(int Id)
 {
 	int existe = 0;
 
-	List<Usuario^>^ listaUsuarios = leerArchivo();
+	List<Usuario^>^ listaUsuarios = ListarUsuarios();
 	for (int i = 0; i < listaUsuarios->Count; i++)
 	{
 		if (listaUsuarios[i]->GetId() == Id)
@@ -348,7 +481,7 @@ String^ empleadoController::generarCorreo(String^ apellido1, String^ apellido2)
 void empleadoController::generarId(Usuario^ objUsuario)
 {
 	int nextId = 1;
-	List<int>^ existingIds = ListaIdUsuarios(leerArchivo());
+	List<int>^ existingIds = ListaIdUsuarios(ListarUsuarios());
 	existingIds->Sort();
 	for (int i = 0; i < existingIds->Count; i++)
 	{
