@@ -25,6 +25,7 @@ namespace RAMFoodView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			
 		}
 
 	protected:
@@ -58,6 +59,10 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::GroupBox^ groupBox5;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::GroupBox^ groupBox6;
+	private: System::Windows::Forms::GroupBox^ groupBox7;
 
 
 
@@ -98,6 +103,10 @@ namespace RAMFoodView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->BeginInit();
 			this->groupBox2->SuspendLayout();
@@ -106,6 +115,8 @@ namespace RAMFoodView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVentas))->BeginInit();
 			this->groupBox4->SuspendLayout();
 			this->groupBox5->SuspendLayout();
+			this->groupBox6->SuspendLayout();
+			this->groupBox7->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -123,9 +134,9 @@ namespace RAMFoodView {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->chartPlatos);
-			this->groupBox1->Location = System::Drawing::Point(6, 17);
+			this->groupBox1->Location = System::Drawing::Point(6, 19);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(293, 230);
+			this->groupBox1->Size = System::Drawing::Size(314, 230);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"P";
@@ -140,16 +151,16 @@ namespace RAMFoodView {
 			this->chartPlatos->Legends->Add(legend1);
 			this->chartPlatos->Location = System::Drawing::Point(6, 19);
 			this->chartPlatos->Name = L"chartPlatos";
-			this->chartPlatos->Size = System::Drawing::Size(281, 194);
+			this->chartPlatos->Size = System::Drawing::Size(302, 194);
 			this->chartPlatos->TabIndex = 0;
 			this->chartPlatos->Text = L"chart1";
 			// 
 			// groupBox2
 			// 
 			this->groupBox2->Controls->Add(this->chartBebidas);
-			this->groupBox2->Location = System::Drawing::Point(305, 17);
+			this->groupBox2->Location = System::Drawing::Point(326, 19);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(293, 230);
+			this->groupBox2->Size = System::Drawing::Size(312, 230);
 			this->groupBox2->TabIndex = 2;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"B";
@@ -164,7 +175,7 @@ namespace RAMFoodView {
 			this->chartBebidas->Legends->Add(legend2);
 			this->chartBebidas->Location = System::Drawing::Point(7, 19);
 			this->chartBebidas->Name = L"chartBebidas";
-			this->chartBebidas->Size = System::Drawing::Size(280, 194);
+			this->chartBebidas->Size = System::Drawing::Size(299, 194);
 			this->chartBebidas->TabIndex = 0;
 			this->chartBebidas->Text = L"chart2";
 			// 
@@ -173,7 +184,7 @@ namespace RAMFoodView {
 			this->groupBox3->Controls->Add(this->chartVentas);
 			this->groupBox3->Location = System::Drawing::Point(6, 253);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(586, 258);
+			this->groupBox3->Size = System::Drawing::Size(632, 258);
 			this->groupBox3->TabIndex = 3;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"V";
@@ -188,13 +199,13 @@ namespace RAMFoodView {
 			this->chartVentas->Legends->Add(legend3);
 			this->chartVentas->Location = System::Drawing::Point(22, 14);
 			this->chartVentas->Name = L"chartVentas";
-			this->chartVentas->Size = System::Drawing::Size(558, 238);
+			this->chartVentas->Size = System::Drawing::Size(604, 238);
 			this->chartVentas->TabIndex = 0;
 			this->chartVentas->Text = L"chart1";
 			// 
 			// buttonRegresar
 			// 
-			this->buttonRegresar->Location = System::Drawing::Point(688, 600);
+			this->buttonRegresar->Location = System::Drawing::Point(770, 600);
 			this->buttonRegresar->Name = L"buttonRegresar";
 			this->buttonRegresar->Size = System::Drawing::Size(75, 23);
 			this->buttonRegresar->TabIndex = 4;
@@ -230,7 +241,7 @@ namespace RAMFoodView {
 			// 
 			// botonGenerar
 			// 
-			this->botonGenerar->Location = System::Drawing::Point(629, 45);
+			this->botonGenerar->Location = System::Drawing::Point(665, 45);
 			this->botonGenerar->Name = L"botonGenerar";
 			this->botonGenerar->Size = System::Drawing::Size(75, 23);
 			this->botonGenerar->TabIndex = 8;
@@ -245,7 +256,7 @@ namespace RAMFoodView {
 			this->groupBox4->Controls->Add(this->groupBox2);
 			this->groupBox4->Location = System::Drawing::Point(12, 88);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(611, 514);
+			this->groupBox4->Size = System::Drawing::Size(644, 514);
 			this->groupBox4->TabIndex = 9;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Visible = false;
@@ -267,28 +278,70 @@ namespace RAMFoodView {
 			this->groupBox5->Controls->Add(this->label2);
 			this->groupBox5->Location = System::Drawing::Point(12, 29);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(611, 53);
+			this->groupBox5->Size = System::Drawing::Size(644, 53);
 			this->groupBox5->TabIndex = 11;
 			this->groupBox5->TabStop = false;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(640, 239);
+			this->label4->Location = System::Drawing::Point(26, 29);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(181, 78);
+			this->label4->Size = System::Drawing::Size(154, 78);
 			this->label4->TabIndex = 12;
-			this->label4->Text = L" Seleccione el rango de fechas para \r\n      poder ver un informe de:\r\n\r\n     Top "
-				L"5 platos más vendidos\r\n     Top 5 bebidas más vendidas\r\n      Ventas por día en "
-				L"ese rango";
+			this->label4->Text = L" Seleccione el rango de fechas\r\n para poder ver un informe de:\r\n\r\n  Top 5 platos "
+				L"más vendidos\r\n  Top 5 bebidas más vendidas\r\n   Ventas por día en ese rango";
 			this->label4->Click += gcnew System::EventHandler(this, &frmReporte::label4_Click);
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(37, 605);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(407, 26);
+			this->label5->TabIndex = 13;
+			this->label5->Text = L"El porcentaje de las bebidas, platos se calcula en función de la cantidad vendida"
+				L" de \r\nbebidas , platos en el rango de fecha establecido";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(6, 27);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(192, 52);
+			this->label6->TabIndex = 14;
+			this->label6->Text = L"Desde 01/07/2023 hasta 01/07/2023:\r\n     Se vendieron  XXXX productos\r\n          "
+				L" XXX  platos de comida\r\n           XXX  bebidas";
+			this->label6->Visible = false;
+			// 
+			// groupBox6
+			// 
+			this->groupBox6->Controls->Add(this->label4);
+			this->groupBox6->Location = System::Drawing::Point(665, 97);
+			this->groupBox6->Name = L"groupBox6";
+			this->groupBox6->Size = System::Drawing::Size(198, 136);
+			this->groupBox6->TabIndex = 15;
+			this->groupBox6->TabStop = false;
+			this->groupBox6->Text = L"Indicaciones";
+			// 
+			// groupBox7
+			// 
+			this->groupBox7->Controls->Add(this->label6);
+			this->groupBox7->Location = System::Drawing::Point(665, 263);
+			this->groupBox7->Name = L"groupBox7";
+			this->groupBox7->Size = System::Drawing::Size(200, 122);
+			this->groupBox7->TabIndex = 16;
+			this->groupBox7->TabStop = false;
+			this->groupBox7->Text = L"Datos";
 			// 
 			// frmReporte
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(825, 635);
-			this->Controls->Add(this->label4);
+			this->ClientSize = System::Drawing::Size(868, 635);
+			this->Controls->Add(this->groupBox7);
+			this->Controls->Add(this->groupBox6);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->botonGenerar);
@@ -306,6 +359,10 @@ namespace RAMFoodView {
 			this->groupBox4->ResumeLayout(false);
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
+			this->groupBox6->ResumeLayout(false);
+			this->groupBox6->PerformLayout();
+			this->groupBox7->ResumeLayout(false);
+			this->groupBox7->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -340,10 +397,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			this->chartBebidas->Titles->Clear();
 			this->chartVentas->Titles->Clear();
 
-			if (fI > fF) {
-
-
-			}
+			
 			this->fechaInicio->CustomFormat = "yyyy-MM-dd";
 			this->fechaFin->CustomFormat = "yyyy-MM-dd";
 			String^ fechaInicio = this->fechaInicio->Text;
@@ -364,8 +418,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			List<String^>^ VentasXFecha = gcnew List<String^>();
 
 
-			objController->obtenerTopPlatos(PlatosTopId, PlatosTopValor, fechaInicio, fechaFin);
-			objController->obtenerTopBebidas(BebidasTopId, BebidasTopValor, fechaInicio, fechaFin);
+			//objController->obtenerTopPlatos(PlatosTopId, PlatosTopValor, fechaInicio, fechaFin);
+			//objController->obtenerTopBebidas(BebidasTopId, BebidasTopValor, fechaInicio, fechaFin);
+			objController->obtenerTop(PlatosTopId,PlatosTopValor,BebidasTopId,BebidasTopValor,fechaInicio,fechaFin);
 			objController->obtenerVentasTotal(Fechas, VentasXFecha, fechaInicio, fechaFin);
 
 			Producto^ productoI = gcnew Producto();
@@ -373,6 +428,21 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			//chartPlatos
 			int limiteTopPlatos = PlatosTopId->Count;
 			int limiteTopBebidas = BebidasTopId->Count;
+
+			int cantidadTotalPlatos = 0;
+			int cantidadTotalBebidas = 0;
+
+			for each (String ^ cantidadI in PlatosTopValor)
+			{
+				cantidadTotalPlatos = cantidadTotalPlatos + Convert::ToInt32(cantidadI);
+			};
+
+			for each (String ^ cantidadI in BebidasTopValor)
+			{
+				cantidadTotalBebidas = cantidadTotalBebidas + Convert::ToInt32(cantidadI);
+			};
+
+
 
 			int iP = 5;
 			int iB = 5;
@@ -387,14 +457,15 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 				this->chartPlatos->Visible = true;
 				for (i = 0; i < iP; i++) {
 
-					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(PlatosTopId[i]));
-
+					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(PlatosTopId[limiteTopPlatos-1-i]));
+					double porcentaje = round((Convert::ToDouble(PlatosTopValor[limiteTopPlatos - 1 - i])/(double)cantidadTotalPlatos)*100.0);
 					//titulos
-					Series^ seriePlato = this->chartPlatos->Series->Add(productoI->GetNombre());
+
+					Series^ seriePlato = this->chartPlatos->Series->Add(productoI->GetNombre()+ " ("+ Convert::ToString(porcentaje) + " % )");
 					//cantidades
 
-					seriePlato->Label = PlatosTopValor[i];
-					seriePlato->Points->Add(Convert::ToInt32(PlatosTopValor[i]));
+					//seriePlato->Label = PlatosTopValor[limiteTopPlatos - 1 - i];
+					seriePlato->Points->Add(porcentaje);
 					
 				}
 			}
@@ -411,12 +482,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 				for (i = 0; i < iB; i++) {
 					//titulos
-					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(BebidasTopId[i]));
-					Series^ serieBebida = this->chartBebidas->Series->Add(productoI->GetNombre());
+					productoI = objProductosController->buscarProductoxId(Convert::ToInt32(BebidasTopId[limiteTopBebidas - 1 - i]));
+					double porcentaje = round((Convert::ToDouble(BebidasTopValor[limiteTopBebidas - 1 - i]) / (double)cantidadTotalBebidas) * 100.0);
+					Series^ serieBebida = this->chartBebidas->Series->Add(productoI->GetNombre() + " (" + Convert::ToString(porcentaje) + " % )");
 					//cantidades
 
-					serieBebida->Label = BebidasTopValor[i];
-					serieBebida->Points->Add(Convert::ToInt32(BebidasTopValor[i]));
+					//serieBebida->Label = BebidasTopValor[limiteTopBebidas - 1 - i];
+					serieBebida->Points->Add(porcentaje);
 				}
 				//chart venta total
 			}
@@ -425,6 +497,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 				this->chartBebidas->Visible = false;
 
 			}
+
+
+
+
+
+
 
 			if (VentasXFecha->Count > 0) {
 				this->chartVentas->Visible = true;
@@ -444,7 +522,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 				this->chartVentas->Visible = false;
 
 			}
+
 			//limpiando lista porque causan problemas
+			int cantidadTotal = cantidadTotalPlatos+cantidadTotalBebidas;
+			this->label6->Text = L"Desde "+ fechaInicio+" hasta "+ fechaFin+":\r\n     Se vendieron " + cantidadTotal+" productos\r\n          "
+				L""+ cantidadTotalPlatos + " platos de comida\r\n         "+cantidadTotalBebidas +" bebidas";
+			this->label6->Visible = true;
 
 			PlatosTopId->Clear();
 			PlatosTopValor->Clear();
@@ -453,6 +536,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			Fechas->Clear();
 			VentasXFecha->Clear();
 			this->groupBox4->Visible = true;
+
+
+
+
+
+
 
 		}
 		else {
@@ -469,5 +558,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
+
 };
 }

@@ -18,6 +18,7 @@ namespace RAMFoodController {
 		void obtenerVentasTotal(List<String^>^ listaFechas, List<String^>^ listaCuenta,String^ fechaInicio, String^ FechaFin);
 		void obtenerVentasTotalTxt(List<String^>^ listaFechas, List<String^>^ listaCuenta);
 		void conectarBD();
+		void obtenerTop(List<String^>^ listaIdP, List<String^>^ listaValorP, List<String^>^ listaIdB, List<String^>^ listaValorB, String^ fechaInicio, String^ FechaFin);
 		void cerrarConexionBD();
 	};
 }

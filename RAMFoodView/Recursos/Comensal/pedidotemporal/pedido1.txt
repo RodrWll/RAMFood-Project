@@ -1,4 +1,6 @@
-Ceviche ;1;27.87
-Papa a la Huancaina ;1;20
+Ceviche ;1;27.8
+Arroz con pollo ;1;40
+Pisco sour;1;12.5
 Bebida
-Inka Cola ;1;2.7
+Maracuyá;2;10
+Chicha de jora;1;5

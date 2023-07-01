@@ -51,6 +51,22 @@ namespace RAMFoodView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
+		frmComensalSolicitarAtencion(PedidoMesa^ objPedidoMesa, int numeroMesa, int pedidovacio, OrdenMesa^ objOrdenMesa, int^ pedidoEnviado)
+		{
+			this->numMesa = numeroMesa;
+			this->frmObjPedidoMesa = gcnew PedidoMesa();
+			this->frmObjPedidoMesa = objPedidoMesa;
+			this->pedidovacio = pedidovacio;
+			this->frmOrdenMesa = gcnew OrdenMesa();
+			this->frmOrdenMesa = objOrdenMesa;
+			this->pedidoEnviado = pedidoEnviado;
+			InitializeComponent();
+
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+
 
 	protected:
 		/// <summary>
@@ -70,6 +86,7 @@ namespace RAMFoodView {
 	private: int pedidovacio;
 	private: PedidoMesa^ frmObjPedidoMesa;
 	private: OrdenMesa^ frmOrdenMesa;
+	private: int^ pedidoEnviado;
 	protected:
 
 
@@ -195,9 +212,11 @@ namespace RAMFoodView {
 
 		if (result == System::Windows::Forms::DialogResult::Yes)
 		{
-			array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
+			//array<String^>^ lineasLeidas = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
 
-			if (!(lineasLeidas[0] == "vacio")) {
+			if (this->frmOrdenMesa->GetPedidoEnviado()==1) {
+				PedidoController^ objPedidoController = gcnew PedidoController();
+				objPedidoController->notificarAsistente(this->frmObjPedidoMesa->getMesa(),2);
 				frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->frmObjPedidoMesa, this->numMesa, 1, this->frmOrdenMesa);
 				cuenta->FormatoCuenta();
 				cuenta->ShowDialog();
@@ -214,7 +233,11 @@ namespace RAMFoodView {
 	
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		PedidoController^ objPedidoController = gcnew PedidoController();
+		
 		frmComensalAsistenciaSolicitada^ venta_emergente = gcnew frmComensalAsistenciaSolicitada();
+		objPedidoController->notificarAsistente(this->frmObjPedidoMesa->getMesa(),1);
 		venta_emergente->ShowDialog();
 		this->Close();
 

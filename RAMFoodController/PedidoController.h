@@ -13,8 +13,8 @@ namespace RAMFoodController {
 		PedidoController();
 		
 		void escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Bebida^>^ lBebidas, List<Plato^>^ lPlatoExt, List<Bebida^>^ lBebidasExt,OrdenMesa^ objOrdenMesa);
-		List<Plato^>^ LeerPedidosPlatoFinal(String^ nombre_archivo);
-		List<Bebida^>^ LeerPedidosBebidasFinal(String^ nombre_archivo);
+		List<Plato^>^ LeerPedidosPlatoFinal(int mesa);
+		List<Bebida^>^ LeerPedidosBebidasFinal(int mesa);
 		List<Plato^>^ LeerPedidosPlato(String^ nombre_archivo);
 		List<Bebida^>^ LeerPedidosBebidas(String^ nombre_archivo);
 		void guardarPedidotxt(OrdenMesa^ objOrdenMesa);
@@ -41,6 +41,9 @@ namespace RAMFoodController {
 		List<OrdenMesa^>^ BuscarPedidoGeneralxnumMesa(int numMesa);
 		void actualizarCuenta( OrdenMesa^ objOrdenMesaBD, OrdenMesa^ objOrdenMesaLocal);
 		void agregarNuevoPedidoGeneral(OrdenMesa^ objOrdenMesa);
+
+		void notificarAsistente(int nmesa, int tipoAsistencia);
+
 		//List<Bebida^>^ obtenerPedidoDetalleBebidas(int nMesa);
 		//List<Plato^>^ obtenerPedidoDetallePlato(int nMesa);
 		//void actualizarCantidadPlato(OrdenMesa^ objOrdenMesa, Plato^ objPlato);
