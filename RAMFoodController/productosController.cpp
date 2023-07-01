@@ -401,18 +401,51 @@ int productoController::buscarIdxNombre(String^ nombre) {
 };
 
 double productoController::obtenerPrecioXId(int id) {
-	int precio = 0;
-	array<String^>^ listaLeida = File::ReadAllLines("Recursos/productos/productos.txt");
+	double precio = 0;
+	abrirConexion();
 
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	productoController^ objProductosController = gcnew productoController();
-	for each (String ^ linea in listaLeida) {
-		array<String^>^ datos = linea->Split(separadores->ToCharArray());
-		if (datos[0]->Contains(Convert::ToString(id))) {
-			return Convert::ToDouble(datos[2]);
-		}
+	//array<String^>^ listaLeida = File::ReadAllLines("Recursos/productos/productos.txt");
+
+	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	//productoController^ objProductosController = gcnew productoController();
+	//for each (String ^ linea in listaLeida) {
+	//	array<String^>^ datos = linea->Split(separadores->ToCharArray());
+	//	if (datos[0]->Contains(Convert::ToString(id))) {
+	//		return Convert::ToDouble(datos[2]);
+	//	}
+	//}
+	///*si retorna 0, queire decir que no encuentra nada*/
+	
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui indico que sentencia voy a ejecutar*/
+	objSentencia->CommandText = "select precio from Productos where id="+id;
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+
+	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
+	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	//for each (String ^ lineaProducto in lineas) {
+	//	array<String^>^ datos = lineaProducto->Split(separadores->ToCharArray());
+	//	int Id = Convert::ToInt32(datos[0]);
+	//	String^ Nombre = datos[1];
+	//	double Precio = Convert::ToDouble(datos[2]);
+	//	int Tipo = Convert::ToInt32(datos[3]);
+	//	Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
+	//	listaProductos->Add(objPlatoBebidaMenu);
+	//}
+	
+
+	while (objData->Read())
+	{
+		precio = safe_cast<double>(objData[0]);
+
 	}
-	/*si retorna 0, queire decir que no encuentra nada*/
+	cerrarConexion();
+	
 	return precio;
 
 };

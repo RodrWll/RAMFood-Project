@@ -22,7 +22,8 @@ namespace RAMFoodModel {
 		double GetCuenta();
 		void SetListaProductosPedidos(List<ProductoPedido^>^ listaProductosPedidos);
 		List<ProductoPedido^>^ GetListaProductosPedidos();
-
+		void SetPedidoEnviado(int pedidoEnviado);
+		int GetPedidoEnviado();
 		//si el estado=1: significa que la orden no ha sido pagada
 		//si el estado=2: significa que la orden ya ha sido pagada
 
@@ -33,6 +34,7 @@ namespace RAMFoodModel {
 		String^ fecha; //Formato dd/mm/aa	
 		int Estado;
 		double cuenta;
+		int pedidoEnviado;
 
 	};
 

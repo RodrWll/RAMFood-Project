@@ -36,6 +36,7 @@ namespace RAMFoodView {
 			this->nuevo_pedido = 1;
 			this->ObjPedidoMesa = gcnew PedidoMesa();
 			this->objOrdenMesa = gcnew OrdenMesa();
+			this->objOrdenMesa->SetPedidoEnviado(0);
 			incializarOrdenMesa();
 			ObjPedidoMesa->setReiniciarPedido(0);
 			PedidoController^ objPedidoController = gcnew PedidoController();
@@ -65,6 +66,7 @@ namespace RAMFoodView {
 	private: int nuevo_pedido;
 	private: OrdenMesa^ objOrdenMesa;
 	private: int reiniciarCuentaDefault = 0;
+	
 	
 	private: int numMesa=1;
 	protected:
@@ -676,6 +678,7 @@ void incializarOrdenMesa() {
 	this->objOrdenMesa->SetEstado(0);
 	this->objOrdenMesa->SetMesa(this->numMesa);
 	this->objOrdenMesa->SetCuenta(0.0);
+	this->ObjPedidoMesa->setMesa(this->numMesa);
 }
 void MostrasInfoPlatosYBebidas() {
 	PedidoController^ objPedidoController = gcnew PedidoController();
@@ -874,6 +877,7 @@ private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ 
 	List<String^>^ listaCantidadesB = gcnew List<String^>();
 	int lb = this->dataGridViewBebidas->Rows->Count;
 	int lp = this->dataGridViewPlatos->Rows->Count;
+
 	for (int i = 0; i < lp; i++) {
 		listaCantidadesP->Add(this->dataGridViewPlatos->Rows[i]->Cells[3]->Value->ToString());
 
@@ -920,8 +924,11 @@ private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ 
 		frmComensalGenerarPedido^ Ventana2 = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa, 0,this->objOrdenMesa);
 		this->Visible = false;
 		Ventana2->ShowDialog();
-		array<String^>^ mostrarBoton = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
-		if (mostrarBoton[0] != "vacio") {
+
+		//array<String^>^ mostrarBoton = File::ReadAllLines("Recursos/Comensal/pedidototal/pedidomesaAsistente.txt");
+		
+
+		if (this->objOrdenMesa->GetPedidoEnviado() == 1) {
 			this->buttonVerPedidoTotal->Enabled = true;
 			this->buttonVerPedidoTotal->Visible = true;
 
@@ -1007,7 +1014,7 @@ private: System::Void label37_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) {
 	int esPedidoVacio = OrdenEstaVacia();
-	frmComensalSolicitarAtencion^ venta_emergente_mozo = gcnew frmComensalSolicitarAtencion(this->ObjPedidoMesa, this->numMesa, esPedidoVacio);
+	frmComensalSolicitarAtencion^ venta_emergente_mozo = gcnew frmComensalSolicitarAtencion(this->ObjPedidoMesa, this->numMesa, esPedidoVacio,this->objOrdenMesa);
 	venta_emergente_mozo->ShowDialog();
 	/*reiniciando valores de la comida*/
 	if (this->ObjPedidoMesa->getReiniciarPedido()) {
@@ -1025,7 +1032,7 @@ private: System::Void buttonVerPedidoTotal_Click(System::Object^ sender, System:
 private: System::Void buttonVerPedidoTotal_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	this->objOrdenMesa->SetCuenta(this->ObjPedidoMesa->GetCuenta());
 	frmComensalGenerarPedido^ cuenta = gcnew frmComensalGenerarPedido(this->ObjPedidoMesa, this->numMesa, 2);
-	cuenta->FormatoCuenta();
+	cuenta->FormatoCuentaLectura();
 	this->Visible=false;
 	cuenta->ShowDialog();
 	this->Visible = true;
@@ -1094,6 +1101,8 @@ private: System::Void botonMesa_Click(System::Object^ sender, System::EventArgs^
 			array<String^>^ linea = File::ReadAllLines("Recursos/Comensal/pedidotemporal/numeroMesa.txt");
 			int numero = Convert::ToInt32(linea[0]);
 			this->numMesa = numero;
+			this->objOrdenMesa->SetMesa(this->numMesa);
+			this->ObjPedidoMesa->setMesa(this->numMesa);
 			this->botonMesa->Text = "Mesa " + Convert::ToString(numMesa);
 		}
 

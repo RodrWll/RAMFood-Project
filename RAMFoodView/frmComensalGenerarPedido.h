@@ -60,6 +60,7 @@ namespace RAMFoodView {
 			this->frmObjPedidoMesa = objPedidoMesa;
 			this->frmObjPedidoMesa->setMesa(numMesa);
 			this->frmObjOrdenMesa = gcnew OrdenMesa();
+			this->frmObjOrdenMesa = objOrdenMesa;
 			this->frmObjOrdenMesa->SetMesa(numMesa);
 
 			/*estas funciones van después de declarar los atributos del formulario*/
@@ -71,16 +72,24 @@ namespace RAMFoodView {
 
 
 		}
+
 		void FormatoCuenta() {
 			
 			this->groupBox1->BackColor = System::Drawing::Color::DarkRed;
 			this->label1->Text = "Cuenta";
 			this->button2->Visible = false;
-			this->button_confirmar->Visible = false;
-
+			this->buttonConfirmarPago->Visible = false;
+			this->button_confirmar->Visible = true;
 
 		};
+		void FormatoCuentaLectura() {
+			this->groupBox1->BackColor = System::Drawing::Color::DarkRed;
+			this->label1->Text = "Cuenta";
+			this->button2->Visible = false;
+			this->buttonConfirmarPago->Visible = false;
+			this->button_confirmar->Visible = false;
 
+		}
 		void ActualizarCuenta() {
 			double valor_cuenta = 0;
 			for (int i = 0; i < this->dataGridView1->RowCount; i++) {
@@ -95,6 +104,7 @@ namespace RAMFoodView {
 				si tipo es 1 se hará un resumen con todos los pedidos que ha hecho por la interfaz
 			*/
 			if (tipo == 0) {
+				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoControllerA = gcnew PedidoController();
 				List<Plato^>^ Lista1 = objPedidoControllerA->LeerPedidosPlato("Recursos//Comensal//pedidotemporal//pedido1.txt");
 				List<Bebida^>^ Lista2 = objPedidoControllerA->LeerPedidosBebidas("Recursos//Comensal//pedidotemporal//pedido1.txt");
@@ -121,8 +131,9 @@ namespace RAMFoodView {
 				/*codigo para la orden total*/
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
-				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
-				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal(this->frmObjOrdenMesa->GetMesa());
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal(this->frmObjOrdenMesa->GetMesa());
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -149,8 +160,8 @@ namespace RAMFoodView {
 				/*codigo para la orden total*/
 				this->Column3->HeaderText = L"Precio Total";
 				PedidoController^ objPedidoController = gcnew PedidoController();
-				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
-				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+				List<Plato^>^ Lista1 = objPedidoController->LeerPedidosPlatoFinal(this->frmObjPedidoMesa->getMesa());
+				List<Bebida^>^ Lista2 = objPedidoController->LeerPedidosBebidasFinal(this->frmObjPedidoMesa->getMesa());
 				this->dataGridView1->Rows->Clear();
 				for (int i = 0; i < Lista1->Count; i++) {
 					Plato^ p_i = Lista1[i];
@@ -202,6 +213,7 @@ namespace RAMFoodView {
 	private: OrdenMesa^ frmObjOrdenMesa;
 	private: int numMesa;
 	private: double cuentaDiferencial;
+		
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
@@ -450,7 +462,7 @@ private: System::Windows::Forms::Button^ buttonConfirmarPago;
 		//objPedidoController->guardarPedidoFormatoAsistente(this->numMesa);
 		
 		frmComensalPedidoGenerado^ ventana3 = gcnew frmComensalPedidoGenerado();
-		
+		this->frmObjOrdenMesa->SetPedidoEnviado(1);
 		ventana3->ShowDialog();
 		this->Close();
 
