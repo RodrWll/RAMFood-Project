@@ -14,7 +14,7 @@ namespace RAMFoodController {
 		LogueoController();
 		void abrirConexion();
 		void cerrarConexion();
-		List<array<String^>^>^ LogueoController::leerArchivo();
+		List<array<String^>^>^ LogueoController::leerUsuarios();
 		bool VerificarCredenciales(String^ CorreoUsuario, String^ Contrasenha);
 		Usuario^ ObtenerUsuario(String^ CorreoUsuario, String^ Contrasenha);
 	};

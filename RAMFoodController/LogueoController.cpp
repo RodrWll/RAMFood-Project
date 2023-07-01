@@ -33,12 +33,12 @@ void LogueoController::cerrarConexion()
 
 }
 
-List<array<String^>^>^ LogueoController::leerArchivo()
+List<array<String^>^>^ LogueoController::leerUsuarios()
 {
     //Se lee el archivo y se almacena en un arreglo de String
     
     List<array<String^>^>^ listaCredencialesLeer = gcnew List<array<String^>^>();
-    array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
+    /*array<String^>^ lineas = File::ReadAllLines("Recursos\\Usuarios\\Usuarios.txt");
     String^ separadores = ";";
     for each (String ^ lineasUsuarios in lineas)
     {
@@ -55,12 +55,28 @@ List<array<String^>^>^ LogueoController::leerArchivo()
         credenciales [3] = Correo;
         credenciales [4] = Contrasenha;
         listaCredencialesLeer->Add(credenciales);
-    }
+    }*/
+    abrirConexion();
+    SqlCommand^ objComando = gcnew SqlCommand();
+    objComando->Connection = this->objConexion;
+    objComando->CommandText = "SELECT * FROM Usuarios";
+    SqlDataReader^ objData = objComando->ExecuteReader();
+    while (objData->Read())
+    {
+		array<String^>^ credenciales = gcnew array<String^>(5);
+		credenciales[0] = objData[0]->ToString();//id
+		credenciales[1] = objData[1]->ToString();//rol
+		credenciales[2] = objData[2]->ToString();//status
+		credenciales[3] = objData[5]->ToString();//correo
+		credenciales[4] = objData[6]->ToString();//contrasenha
+		listaCredencialesLeer->Add(credenciales);
+	}
+    cerrarConexion();
     return listaCredencialesLeer;
 }
 
 bool LogueoController::VerificarCredenciales(String^ CorreoUsuario, String^ Contrasenha) {
-    List<array<String^>^>^ listaCredenciales = leerArchivo();
+    List<array<String^>^>^ listaCredenciales = leerUsuarios();
     for each (array<String^> ^ credenciales in listaCredenciales)
     {
         if (credenciales[3]->Equals(CorreoUsuario) && credenciales[4]->Equals(Contrasenha))
@@ -71,7 +87,7 @@ bool LogueoController::VerificarCredenciales(String^ CorreoUsuario, String^ Cont
     return false; // Las credenciales son inválidas
 }
 Usuario^ LogueoController::ObtenerUsuario(String^ CorreoUsuario, String^ Contrasenha) {
-    List<array<String^>^>^ listaCredenciales = leerArchivo();
+    List<array<String^>^>^ listaCredenciales = leerUsuarios();
     Usuario^ objUsuario = gcnew Usuario();
     for each (array<String^> ^ credenciales in listaCredenciales)
 	{
