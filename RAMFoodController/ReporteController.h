@@ -6,6 +6,7 @@ namespace RAMFoodController {
 	using namespace RAMFoodModel;
 	using namespace System;
 	using namespace System::Data::SqlClient;
+	using namespace RAMFoodModel;
 	public ref class ReporteController {
 	private:
 		//List<Logueo^>^ Logueos;
@@ -20,5 +21,7 @@ namespace RAMFoodController {
 		void conectarBD();
 		void obtenerTop(List<String^>^ listaIdP, List<String^>^ listaValorP, List<String^>^ listaIdB, List<String^>^ listaValorB, String^ fechaInicio, String^ FechaFin);
 		void cerrarConexionBD();
+
+		List<Reportes^>^ obtenerReportes();
 	};
 }

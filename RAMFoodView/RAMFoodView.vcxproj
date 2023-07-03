@@ -148,6 +148,7 @@
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="frmPruebaNuevaInterfaz.cpp" />
     <ClCompile Include="frmReporte.cpp" />
+    <ClCompile Include="frmReporteEmpleados.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +232,9 @@
     <ClInclude Include="frmReporte.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmReporteEmpleados.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAsistente.resx">
@@ -304,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporte.resx">
       <DependentUpon>frmReporte.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteEmpleados.resx">
+      <DependentUpon>frmReporteEmpleados.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

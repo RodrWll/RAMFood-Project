@@ -27,7 +27,26 @@ void ReporteController::conectarBD() {
 void ReporteController::cerrarConexionBD() {
 	this->objConexion->Close();
 	this->objConexion->State;
-};
+}
+List<Reportes^>^ ReporteController::obtenerReportes()
+{
+	List <Reportes^>^ listaReportes = gcnew List<Reportes^>();
+	conectarBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select Rol, COUNT(*) from Usuarios WHERE Status=1  GRoup by Rol";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		
+		int Rol = safe_cast<Int32>(objData[0]);
+		int Cantidad = safe_cast<Int32>(objData[1]);
+		Reportes^ objReporte = gcnew Reportes(Rol, Cantidad);
+		listaReportes->Add(objReporte);
+	}
+	cerrarConexionBD();
+	return listaReportes;
+}
+;
 
 
 //version BD

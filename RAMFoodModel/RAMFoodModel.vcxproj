@@ -123,6 +123,7 @@
     <ClCompile Include="Plato.cpp" />
     <ClCompile Include="Producto.cpp" />
     <ClCompile Include="ProductoPedido.cpp" />
+    <ClCompile Include="Reportes.cpp" />
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="Plato.h" />
     <ClInclude Include="Producto.h" />
     <ClInclude Include="ProductoPedido.h" />
+    <ClInclude Include="Reportes.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

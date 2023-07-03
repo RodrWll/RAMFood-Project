@@ -90,6 +90,9 @@
     <ClCompile Include="frmComensalIngresarClaveCuenta.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmReporteEmpleados.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -162,6 +165,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalIngresarClaveCuenta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmReporteEmpleados.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
