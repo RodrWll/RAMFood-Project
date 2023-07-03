@@ -39,15 +39,15 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartPlatos;
 
-	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::GroupBox^ groupBox3;
+
+
+
+
+
 	private: System::Windows::Forms::Button^ buttonRegresar;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartBebidas;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartVentas;
+
+
 	private: System::Windows::Forms::DateTimePicker^ fechaInicio;
 	private: System::Windows::Forms::DateTimePicker^ fechaFin;
 
@@ -55,7 +55,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ botonGenerar;
 
-	private: System::Windows::Forms::GroupBox^ groupBox4;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::GroupBox^ groupBox5;
 	private: System::Windows::Forms::Label^ label4;
@@ -63,6 +63,13 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::GroupBox^ groupBox6;
 	private: System::Windows::Forms::GroupBox^ groupBox7;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartBebidas;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartPlatos;
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartVentas;
+	private: System::Windows::Forms::GroupBox^ groupBox4;
 
 
 
@@ -83,23 +90,16 @@ namespace RAMFoodView {
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->chartPlatos = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->chartBebidas = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->chartVentas = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmReporte::typeid));
 			this->buttonRegresar = (gcnew System::Windows::Forms::Button());
 			this->fechaInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->fechaFin = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->botonGenerar = (gcnew System::Windows::Forms::Button());
-			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -107,107 +107,32 @@ namespace RAMFoodView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->BeginInit();
-			this->groupBox2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartBebidas))->BeginInit();
-			this->groupBox3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVentas))->BeginInit();
-			this->groupBox4->SuspendLayout();
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->chartBebidas = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->chartVentas = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->chartPlatos = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox5->SuspendLayout();
 			this->groupBox6->SuspendLayout();
 			this->groupBox7->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartBebidas))->BeginInit();
+			this->groupBox1->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVentas))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->BeginInit();
+			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(239, 9);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(147, 17);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"GENERAR REPORTE";
-			this->label1->Click += gcnew System::EventHandler(this, &frmReporte::label1_Click);
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->chartPlatos);
-			this->groupBox1->Location = System::Drawing::Point(6, 19);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(314, 230);
-			this->groupBox1->TabIndex = 1;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"P";
-			// 
-			// chartPlatos
-			// 
-			chartArea1->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
-			chartArea1->Name = L"ChartArea1";
-			this->chartPlatos->ChartAreas->Add(chartArea1);
-			this->chartPlatos->Cursor = System::Windows::Forms::Cursors::Cross;
-			legend1->Name = L"Legend1";
-			this->chartPlatos->Legends->Add(legend1);
-			this->chartPlatos->Location = System::Drawing::Point(6, 19);
-			this->chartPlatos->Name = L"chartPlatos";
-			this->chartPlatos->Size = System::Drawing::Size(302, 194);
-			this->chartPlatos->TabIndex = 0;
-			this->chartPlatos->Text = L"chart1";
-			// 
-			// groupBox2
-			// 
-			this->groupBox2->Controls->Add(this->chartBebidas);
-			this->groupBox2->Location = System::Drawing::Point(326, 19);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(312, 230);
-			this->groupBox2->TabIndex = 2;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"B";
-			// 
-			// chartBebidas
-			// 
-			chartArea2->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
-			chartArea2->Name = L"ChartArea1";
-			this->chartBebidas->ChartAreas->Add(chartArea2);
-			this->chartBebidas->Cursor = System::Windows::Forms::Cursors::Cross;
-			legend2->Name = L"Legend1";
-			this->chartBebidas->Legends->Add(legend2);
-			this->chartBebidas->Location = System::Drawing::Point(7, 19);
-			this->chartBebidas->Name = L"chartBebidas";
-			this->chartBebidas->Size = System::Drawing::Size(299, 194);
-			this->chartBebidas->TabIndex = 0;
-			this->chartBebidas->Text = L"chart2";
-			// 
-			// groupBox3
-			// 
-			this->groupBox3->Controls->Add(this->chartVentas);
-			this->groupBox3->Location = System::Drawing::Point(6, 253);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(632, 258);
-			this->groupBox3->TabIndex = 3;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"V";
-			// 
-			// chartVentas
-			// 
-			chartArea3->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
-			chartArea3->Name = L"ChartArea1";
-			this->chartVentas->ChartAreas->Add(chartArea3);
-			this->chartVentas->Cursor = System::Windows::Forms::Cursors::Cross;
-			legend3->Name = L"Legend1";
-			this->chartVentas->Legends->Add(legend3);
-			this->chartVentas->Location = System::Drawing::Point(22, 14);
-			this->chartVentas->Name = L"chartVentas";
-			this->chartVentas->Size = System::Drawing::Size(604, 238);
-			this->chartVentas->TabIndex = 0;
-			this->chartVentas->Text = L"chart1";
 			// 
 			// buttonRegresar
 			// 
-			this->buttonRegresar->Location = System::Drawing::Point(770, 600);
+			this->buttonRegresar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonRegresar->Location = System::Drawing::Point(1344, 703);
+			this->buttonRegresar->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->buttonRegresar->Name = L"buttonRegresar";
-			this->buttonRegresar->Size = System::Drawing::Size(75, 23);
+			this->buttonRegresar->Size = System::Drawing::Size(181, 62);
 			this->buttonRegresar->TabIndex = 4;
 			this->buttonRegresar->Text = L"Regresar";
 			this->buttonRegresar->UseVisualStyleBackColor = true;
@@ -216,57 +141,51 @@ namespace RAMFoodView {
 			// fechaInicio
 			// 
 			this->fechaInicio->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->fechaInicio->Location = System::Drawing::Point(99, 19);
+			this->fechaInicio->Location = System::Drawing::Point(104, 27);
+			this->fechaInicio->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->fechaInicio->Name = L"fechaInicio";
-			this->fechaInicio->Size = System::Drawing::Size(200, 20);
+			this->fechaInicio->Size = System::Drawing::Size(363, 30);
 			this->fechaInicio->TabIndex = 5;
 			// 
 			// fechaFin
 			// 
 			this->fechaFin->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->fechaFin->Location = System::Drawing::Point(348, 18);
+			this->fechaFin->Location = System::Drawing::Point(560, 25);
+			this->fechaFin->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->fechaFin->Name = L"fechaFin";
-			this->fechaFin->Size = System::Drawing::Size(200, 20);
+			this->fechaFin->Size = System::Drawing::Size(363, 30);
 			this->fechaFin->TabIndex = 6;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(55, 24);
+			this->label2->Location = System::Drawing::Point(22, 36);
+			this->label2->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(38, 13);
+			this->label2->Size = System::Drawing::Size(64, 22);
 			this->label2->TabIndex = 7;
 			this->label2->Text = L"Desde";
 			this->label2->Click += gcnew System::EventHandler(this, &frmReporte::label2_Click);
 			// 
 			// botonGenerar
 			// 
-			this->botonGenerar->Location = System::Drawing::Point(665, 45);
+			this->botonGenerar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->botonGenerar->Location = System::Drawing::Point(972, 25);
+			this->botonGenerar->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->botonGenerar->Name = L"botonGenerar";
-			this->botonGenerar->Size = System::Drawing::Size(75, 23);
+			this->botonGenerar->Size = System::Drawing::Size(138, 38);
 			this->botonGenerar->TabIndex = 8;
 			this->botonGenerar->Text = L"Generar";
 			this->botonGenerar->UseVisualStyleBackColor = true;
 			this->botonGenerar->Click += gcnew System::EventHandler(this, &frmReporte::button1_Click);
 			// 
-			// groupBox4
-			// 
-			this->groupBox4->Controls->Add(this->groupBox1);
-			this->groupBox4->Controls->Add(this->groupBox3);
-			this->groupBox4->Controls->Add(this->groupBox2);
-			this->groupBox4->Location = System::Drawing::Point(12, 88);
-			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(644, 514);
-			this->groupBox4->TabIndex = 9;
-			this->groupBox4->TabStop = false;
-			this->groupBox4->Visible = false;
-			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(305, 24);
+			this->label3->Location = System::Drawing::Point(482, 36);
+			this->label3->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(33, 13);
+			this->label3->Size = System::Drawing::Size(59, 22);
 			this->label3->TabIndex = 10;
 			this->label3->Text = L"hasta";
 			// 
@@ -276,18 +195,23 @@ namespace RAMFoodView {
 			this->groupBox5->Controls->Add(this->label3);
 			this->groupBox5->Controls->Add(this->fechaInicio);
 			this->groupBox5->Controls->Add(this->label2);
-			this->groupBox5->Location = System::Drawing::Point(12, 29);
+			this->groupBox5->Controls->Add(this->botonGenerar);
+			this->groupBox5->Location = System::Drawing::Point(38, 15);
+			this->groupBox5->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(644, 53);
+			this->groupBox5->Padding = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->groupBox5->Size = System::Drawing::Size(1110, 82);
 			this->groupBox5->TabIndex = 11;
 			this->groupBox5->TabStop = false;
+			this->groupBox5->Text = L"Generar reporte";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(26, 29);
+			this->label4->Location = System::Drawing::Point(48, 50);
+			this->label4->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(154, 78);
+			this->label4->Size = System::Drawing::Size(286, 132);
 			this->label4->TabIndex = 12;
 			this->label4->Text = L" Seleccione el rango de fechas\r\n para poder ver un informe de:\r\n\r\n  Top 5 platos "
 				L"más vendidos\r\n  Top 5 bebidas más vendidas\r\n   Ventas por día en ese rango";
@@ -296,9 +220,10 @@ namespace RAMFoodView {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(37, 605);
+			this->label5->Location = System::Drawing::Point(171, 703);
+			this->label5->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(407, 26);
+			this->label5->Size = System::Drawing::Size(762, 44);
 			this->label5->TabIndex = 13;
 			this->label5->Text = L"El porcentaje de las bebidas, platos se calcula en función de la cantidad vendida"
 				L" de \r\nbebidas , platos en el rango de fecha establecido";
@@ -306,9 +231,10 @@ namespace RAMFoodView {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(6, 27);
+			this->label6->Location = System::Drawing::Point(12, 50);
+			this->label6->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(192, 52);
+			this->label6->Size = System::Drawing::Size(365, 88);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Desde 01/07/2023 hasta 01/07/2023:\r\n     Se vendieron  XXXX productos\r\n          "
 				L" XXX  platos de comida\r\n           XXX  bebidas";
@@ -317,9 +243,11 @@ namespace RAMFoodView {
 			// groupBox6
 			// 
 			this->groupBox6->Controls->Add(this->label4);
-			this->groupBox6->Location = System::Drawing::Point(665, 97);
+			this->groupBox6->Location = System::Drawing::Point(1165, 48);
+			this->groupBox6->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(198, 136);
+			this->groupBox6->Padding = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->groupBox6->Size = System::Drawing::Size(411, 220);
 			this->groupBox6->TabIndex = 15;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Indicaciones";
@@ -327,42 +255,157 @@ namespace RAMFoodView {
 			// groupBox7
 			// 
 			this->groupBox7->Controls->Add(this->label6);
-			this->groupBox7->Location = System::Drawing::Point(665, 263);
+			this->groupBox7->Location = System::Drawing::Point(1165, 280);
+			this->groupBox7->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->groupBox7->Name = L"groupBox7";
-			this->groupBox7->Size = System::Drawing::Size(200, 122);
+			this->groupBox7->Padding = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->groupBox7->Size = System::Drawing::Size(415, 157);
 			this->groupBox7->TabIndex = 16;
 			this->groupBox7->TabStop = false;
 			this->groupBox7->Text = L"Datos";
 			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->chartBebidas);
+			this->groupBox2->Location = System::Drawing::Point(567, 4);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(6);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Padding = System::Windows::Forms::Padding(6);
+			this->groupBox2->Size = System::Drawing::Size(519, 261);
+			this->groupBox2->TabIndex = 2;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"B";
+			// 
+			// chartBebidas
+			// 
+			this->chartBebidas->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->chartBebidas->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Dash;
+			chartArea1->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea1->Name = L"ChartArea1";
+			this->chartBebidas->ChartAreas->Add(chartArea1);
+			this->chartBebidas->Cursor = System::Windows::Forms::Cursors::Arrow;
+			legend1->Name = L"Legend1";
+			this->chartBebidas->Legends->Add(legend1);
+			this->chartBebidas->Location = System::Drawing::Point(12, 32);
+			this->chartBebidas->Margin = System::Windows::Forms::Padding(6);
+			this->chartBebidas->Name = L"chartBebidas";
+			this->chartBebidas->Size = System::Drawing::Size(478, 229);
+			this->chartBebidas->TabIndex = 0;
+			this->chartBebidas->Text = L"chart2";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->chartPlatos);
+			this->groupBox1->Location = System::Drawing::Point(17, 4);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(6);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Padding = System::Windows::Forms::Padding(6);
+			this->groupBox1->Size = System::Drawing::Size(538, 261);
+			this->groupBox1->TabIndex = 1;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"P";
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->chartVentas);
+			this->groupBox3->Location = System::Drawing::Point(17, 277);
+			this->groupBox3->Margin = System::Windows::Forms::Padding(6);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Padding = System::Windows::Forms::Padding(6);
+			this->groupBox3->Size = System::Drawing::Size(1069, 293);
+			this->groupBox3->TabIndex = 3;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"V";
+			// 
+			// chartVentas
+			// 
+			this->chartVentas->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->chartVentas->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Dash;
+			chartArea3->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea3->Name = L"ChartArea1";
+			this->chartVentas->ChartAreas->Add(chartArea3);
+			this->chartVentas->Cursor = System::Windows::Forms::Cursors::Arrow;
+			legend3->Name = L"Legend1";
+			this->chartVentas->Legends->Add(legend3);
+			this->chartVentas->Location = System::Drawing::Point(0, 20);
+			this->chartVentas->Margin = System::Windows::Forms::Padding(6);
+			this->chartVentas->Name = L"chartVentas";
+			this->chartVentas->Size = System::Drawing::Size(1040, 273);
+			this->chartVentas->TabIndex = 0;
+			this->chartVentas->Text = L"chart1";
+			// 
+			// chartPlatos
+			// 
+			this->chartPlatos->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->chartPlatos->BorderlineColor = System::Drawing::Color::Transparent;
+			this->chartPlatos->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Dash;
+			chartArea2->AxisX->Enabled = System::Windows::Forms::DataVisualization::Charting::AxisEnabled::False;
+			chartArea2->Name = L"ChartArea1";
+			this->chartPlatos->ChartAreas->Add(chartArea2);
+			this->chartPlatos->Cursor = System::Windows::Forms::Cursors::Arrow;
+			legend2->Name = L"Legend1";
+			this->chartPlatos->Legends->Add(legend2);
+			this->chartPlatos->Location = System::Drawing::Point(11, 32);
+			this->chartPlatos->Margin = System::Windows::Forms::Padding(6);
+			this->chartPlatos->Name = L"chartPlatos";
+			this->chartPlatos->Size = System::Drawing::Size(506, 229);
+			this->chartPlatos->TabIndex = 0;
+			this->chartPlatos->Text = L"chart1";
+			// 
+			// groupBox4
+			// 
+			this->groupBox4->Controls->Add(this->groupBox1);
+			this->groupBox4->Controls->Add(this->groupBox3);
+			this->groupBox4->Controls->Add(this->groupBox2);
+			this->groupBox4->Location = System::Drawing::Point(38, 109);
+			this->groupBox4->Margin = System::Windows::Forms::Padding(6);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Padding = System::Windows::Forms::Padding(6);
+			this->groupBox4->Size = System::Drawing::Size(1110, 575);
+			this->groupBox4->TabIndex = 9;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Visible = false;
+			// 
 			// frmReporte
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 22);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(868, 635);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->ClientSize = System::Drawing::Size(1605, 801);
 			this->Controls->Add(this->groupBox7);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
-			this->Controls->Add(this->botonGenerar);
 			this->Controls->Add(this->buttonRegresar);
-			this->Controls->Add(this->label1);
+			this->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->Name = L"frmReporte";
-			this->Text = L"frmReporte";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Reporte de ventas";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmReporte::frmReporte_Load);
-			this->groupBox1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->EndInit();
-			this->groupBox2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartBebidas))->EndInit();
-			this->groupBox3->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVentas))->EndInit();
-			this->groupBox4->ResumeLayout(false);
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
 			this->groupBox6->ResumeLayout(false);
 			this->groupBox6->PerformLayout();
 			this->groupBox7->ResumeLayout(false);
 			this->groupBox7->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartBebidas))->EndInit();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVentas))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPlatos))->EndInit();
+			this->groupBox4->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
