@@ -42,17 +42,6 @@ List<Producto^>^ productoController::listarProductos()
 	/*Para Select siempre sera ExecuteReader*/
 	/*Para select siempre va a devolver un SqlDataReader*/
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
-	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/productos.txt");
-	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	//for each (String ^ lineaProducto in lineas) {
-	//	array<String^>^ datos = lineaProducto->Split(separadores->ToCharArray());
-	//	int Id = Convert::ToInt32(datos[0]);
-	//	String^ Nombre = datos[1];
-	//	double Precio = Convert::ToDouble(datos[2]);
-	//	int Tipo = Convert::ToInt32(datos[3]);
-	//	Producto^ objPlatoBebidaMenu = gcnew Producto(Id, Nombre, Precio, Tipo);
-	//	listaProductos->Add(objPlatoBebidaMenu);
-	//}
 	while (objData->Read()) 
 	{
 		int Id = safe_cast<int>(objData[0]);
@@ -80,12 +69,7 @@ void productoController::escribirProductos(List<Producto^>^ listaProductos)
 }
 void productoController::addProducto(Producto^ objProducto)
 {
-	List<Producto^>^ listaProductos = listarProductos();
-	listaProductos->Add(objProducto);
-	escribirProductos(listaProductos);
-	
 	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
-	
 	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
@@ -101,16 +85,6 @@ void productoController::addProducto(Producto^ objProducto)
 }
 void productoController::updateProducto(Producto^ objProducto)
 {
-	/*List<Producto^>^ listaProductos = listarProductos();
-	for (int i = 0; i < listaProductos->Count; i++) {
-			if (listaProductos[i]->GetId() == objProducto->GetId()) {
-				listaProductos[i] = objProducto;
-				break;
-			}
-	}
-	escribirProductos(listaProductos);
-	*/
-	//addProducto(objProducto);
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
@@ -125,21 +99,6 @@ void productoController::updateProducto(Producto^ objProducto)
 void productoController::deleteProducto(int id)
 {
 	List<Producto^>^ listaProductos = listarProductos();
-	//for (int i = 0; i < listaProductos->Count; i++) {
-	//	if (listaProductos[i]->GetId() == id) {
-	//		
-	//		if(existeProductoMenuxId(listaProductos[i]->GetId()))//se elimina del menu si es que esta
-	//		{
-	//			removeDailyMenuProduct(listaProductos[i]->GetId());
-	//			generarMenu();//se actualizan los archivos del menu
-
-	//		}
-	//		listaProductos->RemoveAt(i);//se elimina de la lista de productos
-	//		break;
-	//	}
-	//}
-	//escribirProductos(listaProductos);
-	
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
@@ -152,7 +111,6 @@ void productoController::deleteProducto(int id)
 }
 Producto^ productoController::buscarProductoxId(int id)
 {
-
 	Producto^ objProducto = nullptr;
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
@@ -173,19 +131,12 @@ List<Producto^>^ productoController::buscarProductoxNombre(String^ nombre)
 {
 	List<Producto^>^ listaProductos = listarProductos();
 	List<Producto^>^ listaProductosBuscados = gcnew List<Producto^>();
-	/*for (int i = 0; i < listaProductos->Count; i++) {
-		if (listaProductos[i]->GetNombre()->ToLower()->Contains(nombre->ToLower())) {
-			listaProductosBuscados->Add(listaProductos[i]);
-		}
-	}*/
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
 	objSentencia->CommandText = "SELECT * FROM Productos WHERE nombreProducto LIKE '%" + nombre + "%'";
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
 	//Primero verificamos si hay datos que coincidan con la busqueda
-	
-
 
 	while (objData->Read()) {
 		int Id = safe_cast<int>(objData[0]);
@@ -227,15 +178,6 @@ List<Producto^>^ productoController::listarMenu()
 {
 	List<int>^ listaIds = gcnew List<int>();
 	List<Producto^>^ listaMenu = gcnew List<Producto^>();
-	//array<String^>^ lineas = File::ReadAllLines("Recursos/productos/menuDelDia.txt");
-	//String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	//for each (String ^ lineaMenu in lineas) {
-	//	array<String^>^ datos = lineaMenu->Split(separadores->ToCharArray());
-	//	int id = Convert::ToInt32(datos[0]);
-	//	Producto^ productoEncontrado = buscarProductoxId(id);
-	//	listaMenu->Add(productoEncontrado);
-	//}
-	//La tabla se llama ListaPreviaMenu, la cual solo contiene el id del producto
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
@@ -273,12 +215,6 @@ int productoController::existeProductoMenuxId(int id)
 	List<Producto^>^ listaMenu = listarMenu();
 	int existe = 0;
 	int idListaPrevia;
-	/*for (int i = 0; i < listaMenu->Count; i++) {
-		if (listaMenu[i]->GetId() == id) {
-			existe = 1;
-			break;
-		}
-	}*/
 	//La tabla se llama ListaPreviaMenu, la cual solo contiene el id del producto
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
@@ -300,9 +236,6 @@ int productoController::existeProductoMenuxId(int id)
 void productoController::addProductToDailyMenu(Producto^ obj)
 {
 	List<Producto^>^ listaMenu = listarMenu();
-	/*listaMenu->Add(obj);
-	escribirMenu(listaMenu);*/
-
 	//Agregamos el producto a la tabla ListaPreviaMenu
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
@@ -315,14 +248,6 @@ void productoController::addProductToDailyMenu(Producto^ obj)
 void productoController::removeDailyMenuProduct(int id)
 {
 	List<Producto^>^ listaMenu = listarMenu();
-	/*for (int i = 0; i < listaMenu->Count; i++) {
-		if (listaMenu[i]->GetId() == id) {
-			listaMenu->RemoveAt(i);
-			break;
-		}
-	}
-	escribirMenu(listaMenu);*/
-	//Eliminamos el producto de la tabla ListaPreviaMenu
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
@@ -344,23 +269,6 @@ void productoController::generarMenu()
 			listaBebidas->Add(listaMenu[i]);
 		}
 	}
-	/*array<String^>^ lineasArchivo = gcnew array<String^>(listaComidas->Count);
-	for (int i = 0; i < listaComidas->Count; i++) {
-		Producto^ ObjPlatoBebida = listaComidas[i];
-		lineasArchivo[i] = ObjPlatoBebida->GetId() + ";";
-	}
-	File::WriteAllLines("Recursos/productos/Platos.txt", lineasArchivo);
-	array<String^>^ lineasArchivo2 = gcnew array<String^>(listaBebidas->Count);
-	for (int i = 0; i < listaBebidas->Count; i++) {
-		Producto^ ObjPlatoBebida = listaBebidas[i];
-		lineasArchivo2[i] = ObjPlatoBebida->GetId() + ";";
-	}
-	File::WriteAllLines("Recursos/productos/Bebidas.txt", lineasArchivo2);*/
-	
-	//Se escribe en la informacion, solo el id, de la tabla ListaPreviaMenu en las tablas de platos y bebidas
-	//Primero se borra lo que hay en la tabla
-
-
 	abrirConexion();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;

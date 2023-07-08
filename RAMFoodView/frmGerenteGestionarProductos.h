@@ -108,6 +108,7 @@ namespace RAMFoodView {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAddBebidaPlato = (gcnew System::Windows::Forms::Button());
@@ -117,7 +118,6 @@ namespace RAMFoodView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->lbProductName = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -195,6 +195,29 @@ namespace RAMFoodView {
 			this->label1->TabIndex = 17;
 			this->label1->Text = L"Id:";
 			this->label1->Visible = false;
+			// 
+			// button10
+			// 
+			this->button10->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->button10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button10->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button10->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button10->Location = System::Drawing::Point(394, 721);
+			this->button10->Margin = System::Windows::Forms::Padding(4);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(212, 58);
+			this->button10->TabIndex = 12;
+			this->button10->Text = L"Actualizar producto";
+			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button10_Click_1);
 			// 
 			// button1
 			// 
@@ -342,29 +365,6 @@ namespace RAMFoodView {
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Nombre del Producto: ";
 			// 
-			// button10
-			// 
-			this->button10->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->button10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button10->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button10->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button10->Location = System::Drawing::Point(394, 721);
-			this->button10->Margin = System::Windows::Forms::Padding(4);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(212, 58);
-			this->button10->TabIndex = 12;
-			this->button10->Text = L"Actualizar producto";
-			this->button10->UseVisualStyleBackColor = false;
-			this->button10->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button10_Click_1);
-			// 
 			// button8
 			// 
 			this->button8->Anchor = System::Windows::Forms::AnchorStyles::Top;
@@ -378,12 +378,12 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button8->Location = System::Drawing::Point(630, 80);
+			this->button8->Location = System::Drawing::Point(641, 104);
 			this->button8->Margin = System::Windows::Forms::Padding(4);
 			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(185, 46);
+			this->button8->Size = System::Drawing::Size(167, 78);
 			this->button8->TabIndex = 10;
-			this->button8->Text = L"Eliminar";
+			this->button8->Text = L"Eliminar producto";
 			this->button8->UseVisualStyleBackColor = false;
 			this->button8->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button8_Click);
 			// 
@@ -542,6 +542,7 @@ namespace RAMFoodView {
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Gestionar productos";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::frmGerenteGestionarProductos_Load);
 			this->gbFormulario->ResumeLayout(false);
 			this->gbFormulario->PerformLayout();

@@ -110,6 +110,11 @@ namespace RAMFoodView {
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmGerenteGestionarPersonal::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
@@ -121,11 +126,6 @@ namespace RAMFoodView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -188,6 +188,48 @@ namespace RAMFoodView {
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(1057, 530);
 			this->dataGridView1->TabIndex = 0;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"ID";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			this->Column1->Visible = false;
+			this->Column1->Width = 68;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Puesto";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			this->Column2->Width = 121;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Nombre";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			this->Column3->Width = 133;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Apellidos";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			this->Column4->Width = 148;
+			// 
+			// Column5
+			// 
+			this->Column5->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
+			this->Column5->HeaderText = L"Correo";
+			this->Column5->MinimumWidth = 6;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Width = 123;
 			// 
 			// button1
 			// 
@@ -275,6 +317,7 @@ namespace RAMFoodView {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(155, 30);
 			this->comboBox1->TabIndex = 8;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::comboBox1_SelectedIndexChanged);
 			// 
 			// button6
 			// 
@@ -359,48 +402,6 @@ namespace RAMFoodView {
 			this->button2->Text = L"REINCORPORAR";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteGestionarPersonal::button2_Click_1);
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"ID";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			this->Column1->Visible = false;
-			this->Column1->Width = 61;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Puesto";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			this->Column2->Width = 121;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Nombre";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			this->Column3->Width = 133;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Apellidos";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			this->Column4->Width = 148;
-			// 
-			// Column5
-			// 
-			this->Column5->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::AllCells;
-			this->Column5->HeaderText = L"Correo";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			this->Column5->Width = 123;
 			// 
 			// frmGerenteGestionarPersonal
 			// 
@@ -569,6 +570,28 @@ private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^
 	frmReincorporarEmpleado->ShowDialog();
 	this->Visible = true;
 	Actualizar();
+}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+	int PuestoBuscar = this->comboBox1->SelectedIndex;
+	empleadoController^ objUsuarioController = gcnew empleadoController();
+	if (PuestoBuscar == 0) {
+		//MessageBox::Show("Ingrese un campo de busqueda");
+		Actualizar();
+	}
+	else
+	{
+		/*Buscar por nombre y puesto*/
+		List<Usuario^>^ listaUsuariosEncontrados = objUsuarioController->QuerryUsuarioByNombrexRol("", PuestoBuscar);
+		if (listaUsuariosEncontrados->Count == 0) {
+			MessageBox::Show("No se encontraron resultados");
+			Actualizar();
+		}
+		else {
+			showGrid(listaUsuariosEncontrados);
+		}
+	}
+
 }
 };
 }
