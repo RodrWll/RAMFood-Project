@@ -422,7 +422,7 @@ namespace RAMFoodView {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmGerenteAgregarEmpleado";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"frmGerenteAgregarEmpleado";
+			this->Text = L"Agregar empleado";
 			this->Load += gcnew System::EventHandler(this, &frmGerenteAgregarEmpleado::frmGerenteAgregarEmpleado_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();

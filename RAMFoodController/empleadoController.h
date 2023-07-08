@@ -2,11 +2,17 @@ namespace RAMFoodController {
 	using namespace System::Collections::Generic;
 	using namespace RAMFoodModel;
 	using namespace System;
+	using namespace System::Data::SqlClient;
 	public ref class empleadoController {
+	private:
+		SqlConnection^ objConexion; /*Un atributo que nos permita hacer la conexion con la Base de Datos*/
 	public:
 		empleadoController();
+		void abrirConexion();
+		void cerrarConexion();
+
 		void escribirArchivo(List<Usuario^>^ ListaUsuarios);
-		List<Usuario^>^ leerArchivo();
+		List<Usuario^>^ ListarUsuarios();
 		void AddUsuario(Usuario^ objUsuario);
 		void deleteUsuario(int Id);
 		void UpdateUsuario(Usuario^ UsuarioModificar);

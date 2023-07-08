@@ -423,16 +423,16 @@ namespace RAMFoodView {
 		String^ formatoFecha = "dd/MM/yyyy";
 		groupBox2->Text = "Correo actual:";
 
-		if (DateTime::TryParseExact(fecha, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None, fechaSeleccionada))
-		{
-			// Establecer la fecha en el DateTimePicker
-			dateTimePicker1->Value = fechaSeleccionada;
-		}
-		else
-		{
-			// La cadena de fecha no tiene el formato esperado
-			// Manejar el error o mostrar un mensaje al usuario
-		}
+		//if (DateTime::TryParseExact(fecha, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None, fechaSeleccionada))
+		//{
+		//	// Establecer la fecha en el DateTimePicker
+		//	dateTimePicker1->Value = fechaSeleccionada;
+		//}
+		//else
+		//{
+		//	// La cadena de fecha no tiene el formato esperado
+		//	// Manejar el error o mostrar un mensaje al usuario
+		//}
 		
 		switch (objUsuario->GetRol())
 		{
@@ -443,6 +443,7 @@ namespace RAMFoodView {
 			this->textBox1->Text = objGerente->GetNombre();
 			this->textBox2->Text = objGerente->GetApellidoPat();
 			this->textBox4->Text = objGerente->GetApellidoMat();
+			this->dateTimePicker1->Text = objGerente->GetFechaContrato();
 			break;
 		case 2:
 			//this->comboBox1->Text = "Asistente";
@@ -451,6 +452,7 @@ namespace RAMFoodView {
 			this->textBox1->Text = objAsistente->GetNombre();
 			this->textBox2->Text = objAsistente->GetApellidoPat();
 			this->textBox4->Text = objAsistente->GetApellidoMat();
+			this->dateTimePicker1->Text = objAsistente->GetFechaContrato();
 
 			break;
 		case 3:
@@ -460,6 +462,7 @@ namespace RAMFoodView {
 			this->textBox1->Text = objChef->GetNombre();
 			this->textBox2->Text = objChef->GetApellidoPat();
 			this->textBox4->Text = objChef->GetApellidoMat();
+			this->dateTimePicker1->Text = objChef->GetFechaContrato();
 			break;
 		default:
 			break;
@@ -533,6 +536,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	{
 	case 1:
 		objUsuarioController->UpdateUsuario(objGerente);
+		
 		break;
 	case 2:
 		objUsuarioController->UpdateUsuario(objAsistente);

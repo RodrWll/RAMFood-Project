@@ -52,6 +52,7 @@ int PedidoController::obtenerIdPedidoGeneralxNmesa(int numMesa) {
 
 };
 
+
 List<OrdenMesa^>^ PedidoController::BuscarPedidoGeneralxnumMesa(int numMesa) {
 	List<OrdenMesa^>^ listaProductoGeneral = gcnew List<OrdenMesa^>();
 	
@@ -195,6 +196,47 @@ void PedidoController::actualizarCuenta(OrdenMesa^ objOrdenMesaBD, OrdenMesa^ ob
 	cerrarConexionBD();
 };
 
+/*tipo de asistencia 1: asistencia
+2: cobranza*/
+void PedidoController::notificarAsistente(int nmesa, int tipoAsistencia) {
+
+	conectarBD();
+
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+
+	switch (tipoAsistencia)
+	{
+	case 1:
+		
+
+		objSentencia->CommandText = "UPDATE AsistenciaMesa SET asistenciaRequerida=1 WHERE mesa="+nmesa;
+		/*Aqui ejecuto la sentencia en la Base de Datos*/
+		/*Para Select siempre sera ExecuteReader*/
+		/*Para select siempre va a devolver un SqlDataReader*/
+		objSentencia->ExecuteReader();
+		
+		break;
+	case 2:
+
+		objSentencia->CommandText = "UPDATE AsistenciaMesa SET cobranzaRequerida=1 WHERE mesa =" + nmesa;
+		/*Aqui ejecuto la sentencia en la Base de Datos*/
+		/*Para Select siempre sera ExecuteReader*/
+		/*Para select siempre va a devolver un SqlDataReader*/
+		objSentencia->ExecuteReader();
+
+
+	default:
+		cerrarConexionBD();
+		break;
+	}
+
+	cerrarConexionBD();
+
+};
 /*
 void PedidoController::actualizarCantidadPlato(OrdenMesa^ objOrdenMesa, Plato^ objPlato) {
 	conectarBD();
@@ -629,101 +671,126 @@ List<Bebida^>^ PedidoController::LeerPedidosBebidas(String^ nombre_archivo) {
 
 
 /*toda la direccion, no es necesario cambiar el algoritmo, se trabaja internamente*/
-
-List<Plato^>^ PedidoController::LeerPedidosPlatoFinal(String^ nombre_archivo) {
+/*version BD*/
+List<Plato^>^ PedidoController::LeerPedidosPlatoFinal(int mesa) {
 	/*Este método solo lee el nombre, precio, cantidad, idimagen y id lo settea a 0 por defecto*/
 	/*Leyendo lineas del archivo*/
+	
 	List<Plato^>^ LPlatosEncontrados = gcnew List<Plato^>();
-	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
-
-	String^ separador = ";";
-	int key = 1;
-	for each (String^ linea_plato in lineas) {
-		array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-		if (key != 1) {
-			int id = Convert::ToInt32(datos[0]);
-			int cantidadPedida = Convert::ToInt32(datos[1]);
-			productoController^ objProducto = gcnew productoController();
-			Producto^ objP = gcnew Producto();
-			objP = objProducto->buscarProductoxId(id);
-			if (objP->GetTipo() == 2) {
-				Plato^ objPlato = gcnew Plato(objP->GetNombre(), objP->GetPrecio(), cantidadPedida,objP->GetId(),0);
-
-				LPlatosEncontrados->Add(objPlato);
-			};
+	int idPedido = obtenerIdPedidoGeneralxNmesa(mesa);
+	conectarBD();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "SELECT SUM(cantidad),idProducto FROM DetallePedido WHERE idPedido=" + idPedido +"GROUP BY idProducto";
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	productoController^ objProductoControllerPl = gcnew productoController();
+	while (objData->Read()) {
+		int cantidad = safe_cast<int>(objData[0]);
+		int idProducto = safe_cast<int>(objData[1]);
+		
+		Producto^ productoI = objProductoControllerPl->buscarProductoxId(idProducto);
+		if (productoI->GetTipo() == 2) {
+			Plato^ objPlatoI = gcnew Plato(productoI->GetNombre(), productoI->GetPrecio(), cantidad, idProducto, 0);
+			LPlatosEncontrados->Add(objPlatoI);
 		}
-		else {
-			/*primera linea se ignora*/
-			key = 0;
-		}
-		/*
-		if (key == 1) {
-			array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-			
-			if (datos[0]->Contains("Bebida")) { key = 0; }
-			else if (datos[0]->Contains("Platos"))
-			{
-				keyPlatos = 1;
-			}
-			else {
-				if (keyPlatos) {
-					String^ nombre_plato = datos[0];
-					int cpedida = Convert::ToInt32(datos[1]);
-					double cprecio = Convert::ToDouble(datos[2]);
-					Plato^ objPlato = gcnew Plato(nombre_plato, cprecio, 0, cpedida, 0);
-					LPlatosEncontrados->Add(objPlato);
-				};
-			};
-		};
-		*/
+		
+		
+	}
+	cerrarConexionBD();
 
-	};
+	//array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
+
+	//String^ separador = ";";
+	//int key = 1;
+	//for each (String^ linea_plato in lineas) {
+	//	array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
+	//	if (key != 1) {
+	//		int id = Convert::ToInt32(datos[0]);
+	//		int cantidadPedida = Convert::ToInt32(datos[1]);
+	//		productoController^ objProducto = gcnew productoController();
+	//		Producto^ objP = gcnew Producto();
+	//		objP = objProducto->buscarProductoxId(id);
+	//		if (objP->GetTipo() == 2) {
+	//			Plato^ objPlato = gcnew Plato(objP->GetNombre(), objP->GetPrecio(), cantidadPedida,objP->GetId(),0);
+
+	//			LPlatosEncontrados->Add(objPlato);
+	//		};
+	//	}
+	//	else {
+	//		/*primera linea se ignora*/
+	//		key = 0;
+	//	}
+
+	//};
+
+
 	return LPlatosEncontrados;
 };
-List<Bebida^>^ PedidoController::LeerPedidosBebidasFinal(String^ nombre_archivo) {
+List<Bebida^>^ PedidoController::LeerPedidosBebidasFinal(int mesa) {
 	/*Este método solo lee el nombre, precio, cantidad, idimagen y id lo settea a 0 por defecto*/
 	/*Leyendo lineas del archivo*/
 	List<Bebida^>^ LBebidasEncontrados = gcnew List<Bebida^>();
-	array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
+		
+	int idPedido = obtenerIdPedidoGeneralxNmesa(mesa);
+	conectarBD();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentencia->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentencia->CommandText = "SELECT SUM(cantidad),idProducto FROM DetallePedido WHERE idPedido=" + idPedido + "GROUP BY idProducto";
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	productoController^ objProductoControllerPl = gcnew productoController();
+	while (objData->Read()) {
+		int cantidad = safe_cast<int>(objData[0]);
+		int idProducto = safe_cast<int>(objData[1]);
+		Producto^ productoI = objProductoControllerPl->buscarProductoxId(idProducto);
+		if (productoI->GetTipo() == 1) {
+			Bebida^ objBebidaI = gcnew Bebida(productoI->GetNombre(), productoI->GetPrecio(), cantidad, idProducto, 0);
+			LBebidasEncontrados->Add(objBebidaI);
 
-	
-
-	String^ separador = ";";
-	int key = 1;
-	int vez = 0;
-	for each (String ^ linea_plato in lineas) {
-		/*Se busca hasta encontrar la palabra bebidas, para empezar a guardar datos*/
-		array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
-		if (key != 1) {
-			int id = Convert::ToInt32(datos[0]);
-			int cantidadPedida = Convert::ToInt32(datos[1]);
-			productoController^ objProducto = gcnew productoController();
-			Producto^ objP = gcnew Producto();
-			objP = objProducto->buscarProductoxId(id);
-			if (objP->GetTipo() == 1) {
-				Bebida^ objBebida = gcnew Bebida(objP->GetNombre(), objP->GetPrecio(), cantidadPedida, objP->GetId(), 0);
-
-				LBebidasEncontrados->Add(objBebida);
-			};
 		}
-		else {
-			/*primera linea se ignora*/
-			key = 0;
-		};
-		/*
-		if (vez == 1 && (datos[0]->Contains("Bebida"))) { key = 1; vez = 0; }
-		else {
-			if (key == 1) {
+			}
 
-				String^ nombre_bebida = datos[0];
-				int cpedida = Convert::ToInt32(datos[1]);
-				double cprecio = Convert::ToDouble(datos[2]);
-				Bebida^ objBebida = gcnew Bebida(nombre_bebida, cprecio, cpedida, 0, 0);
-				LBebidasEncontrados->Add(objBebida);
-			};
-		};
-		*/
-	};
+	cerrarConexionBD();
+	//array<String^>^ lineas = File::ReadAllLines(nombre_archivo);
+
+	//
+
+	//String^ separador = ";";
+	//int key = 1;
+	//int vez = 0;
+	//for each (String ^ linea_plato in lineas) {
+	//	/*Se busca hasta encontrar la palabra bebidas, para empezar a guardar datos*/
+	//	array<String^>^ datos = linea_plato->Split(separador->ToCharArray());
+	//	if (key != 1) {
+	//		int id = Convert::ToInt32(datos[0]);
+	//		int cantidadPedida = Convert::ToInt32(datos[1]);
+	//		productoController^ objProducto = gcnew productoController();
+	//		Producto^ objP = gcnew Producto();
+	//		objP = objProducto->buscarProductoxId(id);
+	//		if (objP->GetTipo() == 1) {
+	//			Bebida^ objBebida = gcnew Bebida(objP->GetNombre(), objP->GetPrecio(), cantidadPedida, objP->GetId(), 0);
+
+	//			LBebidasEncontrados->Add(objBebida);
+	//		};
+	//	}
+	//	else {
+	//		/*primera linea se ignora*/
+	//		key = 0;
+	//	};
+	//};
+
+
 	return LBebidasEncontrados;
 }
 
@@ -776,10 +843,10 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 	/*formato del archivo DetallePedidoMesaGeneral.txt*/
 	/*leyendo ID ultimo*/
 	//general
-	array<String^>^ idUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
+	//array<String^>^ idUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
 	//detalles
-	array<String^>^ idPedido = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoIdPedidoMesa.txt");
-	int idSiguiente = Convert::ToInt32(idPedido[0]);
+	//array<String^>^ idPedido = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoIdPedidoMesa.txt");
+	//int idSiguiente = Convert::ToInt32(idPedido[0]);
 	
 	//Base de datos
 	
@@ -818,7 +885,7 @@ void PedidoController::escribirArchivoFormatoChef(List<Plato^>^ lPlato, List<Beb
 
 	/*revisar esto de abajo, se puede borrar uno de los dos de abajo*/
 
-	File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt", lineasEscribir);
+	//File::WriteAllLines("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt", lineasEscribir);
 
 	/*externo*/
 	
@@ -908,8 +975,8 @@ void PedidoController::guardarPedidotxt(OrdenMesa^ objOrdenMesa) {
 		List<Bebida^>^ listaBebidasLeidaPedidoFinal = gcnew List<Bebida^>();
 		List<Plato^>^ listaPlatoLeidaPedidoFinal = gcnew List<Plato^>();
 		//Se obtiene los platos que ordenó el comensal, esto debe ser reemplazado por base de datos
-		listaBebidasLeidaPedidoFinal = this->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
-		listaPlatoLeidaPedidoFinal = this->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+		listaBebidasLeidaPedidoFinal = this->LeerPedidosBebidasFinal(objOrdenMesa->GetMesa());
+		listaPlatoLeidaPedidoFinal = this->LeerPedidosPlatoFinal(objOrdenMesa->GetMesa());
 		for each (Plato^ objPlatoComparacion in listaPlatoLeida)
 		{
 			int platoNuevo = 1;
@@ -1002,8 +1069,8 @@ void PedidoController::guardarPedido(OrdenMesa^ objOrdenMesa) {
 		List<Bebida^>^ listaBebidasLeidaPedidoFinal = gcnew List<Bebida^>();
 		List<Plato^>^ listaPlatoLeidaPedidoFinal = gcnew List<Plato^>();
 		//Se obtiene los platos que ordenó el comensal, esto debe ser reemplazado por base de datos
-		listaBebidasLeidaPedidoFinal = this->LeerPedidosBebidasFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
-		listaPlatoLeidaPedidoFinal = this->LeerPedidosPlatoFinal("Recursos//Comensal//pedidototal//pedidomesaAsistente.txt");
+		listaBebidasLeidaPedidoFinal = this->LeerPedidosBebidasFinal(objOrdenMesa->GetMesa());
+		listaPlatoLeidaPedidoFinal = this->LeerPedidosPlatoFinal(objOrdenMesa->GetMesa());
 		//listaBebidasLeidaPedidoFinal = obtenerPedidoDetalleBebidas(objOrdenMesa->GetMesa());
 		//listaPlatoLeidaPedidoFinal = obtenerPedidoDetallePlato(objOrdenMesa->GetMesa());
 
@@ -1215,7 +1282,7 @@ void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
 			lineaEscribirPedidoGeneral->Add(lineas);
 		}*/
 
-	lineaVacia->Add("vacio");
+	//lineaVacia->Add("vacio");
 	//array<String^>^ idCuentaUltimo = File::ReadAllLines("Recursos/Comensal/pedidotemporal/ultimoId.txt");
 	//int num = Convert::ToInt32(idCuentaUltimo[0]) + 1;
 	//idPedidoGeneralActualizado->Add(Convert::ToString(num));
@@ -1226,7 +1293,7 @@ void PedidoController::CuentaPagada(OrdenMesa^ mesa) {
 	//File::WriteAllLines("NewComensal/pedidoMesaGeneral.txt", actualizarEstadoPedidoGeneral);
 
 	//interno
-	File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
+	//File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesaAsistente.txt", lineaVacia);
 	//File::WriteAllLines("Recursos//Comensal//PedidoTotal//pedidomesa.txt", lineaVacia);
 
 	//File::WriteAllLines("Recursos//Comensal//pedidoTemporal//ultimoId.txt", idPedidoGeneralActualizado);

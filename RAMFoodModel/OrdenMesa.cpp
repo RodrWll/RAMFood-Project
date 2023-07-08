@@ -66,5 +66,10 @@ void OrdenMesa::SetListaProductosPedidos(List<ProductoPedido^>^ listaProductosPe
 List<ProductoPedido^>^ OrdenMesa::GetListaProductosPedidos() {
     return this->listaProductosPedidos;
 }
-
+void OrdenMesa::SetPedidoEnviado(int pedidoEnviado) {
+    this->pedidoEnviado = pedidoEnviado;
+};
+int OrdenMesa::GetPedidoEnviado() {
+    return this->pedidoEnviado;
+};
 

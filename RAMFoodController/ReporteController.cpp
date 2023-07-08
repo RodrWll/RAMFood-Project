@@ -90,7 +90,8 @@ void ReporteController::obtenerTopPlatos(List<String^>^ listaId, List<String^>^ 
 		int conteo = 0;
 		while (objDataP->Read()) {
 			Producto^ PlatoProducto = gcnew Producto();
-			PlatoProducto = objProductoController->buscarProductoxId(safe_cast<Int32>(objDataP[0]));
+			int idBuscado = safe_cast<Int32>(objDataP[0]);
+			PlatoProducto = objProductoController->buscarProductoxId(idBuscado);
 
 			if (PlatoProducto->GetTipo() == 2) {
 				iniciarConteo = 1;
@@ -601,3 +602,67 @@ void ReporteController::obtenerVentasTotal(List<String^>^ listaFechas, List<Stri
 	}
 	*/
 };
+
+void ReporteController::obtenerTop(List<String^>^ listaIdP, List<String^>^ listaValorP, List<String^>^ listaIdB, List<String^>^ listaValorB, String^ fechaInicio, String^ FechaFin) {
+
+	List<String^>^ listaIdEnRango = gcnew List<String^>();
+	
+	conectarBD();
+	/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+	SqlCommand^ objSentenciaI = gcnew SqlCommand();
+	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+	objSentenciaI->Connection = this->objConexion;
+	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+	objSentenciaI->CommandText = "SELECT id FROM PedidoGeneralMesa WHERE fecha BETWEEN '"+ fechaInicio + "' AND '"+FechaFin+"'";
+	/*Aqui ejecuto la sentencia en la Base de Datos*/
+	/*Para Select siempre sera ExecuteReader*/
+	/*Para select siempre va a devolver un SqlDataReader*/
+	SqlDataReader^ objDataI = objSentenciaI->ExecuteReader();
+	while (objDataI->Read())
+	{
+		String^ idElegido = Convert::ToString((objDataI[0]));
+
+		listaIdEnRango->Add(idElegido);
+	}
+
+	cerrarConexionBD();
+
+	int ultimaPosicion = listaIdEnRango->Count;
+	if (ultimaPosicion > 0) {
+		conectarBD();
+		/*SqlCommand viene a ser el objeto que utilizare para hacer el query o sentencia para la BD*/
+		SqlCommand^ objSentenciaII = gcnew SqlCommand();
+		/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
+		objSentenciaII->Connection = this->objConexion;
+		/*Aqui voy a indicar la sentencia que voy a ejecutar*/
+		objSentenciaII->CommandText = "SELECT SUM(cantidad),idProducto FROM DetallePedido WHERE idPedido BETWEEN " + listaIdEnRango[0] + " AND " + listaIdEnRango[ultimaPosicion - 1] + " GROUP BY idProducto ORDER BY SUM(cantidad)";
+		/*Aqui ejecuto la sentencia en la Base de Datos*/
+		/*Para Select siempre sera ExecuteReader*/
+		/*Para select siempre va a devolver un SqlDataReader*/
+		SqlDataReader^ objDataII = objSentenciaII->ExecuteReader();
+		productoController^ objProductoController = gcnew productoController();
+		int idEncontrado;
+		while (objDataII->Read())
+		{
+			Producto^ ProductoEncontrado = gcnew Producto();
+			idEncontrado = safe_cast<Int32>(objDataII[1]);
+			ProductoEncontrado = objProductoController->buscarProductoxId(idEncontrado);
+			int cantidad = safe_cast<Int32>(objDataII[0]);
+			if (ProductoEncontrado->GetTipo() == 1) {
+				listaIdB->Add(Convert::ToString(idEncontrado));
+				listaValorB->Add(Convert::ToString(cantidad));
+			}
+			else if (ProductoEncontrado->GetTipo() == 2) {
+				listaIdP->Add(Convert::ToString(idEncontrado));
+				listaValorP->Add(Convert::ToString(cantidad));
+			};
+
+
+		}
+
+		cerrarConexionBD();
+
+	}
+
+};
+
