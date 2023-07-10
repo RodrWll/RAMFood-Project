@@ -92,40 +92,44 @@ namespace RAMFoodView {
 			// 
 			// textBoxClave
 			// 
-			this->textBoxClave->Location = System::Drawing::Point(253, 121);
-			this->textBoxClave->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBoxClave->Location = System::Drawing::Point(190, 98);
 			this->textBoxClave->Name = L"textBoxClave";
-			this->textBoxClave->Size = System::Drawing::Size(132, 22);
+			this->textBoxClave->Size = System::Drawing::Size(100, 20);
 			this->textBoxClave->TabIndex = 0;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(41, 36);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Black;
+			this->label1->Location = System::Drawing::Point(12, 29);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(192, 16);
+			this->label1->Size = System::Drawing::Size(177, 14);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Ingresar número de mesa (1-3):";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(261, 94);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::Black;
+			this->label2->Location = System::Drawing::Point(196, 76);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(103, 16);
+			this->label2->Size = System::Drawing::Size(37, 14);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Clave dinámica:";
+			this->label2->Text = L"Clave:";
 			// 
 			// buttonConfirmar
 			// 
-			this->buttonConfirmar->Location = System::Drawing::Point(101, 262);
-			this->buttonConfirmar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonConfirmar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonConfirmar->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonConfirmar->Location = System::Drawing::Point(76, 213);
 			this->buttonConfirmar->Name = L"buttonConfirmar";
-			this->buttonConfirmar->Size = System::Drawing::Size(100, 28);
+			this->buttonConfirmar->Size = System::Drawing::Size(75, 23);
 			this->buttonConfirmar->TabIndex = 4;
 			this->buttonConfirmar->Text = L"Confirmar";
 			this->buttonConfirmar->UseVisualStyleBackColor = true;
@@ -133,10 +137,12 @@ namespace RAMFoodView {
 			// 
 			// buttonCancelar
 			// 
-			this->buttonCancelar->Location = System::Drawing::Point(255, 262);
-			this->buttonCancelar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonCancelar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonCancelar->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonCancelar->Location = System::Drawing::Point(191, 213);
 			this->buttonCancelar->Name = L"buttonCancelar";
-			this->buttonCancelar->Size = System::Drawing::Size(100, 28);
+			this->buttonCancelar->Size = System::Drawing::Size(75, 23);
 			this->buttonCancelar->TabIndex = 5;
 			this->buttonCancelar->Text = L"Cancelar";
 			this->buttonCancelar->UseVisualStyleBackColor = true;
@@ -146,18 +152,19 @@ namespace RAMFoodView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"1", L"2", L"3" });
-			this->comboBox1->Location = System::Drawing::Point(265, 32);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->comboBox1->Location = System::Drawing::Point(199, 26);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(132, 24);
+			this->comboBox1->Size = System::Drawing::Size(100, 21);
 			this->comboBox1->TabIndex = 6;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(83, 81);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(62, 66);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(40, 28);
+			this->button1->Size = System::Drawing::Size(30, 23);
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"1";
 			this->button1->UseVisualStyleBackColor = true;
@@ -165,10 +172,12 @@ namespace RAMFoodView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(131, 81);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(98, 66);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(40, 28);
+			this->button2->Size = System::Drawing::Size(30, 23);
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"2";
 			this->button2->UseVisualStyleBackColor = true;
@@ -176,10 +185,12 @@ namespace RAMFoodView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(179, 81);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Location = System::Drawing::Point(134, 66);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(40, 28);
+			this->button3->Size = System::Drawing::Size(30, 23);
 			this->button3->TabIndex = 9;
 			this->button3->Text = L"3";
 			this->button3->UseVisualStyleBackColor = true;
@@ -187,10 +198,12 @@ namespace RAMFoodView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(179, 117);
-			this->button4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Location = System::Drawing::Point(134, 95);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(40, 28);
+			this->button4->Size = System::Drawing::Size(30, 23);
 			this->button4->TabIndex = 12;
 			this->button4->Text = L"6";
 			this->button4->UseVisualStyleBackColor = true;
@@ -198,10 +211,12 @@ namespace RAMFoodView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(131, 117);
-			this->button5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->Location = System::Drawing::Point(98, 95);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(40, 28);
+			this->button5->Size = System::Drawing::Size(30, 23);
 			this->button5->TabIndex = 11;
 			this->button5->Text = L"5";
 			this->button5->UseVisualStyleBackColor = true;
@@ -209,10 +224,12 @@ namespace RAMFoodView {
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(83, 117);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button6->Location = System::Drawing::Point(62, 95);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(40, 28);
+			this->button6->Size = System::Drawing::Size(30, 23);
 			this->button6->TabIndex = 10;
 			this->button6->Text = L"4";
 			this->button6->UseVisualStyleBackColor = true;
@@ -220,10 +237,12 @@ namespace RAMFoodView {
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(179, 153);
-			this->button7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->Location = System::Drawing::Point(134, 124);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(40, 28);
+			this->button7->Size = System::Drawing::Size(30, 23);
 			this->button7->TabIndex = 15;
 			this->button7->Text = L"9";
 			this->button7->UseVisualStyleBackColor = true;
@@ -231,10 +250,12 @@ namespace RAMFoodView {
 			// 
 			// button8
 			// 
-			this->button8->Location = System::Drawing::Point(131, 153);
-			this->button8->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button8->Location = System::Drawing::Point(98, 124);
 			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(40, 28);
+			this->button8->Size = System::Drawing::Size(30, 23);
 			this->button8->TabIndex = 14;
 			this->button8->Text = L"8";
 			this->button8->UseVisualStyleBackColor = true;
@@ -242,10 +263,12 @@ namespace RAMFoodView {
 			// 
 			// button9
 			// 
-			this->button9->Location = System::Drawing::Point(83, 153);
-			this->button9->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button9->Location = System::Drawing::Point(62, 124);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(40, 28);
+			this->button9->Size = System::Drawing::Size(30, 23);
 			this->button9->TabIndex = 13;
 			this->button9->Text = L"7";
 			this->button9->UseVisualStyleBackColor = true;
@@ -253,10 +276,12 @@ namespace RAMFoodView {
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(265, 153);
-			this->button10->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button10->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button10->Location = System::Drawing::Point(199, 124);
 			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(100, 28);
+			this->button10->Size = System::Drawing::Size(75, 23);
 			this->button10->TabIndex = 16;
 			this->button10->Text = L"Borrar";
 			this->button10->UseVisualStyleBackColor = true;
@@ -264,10 +289,12 @@ namespace RAMFoodView {
 			// 
 			// button11
 			// 
-			this->button11->Location = System::Drawing::Point(131, 188);
-			this->button11->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button11->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button11->Location = System::Drawing::Point(98, 153);
 			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(40, 28);
+			this->button11->Size = System::Drawing::Size(30, 23);
 			this->button11->TabIndex = 17;
 			this->button11->Text = L"0";
 			this->button11->UseVisualStyleBackColor = true;
@@ -275,10 +302,11 @@ namespace RAMFoodView {
 			// 
 			// frmComensalIngresarClave
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkRed;
-			this->ClientSize = System::Drawing::Size(444, 305);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->ClientSize = System::Drawing::Size(333, 248);
 			this->Controls->Add(this->button11);
 			this->Controls->Add(this->button10);
 			this->Controls->Add(this->button7);
@@ -297,7 +325,6 @@ namespace RAMFoodView {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBoxClave);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"frmComensalIngresarClave";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"frmComensalIngresarClave";

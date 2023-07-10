@@ -90,32 +90,35 @@ namespace RAMFoodView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(37, 163);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(349, 16);
+			this->label2->Size = System::Drawing::Size(336, 15);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"En breve, un asistente se acercará para procesar tu pago";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(86, 31);
+			this->label1->Location = System::Drawing::Point(90, 25);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(249, 20);
+			this->label1->Size = System::Drawing::Size(247, 17);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Gracias por consumir en RAMFod";
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::White;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(123, 263);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(134, 245);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(128, 23);
+			this->button1->Size = System::Drawing::Size(138, 46);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Regresar al menú";
 			this->button1->UseVisualStyleBackColor = false;
@@ -125,7 +128,8 @@ namespace RAMFoodView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkRed;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(401, 298);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);

@@ -67,22 +67,22 @@ namespace RAMFoodView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Montserrat", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(151, 254);
+			this->label1->Location = System::Drawing::Point(167, 247);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(376, 21);
+			this->label1->Size = System::Drawing::Size(327, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"En breve, se acercará un asistente para atenderlo";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Montserrat", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(148, 32);
+			this->label2->Location = System::Drawing::Point(177, 28);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(374, 37);
+			this->label2->Size = System::Drawing::Size(298, 30);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"ASISTENCIA SOLICITADA";
 			// 
@@ -100,12 +100,13 @@ namespace RAMFoodView {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::Desktop;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::SystemColors::Control;
-			this->button1->Location = System::Drawing::Point(235, 289);
+			this->button1->ForeColor = System::Drawing::Color::Black;
+			this->button1->Location = System::Drawing::Point(236, 344);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(167, 45);
 			this->button1->TabIndex = 3;
@@ -117,23 +118,23 @@ namespace RAMFoodView {
 			// 
 			this->groupBox1->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->pictureBox1);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Location = System::Drawing::Point(-3, 39);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(676, 354);
+			this->groupBox1->Size = System::Drawing::Size(676, 284);
 			this->groupBox1->TabIndex = 4;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"groupBox1";
 			// 
 			// frmComensalAsistenciaSolicitada
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkRed;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(669, 419);
 			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->button1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"frmComensalAsistenciaSolicitada";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
