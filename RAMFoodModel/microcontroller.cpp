@@ -21,8 +21,8 @@ using namespace RAMFoodModel;
 //constructor
 //Ver como poner el constructor, si se cierra la sesion del gerente, tal vez se apague la faja :,v
 microcontroller::microcontroller() {
-	//this->URL = "http://192.168.18.60";
-	this->URL = "http://10.100.72.114";
+	this->URL = "http://192.168.18.60";
+	//this->URL = "http://10.100.72.114";
 	this->ROUTE_MOTOR = "/Motor";
 	this->ROUTE_MESA = "/Mesa";
 	this->ROUTE_ERROR = "/ErrorFaja";
@@ -45,7 +45,7 @@ void microcontroller::setStatusMotor(int status) {
 
 int microcontroller::getDato(String^ direction) {
 	string url = msclr::interop::marshal_as<std::string>(direction);
-	const std::chrono::milliseconds timeout{3000};
+	const std::chrono::milliseconds timeout{3500};
 	http::Request request{url};
 	const auto response = request.send("GET", "", {}, timeout);
 	//Se obtiene el status del microcontrolador
@@ -92,7 +92,7 @@ void microcontroller::sendBit(int bit, const std::string& variable, String^ rout
 		std::string bitString = std::to_string(bit);
 		//Mandamos el bit en el HTTP post
 		const string body = variable +"=" + bitString;
-		const std::chrono::milliseconds timeout{3000};
+		const std::chrono::milliseconds timeout{3500};
 		const auto response = request.send("POST", body, {
 			{"Content-Type", "application/x-www-form-urlencoded"}
 			}, timeout);
