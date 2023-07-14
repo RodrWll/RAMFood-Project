@@ -1327,7 +1327,7 @@ private: System::Void botonMesa_Click(System::Object^ sender, System::EventArgs^
 private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmComensalSeguridad^ ventana1 = gcnew frmComensalSeguridad();
 	ventana1->ShowDialog();
-	array<String^>^ claveLeida = File::ReadAllLines("Recursos/AsistenteChef/ClaveCorrecta.txt");
+	array<String^>^ claveLeida = File::ReadAllLines("Recursos\AsistenteChef\ClaveMesa.txt");
 	int claveCorrecta = Convert::ToInt32(claveLeida[0]);
 	if (claveCorrecta == 1) {
 		List<String^>^ linea = gcnew List<String^>();

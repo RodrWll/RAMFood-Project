@@ -1,5 +1,5 @@
-Bisteck a lo pobre ;1;35
-Papa a la huancaina criollo;1;18
+Ceviche ;2;55.6
+Pollo a la brasa;1;30
 Bebida
-Inka Cola ;2;13,2
-Coca Cola ;1;3
+Limonada ;2;16
+Chicha de jora;1;5
