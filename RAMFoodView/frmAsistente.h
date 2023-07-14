@@ -38,7 +38,7 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-	//private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	private: microcontroller^ objMicrocontroller =gcnew microcontroller();
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -1140,6 +1140,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(),3);
+			objMicrocontroller->setEnvio(1);
 			actualizarProductos();
 		}
 		
@@ -1190,6 +1191,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(2);
 		}
 
 	}
@@ -1203,6 +1205,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(3);
 		}
 	}
 	private: void actualizarAlertas1() {
