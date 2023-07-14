@@ -175,6 +175,21 @@ void OrdenController::actualizarEstado(int idPedido, int idProductoPedido, int e
     */
 }
 
+void OrdenController::actualizarEstadoDelProductoPedido(int idProductoPedido, int estado) {
+    abrirConexion();
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    objSentencia->Connection = this->objConexion;
+    objSentencia->CommandText = "UPDATE DetallePedido SET estado = @estado WHERE id = @idProductoPedido";
+
+    // Set parameter values
+    objSentencia->Parameters->AddWithValue("@estado", estado);
+    objSentencia->Parameters->AddWithValue("@idProductoPedido", idProductoPedido);
+
+    // Execute the update query
+    objSentencia->ExecuteNonQuery();
+    cerrarConexion();
+}
+
 ProductoPedido^ OrdenController::buscarProductoPedidoxId(int idPedido, int idProductoPedido) {
     List<ProductoPedido^>^ listaProductosPedidos = gcnew List<ProductoPedido^>();
     listaProductosPedidos = ReadOrderDetailsFromFile("NewComensal//DetallePedidoMesaGeneral.txt", idPedido);
@@ -188,6 +203,41 @@ ProductoPedido^ OrdenController::buscarProductoPedidoxId(int idPedido, int idPro
     }
     return objProductoPedidoEncontrado;
 }
+
+ProductoPedido^ OrdenController::queryRequestedProductById(int idProductoPedido) {
+    abrirConexion();
+    ProductoPedido^ objProductoPedidoEncontrado = gcnew ProductoPedido();
+    SqlCommand^ objSentencia = gcnew SqlCommand();
+    objSentencia->Connection = this->objConexion;
+    objSentencia->CommandText = "SELECT * "+
+        " FROM DetallePedido a "+
+        " JOIN Productos s ON a.idProducto = s.id "+
+        " WHERE a.id = " + idProductoPedido;
+        
+    SqlDataReader^ objData = objSentencia->ExecuteReader();
+    try {
+        while (objData->Read()) {
+            int id = safe_cast<int>(objData[0]);
+            int productoId = safe_cast<int>(objData[2]);
+            int cantidadPedida = safe_cast<int>(objData[3]);
+            int estado = safe_cast<int>(objData[4]);
+            //obj PRODUCTO
+            int idProducto = safe_cast<int>(objData[5]);
+            String^ nombre = safe_cast<String^>(objData[6]);
+            double precio = safe_cast<double>(objData[7]);
+            int tipo = safe_cast<int>(objData[8]);
+            Producto^ objProducto = gcnew Producto(idProducto, nombre, precio, tipo);
+            ProductoPedido^ objProductoPedido = gcnew ProductoPedido(id, objProducto, cantidadPedida, estado);
+            objProductoPedidoEncontrado = objProductoPedido;
+        }
+    }
+    catch (Exception^ ex) {
+        Console::WriteLine("Error: " + ex->Message);
+    }
+    cerrarConexion();
+    return objProductoPedidoEncontrado;
+}
+
 
 //
 List<ProductoPedido^>^ OrdenController::buscarListaPlatosPedidos(String^ filePath,String^ usuario) {
