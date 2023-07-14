@@ -1,4 +1,5 @@
 #pragma once
+#include "frmGerenteRestaurarProductos.h"
 
 namespace RAMFoodView {
 
@@ -73,6 +74,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::Button^ button3;
 
 
 	private:
@@ -125,6 +127,7 @@ namespace RAMFoodView {
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->gbFormulario->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -472,7 +475,7 @@ namespace RAMFoodView {
 			this->Column4->Name = L"Column4";
 			this->Column4->ReadOnly = true;
 			this->Column4->Visible = false;
-			this->Column4->Width = 125;
+			this->Column4->Width = 58;
 			// 
 			// Column1
 			// 
@@ -522,12 +525,35 @@ namespace RAMFoodView {
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button2_Click);
 			// 
+			// button3
+			// 
+			this->button3->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button3->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button3->Location = System::Drawing::Point(641, 229);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(167, 78);
+			this->button3->TabIndex = 14;
+			this->button3->Text = L"Restaurar producto";
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &frmGerenteGestionarProductos::button3_Click);
+			// 
 			// frmGerenteGestionarProductos
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(1344, 803);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->gbFormulario);
 			this->Controls->Add(this->dataGridView1);
@@ -686,7 +712,7 @@ private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e
 		String^ rutaImagen = Path::Combine(rutaCarpeta, nombreArchivo);
 		try{
 			System::Windows::Forms::DialogResult result;
-			result = MessageBox::Show("¿Está seguro que desea eliminar el producto?", "Eliminar producto", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+			result = MessageBox::Show("Seguro que desea eliminar el producto?", "Eliminar producto", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 			if (result == System::Windows::Forms::DialogResult::Yes)
 			{
 				objController->deleteProducto(codigoEliminar);
@@ -740,10 +766,9 @@ private: System::Void button10_Click_1(System::Object^ sender, System::EventArgs
 			if(this->comboBox1->SelectedIndex==1 || this->comboBox1->SelectedIndex==2)
 			{
 				productoController^ objController = gcnew productoController();
-				Producto^ objPlatoBebida= gcnew Producto();
+				Producto^ objPlatoBebida= objController->buscarProductoxId (Convert::ToInt32(this->textBox1->Text));
 				objPlatoBebida->SetNombre(this->lbProductName->Text);
  				objPlatoBebida->SetPrecio(Convert::ToDouble(this->lbPrecio->Text));
-				objPlatoBebida->SetId(Convert::ToInt32(this->textBox1->Text));
 				objPlatoBebida->SetTipo(this->comboBox1->SelectedIndex);
 				if (pictureBox1->Image != nullptr) {
 					objController->updateProducto(objPlatoBebida);
@@ -841,6 +866,13 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 			MessageBox::Show("Ocurrió un error al subir la imagen.");
 		}
 	}
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Visible = false;
+	frmGerenteRestaurarProductos^ ventanaRestaurar = gcnew frmGerenteRestaurarProductos();
+	ventanaRestaurar->ShowDialog();
+	this->Visible = true;
+	Actualizar();
 }
 };
 }

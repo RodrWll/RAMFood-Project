@@ -1,12 +1,21 @@
-1;1;1;5/19/2023 12:00:00 AM;;agurtotumialan@RAMFood.com;64968786;Rodrigo;Agurto;Tumialan
-2;1;1;5/21/2023 12:00:00 AM;;elcocasdiez@RAMFood.com;60001723;Maradona;Elcocas;Diez
-3;3;1;6/1/2023 12:00:00 AM;;garciapistolas@RAMFood.com;89939609;Alan;Garcia;Pistolas
-4;2;1;5/29/2023 12:00:00 AM;;galvezzuñiga@RAMFood.com;27398088;Franco;Galvez;Zuñiga
-5;3;1;5/29/2023 12:00:00 AM;;huarcayaccoicca@RAMFood.com;47780707;Misael;Huarcaya;Ccoicca
-6;1;1;2/1/2023 12:00:00 AM;;cristobalagui@RAMFood.com;12286128;Angelo;Cristobal;Agui
-7;2;1;3/11/2023 12:00:00 AM;;hernandezguitierrez@RAMFood.com;10386702;Ana;Hernandez;Guitierrez
-8;3;1;1/7/2023 12:00:00 AM;;gallardomolino@RAMFood.com;62691308;Diegote;Gallardo;Molino
-9;3;1;7/1/2023 12:00:00 AM;;zetajota@RAMFood.com;14080997;Jimer;Zeta;Jota
-10;3;1;7/1/2023 12:00:00 AM;;horarcioleuteno@RAMFood.com;17060749;Francisco;Horarcio;Leuteno
-11;2;1;7/1/2023 12:00:00 AM;;acuñasiqueiros@RAMFood.com;27184117;Jeremy;Acuña;Siqueiros
-12;1;0;1/7/2023 12:00:00 AM;01/07/2023;alvavillacorta@RAMFood.com;43357743;Santiago;Alva;Villacorta
+1;1;1;2023/05/19;;agurtotumialan@RAMFood.com;64968786;Rodrigo;Agurto;Tumialan
+2;1;1;2023/07/14;;bocadiez@RAMFood.com;60001723;Maradona;Boca;Diez
+3;3;1;2023/07/14;;garciapistolas@RAMFood.com;89939609;Alan;Garcia;Pistolas
+4;2;1;2023/05/29;;galvezzuñiga@RAMFood.com;27398088;Franco;Galvez;Zuñiga
+5;3;1;2023/05/29;;huarcayaccoicca@RAMFood.com;47780707;Misael;Huarcaya;Ccoicca
+6;1;1;2023/02/01;;cristobalagui@RAMFood.com;12286128;Angelo;Cristobal;Agui
+7;2;1;2023/11/03;;hernandezguitierrez@RAMFood.com;10386702;Ana;Hernandez;Guitierrez
+8;3;1;2023/07/01;;gallardomolino@RAMFood.com;62691308;Diegote;Gallardo;Molino
+9;3;1;2023/07/01;;zetajota@RAMFood.com;14080997;Jimer;Zeta;Jota
+10;3;1;2023/07/14;;horarcioleuteno@RAMFood.com;17060749;Francisco;Horarcio;Leuteno
+11;2;1;2023/07/14;;acuñasiqueiros@RAMFood.com;27184117;Jeremy;Acuña;Siqueiros
+12;1;1;2023/02/07;;alvavillacorta@RAMFood.com;43357743;Santiago;Alva;Villacorta
+13;1;1;2023/07/14;;altamiranobarca@RAMFood.com;72750000;Raul;Altamirano;Barca
+14;3;1;2023/07/14;;aquijediaz@RAMFood.com;32480637;Alvaro;Aquije;Diaz
+15;2;1;2023/07/14;;asfasasfasf@RAMFood.com;74750547;adfsd;asfas;asfasf
+16;3;0;2023/07/14;;asfsdvvafvasdewqewq@RAMFood.com;28305644;afasfsddsd;asfsdVVAFV;asdewqewq
+17;2;0;2023/07/14;;esfsadvdsssaffa@RAMFood.com;53965160;233sdsdavs;esfsadvds;ssaFFa
+18;3;0;2023/07/14;;asfsfaasfasfadds@RAMFood.com;92119953;safasf;asfsfaasfa;sfadds
+19;2;0;2023/07/14;;ewrer@RAMFood.com;82782191;erewr;ewr;er
+20;2;0;2023/07/14;;sdaasfdfsdfdsf@RAMFood.com;45244856;dsfdsfa;sdaasfdf;sdfdsf
+21;3;0;2023/07/14;14/07/2023;sdfasdfadfadfads@RAMFood.com;43708442;sdfsadfasd;sdfasdfa;dfadfads

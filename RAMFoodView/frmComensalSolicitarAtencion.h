@@ -133,6 +133,10 @@ namespace RAMFoodView {
 			// 
 			this->PagarCuenta->BackColor = System::Drawing::Color::White;
 			this->PagarCuenta->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->PagarCuenta->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PagarCuenta->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->PagarCuenta->Location = System::Drawing::Point(111, 256);
 			this->PagarCuenta->Name = L"PagarCuenta";
 			this->PagarCuenta->Size = System::Drawing::Size(150, 42);
@@ -145,6 +149,10 @@ namespace RAMFoodView {
 			// 
 			this->Asistencia->BackColor = System::Drawing::Color::White;
 			this->Asistencia->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Asistencia->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Asistencia->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->Asistencia->Location = System::Drawing::Point(351, 256);
 			this->Asistencia->Name = L"Asistencia";
 			this->Asistencia->Size = System::Drawing::Size(150, 42);
@@ -155,7 +163,8 @@ namespace RAMFoodView {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->BackColor = System::Drawing::Color::DarkRed;
+			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->groupBox1->Controls->Add(this->AtrasLlamarMozo);
 			this->groupBox1->Controls->Add(this->Asistencia);
 			this->groupBox1->Controls->Add(this->PagarCuenta);
@@ -170,6 +179,11 @@ namespace RAMFoodView {
 			// 
 			// AtrasLlamarMozo
 			// 
+			this->AtrasLlamarMozo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->AtrasLlamarMozo->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AtrasLlamarMozo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->AtrasLlamarMozo->Location = System::Drawing::Point(6, 344);
 			this->AtrasLlamarMozo->Name = L"AtrasLlamarMozo";
 			this->AtrasLlamarMozo->Size = System::Drawing::Size(108, 33);
@@ -180,9 +194,10 @@ namespace RAMFoodView {
 			// 
 			// groupBox2
 			// 
-			this->groupBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->groupBox2->BackColor = System::Drawing::Color::White;
 			this->groupBox2->Controls->Add(this->label1);
+			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox2->Location = System::Drawing::Point(12, 137);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(645, 100);

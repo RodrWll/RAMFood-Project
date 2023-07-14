@@ -1258,15 +1258,15 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	}
 	private: void actualizarAlertas1() {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(1); 
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(1);
-		if (estadoAsis == "1") {
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(1);
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(1);
+		if (estadoAsis == 1) {
 			button15->Enabled = true;
 		}
 		else {
 			button15->Enabled = false;
 		}
-		if (estadoCob == "1") {
+		if (estadoCob == 1) {
 			button14->Enabled = true;
 		}
 		else {
@@ -1275,15 +1275,15 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	}
 	private: void actualizarAlertas2() {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(2);
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(2);
-		if (estadoAsis == "1") {
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(2);
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(2);
+		if (estadoAsis == 1) {
 			button17->Enabled = true;
 		}
 		else {
 			button17->Enabled = false;
 		}
-		if (estadoCob == "1") {
+		if (estadoCob == 1) {
 			button16->Enabled = true;
 		}
 		else {
@@ -1292,15 +1292,15 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	}
 	private: void actualizarAlertas3() {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(3);
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(3);
-		if (estadoAsis == "1") {
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(3);
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(3);
+		if (estadoAsis == 1) {
 			button18->Enabled = true;
 		}
 		else {
 			button18->Enabled = false;
 		}
-		if (estadoCob == "1") {
+		if (estadoCob == 1) {
 			button19->Enabled = true;
 		}
 		else {
@@ -1319,80 +1319,80 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	}
 	private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) { //Cobranza mesa 2
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(2);
-		if (estadoCob == "1") {
-			objAsistenteController->ModificarEstadoCobranza(2,Convert::ToInt32(estadoCob));
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(2);
+		if (estadoCob == 1) {
+			objAsistenteController->ActualizarEstadoCobranza(2,0);
 			actualizarAlertas2();
 			MessageBox::Show("Diríjase a la Mesa 2 para cobrar la cuenta");
 		}
 		else {
-			objAsistenteController->ModificarEstadoCobranza(2,Convert::ToInt32(estadoCob));
+			objAsistenteController->ActualizarEstadoCobranza(2,0);
 			actualizarAlertas2();
 		}
 	}
 	private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ e) { //Asistencia mesa 2
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(2);
-		if (estadoAsis == "1") {
-			objAsistenteController->ModificarEstadoAsistencia(2, Convert::ToInt32(estadoAsis));
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(2);
+		if (estadoAsis == 1) {
+			objAsistenteController->ActualizarEstadoAsistencia(2,0);
 			actualizarAlertas2();
 			MessageBox::Show("Diríjase a la Mesa 2 para asistir al comensal");
 		}
 		else {
-			objAsistenteController->ModificarEstadoAsistencia(2, Convert::ToInt32(estadoAsis));
+			objAsistenteController->ActualizarEstadoAsistencia(2, 0);
 			actualizarAlertas2();
 		}
 	}
 
 	private: System::Void button14_Click(System::Object^ sender, System::EventArgs^ e) { //Cobranza mesa 1
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(1);
-		if (estadoCob == "1") {
-			objAsistenteController->ModificarEstadoCobranza(1, Convert::ToInt32(estadoCob));
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(1);
+		if (estadoCob == 1) {
+			objAsistenteController->ActualizarEstadoCobranza(1, 0);
 			actualizarAlertas1();
 			MessageBox::Show("Diríjase a la Mesa 1 para cobrar la cuenta");
 		}
 		else {
-			objAsistenteController->ModificarEstadoCobranza(1, Convert::ToInt32(estadoCob));
+			objAsistenteController->ActualizarEstadoCobranza(1, 0);
 			actualizarAlertas1();
 		}
 	}
 	private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e) { //Asistencia mesa 1
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(1);
-		if (estadoAsis == "1") {
-			objAsistenteController->ModificarEstadoAsistencia(1, Convert::ToInt32(estadoAsis));
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(1);
+		if (estadoAsis == 1) {
+			objAsistenteController->ActualizarEstadoAsistencia(1, 0);
 			actualizarAlertas1();
 			MessageBox::Show("Diríjase a la Mesa 1 para asistir al comensal");
 		}
 		else {
-			objAsistenteController->ModificarEstadoAsistencia(1, Convert::ToInt32(estadoAsis));
+			objAsistenteController->ActualizarEstadoAsistencia(1, 0);
 			actualizarAlertas1();
 		}
 	}
 	private: System::Void button19_Click(System::Object^ sender, System::EventArgs^ e) { //Cobranza mesa 3
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoCob = objAsistenteController->LeerArchivoEstadoCobranza(3);
-		if (estadoCob == "1") {
-			objAsistenteController->ModificarEstadoCobranza(3, Convert::ToInt32(estadoCob));
+		int estadoCob = objAsistenteController->BuscarEstadoCobranza(3);
+		if (estadoCob == 1) {
+			objAsistenteController->ActualizarEstadoCobranza(3, 0);
 			actualizarAlertas3();
 			MessageBox::Show("Diríjase a la Mesa 3 para cobrar la cuenta");
 		}
 		else {
-			objAsistenteController->ModificarEstadoCobranza(3, Convert::ToInt32(estadoCob));
+			objAsistenteController->ActualizarEstadoCobranza(3, 0);
 			actualizarAlertas3();
 		}
 	}
 	private: System::Void button18_Click(System::Object^ sender, System::EventArgs^ e) { //Asistencia mesa 3
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();
-		String^ estadoAsis = objAsistenteController->LeerArchivoEstadoAsistencia(3);
-		if (estadoAsis == "1") {
-			objAsistenteController->ModificarEstadoAsistencia(3, Convert::ToInt32(estadoAsis));
+		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(3);
+		if (estadoAsis == 1) {
+			objAsistenteController->ActualizarEstadoAsistencia(3, 0);
 			actualizarAlertas3();
 			MessageBox::Show("Diríjase a la Mesa 3 para asistir al comensal");
 		}
 		else {
-			objAsistenteController->ModificarEstadoAsistencia(3, Convert::ToInt32(estadoAsis));
+			objAsistenteController->ActualizarEstadoAsistencia(3, 0);
 			actualizarAlertas3();
 		}
 	}

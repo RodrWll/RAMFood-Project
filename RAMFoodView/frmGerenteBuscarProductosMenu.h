@@ -124,10 +124,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button3->Location = System::Drawing::Point(327, 149);
-			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Location = System::Drawing::Point(354, 164);
+			this->button3->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(131, 59);
+			this->button3->Size = System::Drawing::Size(177, 50);
 			this->button3->TabIndex = 19;
 			this->button3->Text = L"Agregar";
 			this->button3->UseVisualStyleBackColor = false;
@@ -135,6 +135,7 @@ namespace RAMFoodView {
 			// 
 			// button2
 			// 
+			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
@@ -144,10 +145,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button2->Location = System::Drawing::Point(13, 692);
-			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Location = System::Drawing::Point(37, 726);
+			this->button2->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(193, 63);
+			this->button2->Size = System::Drawing::Size(198, 50);
 			this->button2->TabIndex = 18;
 			this->button2->Text = L"Regresar";
 			this->button2->UseVisualStyleBackColor = false;
@@ -164,10 +165,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(115, 149);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Location = System::Drawing::Point(143, 164);
+			this->button1->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(137, 59);
+			this->button1->Size = System::Drawing::Size(177, 50);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -177,8 +178,8 @@ namespace RAMFoodView {
 			// 
 			this->dgvProductosEncontrados->AllowUserToAddRows = false;
 			this->dgvProductosEncontrados->AllowUserToDeleteRows = false;
+			this->dgvProductosEncontrados->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->dgvProductosEncontrados->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dgvProductosEncontrados->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
 			this->dgvProductosEncontrados->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->dgvProductosEncontrados->BorderStyle = System::Windows::Forms::BorderStyle::None;
@@ -205,8 +206,8 @@ namespace RAMFoodView {
 			this->dgvProductosEncontrados->EnableHeadersVisualStyles = false;
 			this->dgvProductosEncontrados->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dgvProductosEncontrados->Location = System::Drawing::Point(110, 25);
-			this->dgvProductosEncontrados->Margin = System::Windows::Forms::Padding(4);
+			this->dgvProductosEncontrados->Location = System::Drawing::Point(38, 80);
+			this->dgvProductosEncontrados->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->dgvProductosEncontrados->MultiSelect = false;
 			this->dgvProductosEncontrados->Name = L"dgvProductosEncontrados";
 			this->dgvProductosEncontrados->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
@@ -221,6 +222,7 @@ namespace RAMFoodView {
 			this->dgvProductosEncontrados->RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this->dgvProductosEncontrados->RowHeadersVisible = false;
 			this->dgvProductosEncontrados->RowHeadersWidth = 51;
+			this->dgvProductosEncontrados->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
 			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
@@ -233,7 +235,7 @@ namespace RAMFoodView {
 			this->dgvProductosEncontrados->RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this->dgvProductosEncontrados->RowTemplate->Height = 24;
 			this->dgvProductosEncontrados->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dgvProductosEncontrados->Size = System::Drawing::Size(425, 560);
+			this->dgvProductosEncontrados->Size = System::Drawing::Size(436, 670);
 			this->dgvProductosEncontrados->TabIndex = 16;
 			this->dgvProductosEncontrados->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmGerenteBuscarProductosMenu::dgvProductosEncontrados_CellClick);
 			// 
@@ -245,7 +247,7 @@ namespace RAMFoodView {
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
 			this->Column5->Visible = false;
-			this->Column5->Width = 61;
+			this->Column5->Width = 59;
 			// 
 			// Column6
 			// 
@@ -281,8 +283,8 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label7->Location = System::Drawing::Point(77, 97);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Location = System::Drawing::Point(104, 101);
+			this->label7->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(79, 22);
 			this->label7->TabIndex = 15;
@@ -297,10 +299,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->lbNombreProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->lbNombreProducto->Location = System::Drawing::Point(265, 97);
-			this->lbNombreProducto->Margin = System::Windows::Forms::Padding(4);
+			this->lbNombreProducto->Location = System::Drawing::Point(354, 101);
+			this->lbNombreProducto->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->lbNombreProducto->Name = L"lbNombreProducto";
-			this->lbNombreProducto->Size = System::Drawing::Size(205, 30);
+			this->lbNombreProducto->Size = System::Drawing::Size(273, 30);
 			this->lbNombreProducto->TabIndex = 14;
 			// 
 			// lbIdProducto
@@ -312,10 +314,10 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->lbIdProducto->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->lbIdProducto->Location = System::Drawing::Point(265, 43);
-			this->lbIdProducto->Margin = System::Windows::Forms::Padding(4);
+			this->lbIdProducto->Location = System::Drawing::Point(354, 43);
+			this->lbIdProducto->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->lbIdProducto->Name = L"lbIdProducto";
-			this->lbIdProducto->Size = System::Drawing::Size(205, 30);
+			this->lbIdProducto->Size = System::Drawing::Size(273, 30);
 			this->lbIdProducto->TabIndex = 13;
 			// 
 			// label6
@@ -325,8 +327,8 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label6->Location = System::Drawing::Point(77, 43);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Location = System::Drawing::Point(104, 43);
+			this->label6->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(114, 22);
 			this->label6->TabIndex = 12;
@@ -346,57 +348,60 @@ namespace RAMFoodView {
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
 			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->groupBox1->Location = System::Drawing::Point(15, 34);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox1->Location = System::Drawing::Point(37, 5);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(538, 635);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(5, 6, 5, 6);
+			this->groupBox1->Size = System::Drawing::Size(644, 631);
 			this->groupBox1->TabIndex = 20;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Parámetros de búsqueda:";
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(96, 264);
+			this->pictureBox1->Location = System::Drawing::Point(143, 224);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(343, 307);
+			this->pictureBox1->Size = System::Drawing::Size(457, 321);
 			this->pictureBox1->TabIndex = 20;
 			this->pictureBox1->TabStop = false;
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox2->BackColor = System::Drawing::Color::Transparent;
 			this->groupBox2->Controls->Add(this->dgvProductosEncontrados);
 			this->groupBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
 			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->groupBox2->Location = System::Drawing::Point(607, 34);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox2->Location = System::Drawing::Point(769, 26);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox2->Size = System::Drawing::Size(665, 721);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(5, 6, 5, 6);
+			this->groupBox2->Size = System::Drawing::Size(535, 762);
 			this->groupBox2->TabIndex = 21;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Productos encontrados:";
 			// 
 			// frmGerenteBuscarProductosMenu
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
+			this->AutoScaleDimensions = System::Drawing::SizeF(12, 26);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1336, 827);
+			this->ClientSize = System::Drawing::Size(1344, 803);
 			this->Controls->Add(this->groupBox2);
-			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
-			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->Controls->Add(this->groupBox1);
+			this->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F));
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4);
+			this->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->Name = L"frmGerenteBuscarProductosMenu";
+			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Buscar productos para el menú";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmGerenteBuscarProductosMenu::frmGerenteGestionarProductos_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProductosEncontrados))->EndInit();
 			this->groupBox1->ResumeLayout(false);

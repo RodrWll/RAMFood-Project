@@ -135,6 +135,7 @@
     <ClCompile Include="frmComensalIngresarClave.cpp" />
     <ClCompile Include="frmComensalIngresarClaveCuenta.cpp" />
     <ClCompile Include="frmComensalPedidoGenerado.cpp" />
+    <ClCompile Include="frmComensalSeguridad.cpp" />
     <ClCompile Include="frmComensalSolicitarAtencion.cpp" />
     <ClCompile Include="frmGerente.cpp" />
     <ClCompile Include="frmGerenteAgregarEmpleado.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
     <ClCompile Include="frmGerenteReincorporarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteRestaurarProductos.cpp" />
     <ClCompile Include="frmPersonal.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="frmPruebaNuevaInterfaz.cpp" />
@@ -192,6 +194,9 @@
     <ClInclude Include="frmComensalPedidoGenerado.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmComensalSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmComensalSolicitarAtencion.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -217,6 +222,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmGerenteReincorporarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmGerenteRestaurarProductos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPersonal.h">
@@ -266,6 +274,9 @@
     <EmbeddedResource Include="frmComensalPedidoGenerado.resx">
       <DependentUpon>frmComensalPedidoGenerado.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmComensalSeguridad.resx">
+      <DependentUpon>frmComensalSeguridad.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmComensalSolicitarAtencion.resx">
       <DependentUpon>frmComensalSolicitarAtencion.h</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerenteReincorporarEmpleado.resx">
       <DependentUpon>frmGerenteReincorporarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteRestaurarProductos.resx">
+      <DependentUpon>frmGerenteRestaurarProductos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonal.resx">
       <DependentUpon>frmPersonal.h</DependentUpon>
