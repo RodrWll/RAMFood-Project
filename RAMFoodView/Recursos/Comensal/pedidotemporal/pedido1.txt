@@ -1,2 +1,4 @@
-Chaufa ;2;42
+Bisteck a lo pobre ;1;35
+Papa a la huancaina criollo;1;18
 Bebida
+Coca Cola ;1;3
