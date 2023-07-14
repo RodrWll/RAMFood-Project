@@ -107,24 +107,42 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Button^ button21;
 	private: System::Windows::Forms::Button^ button20;
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn6;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
+
+
+
+
+
+
+
+
+
+
 private: System::Windows::Forms::Label^ label9;
 private: System::Windows::Forms::Label^ label10;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column10;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column11;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn6;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 	protected:
 
 	private:
@@ -140,25 +158,23 @@ private: System::Windows::Forms::Label^ label10;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmAsistente::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
@@ -185,19 +201,24 @@ private: System::Windows::Forms::Label^ label10;
 			this->button21 = (gcnew System::Windows::Forms::Button());
 			this->button20 = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->Column12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -236,24 +257,24 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView1->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
 			this->dataGridView1->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
-			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeight = 29;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column7
+					this->Column2, this->Column3, this->Column4, this->Column7, this->Column10
 			});
 			this->dataGridView1->EnableHeadersVisualStyles = false;
 			this->dataGridView1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
@@ -266,62 +287,22 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridView1->RowsDefaultCellStyle = dataGridViewCellStyle8;
+			this->dataGridView1->RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(486, 335);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmAsistente::dataGridView1_CellClick);
-			// 
-			// Column1
-			// 
-			this->Column1->FillWeight = 91.57755F;
-			this->Column1->HeaderText = L"Producto";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			// 
-			// Column2
-			// 
-			this->Column2->FillWeight = 91.57755F;
-			this->Column2->HeaderText = L"Cantidad";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			// 
-			// Column3
-			// 
-			this->Column3->FillWeight = 91.57755F;
-			this->Column3->HeaderText = L"Precio ";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this->Column4->FillWeight = 91.57755F;
-			this->Column4->HeaderText = L"Estado";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			// 
-			// Column7
-			// 
-			this->Column7->FillWeight = 133.6898F;
-			this->Column7->HeaderText = L"Tipo";
-			this->Column7->MinimumWidth = 6;
-			this->Column7->Name = L"Column7";
-			this->Column7->ReadOnly = true;
 			// 
 			// groupBox1
 			// 
@@ -334,6 +315,19 @@ private: System::Windows::Forms::Label^ label10;
 			this->groupBox1->Size = System::Drawing::Size(513, 394);
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->label8->ForeColor = System::Drawing::Color::Black;
+			this->label8->Location = System::Drawing::Point(222, 18);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(63, 19);
+			this->label8->TabIndex = 2;
+			this->label8->Text = L"MESA 1";
+			this->label8->Click += gcnew System::EventHandler(this, &frmAsistente::label8_Click);
 			// 
 			// button4
 			// 
@@ -366,6 +360,18 @@ private: System::Windows::Forms::Label^ label10;
 			this->groupBox2->TabIndex = 8;
 			this->groupBox2->TabStop = false;
 			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->label9->ForeColor = System::Drawing::Color::Black;
+			this->label9->Location = System::Drawing::Point(198, 18);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(63, 19);
+			this->label9->TabIndex = 3;
+			this->label9->Text = L"MESA 2";
+			// 
 			// dataGridView2
 			// 
 			this->dataGridView2->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
@@ -374,23 +380,23 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
 			this->dataGridView2->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
-			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView2->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView2->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView2->ColumnHeadersHeight = 29;
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
-			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->Column5, this->Column8
+					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->Column5, this->Column8, this->Column11
 			});
 			this->dataGridView2->EnableHeadersVisualStyles = false;
 			this->dataGridView2->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
@@ -403,17 +409,17 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView2->RowHeadersVisible = false;
 			this->dataGridView2->RowHeadersWidth = 51;
 			this->dataGridView2->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridView2->RowsDefaultCellStyle = dataGridViewCellStyle10;
+			this->dataGridView2->RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridView2->RowTemplate->Height = 24;
 			this->dataGridView2->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView2->Size = System::Drawing::Size(470, 335);
@@ -432,6 +438,18 @@ private: System::Windows::Forms::Label^ label10;
 			this->groupBox3->TabIndex = 9;
 			this->groupBox3->TabStop = false;
 			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->label10->ForeColor = System::Drawing::Color::Black;
+			this->label10->Location = System::Drawing::Point(214, 18);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(63, 19);
+			this->label10->TabIndex = 4;
+			this->label10->Text = L"MESA 3";
+			// 
 			// dataGridView3
 			// 
 			this->dataGridView3->AllowUserToResizeColumns = false;
@@ -442,23 +460,23 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
 			this->dataGridView3->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
-			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView3->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView3->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridView3->ColumnHeadersHeight = 29;
 			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
-			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->dataGridViewTextBoxColumn4,
-					this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6, this->Column6, this->Column9
+					this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6, this->Column6, this->Column9, this->Column12
 			});
 			this->dataGridView3->EnableHeadersVisualStyles = false;
 			this->dataGridView3->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
@@ -471,17 +489,17 @@ private: System::Windows::Forms::Label^ label10;
 			this->dataGridView3->RowHeadersVisible = false;
 			this->dataGridView3->RowHeadersWidth = 51;
 			this->dataGridView3->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle12->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+			dataGridViewCellStyle6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle12->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle12->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridView3->RowsDefaultCellStyle = dataGridViewCellStyle12;
+			this->dataGridView3->RowsDefaultCellStyle = dataGridViewCellStyle6;
 			this->dataGridView3->RowTemplate->Height = 24;
 			this->dataGridView3->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView3->Size = System::Drawing::Size(479, 335);
@@ -880,6 +898,54 @@ private: System::Windows::Forms::Label^ label10;
 			this->label7->TabIndex = 19;
 			this->label7->Text = L"Revisión requerida";
 			// 
+			// Column1
+			// 
+			this->Column1->FillWeight = 91.57755F;
+			this->Column1->HeaderText = L"Producto";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			// 
+			// Column2
+			// 
+			this->Column2->FillWeight = 91.57755F;
+			this->Column2->HeaderText = L"Cantidad";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// Column3
+			// 
+			this->Column3->FillWeight = 91.57755F;
+			this->Column3->HeaderText = L"Precio ";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			// 
+			// Column4
+			// 
+			this->Column4->FillWeight = 91.57755F;
+			this->Column4->HeaderText = L"Estado";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			// 
+			// Column7
+			// 
+			this->Column7->FillWeight = 133.6898F;
+			this->Column7->HeaderText = L"Tipo";
+			this->Column7->MinimumWidth = 6;
+			this->Column7->Name = L"Column7";
+			this->Column7->ReadOnly = true;
+			// 
+			// Column10
+			// 
+			this->Column10->HeaderText = L"IdPedido";
+			this->Column10->MinimumWidth = 6;
+			this->Column10->Name = L"Column10";
+			this->Column10->ReadOnly = true;
+			this->Column10->Visible = false;
+			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this->dataGridViewTextBoxColumn1->HeaderText = L"Producto";
@@ -914,6 +980,14 @@ private: System::Windows::Forms::Label^ label10;
 			this->Column8->MinimumWidth = 6;
 			this->Column8->Name = L"Column8";
 			this->Column8->ReadOnly = true;
+			// 
+			// Column11
+			// 
+			this->Column11->HeaderText = L"IdPedido";
+			this->Column11->MinimumWidth = 6;
+			this->Column11->Name = L"Column11";
+			this->Column11->ReadOnly = true;
+			this->Column11->Visible = false;
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
@@ -950,42 +1024,13 @@ private: System::Windows::Forms::Label^ label10;
 			this->Column9->Name = L"Column9";
 			this->Column9->ReadOnly = true;
 			// 
-			// label8
+			// Column12
 			// 
-			this->label8->AutoSize = true;
-			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label8->ForeColor = System::Drawing::Color::Black;
-			this->label8->Location = System::Drawing::Point(222, 18);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(63, 19);
-			this->label8->TabIndex = 2;
-			this->label8->Text = L"MESA 1";
-			this->label8->Click += gcnew System::EventHandler(this, &frmAsistente::label8_Click);
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label9->ForeColor = System::Drawing::Color::Black;
-			this->label9->Location = System::Drawing::Point(198, 18);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(63, 19);
-			this->label9->TabIndex = 3;
-			this->label9->Text = L"MESA 2";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label10->ForeColor = System::Drawing::Color::Black;
-			this->label10->Location = System::Drawing::Point(214, 18);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(63, 19);
-			this->label10->TabIndex = 4;
-			this->label10->Text = L"MESA 3";
+			this->Column12->HeaderText = L"IdPedido";
+			this->Column12->MinimumWidth = 6;
+			this->Column12->Name = L"Column12";
+			this->Column12->ReadOnly = true;
+			this->Column12->Visible = false;
 			// 
 			// frmAsistente
 			// 
@@ -1061,13 +1106,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 			this->dataGridView1->Rows->Clear();
 			for (int i = 0; i < listaProductos->Count; i++) {
 				ProductoPedido^ objProductoPedido = listaProductos[i];
-				array<String^>^ filaGrilla = gcnew array<String^>(5);
+				array<String^>^ filaGrilla = gcnew array<String^>(6);
 				filaGrilla[0] = objProductoPedido->GetObjProducto()->GetNombre();
 				filaGrilla[1] = Convert::ToString(objProductoPedido->GetCantidadPedida());
 				filaGrilla[2] = Convert::ToString(objProductoPedido->GetObjProducto()->GetPrecio());
 				OrdenController^ objOrdenController = gcnew OrdenController();
 				filaGrilla[3] = objOrdenController->ReadEstadoDelProductoPedido(objProductoPedido->GetEstado());
 				filaGrilla[4] = objOrdenController->ReadTipoDeProductoPedido(objProductoPedido->GetObjProducto()->GetTipo());
+				filaGrilla[5] = Convert::ToString(objProductoPedido->GetId()); // this column will not be shown in the grid
 				this->dataGridView1->Rows->Add(filaGrilla);
 			}
 		}
@@ -1075,13 +1121,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 			this->dataGridView2->Rows->Clear();
 			for (int i = 0; i < listaProductos->Count; i++) {
 				ProductoPedido^ objProductoPedido = listaProductos[i];
-				array<String^>^ filaGrilla = gcnew array<String^>(5);
+				array<String^>^ filaGrilla = gcnew array<String^>(6);
 				filaGrilla[0] = objProductoPedido->GetObjProducto()->GetNombre();
 				filaGrilla[1] = Convert::ToString(objProductoPedido->GetCantidadPedida());
 				filaGrilla[2] = Convert::ToString(objProductoPedido->GetObjProducto()->GetPrecio());
 				OrdenController^ objOrdenController = gcnew OrdenController();
 				filaGrilla[3] = objOrdenController->ReadEstadoDelProductoPedido(objProductoPedido->GetEstado());
 				filaGrilla[4] = objOrdenController->ReadTipoDeProductoPedido(objProductoPedido->GetObjProducto()->GetTipo());
+				filaGrilla[5] = Convert::ToString(objProductoPedido->GetId()); // this column will not be shown in the grid
 				this->dataGridView2->Rows->Add(filaGrilla);
 			}
 		}
@@ -1089,13 +1136,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 			this->dataGridView3->Rows->Clear();
 			for (int i = 0; i < listaProductos->Count; i++) {
 				ProductoPedido^ objProductoPedido = listaProductos[i];
-				array<String^>^ filaGrilla = gcnew array<String^>(5);
+				array<String^>^ filaGrilla = gcnew array<String^>(6);
 				filaGrilla[0] = objProductoPedido->GetObjProducto()->GetNombre();
 				filaGrilla[1] = Convert::ToString(objProductoPedido->GetCantidadPedida());
 				filaGrilla[2] = Convert::ToString(objProductoPedido->GetObjProducto()->GetPrecio());
 				OrdenController^ objOrdenController = gcnew OrdenController();
 				filaGrilla[3] = objOrdenController->ReadEstadoDelProductoPedido(objProductoPedido->GetEstado());
 				filaGrilla[4] = objOrdenController->ReadTipoDeProductoPedido(objProductoPedido->GetObjProducto()->GetTipo());
+				filaGrilla[5] = Convert::ToString(objProductoPedido->GetId()); // this column will not be shown in the grid
 				this->dataGridView3->Rows->Add(filaGrilla);
 			}
 		}
@@ -1106,6 +1154,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	}
 
 	private: System::Void frmAsistente_Load(System::Object^ sender, System::EventArgs^ e) {
+		/*
 		this->button2->Enabled = false;
 		this->button9->Enabled = false;
 		this->button10->Enabled = false;
@@ -1116,6 +1165,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		this->button18->Enabled = false;
 		this->button19->Enabled = false;
 		this->button21->Enabled = false;
+		*/
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1132,27 +1182,21 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 	private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {	
 	}
 	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		/*
+		
 		PedidoController^ objPedidoController = gcnew PedidoController();
 		productoController^ objProductoController = gcnew productoController();
-		List<Plato^>^ listaPlatos = gcnew List<Plato^>();
-		List<Bebida^>^ listaBebidas = gcnew List<Bebida^>();
-		objPedidoController->ListarPedidosMesa(1, listaPlatos, listaBebidas);
-
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
-		String^ nombre = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
-
-		int cantidad = Convert::ToDouble(this->dataGridView1->Rows[filaSeleccionada]->Cells[1]->Value->ToString());
-		double precio = Convert::ToDouble(this->dataGridView1->Rows[filaSeleccionada]->Cells[2]->Value->ToString());
-		if ("Listo para entregar" == this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
-			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 1);
-			//Se indica a la faja el numero de mesa a enviar
-			//objMicrocontroller->setEnvio(1);
-			actualizarPlatoGrilla1();
+		int ProductIdSelected = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[5]->Value->ToString());
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
+		if (objProductoPedido->GetEstado() == 2) {
+			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(),3);
+			actualizarProductos();
 		}
-		*/
+		
 	}
 	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		/*
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 		int estado = "Listo para entregar" == (this->dataGridView1->Rows[filaSeleccionada]->Cells[3]->Value->ToString());
 		if (estado) {
@@ -1161,18 +1205,10 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		else {
 			button2->Enabled = false;
 		}
+		*/
 	}
 	private: System::Void dataGridView2_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int filaSeleccionada = this->dataGridView2->SelectedRows[0]->Index;
-		int estado = "Listo para entregar" == (this->dataGridView2->Rows[filaSeleccionada]->Cells[3]->Value->ToString());
-		if (estado) {
-			button9->Enabled = true;
-		}
-		else {
-			button9->Enabled = false;
-		}
-	}
-	private: System::Void dataGridView3_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		/*
 		int filaSeleccionada = this->dataGridView3->SelectedRows[0]->Index;
 		int estado = "Listo para entregar" == (this->dataGridView3->Rows[filaSeleccionada]->Cells[3]->Value->ToString());
 		if (estado) {
@@ -1181,46 +1217,44 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		else {
 			button10->Enabled = false;
 		}
+		*/
+	}
+	private: System::Void dataGridView3_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		/*
+		int filaSeleccionada = this->dataGridView3->SelectedRows[0]->Index;
+		int estado = "Listo para entregar" == (this->dataGridView3->Rows[filaSeleccionada]->Cells[3]->Value->ToString());
+		if (estado) {
+			button10->Enabled = true;
+		}
+		else {
+			button10->Enabled = false;
+		}
+		*/
 	}
 	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*
 		PedidoController^ objPedidoController = gcnew PedidoController();
 		productoController^ objProductoController = gcnew productoController();
-		List<Plato^>^ listaPlatos = gcnew List<Plato^>();
-		List<Bebida^>^ listaBebidas = gcnew List<Bebida^>();
-		objPedidoController->ListarPedidosMesa(2, listaPlatos, listaBebidas);
 		int filaSeleccionada = this->dataGridView2->SelectedRows[0]->Index;
-		String^ nombre = this->dataGridView2->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
-
-		int cantidad = Convert::ToDouble(this->dataGridView2->Rows[filaSeleccionada]->Cells[1]->Value->ToString());
-		double precio = Convert::ToDouble(this->dataGridView2->Rows[filaSeleccionada]->Cells[2]->Value->ToString());
-		if ("Listo para entregar" == this->dataGridView2->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
-			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 2);
-			//Se indica a la faja el numero de mesa a enviar
-			//objMicrocontroller->setEnvio(2);
-			actualizarPlatoGrilla2();
+		int ProductIdSelected = Convert::ToInt32(this->dataGridView2->Rows[filaSeleccionada]->Cells[5]->Value->ToString());
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
+		if (objProductoPedido->GetEstado() == 2) {
+			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
+			actualizarProductos();
 		}
-		*/
+
 	}
 	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*
 		PedidoController^ objPedidoController = gcnew PedidoController();
 		productoController^ objProductoController = gcnew productoController();
-		List<Plato^>^ listaPlatos = gcnew List<Plato^>();
-		List<Bebida^>^ listaBebidas = gcnew List<Bebida^>();
-		objPedidoController->ListarPedidosMesa(3, listaPlatos, listaBebidas);
 		int filaSeleccionada = this->dataGridView3->SelectedRows[0]->Index;
-		String^ nombre = this->dataGridView3->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
-
-		int cantidad = Convert::ToDouble(this->dataGridView3->Rows[filaSeleccionada]->Cells[1]->Value->ToString());
-		double precio = Convert::ToDouble(this->dataGridView3->Rows[filaSeleccionada]->Cells[2]->Value->ToString());
-		if ("Listo para entregar" == this->dataGridView3->Rows[filaSeleccionada]->Cells[3]->Value->ToString()) {
-			objPedidoController->ModificarEstadoPedido(objProductoController->buscarIdxNombre(nombre), cantidad, 3, 3);
-			actualizarPlatoGrilla3();
-			//Se indica a la faja el numero de mesa a enviar
-			//objMicrocontroller->setEnvio(3);
+		int ProductIdSelected = Convert::ToInt32(this->dataGridView3->Rows[filaSeleccionada]->Cells[5]->Value->ToString());
+		OrdenController^ objOrdenController = gcnew OrdenController();
+		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
+		if (objProductoPedido->GetEstado() == 2) {
+			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
+			actualizarProductos();
 		}
-		*/
 	}
 	private: void actualizarAlertas1() {
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();

@@ -759,6 +759,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void frmChef_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->button2->Enabled = false;
+	actualizarGrilla();
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmChefMenuDia^ objFrmChefMenuDia = gcnew frmChefMenuDia();
