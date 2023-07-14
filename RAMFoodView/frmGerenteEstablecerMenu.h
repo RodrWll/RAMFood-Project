@@ -118,7 +118,7 @@ namespace RAMFoodView {
 			this->gbMenu->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->gbMenu->Name = L"gbMenu";
 			this->gbMenu->Padding = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->gbMenu->Size = System::Drawing::Size(612, 779);
+			this->gbMenu->Size = System::Drawing::Size(612, 695);
 			this->gbMenu->TabIndex = 10;
 			this->gbMenu->TabStop = false;
 			this->gbMenu->Text = L"Agregar productos al menú del día:";
@@ -144,7 +144,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button9->Location = System::Drawing::Point(32, 683);
+			this->button9->Location = System::Drawing::Point(56, 550);
 			this->button9->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(219, 65);
@@ -164,7 +164,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button11->Location = System::Drawing::Point(334, 683);
+			this->button11->Location = System::Drawing::Point(347, 550);
 			this->button11->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(240, 65);
@@ -243,7 +243,7 @@ namespace RAMFoodView {
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
 			this->Column5->Visible = false;
-			this->Column5->Width = 58;
+			this->Column5->Width = 125;
 			// 
 			// Column6
 			// 
@@ -322,9 +322,9 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(30, 1365);
+			this->button1->Location = System::Drawing::Point(20, 691);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(244, 96);
+			this->button1->Size = System::Drawing::Size(219, 65);
 			this->button1->TabIndex = 12;
 			this->button1->Text = L"Regresar";
 			this->button1->UseVisualStyleBackColor = false;

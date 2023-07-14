@@ -58,7 +58,7 @@ List<Usuario^>^ empleadoController::ListarUsuarios()
 		//Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")
 		//Obtenemos la fecha de contrato en formato string "dd/MM/yyyy"
 		//El formato en que est'a en base de datos es yyyy-MM-dd
-		String^ FechaContrato = Convert::ToString(Convert::ToDateTime(objData[3]));
+		String^ FechaContrato = Convert::ToDateTime(objData[3]).ToString("yyyy/MM/dd");
 		//Si aun no se ha despedido al usuario, la fecha de desactivacion es nula
 		String^ FechaDesactivacion;
 		if (objData[4] == System::DBNull::Value)
@@ -229,7 +229,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			{
 				objSentencia-> CommandText = "UPDATE Usuarios SET Rol = " + objGerente->GetRol() + 
 							", Status = " + objGerente->GetStatus() + 
-							", FechaContrato = '" + Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")+
+							", FechaContrato = '" + objGerente->GetFechaContrato()+
 							"', FechaDesactivacion = NULL" +
 							", Correo = '" + objGerente->GetCorreo() + 
 							//"', Contrasenha = '" + objGerente->GetContrasenha() + 
@@ -240,7 +240,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			}	else {
 				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objGerente->GetRol() +
 					", Status = " + objGerente->GetStatus() +
-					", FechaContrato = '" + Convert::ToDateTime(objGerente->GetFechaContrato()).ToString("dd/MM/yyyy")+
+					", FechaContrato = '" + objGerente->GetFechaContrato()+
 					//"', Correo = '" + objGerente->GetCorreo() +
 					//"', Contrasenha = '" + objGerente->GetContrasenha() +
 					//"', Nombre = '" + objGerente->GetNombre() +
@@ -256,7 +256,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			{
 				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objAsistente->GetRol() +
 					", Status = " + objAsistente->GetStatus() +
-					", FechaContrato = '" + Convert::ToDateTime(objAsistente->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					", FechaContrato = '" + objAsistente->GetFechaContrato() +
 					"', FechaDesactivacion = NULL" +
 					", Correo = '" + objAsistente->GetCorreo() +
 					"', Contrasenha = '" + objAsistente->GetContrasenha() +
@@ -268,7 +268,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			else {
 				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objAsistente->GetRol() +
 					", Status = " + objAsistente->GetStatus() +
-					", FechaContrato = '" + Convert::ToDateTime(objAsistente->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					", FechaContrato = '" + objAsistente->GetFechaContrato() +
 					"', Correo = '" + objAsistente->GetCorreo() +
 					"', Contrasenha = '" + objAsistente->GetContrasenha() +
 					"', Nombre = '" + objAsistente->GetNombre() +
@@ -284,7 +284,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			{
 				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objChef->GetRol() +
 					", Status = " + objChef->GetStatus() +
-					", FechaContrato = '" + Convert::ToDateTime(objChef->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					", FechaContrato = '" + objChef->GetFechaContrato()+
 					"', FechaDesactivacion = NULL" +
 					", Correo = '" + objChef->GetCorreo() +
 					"', Contrasenha = '" + objChef->GetContrasenha() +
@@ -296,7 +296,7 @@ void empleadoController::UpdateUsuario(Usuario^ UsuarioModificar)
 			else {
 				objSentencia->CommandText = "UPDATE Usuarios SET Rol = " + objChef->GetRol() +
 					", Status = " + objChef->GetStatus() +
-					", FechaContrato = '" + Convert::ToDateTime(objChef->GetFechaContrato()).ToString("dd/MM/yyyy") +
+					", FechaContrato = '" + objChef->GetFechaContrato() +
 					"', Correo = '" + objChef->GetCorreo() +
 					"', Contrasenha = '" + objChef->GetContrasenha() +
 					"', Nombre = '" + objChef->GetNombre() +
