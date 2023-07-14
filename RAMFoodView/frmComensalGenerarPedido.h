@@ -261,10 +261,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->BotonAtras = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -311,7 +311,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->button_confirmar->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button_confirmar->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button_confirmar->Location = System::Drawing::Point(680, 442);
+			this->button_confirmar->Location = System::Drawing::Point(680, 410);
 			this->button_confirmar->Name = L"button_confirmar";
 			this->button_confirmar->Size = System::Drawing::Size(128, 40);
 			this->button_confirmar->TabIndex = 5;
@@ -432,19 +432,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensalGenerarPedido::dataGridView1_CellContentClick);
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(4, 51);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(177, 21);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Resumen del pedido";
-			this->label1->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::label1_Click);
-			// 
 			// Column1
 			// 
 			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
@@ -502,6 +489,19 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->Column3->Name = L"Column3";
 			this->Column3->ReadOnly = true;
 			this->Column3->Width = 200;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(4, 51);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(177, 21);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Resumen del pedido";
+			this->label1->Click += gcnew System::EventHandler(this, &frmComensalGenerarPedido::label1_Click);
 			// 
 			// frmComensalGenerarPedido
 			// 

@@ -37,7 +37,7 @@ int PedidoController::obtenerIdPedidoGeneralxNmesa(int numMesa) {
 	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
 	objSentencia->Connection = this->objConexion;
 	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
-	objSentencia->CommandText = "SELECT id FROM PedidoGeneralMesa WHERE numeroMesa="+Convert::ToString(numMesa)+" and estado=0";
+	objSentencia->CommandText = "SELECT id FROM PedidoGeneralMesa WHERE numeroMesa="+Convert::ToString(numMesa)+" and estado=1";
 	/*Aqui ejecuto la sentencia en la Base de Datos*/
 	/*Para Select siempre sera ExecuteReader*/
 	/*Para select siempre va a devolver un SqlDataReader*/
@@ -410,7 +410,7 @@ void  PedidoController::agregarNuevoPedidoGeneral(OrdenMesa^ objOrdenMesa) {
 	/*Aqui estoy indicando que mi sentencia se va a ejecutar en mi conexion de BD*/
 	objSentencia->Connection = this->objConexion;
 	/*Aqui voy a indicar la sentencia que voy a ejecutar*/
-	String^ valores = Convert::ToString(nMesa)+", 0, 0, "+"'"+fechaCuenta+ "'";
+	String^ valores = Convert::ToString(nMesa)+", 1, 0, "+"'"+fechaCuenta+ "'";
 	objSentencia->CommandText = "INSERT PedidoGeneralMesa(numeroMesa,estado,cuenta,fecha) VALUES(" + valores + ")";
 	/*Aqui ejecuto la sentencia en la Base de Datos*/
 	/*Para Select siempre sera ExecuteReader*/
