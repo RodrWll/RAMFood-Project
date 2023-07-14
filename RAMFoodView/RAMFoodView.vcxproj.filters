@@ -93,6 +93,9 @@
     <ClCompile Include="frmComensalSeguridad.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="frmGerenteRestaurarProductos.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAsistente.h">
@@ -168,6 +171,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="frmComensalSeguridad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frmGerenteRestaurarProductos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

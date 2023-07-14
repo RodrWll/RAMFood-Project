@@ -92,7 +92,8 @@ void productoController::updateProducto(Producto^ objProducto)
 	String^ nombre = "'" + objProducto->GetNombre() + "'";
 	double precio = objProducto->GetPrecio();
 	int tipo = objProducto->GetTipo();
-	objSentencia->CommandText = "UPDATE Productos SET nombreProducto = " + nombre + ", precio = " + Convert::ToString(precio) + ", tipo = " + Convert::ToString(tipo) + " WHERE id = " + Convert::ToString(id);
+	int status = objProducto->GetStatus();
+	objSentencia->CommandText = "UPDATE Productos SET nombreProducto = " + nombre + ", precio = " + Convert::ToString(precio) + ", tipo = " + Convert::ToString(tipo) + ", status = " + Convert::ToString(status) + " WHERE id = " + Convert::ToString(id);
 	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
 }
@@ -122,7 +123,9 @@ Producto^ productoController::buscarProductoxId(int id)
 		String^ Nombre = safe_cast<String^>(objData[1]);
 		double Precio = safe_cast<double>(objData[2]);
 		int Tipo = safe_cast<int>(objData[3]);
-		objProducto = gcnew Producto(Id, Nombre, Precio, Tipo);
+		int menu = safe_cast<int>(objData[4]);
+		int status = safe_cast<int>(objData[5]);
+		objProducto = gcnew Producto(Id, Nombre, Precio, Tipo, menu, status);
 	}
 	cerrarConexion();
 	return objProducto;

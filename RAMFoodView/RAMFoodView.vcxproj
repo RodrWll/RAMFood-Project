@@ -145,6 +145,7 @@
     <ClCompile Include="frmGerenteGestionarPersonal.cpp" />
     <ClCompile Include="frmGerenteGestionarProductos.cpp" />
     <ClCompile Include="frmGerenteReincorporarEmpleado.cpp" />
+    <ClCompile Include="frmGerenteRestaurarProductos.cpp" />
     <ClCompile Include="frmPersonal.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="frmPruebaNuevaInterfaz.cpp" />
@@ -223,6 +224,9 @@
     <ClInclude Include="frmGerenteReincorporarEmpleado.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmGerenteRestaurarProductos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmPersonal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerenteReincorporarEmpleado.resx">
       <DependentUpon>frmGerenteReincorporarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenteRestaurarProductos.resx">
+      <DependentUpon>frmGerenteRestaurarProductos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonal.resx">
       <DependentUpon>frmPersonal.h</DependentUpon>
