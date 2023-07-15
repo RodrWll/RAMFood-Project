@@ -112,10 +112,10 @@ namespace RAMFoodView {
 
 
 
-	private: System::Windows::Forms::GroupBox^ groupBox7;
-	private: System::Windows::Forms::Button^ button21;
-	private: System::Windows::Forms::Button^ button20;
-	private: System::Windows::Forms::Label^ label7;
+
+
+
+
 
 
 
@@ -222,10 +222,6 @@ private: System::Windows::Forms::Label^ label11;
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->button19 = (gcnew System::Windows::Forms::Button());
-			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
-			this->button21 = (gcnew System::Windows::Forms::Button());
-			this->button20 = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -236,7 +232,6 @@ private: System::Windows::Forms::Label^ label11;
 			this->groupBox4->SuspendLayout();
 			this->groupBox5->SuspendLayout();
 			this->groupBox6->SuspendLayout();
-			this->groupBox7->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -932,64 +927,6 @@ private: System::Windows::Forms::Label^ label11;
 			this->button19->UseVisualStyleBackColor = false;
 			this->button19->Click += gcnew System::EventHandler(this, &frmAsistente::button19_Click);
 			// 
-			// groupBox7
-			// 
-			this->groupBox7->Controls->Add(this->button21);
-			this->groupBox7->Controls->Add(this->button20);
-			this->groupBox7->Controls->Add(this->label7);
-			this->groupBox7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox7->Location = System::Drawing::Point(522, 651);
-			this->groupBox7->Name = L"groupBox7";
-			this->groupBox7->Size = System::Drawing::Size(498, 119);
-			this->groupBox7->TabIndex = 15;
-			this->groupBox7->TabStop = false;
-			this->groupBox7->Text = L"Alerta de la faja";
-			// 
-			// button21
-			// 
-			this->button21->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button21->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button21->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button21->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button21->Location = System::Drawing::Point(402, 72);
-			this->button21->Name = L"button21";
-			this->button21->Size = System::Drawing::Size(85, 22);
-			this->button21->TabIndex = 22;
-			this->button21->Text = L"Revisar";
-			this->button21->UseVisualStyleBackColor = false;
-			this->button21->Click += gcnew System::EventHandler(this, &frmAsistente::button21_Click);
-			// 
-			// button20
-			// 
-			this->button20->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button20->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button20.BackgroundImage")));
-			this->button20->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button20->FlatAppearance->BorderColor = System::Drawing::Color::Green;
-			this->button20->FlatAppearance->BorderSize = 0;
-			this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button20->Location = System::Drawing::Point(402, 13);
-			this->button20->Name = L"button20";
-			this->button20->Size = System::Drawing::Size(85, 37);
-			this->button20->TabIndex = 17;
-			this->button20->UseVisualStyleBackColor = false;
-			this->button20->Click += gcnew System::EventHandler(this, &frmAsistente::button20_Click);
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(13, 72);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(180, 22);
-			this->label7->TabIndex = 19;
-			this->label7->Text = L"Revisión requerida";
-			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
@@ -1009,10 +946,9 @@ private: System::Windows::Forms::Label^ label11;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1539, 782);
+			this->ClientSize = System::Drawing::Size(1539, 642);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->button4);
-			this->Controls->Add(this->groupBox7);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
@@ -1047,8 +983,6 @@ private: System::Windows::Forms::Label^ label11;
 			this->groupBox5->PerformLayout();
 			this->groupBox6->ResumeLayout(false);
 			this->groupBox6->PerformLayout();
-			this->groupBox7->ResumeLayout(false);
-			this->groupBox7->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
