@@ -26,6 +26,14 @@ namespace RAMFoodView {
 			//TODO: Add the constructor code here
 			//
 		}
+		frmAsistente(Asistente^ objAsistente)
+		{
+			this->objAsistente = objAsistente;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -38,7 +46,8 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-	//private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	private: Asistente^ objAsistente= gcnew Asistente();
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -76,9 +85,9 @@ namespace RAMFoodView {
 
 	private: System::Windows::Forms::GroupBox^ groupBox5;
 	private: System::Windows::Forms::GroupBox^ groupBox6;
-	private: System::Windows::Forms::Button^ button11;
-	private: System::Windows::Forms::Button^ button12;
-	private: System::Windows::Forms::Button^ button13;
+
+
+
 	private: System::Windows::Forms::Button^ button15;
 	private: System::Windows::Forms::Button^ button14;
 	private: System::Windows::Forms::Label^ label4;
@@ -143,6 +152,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
+private: System::Windows::Forms::Label^ label11;
 	protected:
 
 	private:
@@ -167,15 +177,33 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmAsistente::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
@@ -184,41 +212,21 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->button16 = (gcnew System::Windows::Forms::Button());
-			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->button19 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->groupBox7 = (gcnew System::Windows::Forms::GroupBox());
 			this->button21 = (gcnew System::Windows::Forms::Button());
 			this->button20 = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -304,6 +312,54 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmAsistente::dataGridView1_CellClick);
 			// 
+			// Column1
+			// 
+			this->Column1->FillWeight = 91.57755F;
+			this->Column1->HeaderText = L"Producto";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			// 
+			// Column2
+			// 
+			this->Column2->FillWeight = 91.57755F;
+			this->Column2->HeaderText = L"Cantidad";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// Column3
+			// 
+			this->Column3->FillWeight = 91.57755F;
+			this->Column3->HeaderText = L"Precio ";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			// 
+			// Column4
+			// 
+			this->Column4->FillWeight = 91.57755F;
+			this->Column4->HeaderText = L"Estado";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			// 
+			// Column7
+			// 
+			this->Column7->FillWeight = 133.6898F;
+			this->Column7->HeaderText = L"Tipo";
+			this->Column7->MinimumWidth = 6;
+			this->Column7->Name = L"Column7";
+			this->Column7->ReadOnly = true;
+			// 
+			// Column10
+			// 
+			this->Column10->HeaderText = L"IdPedido";
+			this->Column10->MinimumWidth = 6;
+			this->Column10->Name = L"Column10";
+			this->Column10->ReadOnly = true;
+			this->Column10->Visible = false;
+			// 
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->label8);
@@ -321,7 +377,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label8->AutoSize = true;
 			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label8->ForeColor = System::Drawing::Color::Black;
+			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label8->Location = System::Drawing::Point(222, 18);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(63, 19);
@@ -365,7 +422,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label9->AutoSize = true;
 			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label9->ForeColor = System::Drawing::Color::Black;
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label9->Location = System::Drawing::Point(198, 18);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(63, 19);
@@ -426,6 +484,49 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->dataGridView2->TabIndex = 1;
 			this->dataGridView2->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmAsistente::dataGridView2_CellClick);
 			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this->dataGridViewTextBoxColumn1->HeaderText = L"Producto";
+			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			this->dataGridViewTextBoxColumn1->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this->dataGridViewTextBoxColumn2->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			this->dataGridViewTextBoxColumn2->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Precio ";
+			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Estado";
+			this->Column5->MinimumWidth = 6;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			// 
+			// Column8
+			// 
+			this->Column8->HeaderText = L"Tipo";
+			this->Column8->MinimumWidth = 6;
+			this->Column8->Name = L"Column8";
+			this->Column8->ReadOnly = true;
+			// 
+			// Column11
+			// 
+			this->Column11->HeaderText = L"IdPedido";
+			this->Column11->MinimumWidth = 6;
+			this->Column11->Name = L"Column11";
+			this->Column11->ReadOnly = true;
+			this->Column11->Visible = false;
+			// 
 			// groupBox3
 			// 
 			this->groupBox3->Controls->Add(this->label10);
@@ -443,7 +544,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label10->AutoSize = true;
 			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label10->ForeColor = System::Drawing::Color::Black;
+			this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label10->Location = System::Drawing::Point(214, 18);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(63, 19);
@@ -452,8 +554,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			// 
 			// dataGridView3
 			// 
-			this->dataGridView3->AllowUserToResizeColumns = false;
-			this->dataGridView3->AllowUserToResizeRows = false;
 			this->dataGridView3->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView3->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
@@ -505,6 +605,49 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->dataGridView3->Size = System::Drawing::Size(479, 335);
 			this->dataGridView3->TabIndex = 1;
 			this->dataGridView3->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmAsistente::dataGridView3_CellClick);
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this->dataGridViewTextBoxColumn4->HeaderText = L"Producto";
+			this->dataGridViewTextBoxColumn4->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
+			this->dataGridViewTextBoxColumn4->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn5->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
+			this->dataGridViewTextBoxColumn5->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"Precio ";
+			this->dataGridViewTextBoxColumn6->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			this->dataGridViewTextBoxColumn6->ReadOnly = true;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Estado";
+			this->Column6->MinimumWidth = 6;
+			this->Column6->Name = L"Column6";
+			this->Column6->ReadOnly = true;
+			// 
+			// Column9
+			// 
+			this->Column9->HeaderText = L"Tipo";
+			this->Column9->MinimumWidth = 6;
+			this->Column9->Name = L"Column9";
+			this->Column9->ReadOnly = true;
+			// 
+			// Column12
+			// 
+			this->Column12->HeaderText = L"IdPedido";
+			this->Column12->MinimumWidth = 6;
+			this->Column12->Name = L"Column12";
+			this->Column12->ReadOnly = true;
+			this->Column12->Visible = false;
 			// 
 			// button2
 			// 
@@ -570,7 +713,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->groupBox4->Controls->Add(this->button14);
 			this->groupBox4->Controls->Add(this->label4);
 			this->groupBox4->Controls->Add(this->label1);
-			this->groupBox4->Controls->Add(this->button11);
 			this->groupBox4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox4->Location = System::Drawing::Point(3, 490);
@@ -640,29 +782,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label1->TabIndex = 16;
 			this->label1->Text = L"Cobrar la cuenta";
 			// 
-			// button11
-			// 
-			this->button11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button11->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button11.BackgroundImage")));
-			this->button11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button11->FlatAppearance->BorderColor = System::Drawing::Color::Green;
-			this->button11->FlatAppearance->BorderSize = 0;
-			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button11->Location = System::Drawing::Point(419, 12);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(85, 37);
-			this->button11->TabIndex = 15;
-			this->button11->UseVisualStyleBackColor = false;
-			this->button11->Click += gcnew System::EventHandler(this, &frmAsistente::button11_Click);
-			// 
 			// groupBox5
 			// 
 			this->groupBox5->Controls->Add(this->label5);
 			this->groupBox5->Controls->Add(this->label2);
 			this->groupBox5->Controls->Add(this->button17);
 			this->groupBox5->Controls->Add(this->button16);
-			this->groupBox5->Controls->Add(this->button12);
 			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox5->Location = System::Drawing::Point(522, 490);
@@ -732,29 +857,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->button16->UseVisualStyleBackColor = false;
 			this->button16->Click += gcnew System::EventHandler(this, &frmAsistente::button16_Click);
 			// 
-			// button12
-			// 
-			this->button12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button12->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button12.BackgroundImage")));
-			this->button12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button12->FlatAppearance->BorderColor = System::Drawing::Color::Green;
-			this->button12->FlatAppearance->BorderSize = 0;
-			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button12->Location = System::Drawing::Point(402, 12);
-			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(85, 37);
-			this->button12->TabIndex = 16;
-			this->button12->UseVisualStyleBackColor = false;
-			this->button12->Click += gcnew System::EventHandler(this, &frmAsistente::button12_Click);
-			// 
 			// groupBox6
 			// 
 			this->groupBox6->Controls->Add(this->label6);
 			this->groupBox6->Controls->Add(this->label3);
 			this->groupBox6->Controls->Add(this->button18);
 			this->groupBox6->Controls->Add(this->button19);
-			this->groupBox6->Controls->Add(this->button13);
 			this->groupBox6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox6->Location = System::Drawing::Point(1027, 490);
@@ -824,22 +932,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->button19->UseVisualStyleBackColor = false;
 			this->button19->Click += gcnew System::EventHandler(this, &frmAsistente::button19_Click);
 			// 
-			// button13
-			// 
-			this->button13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button13.BackgroundImage")));
-			this->button13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button13->FlatAppearance->BorderColor = System::Drawing::Color::Green;
-			this->button13->FlatAppearance->BorderSize = 0;
-			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button13->Location = System::Drawing::Point(411, 12);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(85, 37);
-			this->button13->TabIndex = 16;
-			this->button13->UseVisualStyleBackColor = false;
-			this->button13->Click += gcnew System::EventHandler(this, &frmAsistente::button13_Click);
-			// 
 			// groupBox7
 			// 
 			this->groupBox7->Controls->Add(this->button21);
@@ -898,139 +990,18 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label7->TabIndex = 19;
 			this->label7->Text = L"Revisión requerida";
 			// 
-			// Column1
+			// label11
 			// 
-			this->Column1->FillWeight = 91.57755F;
-			this->Column1->HeaderText = L"Producto";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			// 
-			// Column2
-			// 
-			this->Column2->FillWeight = 91.57755F;
-			this->Column2->HeaderText = L"Cantidad";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			// 
-			// Column3
-			// 
-			this->Column3->FillWeight = 91.57755F;
-			this->Column3->HeaderText = L"Precio ";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this->Column4->FillWeight = 91.57755F;
-			this->Column4->HeaderText = L"Estado";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			// 
-			// Column7
-			// 
-			this->Column7->FillWeight = 133.6898F;
-			this->Column7->HeaderText = L"Tipo";
-			this->Column7->MinimumWidth = 6;
-			this->Column7->Name = L"Column7";
-			this->Column7->ReadOnly = true;
-			// 
-			// Column10
-			// 
-			this->Column10->HeaderText = L"IdPedido";
-			this->Column10->MinimumWidth = 6;
-			this->Column10->Name = L"Column10";
-			this->Column10->ReadOnly = true;
-			this->Column10->Visible = false;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this->dataGridViewTextBoxColumn1->HeaderText = L"Producto";
-			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this->dataGridViewTextBoxColumn2->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Precio ";
-			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Estado";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			// 
-			// Column8
-			// 
-			this->Column8->HeaderText = L"Tipo";
-			this->Column8->MinimumWidth = 6;
-			this->Column8->Name = L"Column8";
-			this->Column8->ReadOnly = true;
-			// 
-			// Column11
-			// 
-			this->Column11->HeaderText = L"IdPedido";
-			this->Column11->MinimumWidth = 6;
-			this->Column11->Name = L"Column11";
-			this->Column11->ReadOnly = true;
-			this->Column11->Visible = false;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this->dataGridViewTextBoxColumn4->HeaderText = L"Producto";
-			this->dataGridViewTextBoxColumn4->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
-			this->dataGridViewTextBoxColumn4->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn5->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"Precio ";
-			this->dataGridViewTextBoxColumn6->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Estado";
-			this->Column6->MinimumWidth = 6;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
-			// 
-			// Column9
-			// 
-			this->Column9->HeaderText = L"Tipo";
-			this->Column9->MinimumWidth = 6;
-			this->Column9->Name = L"Column9";
-			this->Column9->ReadOnly = true;
-			// 
-			// Column12
-			// 
-			this->Column12->HeaderText = L"IdPedido";
-			this->Column12->MinimumWidth = 6;
-			this->Column12->Name = L"Column12";
-			this->Column12->ReadOnly = true;
-			this->Column12->Visible = false;
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label11->Location = System::Drawing::Point(182, 17);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(162, 26);
+			this->label11->TabIndex = 16;
+			this->label11->Text = L"Bienvenido, ....";
 			// 
 			// frmAsistente
 			// 
@@ -1039,6 +1010,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(1539, 782);
+			this->Controls->Add(this->label11);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->groupBox7);
 			this->Controls->Add(this->groupBox6);
@@ -1078,6 +1050,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->groupBox7->ResumeLayout(false);
 			this->groupBox7->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -1166,10 +1139,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		this->button19->Enabled = false;
 		this->button21->Enabled = false;
 		*/
+		this->label11->Text = "Bienvenido, " + objAsistente->GetNombre() + " " + objAsistente->GetApellidoPat() + " " + objAsistente->GetApellidoMat();
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		actualizarProductos();
+		actualizarAlertas1();
+		actualizarAlertas2();
+		actualizarAlertas3();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {	
 	}
@@ -1191,6 +1168,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(),3);
+			objMicrocontroller->setEnvio(1);
 			actualizarProductos();
 		}
 		
@@ -1241,6 +1219,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(2);
 		}
 
 	}
@@ -1254,6 +1233,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(3);
 		}
 	}
 	private: void actualizarAlertas1() {
@@ -1261,12 +1241,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(1);
 		int estadoCob = objAsistenteController->BuscarEstadoCobranza(1);
 		if (estadoAsis == 1) {
+			MessageBox::Show("Se requiere asistencia en la mesa 1");
 			button15->Enabled = true;
 		}
 		else {
 			button15->Enabled = false;
 		}
 		if (estadoCob == 1) {
+			MessageBox::Show("Se requiere pagar la cuenta en la mesa 1");
 			button14->Enabled = true;
 		}
 		else {
@@ -1278,12 +1260,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(2);
 		int estadoCob = objAsistenteController->BuscarEstadoCobranza(2);
 		if (estadoAsis == 1) {
+			MessageBox::Show("Se requiere asistencia en la mesa 2");
 			button17->Enabled = true;
 		}
 		else {
 			button17->Enabled = false;
 		}
 		if (estadoCob == 1) {
+			MessageBox::Show("Se requiere pagar la cuenta en la mesa 2");
 			button16->Enabled = true;
 		}
 		else {
@@ -1295,12 +1279,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		int estadoAsis = objAsistenteController->BuscarEstadoAsistencia(3);
 		int estadoCob = objAsistenteController->BuscarEstadoCobranza(3);
 		if (estadoAsis == 1) {
+			MessageBox::Show("Se requiere asistencia en la mesa 3");
 			button18->Enabled = true;
 		}
 		else {
 			button18->Enabled = false;
 		}
 		if (estadoCob == 1) {
+			MessageBox::Show("Se requiere pagar la cuenta en la mesa 3");
 			button19->Enabled = true;
 		}
 		else {
@@ -1308,14 +1294,14 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		}
 	}
 	private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e) {
-		actualizarAlertas1();
+		//actualizarAlertas1();
 	}
 	private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
-		actualizarAlertas2();
+		//actualizarAlertas2();
 	}
 
 	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
-		actualizarAlertas3();
+		//actualizarAlertas3();
 	}
 	private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) { //Cobranza mesa 2
 		AsistenteController^ objAsistenteController = gcnew AsistenteController();

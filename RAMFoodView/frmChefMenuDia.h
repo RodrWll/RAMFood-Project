@@ -209,7 +209,7 @@ namespace RAMFoodView {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"frmChefMenuDia";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"frmChefMenuDia";
+			this->Text = L"Menu del día";
 			this->Load += gcnew System::EventHandler(this, &frmChefMenuDia::frmChefMenuDia_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);

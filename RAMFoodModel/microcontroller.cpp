@@ -45,7 +45,7 @@ void microcontroller::setStatusMotor(int status) {
 
 int microcontroller::getDato(String^ direction) {
 	string url = msclr::interop::marshal_as<std::string>(direction);
-	const std::chrono::milliseconds timeout{3500};
+	const std::chrono::milliseconds timeout{4500};
 	http::Request request{url};
 	const auto response = request.send("GET", "", {}, timeout);
 	//Se obtiene el status del microcontrolador
@@ -66,7 +66,7 @@ int microcontroller::getStatusMotor() {
 }
 void microcontroller::setEnvio(int nroMesa)
 {
-	sendBit(nroMesa, "enviarMesa", this->ROUTE_MESA);
+	sendBit(nroMesa, "nroMesa", this->ROUTE_MESA);
 }
 int microcontroller::getError()
 {
