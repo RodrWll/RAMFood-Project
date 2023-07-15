@@ -649,7 +649,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 				for (i = 0; i < Fechas->Count; i++) {
 					//titulos
 					//cambiar en fechas si es que se necesita
-					Series^ serieFecha = this->chartVentas->Series->Add("( S/ "+VentasXFecha[i]+" ) "+ Fechas[i]->Replace(" 00:00:00"," "));
+					Series^ serieFecha = this->chartVentas->Series->Add("( S/ "+VentasXFecha[i]+" ) "+ Convert::ToDateTime(Fechas[i]).ToString("yyyy/MM/dd"));
 					//cantidades
 					//serieFecha->Label = VentasXFecha[i];
 					serieFecha->Points->Add(Convert::ToDouble(VentasXFecha[i]));
