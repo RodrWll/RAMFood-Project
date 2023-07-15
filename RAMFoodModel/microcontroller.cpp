@@ -92,7 +92,7 @@ void microcontroller::sendBit(int bit, const std::string& variable, String^ rout
 		std::string bitString = std::to_string(bit);
 		//Mandamos el bit en el HTTP post
 		const string body = variable +"=" + bitString;
-		const std::chrono::milliseconds timeout{3500};
+		const std::chrono::milliseconds timeout{5500};
 		const auto response = request.send("POST", body, {
 			{"Content-Type", "application/x-www-form-urlencoded"}
 			}, timeout);
