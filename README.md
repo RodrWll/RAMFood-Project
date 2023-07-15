@@ -1,5 +1,7 @@
 # Gracias por su apoyo JL!!!!!
 
+- Video de periféricos - **Faja transportadora** [ver grabación](https://drive.google.com/file/d/1ZoJ1UyckL4i2Vgmfosw0o1vvmjCuXmLf/view?usp=sharing)
+
 # RAMFood
 Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso de aplicativos digitales y mecanismos.
 
