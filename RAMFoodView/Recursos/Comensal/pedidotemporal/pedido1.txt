@@ -1,5 +1,5 @@
 Ceviche ;2;55.6
-Pollo a la brasa;1;30
+Arroz con pollo ;2;80
+Papa a la huancaina criollo;2;36
 Bebida
-Limonada ;2;16
-Chicha de jora;1;5
+Inka Cola ;1;6.6
