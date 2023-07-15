@@ -170,24 +170,42 @@ private: System::Windows::Forms::Button^ botonMesa;
 
 
 private: System::Windows::Forms::DataGridView^ dataGridViewPlatos;
-
-
-
-
-
-
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
-private: System::Windows::Forms::DataGridViewButtonColumn^ menos;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
-private: System::Windows::Forms::DataGridViewButtonColumn^ mas;
-private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewImageColumn1;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ columnaNombre;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPrecioUnidad;
 private: System::Windows::Forms::DataGridViewButtonColumn^ Columnamenos;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaCantidad;
 private: System::Windows::Forms::DataGridViewButtonColumn^ ColumnaMas;
 private: System::Windows::Forms::DataGridViewImageColumn^ ColumnaImagen;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
+private: System::Windows::Forms::DataGridViewButtonColumn^ menos;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
+private: System::Windows::Forms::DataGridViewButtonColumn^ mas;
+private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewImageColumn1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -321,16 +339,16 @@ public:
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensal::typeid));
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridViewPlatos = (gcnew System::Windows::Forms::DataGridView());
@@ -344,18 +362,18 @@ public:
 			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
 			this->botonMesa = (gcnew System::Windows::Forms::Button());
 			this->buttonVerPedidoTotal = (gcnew System::Windows::Forms::Button());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->columnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaPrecioUnidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Columnamenos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->ColumnaCantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaMas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->ColumnaImagen = (gcnew System::Windows::Forms::DataGridViewImageColumn());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewPlatos))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewBebidas))->BeginInit();
 			this->groupBox8->SuspendLayout();
@@ -366,9 +384,13 @@ public:
 			// 
 			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->Location = System::Drawing::Point(60, 26);
 			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
@@ -382,10 +404,13 @@ public:
 			// 
 			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(247, 26);
 			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button2->Name = L"button2";
@@ -508,15 +533,15 @@ public:
 			this->dataGridViewBebidas->EnableHeadersVisualStyles = false;
 			this->dataGridViewBebidas->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridViewBebidas->Location = System::Drawing::Point(44, 22);
+			this->dataGridViewBebidas->Location = System::Drawing::Point(43, 55);
 			this->dataGridViewBebidas->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
 			this->dataGridViewBebidas->MultiSelect = false;
 			this->dataGridViewBebidas->Name = L"dataGridViewBebidas";
 			this->dataGridViewBebidas->ReadOnly = true;
 			this->dataGridViewBebidas->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
 			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			dataGridViewCellStyle14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
@@ -531,7 +556,7 @@ public:
 			this->dataGridViewBebidas->RowHeadersVisible = false;
 			this->dataGridViewBebidas->RowHeadersWidth = 51;
 			this->dataGridViewBebidas->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
 			dataGridViewCellStyle15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
@@ -552,9 +577,13 @@ public:
 			// 
 			this->BotonSiguiente->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->BotonSiguiente->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->BotonSiguiente->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->BotonSiguiente->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->BotonSiguiente->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->BotonSiguiente->Location = System::Drawing::Point(1072, 23);
 			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->BotonSiguiente->Name = L"BotonSiguiente";
@@ -568,6 +597,8 @@ public:
 			// 
 			this->button17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button17->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button17->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -632,6 +663,8 @@ public:
 			// 
 			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button15->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -670,6 +703,8 @@ public:
 			// 
 			this->botonMesa->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->botonMesa->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->botonMesa->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->botonMesa->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -688,9 +723,13 @@ public:
 			// 
 			this->buttonVerPedidoTotal->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->buttonVerPedidoTotal->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->buttonVerPedidoTotal->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->buttonVerPedidoTotal->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->buttonVerPedidoTotal->Location = System::Drawing::Point(749, 23);
 			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
 			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
@@ -699,75 +738,6 @@ public:
 			this->buttonVerPedidoTotal->Text = L"Ver Pedido Total";
 			this->buttonVerPedidoTotal->UseVisualStyleBackColor = false;
 			this->buttonVerPedidoTotal->Click += gcnew System::EventHandler(this, &frmComensal::buttonVerPedidoTotal_Click_1);
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			dataGridViewCellStyle10->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->dataGridViewTextBoxColumn1->DefaultCellStyle = dataGridViewCellStyle10;
-			this->dataGridViewTextBoxColumn1->Frozen = true;
-			this->dataGridViewTextBoxColumn1->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			this->dataGridViewTextBoxColumn1->Width = 350;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Precio";
-			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 125;
-			// 
-			// menos
-			// 
-			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle11->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->menos->DefaultCellStyle = dataGridViewCellStyle11;
-			this->menos->FillWeight = 20;
-			this->menos->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->menos->HeaderText = L"";
-			this->menos->MinimumWidth = 6;
-			this->menos->Name = L"menos";
-			this->menos->ReadOnly = true;
-			this->menos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->menos->Text = L"-";
-			this->menos->Width = 20;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			dataGridViewCellStyle12->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
-			this->dataGridViewTextBoxColumn2->DefaultCellStyle = dataGridViewCellStyle12;
-			this->dataGridViewTextBoxColumn2->HeaderText = L"cantidad";
-			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			this->dataGridViewTextBoxColumn2->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewTextBoxColumn2->Width = 150;
-			// 
-			// mas
-			// 
-			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle13->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
-			this->mas->DefaultCellStyle = dataGridViewCellStyle13;
-			this->mas->FillWeight = 20;
-			this->mas->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->mas->HeaderText = L"";
-			this->mas->MinimumWidth = 6;
-			this->mas->Name = L"mas";
-			this->mas->ReadOnly = true;
-			this->mas->Text = L"+";
-			this->mas->Width = 20;
-			// 
-			// dataGridViewImageColumn1
-			// 
-			this->dataGridViewImageColumn1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->dataGridViewImageColumn1->HeaderText = L"imagen";
-			this->dataGridViewImageColumn1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"dataGridViewImageColumn1.Image")));
-			this->dataGridViewImageColumn1->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
-			this->dataGridViewImageColumn1->MinimumWidth = 6;
-			this->dataGridViewImageColumn1->Name = L"dataGridViewImageColumn1";
-			this->dataGridViewImageColumn1->ReadOnly = true;
 			// 
 			// columnaNombre
 			// 
@@ -816,7 +786,7 @@ public:
 			dataGridViewCellStyle5->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
 			this->ColumnaCantidad->DefaultCellStyle = dataGridViewCellStyle5;
 			this->ColumnaCantidad->Frozen = true;
-			this->ColumnaCantidad->HeaderText = L"cantidad";
+			this->ColumnaCantidad->HeaderText = L"Cantidad";
 			this->ColumnaCantidad->MinimumWidth = 6;
 			this->ColumnaCantidad->Name = L"ColumnaCantidad";
 			this->ColumnaCantidad->ReadOnly = true;
@@ -840,7 +810,7 @@ public:
 			// 
 			// ColumnaImagen
 			// 
-			this->ColumnaImagen->HeaderText = L"imagen";
+			this->ColumnaImagen->HeaderText = L"Imagen";
 			this->ColumnaImagen->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"ColumnaImagen.Image")));
 			this->ColumnaImagen->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
 			this->ColumnaImagen->MinimumWidth = 6;
@@ -848,6 +818,75 @@ public:
 			this->ColumnaImagen->ReadOnly = true;
 			this->ColumnaImagen->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->ColumnaImagen->Width = 350;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			dataGridViewCellStyle10->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->dataGridViewTextBoxColumn1->DefaultCellStyle = dataGridViewCellStyle10;
+			this->dataGridViewTextBoxColumn1->Frozen = true;
+			this->dataGridViewTextBoxColumn1->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			this->dataGridViewTextBoxColumn1->ReadOnly = true;
+			this->dataGridViewTextBoxColumn1->Width = 350;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Precio";
+			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 125;
+			// 
+			// menos
+			// 
+			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle11->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->menos->DefaultCellStyle = dataGridViewCellStyle11;
+			this->menos->FillWeight = 20;
+			this->menos->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->menos->HeaderText = L"";
+			this->menos->MinimumWidth = 6;
+			this->menos->Name = L"menos";
+			this->menos->ReadOnly = true;
+			this->menos->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->menos->Text = L"-";
+			this->menos->Width = 20;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			dataGridViewCellStyle12->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
+			this->dataGridViewTextBoxColumn2->DefaultCellStyle = dataGridViewCellStyle12;
+			this->dataGridViewTextBoxColumn2->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			this->dataGridViewTextBoxColumn2->ReadOnly = true;
+			this->dataGridViewTextBoxColumn2->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewTextBoxColumn2->Width = 150;
+			// 
+			// mas
+			// 
+			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle13->Padding = System::Windows::Forms::Padding(0, 20, 0, 20);
+			this->mas->DefaultCellStyle = dataGridViewCellStyle13;
+			this->mas->FillWeight = 20;
+			this->mas->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->mas->HeaderText = L"";
+			this->mas->MinimumWidth = 6;
+			this->mas->Name = L"mas";
+			this->mas->ReadOnly = true;
+			this->mas->Text = L"+";
+			this->mas->Width = 20;
+			// 
+			// dataGridViewImageColumn1
+			// 
+			this->dataGridViewImageColumn1->HeaderText = L"Imagen";
+			this->dataGridViewImageColumn1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"dataGridViewImageColumn1.Image")));
+			this->dataGridViewImageColumn1->ImageLayout = System::Windows::Forms::DataGridViewImageCellLayout::Zoom;
+			this->dataGridViewImageColumn1->MinimumWidth = 6;
+			this->dataGridViewImageColumn1->Name = L"dataGridViewImageColumn1";
+			this->dataGridViewImageColumn1->ReadOnly = true;
+			this->dataGridViewImageColumn1->Width = 350;
 			// 
 			// frmComensal
 			// 
