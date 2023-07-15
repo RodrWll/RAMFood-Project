@@ -84,9 +84,9 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->groupBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->groupBox1->Location = System::Drawing::Point(97, 26);
+			this->groupBox1->Location = System::Drawing::Point(77, 22);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(240, 24);
+			this->groupBox1->Size = System::Drawing::Size(273, 24);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"¿Confirma la orden";
@@ -134,9 +134,9 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->groupBox2->Location = System::Drawing::Point(97, 114);
+			this->groupBox2->Location = System::Drawing::Point(94, 123);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(202, 29);
+			this->groupBox2->Size = System::Drawing::Size(244, 29);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"como terminada\?";
@@ -148,7 +148,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label1->Location = System::Drawing::Point(163, 72);
+			this->label1->Location = System::Drawing::Point(101, 74);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(73, 26);
 			this->label1->TabIndex = 5;
