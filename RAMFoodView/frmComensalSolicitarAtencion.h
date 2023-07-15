@@ -112,8 +112,8 @@ namespace RAMFoodView {
 			this->PagarCuenta = (gcnew System::Windows::Forms::Button());
 			this->Asistencia = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->AtrasLlamarMozo = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->AtrasLlamarMozo = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -126,7 +126,7 @@ namespace RAMFoodView {
 			this->label1->Location = System::Drawing::Point(34, 19);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(439, 37);
+			this->label1->Size = System::Drawing::Size(423, 37);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"¿Qué acción desea realizar\?";
 			// 
@@ -142,7 +142,7 @@ namespace RAMFoodView {
 			this->PagarCuenta->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->PagarCuenta->Location = System::Drawing::Point(47, 106);
-			this->PagarCuenta->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->PagarCuenta->Margin = System::Windows::Forms::Padding(4);
 			this->PagarCuenta->Name = L"PagarCuenta";
 			this->PagarCuenta->Size = System::Drawing::Size(200, 52);
 			this->PagarCuenta->TabIndex = 1;
@@ -162,7 +162,7 @@ namespace RAMFoodView {
 			this->Asistencia->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->Asistencia->Location = System::Drawing::Point(291, 106);
-			this->Asistencia->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Asistencia->Margin = System::Windows::Forms::Padding(4);
 			this->Asistencia->Name = L"Asistencia";
 			this->Asistencia->Size = System::Drawing::Size(200, 52);
 			this->Asistencia->TabIndex = 2;
@@ -181,28 +181,12 @@ namespace RAMFoodView {
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(16, 15);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox1->Size = System::Drawing::Size(520, 271);
 			this->groupBox1->TabIndex = 3;
 			this->groupBox1->TabStop = false;
-			// 
-			// AtrasLlamarMozo
-			// 
-			this->AtrasLlamarMozo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->AtrasLlamarMozo->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->AtrasLlamarMozo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->AtrasLlamarMozo->Location = System::Drawing::Point(18, 210);
-			this->AtrasLlamarMozo->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->AtrasLlamarMozo->Name = L"AtrasLlamarMozo";
-			this->AtrasLlamarMozo->Size = System::Drawing::Size(144, 41);
-			this->AtrasLlamarMozo->TabIndex = 3;
-			this->AtrasLlamarMozo->Text = L"Atrás";
-			this->AtrasLlamarMozo->UseVisualStyleBackColor = true;
-			this->AtrasLlamarMozo->Click += gcnew System::EventHandler(this, &frmComensalSolicitarAtencion::AtrasLlamarMozo_Click);
 			// 
 			// groupBox2
 			// 
@@ -212,12 +196,28 @@ namespace RAMFoodView {
 			this->groupBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox2->Location = System::Drawing::Point(18, 23);
-			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox2->Size = System::Drawing::Size(497, 75);
 			this->groupBox2->TabIndex = 4;
 			this->groupBox2->TabStop = false;
+			// 
+			// AtrasLlamarMozo
+			// 
+			this->AtrasLlamarMozo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->AtrasLlamarMozo->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AtrasLlamarMozo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->AtrasLlamarMozo->Location = System::Drawing::Point(18, 210);
+			this->AtrasLlamarMozo->Margin = System::Windows::Forms::Padding(4);
+			this->AtrasLlamarMozo->Name = L"AtrasLlamarMozo";
+			this->AtrasLlamarMozo->Size = System::Drawing::Size(144, 41);
+			this->AtrasLlamarMozo->TabIndex = 3;
+			this->AtrasLlamarMozo->Text = L"Atrás";
+			this->AtrasLlamarMozo->UseVisualStyleBackColor = true;
+			this->AtrasLlamarMozo->Click += gcnew System::EventHandler(this, &frmComensalSolicitarAtencion::AtrasLlamarMozo_Click);
 			// 
 			// frmComensalSolicitarAtencion
 			// 
@@ -228,9 +228,9 @@ namespace RAMFoodView {
 			this->ClientSize = System::Drawing::Size(550, 297);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalSolicitarAtencion";
-			this->Text = L"frmComensalSolicitarAtencion";
+			this->Text = L"Solicitar Atención";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();

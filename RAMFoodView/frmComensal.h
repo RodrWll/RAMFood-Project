@@ -336,15 +336,15 @@ public:
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensal::typeid));
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
@@ -352,7 +352,19 @@ public:
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->dataGridViewPlatos = (gcnew System::Windows::Forms::DataGridView());
+			this->columnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaPrecioUnidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Columnamenos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->ColumnaCantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaMas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->ColumnaImagen = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->dataGridViewBebidas = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->BotonSiguiente = (gcnew System::Windows::Forms::Button());
 			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
@@ -362,18 +374,6 @@ public:
 			this->groupBox16 = (gcnew System::Windows::Forms::GroupBox());
 			this->botonMesa = (gcnew System::Windows::Forms::Button());
 			this->buttonVerPedidoTotal = (gcnew System::Windows::Forms::Button());
-			this->columnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaPrecioUnidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Columnamenos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->ColumnaCantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaMas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->ColumnaImagen = (gcnew System::Windows::Forms::DataGridViewImageColumn());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->menos = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->mas = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewImageColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewPlatos))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewBebidas))->BeginInit();
 			this->groupBox8->SuspendLayout();
@@ -456,7 +456,7 @@ public:
 			this->dataGridViewPlatos->EnableHeadersVisualStyles = false;
 			this->dataGridViewPlatos->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridViewPlatos->Location = System::Drawing::Point(43, 77);
+			this->dataGridViewPlatos->Location = System::Drawing::Point(43, 53);
 			this->dataGridViewPlatos->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
 			this->dataGridViewPlatos->MultiSelect = false;
 			this->dataGridViewPlatos->Name = L"dataGridViewPlatos";
@@ -492,252 +492,10 @@ public:
 			this->dataGridViewPlatos->RowTemplate->ReadOnly = true;
 			this->dataGridViewPlatos->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->dataGridViewPlatos->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridViewPlatos->Size = System::Drawing::Size(962, 457);
+			this->dataGridViewPlatos->Size = System::Drawing::Size(961, 385);
 			this->dataGridViewPlatos->TabIndex = 0;
 			this->dataGridViewPlatos->Visible = false;
 			this->dataGridViewPlatos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensal::dataGridViewPlatos_CellContentClick);
-			// 
-			// dataGridViewBebidas
-			// 
-			this->dataGridViewBebidas->AllowUserToAddRows = false;
-			this->dataGridViewBebidas->AllowUserToDeleteRows = false;
-			this->dataGridViewBebidas->AllowUserToResizeColumns = false;
-			this->dataGridViewBebidas->AllowUserToResizeRows = false;
-			this->dataGridViewBebidas->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->dataGridViewBebidas->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
-			this->dataGridViewBebidas->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridViewBebidas->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->dataGridViewBebidas->CausesValidation = false;
-			this->dataGridViewBebidas->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
-			this->dataGridViewBebidas->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
-			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewBebidas->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this->dataGridViewBebidas->ColumnHeadersHeight = 35;
-			this->dataGridViewBebidas->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
-			this->dataGridViewBebidas->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
-				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn3, this->menos, this->dataGridViewTextBoxColumn2, this->mas, this->dataGridViewImageColumn1
-			});
-			this->dataGridViewBebidas->EnableHeadersVisualStyles = false;
-			this->dataGridViewBebidas->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridViewBebidas->Location = System::Drawing::Point(43, 55);
-			this->dataGridViewBebidas->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
-			this->dataGridViewBebidas->MultiSelect = false;
-			this->dataGridViewBebidas->Name = L"dataGridViewBebidas";
-			this->dataGridViewBebidas->ReadOnly = true;
-			this->dataGridViewBebidas->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
-			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle14->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
-			dataGridViewCellStyle14->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle14->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle14->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewBebidas->RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-			this->dataGridViewBebidas->RowHeadersVisible = false;
-			this->dataGridViewBebidas->RowHeadersWidth = 51;
-			this->dataGridViewBebidas->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
-			dataGridViewCellStyle15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle15->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			dataGridViewCellStyle15->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->dataGridViewBebidas->RowsDefaultCellStyle = dataGridViewCellStyle15;
-			this->dataGridViewBebidas->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridViewBebidas->Size = System::Drawing::Size(961, 453);
-			this->dataGridViewBebidas->TabIndex = 0;
-			this->dataGridViewBebidas->Visible = false;
-			this->dataGridViewBebidas->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensal::dataGridViewBebidas_CellContentClick);
-			// 
-			// BotonSiguiente
-			// 
-			this->BotonSiguiente->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->BotonSiguiente->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->BotonSiguiente->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->BotonSiguiente->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BotonSiguiente->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->BotonSiguiente->Location = System::Drawing::Point(1072, 23);
-			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->BotonSiguiente->Name = L"BotonSiguiente";
-			this->BotonSiguiente->Size = System::Drawing::Size(247, 36);
-			this->BotonSiguiente->TabIndex = 16;
-			this->BotonSiguiente->Text = L"Resumen del pedido";
-			this->BotonSiguiente->UseVisualStyleBackColor = false;
-			this->BotonSiguiente->Click += gcnew System::EventHandler(this, &frmComensal::button16_Click);
-			// 
-			// button17
-			// 
-			this->button17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button17->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button17->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button17->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button17->Location = System::Drawing::Point(33, 727);
-			this->button17->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button17->Name = L"button17";
-			this->button17->Size = System::Drawing::Size(181, 46);
-			this->button17->TabIndex = 17;
-			this->button17->Text = L"Atras";
-			this->button17->UseVisualStyleBackColor = false;
-			this->button17->Click += gcnew System::EventHandler(this, &frmComensal::button17_Click);
-			// 
-			// groupBox8
-			// 
-			this->groupBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox8->BackColor = System::Drawing::Color::Transparent;
-			this->groupBox8->Controls->Add(this->label20);
-			this->groupBox8->Controls->Add(this->label19);
-			this->groupBox8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox8->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox8->Location = System::Drawing::Point(443, 551);
-			this->groupBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox8->Name = L"groupBox8";
-			this->groupBox8->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox8->Size = System::Drawing::Size(354, 66);
-			this->groupBox8->TabIndex = 18;
-			this->groupBox8->TabStop = false;
-			// 
-			// label20
-			// 
-			this->label20->AutoSize = true;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label20->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label20->Location = System::Drawing::Point(188, 37);
-			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(52, 27);
-			this->label20->TabIndex = 31;
-			this->label20->Text = L"S/0";
-			this->label20->TextAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->label20->Click += gcnew System::EventHandler(this, &frmComensal::label20_Click);
-			// 
-			// label19
-			// 
-			this->label19->AutoSize = true;
-			this->label19->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label19->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label19->Location = System::Drawing::Point(15, 37);
-			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(156, 27);
-			this->label19->TabIndex = 0;
-			this->label19->Text = L"Monto Total :";
-			this->label19->Click += gcnew System::EventHandler(this, &frmComensal::label19_Click);
-			// 
-			// button15
-			// 
-			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button15->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button15->Location = System::Drawing::Point(1100, 715);
-			this->button15->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(219, 58);
-			this->button15->TabIndex = 19;
-			this->button15->Text = L"Llamar a un mozo";
-			this->button15->UseVisualStyleBackColor = false;
-			this->button15->Click += gcnew System::EventHandler(this, &frmComensal::button15_Click);
-			// 
-			// groupBox16
-			// 
-			this->groupBox16->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
-			this->groupBox16->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->groupBox16->Controls->Add(this->dataGridViewPlatos);
-			this->groupBox16->Controls->Add(this->groupBox8);
-			this->groupBox16->Controls->Add(this->dataGridViewBebidas);
-			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox16->Location = System::Drawing::Point(167, 81);
-			this->groupBox16->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox16->Name = L"groupBox16";
-			this->groupBox16->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->groupBox16->Size = System::Drawing::Size(1100, 630);
-			this->groupBox16->TabIndex = 37;
-			this->groupBox16->TabStop = false;
-			this->groupBox16->Text = L"MENÚ DEL DÍA";
-			this->groupBox16->Enter += gcnew System::EventHandler(this, &frmComensal::groupBox16_Enter);
-			// 
-			// botonMesa
-			// 
-			this->botonMesa->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->botonMesa->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->botonMesa->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->botonMesa->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->botonMesa->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->botonMesa->Location = System::Drawing::Point(448, 26);
-			this->botonMesa->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
-			this->botonMesa->Name = L"botonMesa";
-			this->botonMesa->Size = System::Drawing::Size(109, 37);
-			this->botonMesa->TabIndex = 37;
-			this->botonMesa->Text = L"Mesa 1";
-			this->botonMesa->UseVisualStyleBackColor = false;
-			this->botonMesa->Click += gcnew System::EventHandler(this, &frmComensal::botonMesa_Click);
-			// 
-			// buttonVerPedidoTotal
-			// 
-			this->buttonVerPedidoTotal->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
-				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->buttonVerPedidoTotal->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->buttonVerPedidoTotal->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->buttonVerPedidoTotal->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->buttonVerPedidoTotal->Location = System::Drawing::Point(749, 23);
-			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
-			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
-			this->buttonVerPedidoTotal->Size = System::Drawing::Size(225, 37);
-			this->buttonVerPedidoTotal->TabIndex = 36;
-			this->buttonVerPedidoTotal->Text = L"Ver Pedido Total";
-			this->buttonVerPedidoTotal->UseVisualStyleBackColor = false;
-			this->buttonVerPedidoTotal->Click += gcnew System::EventHandler(this, &frmComensal::buttonVerPedidoTotal_Click_1);
 			// 
 			// columnaNombre
 			// 
@@ -819,6 +577,82 @@ public:
 			this->ColumnaImagen->Resizable = System::Windows::Forms::DataGridViewTriState::False;
 			this->ColumnaImagen->Width = 350;
 			// 
+			// dataGridViewBebidas
+			// 
+			this->dataGridViewBebidas->AllowUserToAddRows = false;
+			this->dataGridViewBebidas->AllowUserToDeleteRows = false;
+			this->dataGridViewBebidas->AllowUserToResizeColumns = false;
+			this->dataGridViewBebidas->AllowUserToResizeRows = false;
+			this->dataGridViewBebidas->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridViewBebidas->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
+			this->dataGridViewBebidas->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->dataGridViewBebidas->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridViewBebidas->CausesValidation = false;
+			this->dataGridViewBebidas->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::SingleHorizontal;
+			this->dataGridViewBebidas->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
+			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewBebidas->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			this->dataGridViewBebidas->ColumnHeadersHeight = 35;
+			this->dataGridViewBebidas->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
+			this->dataGridViewBebidas->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+				this->dataGridViewTextBoxColumn1,
+					this->dataGridViewTextBoxColumn3, this->menos, this->dataGridViewTextBoxColumn2, this->mas, this->dataGridViewImageColumn1
+			});
+			this->dataGridViewBebidas->EnableHeadersVisualStyles = false;
+			this->dataGridViewBebidas->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->dataGridViewBebidas->Location = System::Drawing::Point(43, 31);
+			this->dataGridViewBebidas->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
+			this->dataGridViewBebidas->MultiSelect = false;
+			this->dataGridViewBebidas->Name = L"dataGridViewBebidas";
+			this->dataGridViewBebidas->ReadOnly = true;
+			this->dataGridViewBebidas->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
+			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle14->Padding = System::Windows::Forms::Padding(10, 5, 5, 0);
+			dataGridViewCellStyle14->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle14->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle14->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewBebidas->RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+			this->dataGridViewBebidas->RowHeadersVisible = false;
+			this->dataGridViewBebidas->RowHeadersWidth = 51;
+			this->dataGridViewBebidas->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
+			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 14));
+			dataGridViewCellStyle15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle15->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			dataGridViewCellStyle15->SelectionForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->dataGridViewBebidas->RowsDefaultCellStyle = dataGridViewCellStyle15;
+			this->dataGridViewBebidas->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dataGridViewBebidas->Size = System::Drawing::Size(961, 396);
+			this->dataGridViewBebidas->TabIndex = 0;
+			this->dataGridViewBebidas->Visible = false;
+			this->dataGridViewBebidas->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmComensal::dataGridViewBebidas_CellContentClick);
+			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			dataGridViewCellStyle10->Padding = System::Windows::Forms::Padding(0, 15, 0, 0);
@@ -888,6 +722,172 @@ public:
 			this->dataGridViewImageColumn1->ReadOnly = true;
 			this->dataGridViewImageColumn1->Width = 350;
 			// 
+			// BotonSiguiente
+			// 
+			this->BotonSiguiente->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->BotonSiguiente->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->BotonSiguiente->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->BotonSiguiente->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->BotonSiguiente->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->BotonSiguiente->Location = System::Drawing::Point(1072, 23);
+			this->BotonSiguiente->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->BotonSiguiente->Name = L"BotonSiguiente";
+			this->BotonSiguiente->Size = System::Drawing::Size(247, 36);
+			this->BotonSiguiente->TabIndex = 16;
+			this->BotonSiguiente->Text = L"Resumen del pedido";
+			this->BotonSiguiente->UseVisualStyleBackColor = false;
+			this->BotonSiguiente->Click += gcnew System::EventHandler(this, &frmComensal::button16_Click);
+			// 
+			// button17
+			// 
+			this->button17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button17->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button17->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button17->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button17->Location = System::Drawing::Point(33, 727);
+			this->button17->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button17->Name = L"button17";
+			this->button17->Size = System::Drawing::Size(181, 46);
+			this->button17->TabIndex = 17;
+			this->button17->Text = L"Atrás";
+			this->button17->UseVisualStyleBackColor = false;
+			this->button17->Click += gcnew System::EventHandler(this, &frmComensal::button17_Click);
+			// 
+			// groupBox8
+			// 
+			this->groupBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox8->BackColor = System::Drawing::Color::Transparent;
+			this->groupBox8->Controls->Add(this->label20);
+			this->groupBox8->Controls->Add(this->label19);
+			this->groupBox8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->groupBox8->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 7.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox8->Location = System::Drawing::Point(436, 488);
+			this->groupBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox8->Name = L"groupBox8";
+			this->groupBox8->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox8->Size = System::Drawing::Size(354, 66);
+			this->groupBox8->TabIndex = 18;
+			this->groupBox8->TabStop = false;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label20->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label20->Location = System::Drawing::Point(188, 37);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(52, 27);
+			this->label20->TabIndex = 31;
+			this->label20->Text = L"S/0";
+			this->label20->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->label20->Click += gcnew System::EventHandler(this, &frmComensal::label20_Click);
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label19->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label19->Location = System::Drawing::Point(15, 37);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(156, 27);
+			this->label19->TabIndex = 0;
+			this->label19->Text = L"Monto Total :";
+			this->label19->Click += gcnew System::EventHandler(this, &frmComensal::label19_Click);
+			// 
+			// button15
+			// 
+			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->button15->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button15->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button15->Location = System::Drawing::Point(1100, 715);
+			this->button15->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(219, 58);
+			this->button15->TabIndex = 19;
+			this->button15->Text = L"Llamar a un mozo";
+			this->button15->UseVisualStyleBackColor = false;
+			this->button15->Click += gcnew System::EventHandler(this, &frmComensal::button15_Click);
+			// 
+			// groupBox16
+			// 
+			this->groupBox16->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Left | System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox16->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->groupBox16->Controls->Add(this->dataGridViewPlatos);
+			this->groupBox16->Controls->Add(this->groupBox8);
+			this->groupBox16->Controls->Add(this->dataGridViewBebidas);
+			this->groupBox16->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox16->Location = System::Drawing::Point(167, 81);
+			this->groupBox16->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox16->Name = L"groupBox16";
+			this->groupBox16->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox16->Size = System::Drawing::Size(1100, 558);
+			this->groupBox16->TabIndex = 37;
+			this->groupBox16->TabStop = false;
+			this->groupBox16->Text = L"MENÚ DEL DÍA";
+			this->groupBox16->Enter += gcnew System::EventHandler(this, &frmComensal::groupBox16_Enter);
+			// 
+			// botonMesa
+			// 
+			this->botonMesa->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->botonMesa->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->botonMesa->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->botonMesa->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonMesa->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->botonMesa->Location = System::Drawing::Point(448, 26);
+			this->botonMesa->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
+			this->botonMesa->Name = L"botonMesa";
+			this->botonMesa->Size = System::Drawing::Size(109, 37);
+			this->botonMesa->TabIndex = 37;
+			this->botonMesa->Text = L"Mesa 1";
+			this->botonMesa->UseVisualStyleBackColor = false;
+			this->botonMesa->Click += gcnew System::EventHandler(this, &frmComensal::botonMesa_Click);
+			// 
+			// buttonVerPedidoTotal
+			// 
+			this->buttonVerPedidoTotal->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
+				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->buttonVerPedidoTotal->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->buttonVerPedidoTotal->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->buttonVerPedidoTotal->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonVerPedidoTotal->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->buttonVerPedidoTotal->Location = System::Drawing::Point(749, 23);
+			this->buttonVerPedidoTotal->Margin = System::Windows::Forms::Padding(5, 4, 5, 4);
+			this->buttonVerPedidoTotal->Name = L"buttonVerPedidoTotal";
+			this->buttonVerPedidoTotal->Size = System::Drawing::Size(225, 37);
+			this->buttonVerPedidoTotal->TabIndex = 36;
+			this->buttonVerPedidoTotal->Text = L"Ver Pedido Total";
+			this->buttonVerPedidoTotal->UseVisualStyleBackColor = false;
+			this->buttonVerPedidoTotal->Click += gcnew System::EventHandler(this, &frmComensal::buttonVerPedidoTotal_Click_1);
+			// 
 			// frmComensal
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -907,7 +907,7 @@ public:
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensal";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"frmComensal";
+			this->Text = L"Comensal";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &frmComensal::frmComensal_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewPlatos))->EndInit();
@@ -1366,7 +1366,7 @@ private: System::Void botonMesa_Click(System::Object^ sender, System::EventArgs^
 private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmComensalSeguridad^ ventana1 = gcnew frmComensalSeguridad();
 	ventana1->ShowDialog();
-	array<String^>^ claveLeida = File::ReadAllLines("Recursos\AsistenteChef\ClaveMesa.txt");
+	array<String^>^ claveLeida = File::ReadAllLines("Recursos/AsistenteChef/claveMesa.txt");
 	int claveCorrecta = Convert::ToInt32(claveLeida[0]);
 	if (claveCorrecta == 1) {
 		List<String^>^ linea = gcnew List<String^>();

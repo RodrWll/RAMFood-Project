@@ -28,6 +28,16 @@ namespace RAMFoodView {
 			//TODO: Add the constructor code here
 			//
 		}
+		frmChef(Chef^ objChef)
+		{
+			InitializeComponent();
+			this->idPedidoChef = 0;
+			this->idProductoPedidoChef = 0;
+			this->objChef = objChef;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -42,7 +52,7 @@ namespace RAMFoodView {
 		}
 
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-
+	private: Chef^ objChef = gcnew Chef();
 
 
 	private: System::Windows::Forms::Button^ button1;
@@ -98,6 +108,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label5;
 
 
 
@@ -162,6 +173,7 @@ namespace RAMFoodView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -496,6 +508,7 @@ namespace RAMFoodView {
 			// 
 			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->groupBox1->Controls->Add(this->label5);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->label7);
@@ -552,6 +565,19 @@ namespace RAMFoodView {
 			this->label7->Size = System::Drawing::Size(127, 40);
 			this->label7->TabIndex = 15;
 			this->label7->Text = L"CANTIDAD: ";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label5->Location = System::Drawing::Point(8, 10);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(162, 26);
+			this->label5->TabIndex = 18;
+			this->label5->Text = L"Bienvenido, ....";
 			// 
 			// frmChef
 			// 
@@ -760,6 +786,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void frmChef_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->button2->Enabled = false;
 	actualizarGrilla();
+	this->label5->Text = "Bienvenido, " + objChef->GetNombre() + " " + objChef->GetApellidoPat() + " " + objChef->GetApellidoMat();
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmChefMenuDia^ objFrmChefMenuDia = gcnew frmChefMenuDia();

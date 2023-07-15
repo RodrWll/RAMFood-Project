@@ -66,6 +66,7 @@ namespace RAMFoodView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmComensalIngresarClaveCuenta::typeid));
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
@@ -94,7 +95,7 @@ namespace RAMFoodView {
 			this->button11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button11->Location = System::Drawing::Point(135, 178);
-			this->button11->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button11->Margin = System::Windows::Forms::Padding(4);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(40, 28);
 			this->button11->TabIndex = 32;
@@ -112,7 +113,7 @@ namespace RAMFoodView {
 			this->button10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button10->Location = System::Drawing::Point(269, 143);
-			this->button10->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button10->Margin = System::Windows::Forms::Padding(4);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(100, 28);
 			this->button10->TabIndex = 31;
@@ -130,7 +131,7 @@ namespace RAMFoodView {
 			this->button7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button7->Location = System::Drawing::Point(183, 143);
-			this->button7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(40, 28);
 			this->button7->TabIndex = 30;
@@ -148,7 +149,7 @@ namespace RAMFoodView {
 			this->button8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button8->Location = System::Drawing::Point(135, 143);
-			this->button8->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button8->Margin = System::Windows::Forms::Padding(4);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(40, 28);
 			this->button8->TabIndex = 29;
@@ -166,7 +167,7 @@ namespace RAMFoodView {
 			this->button9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button9->Location = System::Drawing::Point(87, 143);
-			this->button9->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button9->Margin = System::Windows::Forms::Padding(4);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(40, 28);
 			this->button9->TabIndex = 28;
@@ -184,7 +185,7 @@ namespace RAMFoodView {
 			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button4->Location = System::Drawing::Point(183, 107);
-			this->button4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button4->Margin = System::Windows::Forms::Padding(4);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(40, 28);
 			this->button4->TabIndex = 27;
@@ -202,7 +203,7 @@ namespace RAMFoodView {
 			this->button5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button5->Location = System::Drawing::Point(135, 107);
-			this->button5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button5->Margin = System::Windows::Forms::Padding(4);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(40, 28);
 			this->button5->TabIndex = 26;
@@ -220,7 +221,7 @@ namespace RAMFoodView {
 			this->button6->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button6->Location = System::Drawing::Point(87, 107);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(40, 28);
 			this->button6->TabIndex = 25;
@@ -238,7 +239,7 @@ namespace RAMFoodView {
 			this->button3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button3->Location = System::Drawing::Point(183, 71);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(40, 28);
 			this->button3->TabIndex = 24;
@@ -256,7 +257,7 @@ namespace RAMFoodView {
 			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(135, 71);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(40, 28);
 			this->button2->TabIndex = 23;
@@ -274,7 +275,7 @@ namespace RAMFoodView {
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->Location = System::Drawing::Point(87, 71);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(40, 28);
 			this->button1->TabIndex = 22;
@@ -292,7 +293,7 @@ namespace RAMFoodView {
 			this->buttonCancelar->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->buttonCancelar->Location = System::Drawing::Point(259, 252);
-			this->buttonCancelar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonCancelar->Margin = System::Windows::Forms::Padding(4);
 			this->buttonCancelar->Name = L"buttonCancelar";
 			this->buttonCancelar->Size = System::Drawing::Size(100, 28);
 			this->buttonCancelar->TabIndex = 21;
@@ -309,7 +310,7 @@ namespace RAMFoodView {
 			this->buttonConfirmar->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->buttonConfirmar->Location = System::Drawing::Point(105, 252);
-			this->buttonConfirmar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonConfirmar->Margin = System::Windows::Forms::Padding(4);
 			this->buttonConfirmar->Name = L"buttonConfirmar";
 			this->buttonConfirmar->Size = System::Drawing::Size(100, 28);
 			this->buttonConfirmar->TabIndex = 20;
@@ -338,7 +339,7 @@ namespace RAMFoodView {
 			this->textBoxClave->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->textBoxClave->Location = System::Drawing::Point(257, 111);
-			this->textBoxClave->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textBoxClave->Margin = System::Windows::Forms::Padding(4);
 			this->textBoxClave->Name = L"textBoxClave";
 			this->textBoxClave->Size = System::Drawing::Size(132, 22);
 			this->textBoxClave->TabIndex = 18;
@@ -380,9 +381,10 @@ namespace RAMFoodView {
 			this->Controls->Add(this->buttonConfirmar);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->textBoxClave);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"frmComensalIngresarClaveCuenta";
-			this->Text = L"frmComensalIngresarClaveCuenta";
+			this->Text = L"Confirmar Pago";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

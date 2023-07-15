@@ -302,7 +302,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->buttonConfirmarPago->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->buttonConfirmarPago->Location = System::Drawing::Point(867, 92);
-			this->buttonConfirmarPago->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->buttonConfirmarPago->Margin = System::Windows::Forms::Padding(4);
 			this->buttonConfirmarPago->Name = L"buttonConfirmarPago";
 			this->buttonConfirmarPago->Size = System::Drawing::Size(204, 47);
 			this->buttonConfirmarPago->TabIndex = 6;
@@ -321,7 +321,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->button_confirmar->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button_confirmar->Location = System::Drawing::Point(907, 505);
-			this->button_confirmar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button_confirmar->Margin = System::Windows::Forms::Padding(4);
 			this->button_confirmar->Name = L"button_confirmar";
 			this->button_confirmar->Size = System::Drawing::Size(171, 49);
 			this->button_confirmar->TabIndex = 5;
@@ -549,7 +549,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensalGenerarPedido";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"frmComensalGenerarPedido";
+			this->Text = L"Generar pedido";
 			this->Load += gcnew System::EventHandler(this, &frmComensalGenerarPedido::frmComensalGenerarPedido_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();

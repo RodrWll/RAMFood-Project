@@ -115,7 +115,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->Location = System::Drawing::Point(10, 8);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(92, 25);
+			this->button1->Size = System::Drawing::Size(110, 34);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Atrás";
 			this->button1->UseVisualStyleBackColor = true;
@@ -243,35 +243,18 @@ namespace RAMFoodView {
 				ventanaGerente->ShowDialog();
 				this->Close();
 			}
-			frmAsistente^ ventanaAsistente = gcnew frmAsistente();
-			frmChef^ ventanaChef = gcnew frmChef();
-
-			/*switch (objUsuario->GetRol())
-			{
-
-			case 1:
+			else if (objUsuario->GetRol() == 2) {
 				this->Visible = false;
-				ventanaGerente->ShowDialog();
-				this->Close();
-
-				break;
-			case 2:
-				this->Visible = false;
-				
+				frmAsistente^ ventanaAsistente = gcnew frmAsistente(objAsistente);
 				ventanaAsistente->ShowDialog();
 				this->Close();
-
-				break;
-			case 3:
-				objChef = dynamic_cast<Chef^>(objUsuario);
+			}
+			else if (objUsuario->GetRol() == 3) {
 				this->Visible = false;
-				
+				frmChef^ ventanaChef = gcnew frmChef(objChef);
 				ventanaChef->ShowDialog();
 				this->Close();
-				break;
-			default:
-				break;
-			}*/
+			}
 		}
 		else {
 			MessageBox::Show("Usuario o contraseña incorrectos");
