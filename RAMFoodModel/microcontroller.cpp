@@ -66,7 +66,7 @@ int microcontroller::getStatusMotor() {
 }
 void microcontroller::setEnvio(int nroMesa)
 {
-	sendBit(nroMesa, "enviarMesa", this->ROUTE_MESA);
+	sendBit(nroMesa, "nroMesa", this->ROUTE_MESA);
 }
 int microcontroller::getError()
 {
