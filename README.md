@@ -1,4 +1,4 @@
-# Gracias JL!!!!!
+# Gracias por su apoyo JL!!!!!
 
 # RAMFood
 Este es el proyecto Mejoramiento del servicio de un restaurante mediante el uso de aplicativos digitales y mecanismos.
