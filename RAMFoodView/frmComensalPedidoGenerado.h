@@ -71,24 +71,27 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->groupBox1->Controls->Add(this->groupBox2);
 			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Montserrat", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(9, 9);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
+			this->groupBox1->Location = System::Drawing::Point(12, 11);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
-			this->groupBox1->Size = System::Drawing::Size(382, 268);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->groupBox1->Size = System::Drawing::Size(509, 330);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			// 
 			// groupBox2
 			// 
-			this->groupBox2->BackColor = System::Drawing::Color::White;
+			this->groupBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->groupBox2->Controls->Add(this->label1);
 			this->groupBox2->Controls->Add(this->label2);
-			this->groupBox2->Location = System::Drawing::Point(0, 74);
+			this->groupBox2->Location = System::Drawing::Point(0, 91);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(382, 88);
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->groupBox2->Size = System::Drawing::Size(509, 108);
 			this->groupBox2->TabIndex = 2;
 			this->groupBox2->TabStop = false;
 			// 
@@ -99,10 +102,9 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->label1->Location = System::Drawing::Point(86, 16);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(115, 20);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(219, 21);
+			this->label1->Size = System::Drawing::Size(278, 27);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"GRACIAS POR SU PEDIDO";
 			// 
@@ -113,10 +115,9 @@ namespace RAMFoodView {
 			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label2->ImageAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->label2->Location = System::Drawing::Point(73, 37);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(97, 46);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(232, 44);
+			this->label2->Size = System::Drawing::Size(309, 54);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Su comida llegará automáticamente a la mesa\r\n";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -124,13 +125,17 @@ namespace RAMFoodView {
 			// 
 			// button1
 			// 
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(123, 183);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->button1->Location = System::Drawing::Point(164, 225);
+			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(118, 39);
+			this->button1->Size = System::Drawing::Size(157, 48);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Regresar al Menú";
 			this->button1->UseVisualStyleBackColor = true;
@@ -138,12 +143,14 @@ namespace RAMFoodView {
 			// 
 			// frmComensalPedidoGenerado
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(403, 282);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(203)));
+			this->ClientSize = System::Drawing::Size(537, 347);
 			this->Controls->Add(this->groupBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmComensalPedidoGenerado";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Pedido Generado";
