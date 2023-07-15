@@ -121,7 +121,7 @@ namespace RAMFoodView {
 			this->groupBox2->Size = System::Drawing::Size(700, 109);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Abrir/Cerrar restaurante";
+			this->groupBox2->Text = L"Encender/Apagar faja";
 			// 
 			// button7
 			// 
@@ -165,9 +165,9 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(317, 39);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(90, 40);
+			this->button2->Size = System::Drawing::Size(109, 40);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Cerrar";
+			this->button2->Text = L"Apagar";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerente::button2_Click);
 			// 
@@ -181,11 +181,11 @@ namespace RAMFoodView {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(155, 39);
+			this->button1->Location = System::Drawing::Point(114, 39);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(96, 40);
+			this->button1->Size = System::Drawing::Size(137, 40);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Abrir";
+			this->button1->Text = L"Encender";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerente::button1_Click);
 			// 
@@ -383,11 +383,11 @@ namespace RAMFoodView {
 		int status = esp32->getStatusMotor();
 		if (esp32->getErrorMessage() == "") {
 			if (status == 1) {
-				this->label6->Text = "ABIERTO";
+				this->label6->Text = "ENCENDIDO";
 				this->label6->ForeColor = System::Drawing::Color::Lime;
 			}
 			else {
-				this->label6->Text = "CERRADO";
+				this->label6->Text = "APAGADO";
 				this->label6->ForeColor = System::Drawing::Color::IndianRed;
 			}
 		}
