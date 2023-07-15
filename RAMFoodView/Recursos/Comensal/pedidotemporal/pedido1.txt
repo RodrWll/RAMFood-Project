@@ -1,5 +1,5 @@
-Arroz con pollo ;1;40
-Bisteck a lo pobre ;1;35
+Ceviche ;2;55.6
+Arroz con pollo ;2;80
+Papa a la huancaina criollo;2;36
 Bebida
-Coca Cola ;1;3
-Chicha de jora;1;5
+Inka Cola ;1;6.6
