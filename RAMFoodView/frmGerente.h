@@ -64,7 +64,7 @@ namespace RAMFoodView {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button4;
+
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ bttnEstablecerMenu;
@@ -95,7 +95,6 @@ namespace RAMFoodView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->bttnEstablecerMenu = (gcnew System::Windows::Forms::Button());
@@ -121,7 +120,7 @@ namespace RAMFoodView {
 			this->groupBox2->Size = System::Drawing::Size(700, 109);
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Abrir/Cerrar restaurante";
+			this->groupBox2->Text = L"Encender/Apagar faja";
 			// 
 			// button7
 			// 
@@ -165,9 +164,9 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->button2->Location = System::Drawing::Point(317, 39);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(90, 40);
+			this->button2->Size = System::Drawing::Size(109, 40);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Cerrar";
+			this->button2->Text = L"Apagar";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmGerente::button2_Click);
 			// 
@@ -181,33 +180,13 @@ namespace RAMFoodView {
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(155, 39);
+			this->button1->Location = System::Drawing::Point(114, 39);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(96, 40);
+			this->button1->Size = System::Drawing::Size(137, 40);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Abrir";
+			this->button1->Text = L"Encender";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmGerente::button1_Click);
-			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button4->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button4->Location = System::Drawing::Point(75, 186);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(313, 88);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Incidencias / Reclamos";
-			this->button4->UseVisualStyleBackColor = false;
 			// 
 			// button3
 			// 
@@ -300,7 +279,6 @@ namespace RAMFoodView {
 			this->groupBox1->Controls->Add(this->bttnEstablecerMenu);
 			this->groupBox1->Controls->Add(this->button6);
 			this->groupBox1->Controls->Add(this->button3);
-			this->groupBox1->Controls->Add(this->button4);
 			this->groupBox1->Controls->Add(this->groupBox2);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -308,7 +286,7 @@ namespace RAMFoodView {
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->groupBox1->Location = System::Drawing::Point(52, 96);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(1169, 665);
+			this->groupBox1->Size = System::Drawing::Size(987, 581);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Gerente";
@@ -352,7 +330,7 @@ namespace RAMFoodView {
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->ClientSize = System::Drawing::Size(1314, 842);
+			this->ClientSize = System::Drawing::Size(1107, 689);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
@@ -383,11 +361,11 @@ namespace RAMFoodView {
 		int status = esp32->getStatusMotor();
 		if (esp32->getErrorMessage() == "") {
 			if (status == 1) {
-				this->label6->Text = "ABIERTO";
+				this->label6->Text = "ENCENDIDO";
 				this->label6->ForeColor = System::Drawing::Color::Lime;
 			}
 			else {
-				this->label6->Text = "CERRADO";
+				this->label6->Text = "APAGADO";
 				this->label6->ForeColor = System::Drawing::Color::IndianRed;
 			}
 		}

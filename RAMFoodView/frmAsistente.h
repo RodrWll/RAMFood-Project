@@ -26,6 +26,14 @@ namespace RAMFoodView {
 			//TODO: Add the constructor code here
 			//
 		}
+		frmAsistente(Asistente^ objAsistente)
+		{
+			this->objAsistente = objAsistente;
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -38,7 +46,8 @@ namespace RAMFoodView {
 				delete components;
 			}
 		}
-	//private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	private: microcontroller^ objMicrocontroller =gcnew microcontroller();
+	private: Asistente^ objAsistente= gcnew Asistente();
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 
@@ -143,6 +152,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxC
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
+private: System::Windows::Forms::Label^ label11;
 	protected:
 
 	private:
@@ -216,6 +226,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->button21 = (gcnew System::Windows::Forms::Button());
 			this->button20 = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -366,7 +377,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label8->AutoSize = true;
 			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label8->ForeColor = System::Drawing::Color::Black;
+			this->label8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label8->Location = System::Drawing::Point(222, 18);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(63, 19);
@@ -410,7 +422,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label9->AutoSize = true;
 			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label9->ForeColor = System::Drawing::Color::Black;
+			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label9->Location = System::Drawing::Point(198, 18);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(63, 19);
@@ -531,7 +544,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label10->AutoSize = true;
 			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
-			this->label10->ForeColor = System::Drawing::Color::Black;
+			this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
 			this->label10->Location = System::Drawing::Point(214, 18);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(63, 19);
@@ -540,8 +554,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			// 
 			// dataGridView3
 			// 
-			this->dataGridView3->AllowUserToResizeColumns = false;
-			this->dataGridView3->AllowUserToResizeRows = false;
 			this->dataGridView3->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView3->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)),
 				static_cast<System::Int32>(static_cast<System::Byte>(219)), static_cast<System::Int32>(static_cast<System::Byte>(203)));
@@ -978,6 +990,19 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->label7->TabIndex = 19;
 			this->label7->Text = L"Revisión requerida";
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(37)));
+			this->label11->Location = System::Drawing::Point(182, 17);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(162, 26);
+			this->label11->TabIndex = 16;
+			this->label11->Text = L"Bienvenido, ....";
+			// 
 			// frmAsistente
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -985,6 +1010,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(232)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
 				static_cast<System::Int32>(static_cast<System::Byte>(203)));
 			this->ClientSize = System::Drawing::Size(1539, 782);
+			this->Controls->Add(this->label11);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->groupBox7);
 			this->Controls->Add(this->groupBox6);
@@ -1024,6 +1050,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
 			this->groupBox7->ResumeLayout(false);
 			this->groupBox7->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -1112,6 +1139,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		this->button19->Enabled = false;
 		this->button21->Enabled = false;
 		*/
+		this->label11->Text = "Bienvenido, " + objAsistente->GetNombre() + " " + objAsistente->GetApellidoPat() + " " + objAsistente->GetApellidoMat();
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1140,6 +1168,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		ProductoPedido^ objProductoPedido = objOrdenController->queryRequestedProductById(ProductIdSelected);
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(),3);
+			objMicrocontroller->setEnvio(1);
 			actualizarProductos();
 		}
 		
@@ -1190,6 +1219,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(2);
 		}
 
 	}
@@ -1203,6 +1233,7 @@ private: void mostrarProductosMesa(List<ProductoPedido^>^ listaProductos, int me
 		if (objProductoPedido->GetEstado() == 2) {
 			objOrdenController->actualizarEstadoDelProductoPedido(objProductoPedido->GetId(), 3);
 			actualizarProductos();
+			objMicrocontroller->setEnvio(3);
 		}
 	}
 	private: void actualizarAlertas1() {

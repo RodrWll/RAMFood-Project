@@ -100,7 +100,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button1->Location = System::Drawing::Point(42, 195);
+			this->button1->Location = System::Drawing::Point(52, 195);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(111, 39);
 			this->button1->TabIndex = 3;
@@ -117,7 +117,7 @@ namespace RAMFoodView {
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
 				static_cast<System::Int32>(static_cast<System::Byte>(37)));
-			this->button2->Location = System::Drawing::Point(277, 195);
+			this->button2->Location = System::Drawing::Point(259, 195);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(111, 39);
 			this->button2->TabIndex = 4;
